@@ -1,0 +1,233 @@
+table ReleasedProductV2Info
+	lineageTag: dae1605d-e0ae-4893-9f37-63d943e3401f
+	sourceLineageTag: c063197d-4718-410c-9920-54f5952fa90e
+
+	column ItemNumber
+		dataType: string
+		isNullable: false
+		lineageTag: 678fb355-ffde-42b2-be73-60a747921325
+		sourceLineageTag: 9c2ccf46-072e-434f-ae36-726d7afd27bc
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ItemNumber
+
+		annotation SummarizationSetBy = User
+
+	column ProductNumber
+		dataType: string
+		lineageTag: 28270bfd-25c8-4cbe-9896-d61c44e6d0e6
+		sourceLineageTag: 8fcd3459-64a1-4ad8-89c2-d7b2bb13dca8
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ProductNumber
+
+		annotation SummarizationSetBy = User
+
+	column ProductSearchName
+		dataType: string
+		lineageTag: 3559e18f-6fe6-4054-9bec-618959689ac1
+		sourceLineageTag: e5338441-8204-420d-9184-734b8e6ca0eb
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ProductSearchName
+
+		annotation SummarizationSetBy = User
+
+	column DataAreaId
+		dataType: string
+		isNullable: false
+		lineageTag: 8c28793b-647b-4920-a7be-c61fd1bbf89a
+		sourceLineageTag: 40a42b7e-672e-413c-90bb-433c9fe03352
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DataAreaId
+
+		annotation SummarizationSetBy = User
+
+	column InventoryUnitSymbol
+		dataType: string
+		lineageTag: 0d2d7f76-7282-42fa-b850-bf82e107ed32
+		sourceLineageTag: 77de4ae2-9c60-4328-9d39-41243abf19e2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: InventoryUnitSymbol
+
+		annotation SummarizationSetBy = User
+
+	column IsBatchNumberActive
+		dataType: string
+		lineageTag: d09eeac6-e99c-4063-a198-cddbfd5289e7
+		sourceLineageTag: 420982b2-af2e-4e75-9a57-bbf71b474800
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: IsBatchNumberActive
+
+		annotation SummarizationSetBy = User
+
+	column ItemModelGroupId
+		dataType: string
+		lineageTag: cb63bd47-545d-4c03-8f24-40f751bcd69b
+		sourceLineageTag: eebd2e7e-a421-46ca-8046-8b4aa864cc24
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ItemModelGroupId
+
+		annotation SummarizationSetBy = User
+
+	column OUCRU_CreatedBy
+		dataType: string
+		lineageTag: 5186d744-6dab-4ca5-b537-0c4d54fe1827
+		sourceLineageTag: 5b88a346-4e5e-4f7d-8803-b65d92307db0
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: OUCRU_CreatedBy
+
+		annotation SummarizationSetBy = User
+
+	column OUCRU_Manufacturer
+		dataType: string
+		lineageTag: b281cd40-d8c6-4b4e-8c05-438df32bb62f
+		sourceLineageTag: 5cf09b2a-6668-4eca-97bf-bf516448112f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: OUCRU_Manufacturer
+
+		annotation SummarizationSetBy = User
+
+	column OUCRU_ModifiedBy
+		dataType: string
+		lineageTag: acc5cbd4-e2f9-495c-b0e9-e71f8e147f5c
+		sourceLineageTag: 0bb73498-a7e2-45e0-8eeb-b60fb41f086b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: OUCRU_ModifiedBy
+
+		annotation SummarizationSetBy = User
+
+	column OUCRU_ModifiedDateTime
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: 4bd0200d-b0fb-4d87-8ee9-baee85e0c3a9
+		sourceLineageTag: b4e2f7bd-0a7c-4f15-97d1-876baab1b0c0
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: OUCRU_ModifiedDateTime
+
+		annotation SummarizationSetBy = User
+
+	column OUCRU_MSDS
+		dataType: string
+		lineageTag: aab5985a-00db-49ba-95fa-b037a4b1b27a
+		sourceLineageTag: 7af92970-3ce3-44e4-8d1b-e6b4a06a23d5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: OUCRU_MSDS
+
+		annotation SummarizationSetBy = User
+
+	column OUCRU_ReleaseProductName
+		dataType: string
+		lineageTag: e2f1dd72-e7fc-497c-9012-31eea6bbd7b1
+		sourceLineageTag: fb1d6eb7-297e-488f-889f-99f56784a2d0
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: OUCRU_ReleaseProductName
+
+		annotation SummarizationSetBy = User
+
+	column OUCRU_Type
+		dataType: string
+		lineageTag: 35c2dc3c-3992-449c-8f19-fefca42292e4
+		sourceLineageTag: 30e306f5-c9f8-4b10-8cd8-dc421387f197
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: OUCRU_Type
+
+		annotation SummarizationSetBy = User
+
+	column PotencyBaseAttributeValueEntryEvent
+		dataType: string
+		lineageTag: 821ced71-f74e-412e-a3c0-f3f0f81ccd76
+		sourceLineageTag: d091b4cd-fe1d-49bb-8fd4-d5d71841c017
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PotencyBaseAttributeValueEntryEvent
+
+		annotation SummarizationSetBy = User
+
+	column ProductGroupId
+		dataType: string
+		lineageTag: f982ea26-3f72-4b4b-a8b0-afbb16b90336
+		sourceLineageTag: f78efd8c-d043-44b2-8b35-fe76f7370fca
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ProductGroupId
+
+		annotation SummarizationSetBy = User
+
+	column ProductionType
+		dataType: string
+		lineageTag: 61a11cce-9d7e-4af9-a8d4-172b535b5a07
+		sourceLineageTag: 0275ae53-7722-4c1b-a93e-9d54a4462e19
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ProductionType
+
+		annotation SummarizationSetBy = User
+
+	column ProductType
+		dataType: string
+		lineageTag: e55f0d43-462f-4a3d-a9c2-28d919ce085d
+		sourceLineageTag: 25c1a95e-1eb3-497f-a452-5c3d24e62d0c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ProductType
+
+		annotation SummarizationSetBy = User
+
+	column SearchName
+		dataType: string
+		lineageTag: 686f96ef-339b-4d44-98a5-0cd9c6a911df
+		sourceLineageTag: 86aadf23-c914-4acf-bf20-f4ceabcf3ec2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SearchName
+
+		annotation SummarizationSetBy = User
+
+	column SerialNumberGroupCode
+		dataType: string
+		lineageTag: 87063d11-28c8-40a6-9293-c7699301122d
+		sourceLineageTag: e8e637f8-8180-4be4-b8ab-dc9ee635434c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SerialNumberGroupCode
+
+		annotation SummarizationSetBy = User
+
+	column StorageDimensionGroupName
+		dataType: string
+		lineageTag: 6c00d227-6ed7-4117-92a3-6759e8a3b0ea
+		sourceLineageTag: a6b6b893-2f08-47ad-8304-ec80c0783a99
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: StorageDimensionGroupName
+
+		annotation SummarizationSetBy = User
+
+	column TrackingDimensionGroupName
+		dataType: string
+		lineageTag: 9ae70e74-3d39-4b58-8bfe-c57486653a44
+		sourceLineageTag: 7ff985b5-324f-44c9-bb0a-b60790a31eca
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: TrackingDimensionGroupName
+
+		annotation SummarizationSetBy = User
+
+	partition ReleasedProductV2Info = entity
+		mode: directQuery
+		source
+			entityName: ReleasedProductV2Info
+			expressionSource: 'DirectQuery to AS - On-hand list'
+

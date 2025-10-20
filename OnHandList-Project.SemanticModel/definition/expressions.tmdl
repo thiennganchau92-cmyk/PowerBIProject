@@ -1,0 +1,11 @@
+expression 'DirectQuery to AS - On-hand list' =
+		let
+		    Source = AnalysisServices.Database("powerbi://api.powerbi.com/v1.0/myorg/SCM%20-%20D365%20F%26O", "On-hand list"),
+		    Cubes = Table.Combine(Source[Data]),
+		    Cube = Cubes{[Id="Model", Kind="Cube"]}[Data]
+		in
+		    Cube
+	lineageTag: b56aadc3-b8a3-4140-aa7c-a42cc2e2af02
+
+	annotation PBI_IncludeFutureArtifacts = True
+
