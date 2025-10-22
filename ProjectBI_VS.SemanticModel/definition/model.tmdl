@@ -6,13 +6,11 @@ model Model
 		legacyRedirects
 		returnErrorValuesAsNull
 
-annotation PBI_QueryOrder = ["DirectQuery to AS - On-hand list"]
-
 annotation __PBI_TimeIntelligenceEnabled = 1
 
-annotation PBIDesktopVersion = 2.136.1478.0 (24.09)
+annotation PBI_QueryOrder = ["DirectQuery to AS - On-hand list"]
 
-annotation PBI_ProTooling = ["DevMode"]
+annotation PBI_ProTooling = ["DevMode","TMDL-Extension"]
 
 ref table InventTransInfo
 ref table InventDimInfo

@@ -1,11 +1,11 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
   "metadata": {
-    "type": "Report",
-    "displayName": "OnHandList-Project"
+    "type": "SemanticModel",
+    "displayName": "ProjectBI_VS"
   },
   "config": {
     "version": "2.0",
-    "logicalId": "dc8f8e36-aa45-4a17-a423-12114f23eb3c"
+    "logicalId": "bcc0bd28-f372-426c-af72-bacf4ccd11c8"
   }
 }

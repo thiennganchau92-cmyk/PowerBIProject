@@ -5,7 +5,7 @@ expression 'DirectQuery to AS - On-hand list' =
 		    Cube = Cubes{[Id="Model", Kind="Cube"]}[Data]
 		in
 		    Cube
-	lineageTag: b56aadc3-b8a3-4140-aa7c-a42cc2e2af02
+	lineageTag: 7f7739eb-2429-4d2d-ab2c-e26e7aa34ff0
 
 	annotation PBI_IncludeFutureArtifacts = True
 

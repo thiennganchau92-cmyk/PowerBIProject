@@ -1,11 +1,11 @@
 table ReleasedProductV2Info
-	lineageTag: dae1605d-e0ae-4893-9f37-63d943e3401f
+	lineageTag: 2b985577-c569-4529-9395-afda6281f042
 	sourceLineageTag: c063197d-4718-410c-9920-54f5952fa90e
 
 	column ItemNumber
 		dataType: string
 		isNullable: false
-		lineageTag: 678fb355-ffde-42b2-be73-60a747921325
+		lineageTag: fdf22c00-720d-4c02-bba5-a6e787c57d5f
 		sourceLineageTag: 9c2ccf46-072e-434f-ae36-726d7afd27bc
 		dataCategory: Uncategorized
 		summarizeBy: none
@@ -15,7 +15,7 @@ table ReleasedProductV2Info
 
 	column ProductNumber
 		dataType: string
-		lineageTag: 28270bfd-25c8-4cbe-9896-d61c44e6d0e6
+		lineageTag: bceb3830-4451-49c5-a2ea-1dab4937cfb6
 		sourceLineageTag: 8fcd3459-64a1-4ad8-89c2-d7b2bb13dca8
 		dataCategory: Uncategorized
 		summarizeBy: none
@@ -25,7 +25,7 @@ table ReleasedProductV2Info
 
 	column ProductSearchName
 		dataType: string
-		lineageTag: 3559e18f-6fe6-4054-9bec-618959689ac1
+		lineageTag: d5469695-042c-4938-b12d-a7854ce41cd3
 		sourceLineageTag: e5338441-8204-420d-9184-734b8e6ca0eb
 		dataCategory: Uncategorized
 		summarizeBy: none
@@ -36,7 +36,7 @@ table ReleasedProductV2Info
 	column DataAreaId
 		dataType: string
 		isNullable: false
-		lineageTag: 8c28793b-647b-4920-a7be-c61fd1bbf89a
+		lineageTag: 48a7bcb9-8e99-4beb-b9ee-b686ed265ef9
 		sourceLineageTag: 40a42b7e-672e-413c-90bb-433c9fe03352
 		dataCategory: Uncategorized
 		summarizeBy: none
@@ -46,7 +46,7 @@ table ReleasedProductV2Info
 
 	column InventoryUnitSymbol
 		dataType: string
-		lineageTag: 0d2d7f76-7282-42fa-b850-bf82e107ed32
+		lineageTag: ff51a30d-89d2-4a78-aeda-51f6a968b29d
 		sourceLineageTag: 77de4ae2-9c60-4328-9d39-41243abf19e2
 		dataCategory: Uncategorized
 		summarizeBy: none
@@ -56,7 +56,7 @@ table ReleasedProductV2Info
 
 	column IsBatchNumberActive
 		dataType: string
-		lineageTag: d09eeac6-e99c-4063-a198-cddbfd5289e7
+		lineageTag: 00c53a62-12c6-42c1-b8eb-25ebd912e7d5
 		sourceLineageTag: 420982b2-af2e-4e75-9a57-bbf71b474800
 		dataCategory: Uncategorized
 		summarizeBy: none
@@ -66,7 +66,7 @@ table ReleasedProductV2Info
 
 	column ItemModelGroupId
 		dataType: string
-		lineageTag: cb63bd47-545d-4c03-8f24-40f751bcd69b
+		lineageTag: afff9f5d-2052-42af-a273-f136c5750104
 		sourceLineageTag: eebd2e7e-a421-46ca-8046-8b4aa864cc24
 		dataCategory: Uncategorized
 		summarizeBy: none
@@ -76,7 +76,7 @@ table ReleasedProductV2Info
 
 	column OUCRU_CreatedBy
 		dataType: string
-		lineageTag: 5186d744-6dab-4ca5-b537-0c4d54fe1827
+		lineageTag: 8b774275-9bd4-422e-91f0-d22e34c1f3d2
 		sourceLineageTag: 5b88a346-4e5e-4f7d-8803-b65d92307db0
 		dataCategory: Uncategorized
 		summarizeBy: none
@@ -86,7 +86,7 @@ table ReleasedProductV2Info
 
 	column OUCRU_Manufacturer
 		dataType: string
-		lineageTag: b281cd40-d8c6-4b4e-8c05-438df32bb62f
+		lineageTag: f09456a5-1f4f-4084-9e09-88eee25f0ce6
 		sourceLineageTag: 5cf09b2a-6668-4eca-97bf-bf516448112f
 		dataCategory: Uncategorized
 		summarizeBy: none
@@ -96,7 +96,7 @@ table ReleasedProductV2Info
 
 	column OUCRU_ModifiedBy
 		dataType: string
-		lineageTag: acc5cbd4-e2f9-495c-b0e9-e71f8e147f5c
+		lineageTag: 2cbd7c68-5c29-4b32-95e3-ebf5a12e5965
 		sourceLineageTag: 0bb73498-a7e2-45e0-8eeb-b60fb41f086b
 		dataCategory: Uncategorized
 		summarizeBy: none
@@ -107,7 +107,7 @@ table ReleasedProductV2Info
 	column OUCRU_ModifiedDateTime
 		dataType: dateTime
 		formatString: General Number
-		lineageTag: 4bd0200d-b0fb-4d87-8ee9-baee85e0c3a9
+		lineageTag: 67e12bb1-661f-4de6-a492-da5a35ad8a17
 		sourceLineageTag: b4e2f7bd-0a7c-4f15-97d1-876baab1b0c0
 		dataCategory: Uncategorized
 		summarizeBy: none
@@ -117,7 +117,7 @@ table ReleasedProductV2Info
 
 	column OUCRU_MSDS
 		dataType: string
-		lineageTag: aab5985a-00db-49ba-95fa-b037a4b1b27a
+		lineageTag: 4cf3b620-ce62-4269-a370-0f49bca50c67
 		sourceLineageTag: 7af92970-3ce3-44e4-8d1b-e6b4a06a23d5
 		dataCategory: Uncategorized
 		summarizeBy: none
@@ -127,7 +127,7 @@ table ReleasedProductV2Info
 
 	column OUCRU_ReleaseProductName
 		dataType: string
-		lineageTag: e2f1dd72-e7fc-497c-9012-31eea6bbd7b1
+		lineageTag: bda486ff-3001-47ef-8f52-fe53b7acbf87
 		sourceLineageTag: fb1d6eb7-297e-488f-889f-99f56784a2d0
 		dataCategory: Uncategorized
 		summarizeBy: none
@@ -137,7 +137,7 @@ table ReleasedProductV2Info
 
 	column OUCRU_Type
 		dataType: string
-		lineageTag: 35c2dc3c-3992-449c-8f19-fefca42292e4
+		lineageTag: ec2d8a20-c9da-4397-9b44-764558fcdd8b
 		sourceLineageTag: 30e306f5-c9f8-4b10-8cd8-dc421387f197
 		dataCategory: Uncategorized
 		summarizeBy: none
@@ -147,7 +147,7 @@ table ReleasedProductV2Info
 
 	column PotencyBaseAttributeValueEntryEvent
 		dataType: string
-		lineageTag: 821ced71-f74e-412e-a3c0-f3f0f81ccd76
+		lineageTag: d7397b33-1017-474f-978e-f91d39eb4ab7
 		sourceLineageTag: d091b4cd-fe1d-49bb-8fd4-d5d71841c017
 		dataCategory: Uncategorized
 		summarizeBy: none
@@ -157,7 +157,7 @@ table ReleasedProductV2Info
 
 	column ProductGroupId
 		dataType: string
-		lineageTag: f982ea26-3f72-4b4b-a8b0-afbb16b90336
+		lineageTag: e7e70a04-7f08-4582-9c66-8ae699414dec
 		sourceLineageTag: f78efd8c-d043-44b2-8b35-fe76f7370fca
 		dataCategory: Uncategorized
 		summarizeBy: none
@@ -167,7 +167,7 @@ table ReleasedProductV2Info
 
 	column ProductionType
 		dataType: string
-		lineageTag: 61a11cce-9d7e-4af9-a8d4-172b535b5a07
+		lineageTag: 1b72c95c-52cb-4c24-8639-ff512b278695
 		sourceLineageTag: 0275ae53-7722-4c1b-a93e-9d54a4462e19
 		dataCategory: Uncategorized
 		summarizeBy: none
@@ -177,7 +177,7 @@ table ReleasedProductV2Info
 
 	column ProductType
 		dataType: string
-		lineageTag: e55f0d43-462f-4a3d-a9c2-28d919ce085d
+		lineageTag: afe4b879-a630-4414-b6dc-7330cf5b6b5b
 		sourceLineageTag: 25c1a95e-1eb3-497f-a452-5c3d24e62d0c
 		dataCategory: Uncategorized
 		summarizeBy: none
@@ -187,7 +187,7 @@ table ReleasedProductV2Info
 
 	column SearchName
 		dataType: string
-		lineageTag: 686f96ef-339b-4d44-98a5-0cd9c6a911df
+		lineageTag: 8e195981-f0ac-46eb-b69f-46aca2449706
 		sourceLineageTag: 86aadf23-c914-4acf-bf20-f4ceabcf3ec2
 		dataCategory: Uncategorized
 		summarizeBy: none
@@ -197,7 +197,7 @@ table ReleasedProductV2Info
 
 	column SerialNumberGroupCode
 		dataType: string
-		lineageTag: 87063d11-28c8-40a6-9293-c7699301122d
+		lineageTag: 6b27e0d0-72a7-4baa-b856-fdb71e5280ff
 		sourceLineageTag: e8e637f8-8180-4be4-b8ab-dc9ee635434c
 		dataCategory: Uncategorized
 		summarizeBy: none
@@ -207,7 +207,7 @@ table ReleasedProductV2Info
 
 	column StorageDimensionGroupName
 		dataType: string
-		lineageTag: 6c00d227-6ed7-4117-92a3-6759e8a3b0ea
+		lineageTag: e5b41034-76a1-4a9e-9a55-86a8cd9ebffd
 		sourceLineageTag: a6b6b893-2f08-47ad-8304-ec80c0783a99
 		dataCategory: Uncategorized
 		summarizeBy: none
@@ -217,7 +217,7 @@ table ReleasedProductV2Info
 
 	column TrackingDimensionGroupName
 		dataType: string
-		lineageTag: 9ae70e74-3d39-4b58-8bfe-c57486653a44
+		lineageTag: 8227a02e-4a00-4bc2-8369-431037c2d9a0
 		sourceLineageTag: 7ff985b5-324f-44c9-bb0a-b60790a31eca
 		dataCategory: Uncategorized
 		summarizeBy: none

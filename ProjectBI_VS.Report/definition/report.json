@@ -1,13 +1,16 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/1.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/3.0.0/schema.json",
   "themeCollection": {
     "baseTheme": {
-      "name": "CY24SU08",
-      "reportVersionAtImport": "5.58",
+      "name": "CY25SU10",
+      "reportVersionAtImport": {
+        "visual": "2.1.0",
+        "report": "3.0.0",
+        "page": "2.3.0"
+      },
       "type": "SharedResources"
     }
   },
-  "layoutOptimization": "None",
   "objects": {
     "section": [
       {
@@ -29,8 +32,8 @@
       "type": "SharedResources",
       "items": [
         {
-          "name": "CY24SU08",
-          "path": "BaseThemes/CY24SU08.json",
+          "name": "CY25SU10",
+          "path": "BaseThemes/CY25SU10.json",
           "type": "BaseTheme"
         }
       ]
@@ -38,6 +41,7 @@
   ],
   "settings": {
     "useStylableVisualContainerHeader": true,
+    "exportDataMode": "AllowSummarized",
     "defaultDrillFilterOtherVisuals": true,
     "allowChangeFilterTypes": true,
     "useEnhancedTooltips": true,

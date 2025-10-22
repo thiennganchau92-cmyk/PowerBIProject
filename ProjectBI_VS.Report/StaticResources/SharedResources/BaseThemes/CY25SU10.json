@@ -1,5 +1,5 @@
 {
-  "name": "CY24SU08",
+  "name": "CY25SU10",
   "dataColors": [
     "#118DFF",
     "#12239E",
@@ -290,6 +290,15 @@
         ]
       }
     },
+    "tableEx": {
+      "*": {
+        "columnHeaders": [
+          {
+            "columnAdjustment": "growToFit"
+          }
+        ]
+      }
+    },
     "pivotTable": {
       "*": {
         "rowHeaders": [
@@ -347,6 +356,25 @@
         "layout": [
           {
             "maxTiles": 3
+          }
+        ],
+        "shapeCustomRectangle": [
+          {
+            "$id": "default",
+            "tileShape": "rectangleRoundedByPixel",
+            "rectangleRoundedCurve": 4
+          }
+        ],
+        "selectionIcon": [
+          {
+            "$id": "default",
+            "size": 12
+          }
+        ],
+        "value": [
+          {
+            "$id": "default",
+            "fontFamily": "'''Segoe UI Semibold'', wf_segoe-ui_semibold, helvetica, arial, sans-serif'"
           }
         ]
       }
@@ -567,9 +595,30 @@
             "responsive": true
           }
         ],
+        "smallMultiplesLayout": [
+          {
+            "backgroundTransparency": 0,
+            "gridLineType": "inner"
+          }
+        ],
         "valueAxis": [
           {
             "show": true
+          }
+        ]
+      }
+    },
+    "hundredPercentStackedAreaChart": {
+      "*": {
+        "general": [
+          {
+            "responsive": true
+          }
+        ],
+        "smallMultiplesLayout": [
+          {
+            "backgroundTransparency": 0,
+            "gridLineType": "inner"
           }
         ]
       }

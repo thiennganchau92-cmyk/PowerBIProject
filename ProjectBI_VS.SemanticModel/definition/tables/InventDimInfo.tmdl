@@ -1,10 +1,10 @@
 table InventDimInfo
-	lineageTag: 06b95c8c-7878-477a-81a9-f55c6d7bf4c0
+	lineageTag: 6ae9933d-241a-4653-ba74-e334a6aadb5d
 	sourceLineageTag: e835381a-fb93-4ce0-96c6-8f506baa782a
 
 	column INVENTBATCHID
 		dataType: string
-		lineageTag: 88b5c386-1db5-405a-ad70-995694c058d0
+		lineageTag: ec2a652a-e5f6-4cb8-a935-ee2eba00d914
 		sourceLineageTag: 7cf1dc50-dbe9-4a94-87bf-59c9dc2ff2e5
 		dataCategory: Uncategorized
 		summarizeBy: none
@@ -14,7 +14,7 @@ table InventDimInfo
 
 	column INVENTDIMID
 		dataType: string
-		lineageTag: 61ead38c-973e-498d-8b46-d1384f599867
+		lineageTag: 1c72f355-8a76-459d-a088-42dd788d7a9a
 		sourceLineageTag: 00fd26c4-a50b-4037-aec8-64aaab244c97
 		dataCategory: Uncategorized
 		summarizeBy: none
@@ -24,7 +24,7 @@ table InventDimInfo
 
 	column INVENTLOCATIONID
 		dataType: string
-		lineageTag: b81ddcac-7c76-4ff7-968d-7d2ac31533be
+		lineageTag: fb9c72c3-75f9-45c3-832a-3fefe56830a0
 		sourceLineageTag: 6b7bbe20-e6c0-4657-8176-64dd7f6fe5ca
 		dataCategory: Uncategorized
 		summarizeBy: none
@@ -34,7 +34,7 @@ table InventDimInfo
 
 	column INVENTSERIALID
 		dataType: string
-		lineageTag: aa3ccd26-4602-4583-867d-8f5d860e92e7
+		lineageTag: 2288776d-bf30-421c-8c5b-8d7422f01ce1
 		sourceLineageTag: f3325dd1-f7dc-4cbc-be92-cce1e7027cf4
 		dataCategory: Uncategorized
 		summarizeBy: none
@@ -44,7 +44,7 @@ table InventDimInfo
 
 	column INVENTSITEID
 		dataType: string
-		lineageTag: 90305da5-aedd-4b6d-8f0b-b851cd2b861d
+		lineageTag: 96f99822-9587-4451-809b-4831ab76177a
 		sourceLineageTag: 987c24bc-be75-4d75-91dd-c7da0a1fe3dc
 		dataCategory: Uncategorized
 		summarizeBy: none
@@ -54,7 +54,7 @@ table InventDimInfo
 
 	column WMSLOCATIONID
 		dataType: string
-		lineageTag: 53715f3a-3e36-4099-bb5e-9dc798d64f77
+		lineageTag: 839553d8-655d-4983-9fa1-f304c7131996
 		sourceLineageTag: 8cdbcb6a-2d39-4804-b73e-612cde81c698
 		dataCategory: Uncategorized
 		summarizeBy: none
@@ -64,7 +64,7 @@ table InventDimInfo
 
 	column INVENTDIMENSION1
 		dataType: string
-		lineageTag: cdb96e6f-edd8-4372-beed-6c57604ced98
+		lineageTag: b9818c02-b1a8-4520-a24f-534968976aa8
 		sourceLineageTag: 29724ba6-e83e-43b3-bcf2-4edd0906ade5
 		dataCategory: Uncategorized
 		summarizeBy: none
@@ -74,7 +74,7 @@ table InventDimInfo
 
 	column INVENTDIMENSION2
 		dataType: string
-		lineageTag: 0077bd3d-75d7-43ef-ba7f-a76c95db4e64
+		lineageTag: a480dccd-3d8e-479a-86b6-ce48acff99c1
 		sourceLineageTag: d6e284d8-2bcc-43d0-b86d-daae37529b4c
 		dataCategory: Uncategorized
 		summarizeBy: none
@@ -84,7 +84,7 @@ table InventDimInfo
 
 	column OUCRU_MODIFIEDBY
 		dataType: string
-		lineageTag: c47eb394-89ab-431c-93fa-594f1e9fc04e
+		lineageTag: f9665db3-e4c6-4e8a-a5b9-6302ecedd9b5
 		sourceLineageTag: d87cd098-f6c4-49f5-9c36-0e9ab4dc3464
 		dataCategory: Uncategorized
 		summarizeBy: none
@@ -95,7 +95,7 @@ table InventDimInfo
 	column OUCRU_MODIFIEDDATETIME
 		dataType: dateTime
 		formatString: General Number
-		lineageTag: 5e08c499-6318-4e8f-8dfa-946bd157850c
+		lineageTag: 6de0815c-7bc7-497c-8300-379050f555f6
 		sourceLineageTag: fa0c3894-2d2a-4522-932d-0a28d96db1a5
 		dataCategory: Uncategorized
 		summarizeBy: none
@@ -106,7 +106,7 @@ table InventDimInfo
 	column OUCRU_CREATEDDATETIME
 		dataType: dateTime
 		formatString: General Number
-		lineageTag: 106dc089-5509-4d08-a15a-1eb058a1e77a
+		lineageTag: 4537b101-6822-4614-8428-084ed5697513
 		sourceLineageTag: 2cbd62a7-c3cd-4511-83ac-feaac6380245
 		dataCategory: Uncategorized
 		summarizeBy: none
@@ -116,7 +116,7 @@ table InventDimInfo
 
 	column OUCRU_DATAAREAID
 		dataType: string
-		lineageTag: 4f156745-f600-4dd9-96e0-eabb6485e7cb
+		lineageTag: 4c0d499d-bf68-44f4-939d-96ccd9055b0b
 		sourceLineageTag: 84a326f7-dd40-47bf-a2ff-8c2f1d2a2e78
 		dataCategory: Uncategorized
 		summarizeBy: none
@@ -128,7 +128,7 @@ table InventDimInfo
 		dataType: int64
 		isNullable: false
 		formatString: 0
-		lineageTag: 34301b0a-028f-4710-a17a-62b67069b280
+		lineageTag: dbf17b66-4827-4f4f-aca3-25825e8371c9
 		sourceLineageTag: b5630ce5-18d2-4dff-b817-b0c2f8065763
 		dataCategory: Uncategorized
 		summarizeBy: count
