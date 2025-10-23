@@ -1,0 +1,337 @@
+relationship 9bef5c31-8622-4119-bbac-6455ca8dc794
+	fromColumn: LedgerJournalEntityStaging.TRANSDATE
+	toColumn: LocalDateTable_86e49f15-24d9-4814-845f-f167823ffc64.Date
+
+relationship 450013b7-f937-4d7c-8439-d8c6a7d65104
+	fromColumn: LedgerJournalEntityStaging.DUEDATE
+	toColumn: LocalDateTable_1334653b-15f8-4585-b600-b74cb45b0572.Date
+
+relationship 90d081f8-a49f-41e5-b685-8c1f4c0114b6
+	fromColumn: LedgerJournalEntityStaging.CASHDISCOUNTDATE
+	toColumn: LocalDateTable_f71a433f-11bc-4397-a8f4-cfd40090455a.Date
+
+relationship 609ddc1a-ec8f-422d-911f-7e3f419e5090
+	fromColumn: LedgerJournalEntityStaging.REVERSEDATE
+	toColumn: LocalDateTable_2a848f9f-470e-4496-9169-f17259b6aad9.Date
+
+relationship b6978d36-b648-45c4-abd7-fd43e6737798
+	fromColumn: LedgerJournalEntityStaging.DOCUMENTDATE
+	toColumn: LocalDateTable_c02c633f-1820-48bb-a874-ff332b72c35c.Date
+
+relationship 7eb15f62-3190-44a8-acf8-0a27bc4c6583
+	fromColumn: LedgerJournalEntityStaging.INVOICEDATE
+	toColumn: LocalDateTable_311ad14e-1181-4c8f-a8c0-54ac49ed7f7c.Date
+
+relationship a2cf48ad-6bc4-4611-a687-b3fc51b73262
+	fromColumn: LedgerJournalEntityStaging.INVOICERECEIPTDATE
+	toColumn: LocalDateTable_8e84b101-bcf8-425f-a212-98239720e685.Date
+
+relationship a3fa1b05-2d18-4552-ab19-2ac4611db200
+	fromColumn: LedgerJournalEntityStaging.TAXINVOICERECEIPTDATE
+	toColumn: LocalDateTable_8b2fee32-0c19-4313-a519-4bcb5a3709f1.Date
+
+relationship 6f9cc4ba-b600-4017-906a-bb20d013e132
+	fromColumn: LedgerJournalEntityStaging.ACKNOWLEDGEMENTDATE
+	toColumn: LocalDateTable_7075a353-06a4-4786-929a-de8d1e50cf0b.Date
+
+relationship 186a454b-0a05-405f-a6fb-786f5515649a
+	fromColumn: LedgerJournalEntityStaging.INVOICEDATEJOURNALTRANS
+	toColumn: LocalDateTable_89b66b8d-071a-4d51-a142-41e49a5b1932.Date
+
+relationship 1ea70e15-9369-4959-812c-23cc462eff53
+	fromColumn: LedgerJournalEntityStaging.SYNCSTARTDATETIME
+	toColumn: LocalDateTable_4b827449-6c8c-40d5-a581-17a20f138875.Date
+
+relationship 72fed7fd-d4be-4cda-8f72-3dbbc0240b85
+	fromColumn: LedgerJournalEntityStaging.OUCRU_POSTINGPERIOD
+	toColumn: LocalDateTable_f27b6055-1bee-4ee1-bcbe-c17eb4f119d5.Date
+
+relationship 9800c0e4-5a9b-4531-a72f-a13a830af1b6
+	fromColumn: BudgetRegisterEntryStaging.DATE
+	toColumn: LocalDateTable_9d719294-3a9e-45dd-8847-6377dbc9c42e.Date
+
+relationship 65b8db05-9770-4105-ade0-baf319613839
+	fromColumn: BudgetRegisterEntryStaging.SYNCSTARTDATETIME
+	toColumn: LocalDateTable_995e81b2-1967-494c-9fc9-6c5780af94a8.Date
+
+relationship d01b6ff8-61c7-40dd-a363-2e938475f2b0
+	fromColumn: OUCRU_VendInvoiceJourStaging.ATTORNEYDATE_RU
+	toColumn: LocalDateTable_43fe9f75-bbc3-4197-94e6-a3eea495c30c.Date
+
+relationship dbc528da-2fa6-4192-b4c4-e660a8a974ca
+	fromColumn: OUCRU_VendInvoiceJourStaging.CASHDISCDATE
+	toColumn: LocalDateTable_12ca30da-ff2b-47c8-b017-1b0577bce04b.Date
+
+relationship 722c7547-b9ad-4886-90f1-8786fe355770
+	fromColumn: OUCRU_VendInvoiceJourStaging.CORRECTEDINVOICEDATE_RU
+	toColumn: LocalDateTable_6b12e4a7-4177-4e75-9256-b603f0800e70.Date
+
+relationship 4103be88-6b46-4478-9cb5-6ea685289a60
+	fromColumn: OUCRU_VendInvoiceJourStaging.REFCREATEDDATETIME
+	toColumn: LocalDateTable_ba0f44e6-87ca-4e22-b18d-636afdc5de75.Date
+
+relationship 24ef1ef7-b791-453b-b6ac-0d3543d66097
+	fromColumn: OUCRU_VendInvoiceJourStaging.DELIVERYDATE_ES
+	toColumn: LocalDateTable_935116f4-6964-469d-9910-3b55cb91db22.Date
+
+relationship bed04fc3-2d28-452f-847e-a81ccf1ebb6a
+	fromColumn: OUCRU_VendInvoiceJourStaging.DOCUMENTDATE
+	toColumn: LocalDateTable_6be6df96-dd19-407d-b8a0-95fcdad8064a.Date
+
+relationship a2620d0b-5d52-4686-9010-24490e281ab7
+	fromColumn: OUCRU_VendInvoiceJourStaging.DUEDATE
+	toColumn: LocalDateTable_4ca872a5-3955-4616-ad6b-fef11d8ed3bf.Date
+
+relationship 56c230bd-c87d-4e30-9336-53ae803aabc7
+	fromColumn: OUCRU_VendInvoiceJourStaging.FIXEDDUEDATE
+	toColumn: LocalDateTable_2353178e-2428-4628-a4b4-95373c094ffa.Date
+
+relationship d5760d5e-3fea-499c-a3ee-5827d2a69bb5
+	fromColumn: OUCRU_VendInvoiceJourStaging.INTRASTATFULFILLMENTDATE_HU
+	toColumn: LocalDateTable_f7b63c84-c37b-4386-8f64-ea8668d88274.Date
+
+relationship a15dd3b8-09cb-4610-ad70-a2fd87f75c0d
+	fromColumn: OUCRU_VendInvoiceJourStaging.INVOICEDATE
+	toColumn: LocalDateTable_533022b0-0c58-4726-bf7d-156e1b1455bb.Date
+
+relationship fb34a5ad-f13c-4868-ba5a-9a62b0c7f698
+	fromColumn: OUCRU_VendInvoiceJourStaging.REFMODIFIEDDATETIME
+	toColumn: LocalDateTable_7b5240f9-28f5-40a2-b791-0baf12536db3.Date
+
+relationship 49a0b204-50d9-43db-9930-c65d624dcf39
+	fromColumn: OUCRU_VendInvoiceJourStaging.PLAFONDDATE_IT
+	toColumn: LocalDateTable_023139fe-bcb6-42ed-bf8a-c8395b4ff3ce.Date
+
+relationship 194d2b2e-fae9-4d06-9038-693a12d5ff0c
+	fromColumn: OUCRU_VendInvoiceJourStaging.PURCHRECEIPTDATE_W
+	toColumn: LocalDateTable_ccc888f9-61e1-4304-80ad-e91c6c61fcf2.Date
+
+relationship 120737a4-c933-430c-bd4d-e9ae8a1d640e
+	fromColumn: OUCRU_VendInvoiceJourStaging.RECEIVEDDATE
+	toColumn: LocalDateTable_714b191c-93a7-4bf6-9407-8b008f142fa7.Date
+
+relationship 37f1428d-6154-4486-8f8c-59c1822978a8
+	fromColumn: OUCRU_VendInvoiceJourStaging.VENDORVATDATE
+	toColumn: LocalDateTable_44bdd6bf-f578-4515-b324-884f741597be.Date
+
+relationship 6d290727-bbbc-4a66-bb30-b45a6d34d379
+	fromColumn: OUCRU_VendInvoiceJourStaging.SYNCSTARTDATETIME
+	toColumn: LocalDateTable_a2179864-66c5-4d7b-a0a0-1278185a9e37.Date
+
+relationship 1806bc0c-0b6a-4792-b30b-f042ce2363ff
+	fromColumn: OUCRU_DimensionAttributeValueCoPIStaging.SYNCSTARTDATETIME
+	toColumn: LocalDateTable_baacc455-49a8-4a16-831c-030f58203c33.Date
+
+relationship f8e8a8b6-fac1-4ae5-a63e-9447f358121e
+	fromColumn: BankAccountStaging.ACTIVEFROM
+	toColumn: LocalDateTable_be496b63-63ab-49e0-9e96-96bc61eaddfa.Date
+
+relationship 2430537e-8877-4ce4-8d2e-b8b629d85f76
+	fromColumn: BankAccountStaging.ACTIVETO
+	toColumn: LocalDateTable_c36be2a7-d96d-4653-b938-172a5985ad49.Date
+
+relationship 2a93035c-8403-4a52-97b5-f88c852288a1
+	fromColumn: BankAccountStaging.ADDRESSVALIDTO
+	toColumn: LocalDateTable_c4ea3d21-cc78-44de-b062-d388167487c8.Date
+
+relationship 1865075f-b116-486d-a35c-7f12c4b19dc0
+	fromColumn: BankAccountStaging.ADDRESSVALIDFROM
+	toColumn: LocalDateTable_3c1e4399-e1eb-4df2-91dc-9d55ca12a1d3.Date
+
+relationship b9d7145c-f76f-4280-bfa4-ee1275303422
+	fromColumn: BankAccountStaging.POSITIVEPAYSTARTDATE
+	toColumn: LocalDateTable_cac7176c-3d17-4464-90a8-3f8b28abbf9f.Date
+
+relationship b5d9fc96-42be-4ece-9efa-29899bacdfb8
+	fromColumn: BankAccountStaging.SYNCSTARTDATETIME
+	toColumn: LocalDateTable_dd27d465-fcd1-4570-a9f3-035d347d6f40.Date
+
+relationship e89a1cd1-cf16-4edf-b664-5fbdc5bf46a7
+	fromColumn: GeneralJournalAccountEntryStaging.ACCOUNTINGDATE
+	toColumn: LocalDateTable_42f239f2-64b0-46a5-a0f6-1d93edb2db38.Date
+
+relationship f0af3885-3cd2-46ef-882a-a21daf383857
+	fromColumn: GeneralJournalAccountEntryStaging.ACKNOWLEDGEMENTDATE
+	toColumn: LocalDateTable_3448dbbe-3e6a-46e6-9ec1-95de11966356.Date
+
+relationship 8a4bd462-cafc-46e8-85d9-257d108d5c42
+	fromColumn: GeneralJournalAccountEntryStaging.DOCUMENTDATE
+	toColumn: LocalDateTable_e42c1053-af89-4b95-a862-20c86f00fbba.Date
+
+relationship 27d9dc13-c5d1-4e5e-ab7a-dfab96aa17f1
+	fromColumn: GeneralJournalAccountEntryStaging.SYNCSTARTDATETIME
+	toColumn: LocalDateTable_68666e5d-0f41-434a-a185-95a4f5eab437.Date
+
+relationship 3f5dc625-750f-4b46-aa3c-fd2bda41189e
+	fromColumn: OUCRU_VendInvoiceTransStaging.REFCREATEDDATETIME
+	toColumn: LocalDateTable_e71e4012-3a66-44de-a5c6-bdff4ced345f.Date
+
+relationship c78be82d-3b1f-4dd8-8947-81b111545bea
+	fromColumn: OUCRU_VendInvoiceTransStaging.CREDITNOTEDATE_IN
+	toColumn: LocalDateTable_760ba509-6b3b-42e5-bf8f-46a0d9e05953.Date
+
+relationship 81e763c1-692d-41eb-ad01-835a3df0957d
+	fromColumn: OUCRU_VendInvoiceTransStaging.INTRASTATFULFILLMENTDATE_HU
+	toColumn: LocalDateTable_aedef6d1-f986-4ec2-b0a6-6d28f1699c98.Date
+
+relationship 3edb084e-8c11-4764-8030-840eef30455e
+	fromColumn: OUCRU_VendInvoiceTransStaging.INVENTDATE
+	toColumn: LocalDateTable_7e6cd71b-b7f4-4802-9e0e-f393d2f9de4c.Date
+
+relationship d609fc3a-c6bd-4cf4-b5dc-9ab2968fa597
+	fromColumn: OUCRU_VendInvoiceTransStaging.INVOICEDATE
+	toColumn: LocalDateTable_30b7f03b-d2b8-4d81-a195-06c9e4b66fe1.Date
+
+relationship 433351a6-7e60-44fc-a796-7e8f0f217fda
+	fromColumn: OUCRU_VendInvoiceTransStaging.REFMODIFIEDDATETIME
+	toColumn: LocalDateTable_fe1980e3-1255-4496-9486-9125f8c45da5.Date
+
+relationship cff46a31-4043-4226-a78d-27ae3650cfb0
+	fromColumn: OUCRU_VendInvoiceTransStaging.TAX1099DATE
+	toColumn: LocalDateTable_eb1bdbea-3ac4-4ad6-bf7f-1c12420f5553.Date
+
+relationship b8b94fdb-3afa-4867-9914-e57fe4d5de94
+	fromColumn: OUCRU_VendInvoiceTransStaging.SYNCSTARTDATETIME
+	toColumn: LocalDateTable_688186bb-b372-4a66-9d85-ded1b1114713.Date
+
+relationship f9c11c35-8115-4a0e-9f0a-0b9bb3806f90
+	isActive: false
+	fromColumn: OUCRU_VendInvoiceTransStaging.INTERNALINVOICEID
+	toColumn: OUCRU_VendInvoiceJourStaging.INTERNALINVOICEID
+
+relationship c2f994a0-b91e-4dea-843c-60a75a391be8
+	fromColumn: OUCRU_SegerationPIReportStaging.SYNCSTARTDATETIME
+	toColumn: LocalDateTable_db2c1d17-087e-45f8-b41f-4209d34f8a27.Date
+
+relationship 168644d5-4e73-4756-80bc-c19c7d1d1801
+	fromColumn: VendorPostingProfileLineStaging.SYNCSTARTDATETIME
+	toColumn: LocalDateTable_6a329a95-3043-416a-99d6-9e141e89a2e8.Date
+
+relationship b5854dd1-4f0c-4168-b3e7-cdd4c95272d2
+	fromColumn: VendorPostingProfileHeaderStaging.SYNCSTARTDATETIME
+	toColumn: LocalDateTable_a2fe6e65-ae10-4c16-860c-478789388ba5.Date
+
+relationship fc4add0f-8c8e-4e00-b1bb-7c6830b80986
+	fromColumn: TaxCodeValueV2EntityStaging.FROMDATE
+	toColumn: LocalDateTable_027da6be-dab2-48fe-a71f-82e47a707332.Date
+
+relationship 345dbe00-9202-4474-be17-5576ed13fc79
+	fromColumn: TaxCodeValueV2EntityStaging.TODATE
+	toColumn: LocalDateTable_fabf1144-ed2b-47a8-93ca-acbac271e557.Date
+
+relationship 4c5f995b-b777-4a56-a0c2-33630735b53a
+	fromColumn: TaxCodeValueV2EntityStaging.SYNCSTARTDATETIME
+	toColumn: LocalDateTable_2e956872-7a8e-40c2-80e6-586e9836aca4.Date
+
+relationship b3fa9550-c614-4389-b5a3-d50d76238c42
+	fromColumn: TaxItemGroupEntityStaging.SYNCSTARTDATETIME
+	toColumn: LocalDateTable_dc7f0e82-a46d-4d7e-a380-40dc41045b0d.Date
+
+relationship 109f3b0f-3746-49c4-8b3c-dc303f668067
+	fromColumn: TaxCodeEntityStaging.SYNCSTARTDATETIME
+	toColumn: LocalDateTable_23c8844d-a0af-42a5-9674-8ea5b81bde45.Date
+
+relationship 4b5ab893-f588-4186-a5e8-c2bb9a85f215
+	fromColumn: OUCRU_DimensionAttributeValueListMapStaging.SYNCSTARTDATETIME
+	toColumn: LocalDateTable_f110a786-3a4e-4e51-8e2b-d7a9995d9e8b.Date
+
+relationship e677c385-ff48-4e9e-b905-82dbcecb8483
+	fromColumn: ExchangeRateEntityStaging.STARTDATE
+	toColumn: LocalDateTable_eadf5370-f4a7-4cd6-8cb3-094c9dfe8046.Date
+
+relationship 617a1250-ad32-4b67-a648-500575ef04f1
+	fromColumn: ExchangeRateEntityStaging.ENDDATE
+	toColumn: LocalDateTable_f3ea46cf-b928-4185-84ce-cbe0b0d3cee8.Date
+
+relationship 3b80492a-45cf-4cb4-91b6-8ee0616e1e88
+	fromColumn: ExchangeRateEntityStaging.SYNCSTARTDATETIME
+	toColumn: LocalDateTable_fb4f6d5c-93f3-480f-86cb-7cbab890bee8.Date
+
+relationship c8401de5-a7dd-4ada-9a5c-094a183167c7
+	fromColumn: LedgerParametersStaging.SYNCSTARTDATETIME
+	toColumn: LocalDateTable_537d77dd-70da-4279-8e31-28eb8b5e4ead.Date
+
+relationship 43b37934-3273-4b65-8243-67dbe9c0ea9c
+	fromColumn: FinancialDimensionValueLegalEntityOverrideV2Staging.ACTIVEFROM
+	toColumn: LocalDateTable_7d2c4be5-3083-4d17-abee-c87119333f58.Date
+
+relationship ebddd640-d613-4214-a58f-af1453d0a42d
+	fromColumn: FinancialDimensionValueLegalEntityOverrideV2Staging.ACTIVETO
+	toColumn: LocalDateTable_4176c035-fa59-4db0-801b-eff910064869.Date
+
+relationship 42d7a60b-75c2-4279-9257-49c5dea23a32
+	fromColumn: FinancialDimensionValueLegalEntityOverrideV2Staging.SYNCSTARTDATETIME
+	toColumn: LocalDateTable_1a3754fa-80fe-46b0-b162-42f2624b7d08.Date
+
+relationship 1b4e87ae-c4a4-4d89-9b1d-9519abe4d171
+	fromColumn: FinancialDimensionValueEntityStaging.ACTIVEFROM
+	toColumn: LocalDateTable_ef9ccc2d-e84a-41b0-a7ea-fec61f13af45.Date
+
+relationship 8f723d34-11de-450d-a1fd-1cfb8f452a8e
+	fromColumn: FinancialDimensionValueEntityStaging.ACTIVETO
+	toColumn: LocalDateTable_54988c69-73e8-453d-906d-526611f4726c.Date
+
+relationship a335310d-f589-494f-8190-2771ed0bd5d1
+	fromColumn: FinancialDimensionValueEntityStaging.STARTDATE
+	toColumn: LocalDateTable_cfa365c0-07aa-4859-bac6-63c6d0ced2a6.Date
+
+relationship f7ad7a90-532d-425a-bf65-1dc3dce1d7f9
+	fromColumn: FinancialDimensionValueEntityStaging.ENDDATE
+	toColumn: LocalDateTable_18c799f4-0a37-4180-9f6c-bfe8d8811837.Date
+
+relationship 55031de6-3d8c-4558-a747-92706ce76ceb
+	fromColumn: FinancialDimensionValueEntityStaging.SYNCSTARTDATETIME
+	toColumn: LocalDateTable_cc37697d-599e-493d-aa1f-48521b9866c6.Date
+
+relationship 38708fcf-da2a-4993-8875-eae9a373072f
+	fromColumn: OUCRU_GLExtractionV2Staging.TRANSACTIONDATE
+	toColumn: LocalDateTable_9f355183-07df-4477-abf1-2bddf09fabb9.Date
+
+relationship 0a095298-7c2b-4065-b599-8052bc690526
+	fromColumn: OUCRU_GLExtractionV2Staging.INVOICEDATE
+	toColumn: LocalDateTable_290d37ce-fa88-4fb6-bbda-e543e79fcda6.Date
+
+relationship 13b775c4-f76a-4a22-b7d0-67790fadc552
+	fromColumn: OUCRU_GLExtractionV2Staging.ITEMDATE
+	toColumn: LocalDateTable_d9ff5624-5d35-4989-b0ee-24a9a5a4892e.Date
+
+relationship 02dbf9ed-d7db-4380-a5a5-4d27205ad68e
+	fromColumn: OUCRU_GLExtractionV2Staging.CREATEDATE
+	toColumn: LocalDateTable_244aef59-c707-4041-b3a5-494ee6048b4e.Date
+
+relationship 2e893d80-b04a-4985-9f4a-90ddfb85a624
+	fromColumn: OUCRU_GLExtractionV2Staging.MODIFIEDATE
+	toColumn: LocalDateTable_b158cfba-0a2c-49b2-af93-269ee930e5bd.Date
+
+relationship f0440173-365f-4d68-8955-fa8c72a1540c
+	fromColumn: OUCRU_GLExtractionV2Staging.SYNCSTARTDATETIME
+	toColumn: LocalDateTable_fff7b4fe-9623-4fe9-a261-7db6b90b9aba.Date
+
+relationship 129f6170-1a22-4d37-b63c-64156525bfda
+	fromColumn: LedgerJournalNameStaging.SYNCSTARTDATETIME
+	toColumn: LocalDateTable_c7c01386-b7ef-4143-a581-46f8d7601fb8.Date
+
+relationship 092dde41-0973-479c-93eb-d67902bd22cd
+	fromColumn: VendVendorV2Staging.SSIVALIDITYDATE
+	toColumn: LocalDateTable_d9d8a909-6881-44cc-a3fa-1a9ad54fa589.Date
+
+relationship a4a9c60f-ff7e-4b8c-994a-980a63375d46
+	fromColumn: VendVendorV2Staging.VENDORHOLDRELEASEDATE
+	toColumn: LocalDateTable_d312758b-d9b5-40f4-90ce-8752e3dddd3f.Date
+
+relationship 74444919-ed01-470f-9dd0-aff2e655155b
+	fromColumn: VendVendorV2Staging.CISVERIFICATIONDATE
+	toColumn: LocalDateTable_7ff90e52-7359-4877-b48d-ffedf391a5e1.Date
+
+relationship 44eb0362-813c-43ed-807f-7e1d4eb01917
+	fromColumn: VendVendorV2Staging.ADDRESSVALIDFROM
+	toColumn: LocalDateTable_9bef5854-04ff-4fc9-8e32-f1aab415c799.Date
+
+relationship adf507a0-c507-4113-b441-ec35fc5b9e02
+	fromColumn: VendVendorV2Staging.ADDRESSVALIDTO
+	toColumn: LocalDateTable_826eb214-0e27-4473-9e9d-2590017308dc.Date
+
+relationship 7485f20b-a762-457d-afdd-ec825bd3f370
+	fromColumn: VendVendorV2Staging.SYNCSTARTDATETIME
+	toColumn: LocalDateTable_f4b77bc1-056b-4384-8d83-0a8ea3b8d15f.Date
+

@@ -1,0 +1,214 @@
+table TaxCodeValueV2EntityStaging
+	lineageTag: 646d813b-0878-4cdc-bc34-e0673971a223
+	sourceLineageTag: c9417d82-c6ca-403f-9751-1a51ff6bc90f
+
+	column DEFINITIONGROUP
+		dataType: string
+		lineageTag: c3a68608-79c3-49d1-9a28-17fff185920e
+		sourceLineageTag: dc458ba4-cb8e-4d0a-bc3a-3686f57aff15
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DEFINITIONGROUP
+
+		annotation SummarizationSetBy = User
+
+	column EXECUTIONID
+		dataType: string
+		lineageTag: 94ef4fbb-f390-457a-9391-7e0f982cc365
+		sourceLineageTag: f076ed62-6a05-426b-873b-1924adbdcf84
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: EXECUTIONID
+
+		annotation SummarizationSetBy = User
+
+	column ISSELECTED
+		dataType: int64
+		formatString: 0
+		lineageTag: edeb25b0-6c0e-4df5-801c-3bf55d71062a
+		sourceLineageTag: 49a62ef4-29c1-4869-aa8f-def0d047edce
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ISSELECTED
+
+		annotation SummarizationSetBy = User
+
+	column TRANSFERSTATUS
+		dataType: int64
+		formatString: 0
+		lineageTag: 08452484-c896-4ec0-b9d6-f2b75467ba38
+		sourceLineageTag: 5b3d9db0-d924-4b8d-a69a-b3e672c5ba71
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: TRANSFERSTATUS
+
+		annotation SummarizationSetBy = User
+
+	column TAXCODEID
+		dataType: string
+		lineageTag: 3030ec4d-6790-46cc-a758-b8cee3b97795
+		sourceLineageTag: 3b17f745-4302-4acc-adb1-2a0ed7757643
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: TAXCODEID
+
+		annotation SummarizationSetBy = User
+
+	column FROMDATE
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: 914268e1-7ed9-40db-9111-180c0a44b68b
+		sourceLineageTag: 58f4d9ca-6bea-4e0d-b24b-fe47c03a1ef7
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: FROMDATE
+
+		variation Variation
+			isDefault
+			relationship: fc4add0f-8c8e-4e00-b1bb-7c6830b80986
+			defaultHierarchy: LocalDateTable_027da6be-dab2-48fe-a71f-82e47a707332.'Date Hierarchy'
+
+		annotation SummarizationSetBy = User
+
+	column MAXIMUMLIMIT
+		dataType: double
+		lineageTag: 1fcb62ae-5c17-418f-a93c-86e17ef7438c
+		sourceLineageTag: e6ac4363-6641-4699-80a7-b8a46e17f21f
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: MAXIMUMLIMIT
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MINIMUMLIMIT
+		dataType: double
+		lineageTag: 2618cc0d-b6f8-476d-ba4b-68999ab5d090
+		sourceLineageTag: 6f4e0d6b-1cc9-4fcc-bdc7-7ecfbbdf01df
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: MINIMUMLIMIT
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TODATE
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: da535cc6-52b0-4aaf-85be-f4da907c472f
+		sourceLineageTag: 48f8ed7e-1d1e-4166-9a60-1658e217ee11
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: TODATE
+
+		variation Variation
+			isDefault
+			relationship: 345dbe00-9202-4474-be17-5576ed13fc79
+			defaultHierarchy: LocalDateTable_fabf1144-ed2b-47a8-93ca-acbac271e557.'Date Hierarchy'
+
+		annotation SummarizationSetBy = User
+
+	column VALUE
+		dataType: double
+		lineageTag: 5109be41-8171-4391-90f2-e470f37509d9
+		sourceLineageTag: aeb5b39a-fcf5-4cfa-a279-059ff3085223
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: VALUE
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column NONDEDUCTIBLEPERCENTAGE
+		dataType: double
+		lineageTag: 461a7f9e-d213-4d1a-830c-9a7fad64499a
+		sourceLineageTag: f9ca9046-14e4-49e3-a2a4-0affe0c03ee7
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: NONDEDUCTIBLEPERCENTAGE
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column REDUCTIONPERCENTAGE
+		dataType: double
+		lineageTag: a5ca7abc-c84f-4264-a37d-81336979a687
+		sourceLineageTag: 75c72b66-7b7f-4d45-81ce-8a4c23c57c29
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: REDUCTIONPERCENTAGE
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SUBSTITUTIONMARKUPPERCENTAGE
+		dataType: double
+		lineageTag: ce3fc272-4072-4d5a-ab0b-f5c28428bca5
+		sourceLineageTag: f09f347c-22d4-4585-8904-9cb67e497922
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: SUBSTITUTIONMARKUPPERCENTAGE
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DUTY
+		dataType: double
+		lineageTag: 7eb98995-e405-4ae1-b493-1b39f3b1d4da
+		sourceLineageTag: 9347943e-0312-4559-b03f-8a8bdcc5cdf3
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: DUTY
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PARTITION
+		dataType: string
+		lineageTag: 7cd5a220-d5f2-49e5-b7bf-98e71d26a78d
+		sourceLineageTag: bbd97820-d2fa-4d63-bfc0-b387b72ab0c3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PARTITION
+
+		annotation SummarizationSetBy = User
+
+	column DATAAREAID
+		dataType: string
+		lineageTag: 517282a4-a657-4d57-aea0-15360a171349
+		sourceLineageTag: c93adf01-111f-4d75-a0e7-746f171c76a7
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DATAAREAID
+
+		annotation SummarizationSetBy = User
+
+	column SYNCSTARTDATETIME
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: aadfe17d-2227-4121-b8d9-f9b8a879b9f5
+		sourceLineageTag: 7a61744f-9968-44d9-b5e3-83321f5b6537
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SYNCSTARTDATETIME
+
+		variation Variation
+			isDefault
+			relationship: 4c5f995b-b777-4a56-a0c2-33630735b53a
+			defaultHierarchy: LocalDateTable_2e956872-7a8e-40c2-80e6-586e9836aca4.'Date Hierarchy'
+
+		annotation SummarizationSetBy = User
+
+	partition TaxCodeValueV2EntityStaging = entity
+		mode: directQuery
+		source
+			entityName: TaxCodeValueV2EntityStaging
+			expressionSource: 'DirectQuery to AS - FIN & MI tables'
+

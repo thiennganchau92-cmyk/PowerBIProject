@@ -1,0 +1,41 @@
+table GL_Ex_Nepal_MissingVendor
+	lineageTag: b2b6face-d02d-468c-8337-cbe5d5339185
+	sourceLineageTag: 6b854e3b-f8fd-4f59-9caf-dadd4662bba3
+
+	column CombinedKey
+		dataType: string
+		lineageTag: 44f3cd23-e129-41b1-8f1e-1bc9d53a9df7
+		sourceLineageTag: 32b83908-d6b5-44a1-8761-902eb0449521
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CombinedKey
+
+		annotation SummarizationSetBy = User
+
+	column ExceptionType
+		dataType: int64
+		formatString: 0
+		lineageTag: 72070098-96b3-407d-a07b-3148e7877585
+		sourceLineageTag: ec322cf9-d6fd-4269-8b4a-20e0dc200eea
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ExceptionType
+
+		annotation SummarizationSetBy = User
+
+	column StrValue
+		dataType: string
+		lineageTag: 559b4b91-800e-47e7-a8ab-a9d14986a800
+		sourceLineageTag: 8a899425-b1a9-4319-a7b7-787abfb2c429
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: StrValue
+
+		annotation SummarizationSetBy = User
+
+	partition GL_Ex_Nepal_MissingVendor = entity
+		mode: directQuery
+		source
+			entityName: GL_Ex_Nepal_MissingVendor
+			expressionSource: 'DirectQuery to AS - FIN & MI tables'
+

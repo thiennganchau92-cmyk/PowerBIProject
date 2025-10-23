@@ -1,0 +1,834 @@
+table TaxCodeEntityStaging
+	lineageTag: 0abc4aaa-2125-4a57-9bf8-b5518b42a6dd
+	sourceLineageTag: ed445fbd-6404-42ee-810d-2abd32fba0ff
+
+	column DEFINITIONGROUP
+		dataType: string
+		lineageTag: 5b52336e-3606-4a1e-ac90-a564cd7d1b27
+		sourceLineageTag: 5a002424-4098-4359-853e-a1adf79ba190
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DEFINITIONGROUP
+
+		annotation SummarizationSetBy = User
+
+	column EXECUTIONID
+		dataType: string
+		lineageTag: b4a8a37a-5918-49a4-8c15-bea437150c06
+		sourceLineageTag: 28120509-675c-4b4e-91d8-26ee85d4f3cd
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: EXECUTIONID
+
+		annotation SummarizationSetBy = User
+
+	column ISGST
+		dataType: int64
+		formatString: 0
+		lineageTag: e9ed2b65-25f1-42db-8d33-f3d41ebbc6be
+		sourceLineageTag: 31454bd6-f2c3-46d5-ae63-eca1bf0b1576
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ISGST
+
+		annotation SummarizationSetBy = User
+
+	column ISSELECTED
+		dataType: int64
+		formatString: 0
+		lineageTag: ae64dfab-052d-47b8-8997-567603f420d7
+		sourceLineageTag: 6433eb3d-0074-41fb-bf60-77814828f8a4
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ISSELECTED
+
+		annotation SummarizationSetBy = User
+
+	column TRANSFERSTATUS
+		dataType: int64
+		formatString: 0
+		lineageTag: 21953ab7-dfd4-4ac9-8e7e-f0124d300ac6
+		sourceLineageTag: 4e2ad698-b77c-49c0-b073-4403b62fa688
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: TRANSFERSTATUS
+
+		annotation SummarizationSetBy = User
+
+	column TAXCODE
+		dataType: string
+		lineageTag: 88301f2d-53a9-48fa-a5fa-3fa2be10645c
+		sourceLineageTag: 3ba9cdfa-d723-42fd-8af6-a8e38b9efdae
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: TAXCODE
+
+		annotation SummarizationSetBy = User
+
+	column NEGATIVETAX
+		dataType: int64
+		formatString: 0
+		lineageTag: 775e13d5-bbc6-4188-9b6c-fc2ff724f101
+		sourceLineageTag: af9eedbf-d969-4ec1-9ba1-d4bbb3db8d32
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: NEGATIVETAX
+
+		annotation SummarizationSetBy = User
+
+	column NOTEUSALESLIST
+		dataType: int64
+		formatString: 0
+		lineageTag: eb6aa1f2-a36d-4d67-b938-a96ff165f94a
+		sourceLineageTag: 8cb673d0-6b64-46df-940c-349c6c6db662
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: NOTEUSALESLIST
+
+		annotation SummarizationSetBy = User
+
+	column PAYMENTTAXCODEID
+		dataType: string
+		lineageTag: f93d380b-e3d9-43a2-8f08-fd4e67966df4
+		sourceLineageTag: d494b6a1-3840-4987-9170-f3ca93d0a6ab
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PAYMENTTAXCODEID
+
+		annotation SummarizationSetBy = User
+
+	column PRINTCODE
+		dataType: string
+		lineageTag: e5315464-5880-408b-9116-a91999d6c03d
+		sourceLineageTag: a72fc513-e8a3-4ef7-b640-282285ea3458
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PRINTCODE
+
+		annotation SummarizationSetBy = User
+
+	column REPORTINGCODETAXABLEPURCHASES
+		dataType: int64
+		formatString: 0
+		lineageTag: a22148ae-3549-4192-9606-fccd19f1c5b6
+		sourceLineageTag: 02cd1c3d-8377-4133-b023-5a489387d04a
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: REPORTINGCODETAXABLEPURCHASES
+
+		annotation SummarizationSetBy = User
+
+	column REPORTINGCODETAXABLEPURCHASESCREDITNOTE
+		dataType: int64
+		formatString: 0
+		lineageTag: 85ae9b2c-efc2-4550-a1b7-583651e73e2f
+		sourceLineageTag: fdbae36e-2aa5-4832-80f3-e1e0b0da2a85
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: REPORTINGCODETAXABLEPURCHASESCREDITNOTE
+
+		annotation SummarizationSetBy = User
+
+	column REPORTINGCODETAXABLESALES
+		dataType: int64
+		formatString: 0
+		lineageTag: 23135f93-ddbf-4717-a3cc-35cf4680de26
+		sourceLineageTag: 61677ed0-6aa1-485b-8f28-92da6dfe62cb
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: REPORTINGCODETAXABLESALES
+
+		annotation SummarizationSetBy = User
+
+	column REPORTINGCODETAXABLESALESCREDITNOTE
+		dataType: int64
+		formatString: 0
+		lineageTag: 7f080829-a3ed-46d5-969b-78b986a8ea5e
+		sourceLineageTag: 56cc8808-2a2d-4f57-b231-2630896731c5
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: REPORTINGCODETAXABLESALESCREDITNOTE
+
+		annotation SummarizationSetBy = User
+
+	column REPORTINGCODETAXABLEIMPORT
+		dataType: int64
+		formatString: 0
+		lineageTag: 19738065-c0de-4d9b-851e-17074722acd6
+		sourceLineageTag: e473115c-8d95-4248-ae1a-776786293975
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: REPORTINGCODETAXABLEIMPORT
+
+		annotation SummarizationSetBy = User
+
+	column REPORTINGCODETAXABLEIMPORTCREDITNOTE
+		dataType: int64
+		formatString: 0
+		lineageTag: 653fc530-6263-433b-99e4-bc7806828c97
+		sourceLineageTag: 963420b3-e4dd-4f39-ade4-4b84d215f509
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: REPORTINGCODETAXABLEIMPORTCREDITNOTE
+
+		annotation SummarizationSetBy = User
+
+	column REPORTINGCODETAXABLEIMPORTOFFSET
+		dataType: int64
+		formatString: 0
+		lineageTag: 768acdce-c541-4f70-a74d-a1a112ff0779
+		sourceLineageTag: 2c2945fb-ce98-46ce-8af8-97dd61130057
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: REPORTINGCODETAXABLEIMPORTOFFSET
+
+		annotation SummarizationSetBy = User
+
+	column REPORTINGCODETAXABLEIMPORTOFFSETCREDITNOTE
+		dataType: int64
+		formatString: 0
+		lineageTag: c7953e52-9603-4478-9681-e54ee2ab6aaf
+		sourceLineageTag: 79731090-dcff-4f2a-b8db-c0d8299c45e3
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: REPORTINGCODETAXABLEIMPORTOFFSETCREDITNOTE
+
+		annotation SummarizationSetBy = User
+
+	column REPORTINGCODETAXFREEPURCHASE
+		dataType: int64
+		formatString: 0
+		lineageTag: 042f46fc-637b-42fb-b0e4-583cda537d22
+		sourceLineageTag: 1e002d22-7980-435d-b9bc-a9987c311fa7
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: REPORTINGCODETAXFREEPURCHASE
+
+		annotation SummarizationSetBy = User
+
+	column REPORTINGCODETAXFREEPURCHASECREDITNOTE
+		dataType: int64
+		formatString: 0
+		lineageTag: 9c0fe7c3-a7d5-4976-860c-4ced46efec3b
+		sourceLineageTag: 57d429be-3542-4e88-b098-096af9fd0f1c
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: REPORTINGCODETAXFREEPURCHASECREDITNOTE
+
+		annotation SummarizationSetBy = User
+
+	column REPORTINGCODETAXFREESALE
+		dataType: int64
+		formatString: 0
+		lineageTag: 69727348-7663-451f-b4c0-beb7fefae6a5
+		sourceLineageTag: dfdc2396-fb4b-440e-a24d-94300466e0e2
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: REPORTINGCODETAXFREESALE
+
+		annotation SummarizationSetBy = User
+
+	column REPORTINGCODETAXFREESALECREDITNOTE
+		dataType: int64
+		formatString: 0
+		lineageTag: 0fd12c0e-5a44-4491-9ffa-a89dda941851
+		sourceLineageTag: 15d92e56-bfee-4b85-999a-8f31e611e5e0
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: REPORTINGCODETAXFREESALECREDITNOTE
+
+		annotation SummarizationSetBy = User
+
+	column REPORTINGCODESALESTAXRECEIVABLE
+		dataType: int64
+		formatString: 0
+		lineageTag: ab7d6bab-1f0f-4065-a154-9e97f15ffb87
+		sourceLineageTag: 328ac5fb-3036-4f96-9cf5-33e6c8e10506
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: REPORTINGCODESALESTAXRECEIVABLE
+
+		annotation SummarizationSetBy = User
+
+	column REPORTINGCODESALESTAXRECEIVABLECREDITNOTE
+		dataType: int64
+		formatString: 0
+		lineageTag: e076bc4d-91f7-4d7a-83b7-2b7a02389869
+		sourceLineageTag: 3998d3d6-9532-407e-b41c-7a38978efbdf
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: REPORTINGCODESALESTAXRECEIVABLECREDITNOTE
+
+		annotation SummarizationSetBy = User
+
+	column REPORTINGCODESALESTAXPAYABLE
+		dataType: int64
+		formatString: 0
+		lineageTag: c082b4c0-67c9-4755-8aab-d77cc0f100cd
+		sourceLineageTag: 57d21c81-3eae-409d-baf8-455504f595bb
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: REPORTINGCODESALESTAXPAYABLE
+
+		annotation SummarizationSetBy = User
+
+	column REPORTINGCODESALESTAXPAYABLECREDITNOTE
+		dataType: int64
+		formatString: 0
+		lineageTag: eb21953d-edc2-4ce2-8e4c-bf8b0024f6d5
+		sourceLineageTag: 6dad46ca-4f40-4720-95fc-bdb5c1e3b8c9
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: REPORTINGCODESALESTAXPAYABLECREDITNOTE
+
+		annotation SummarizationSetBy = User
+
+	column REPORTINGCODEUSETAX
+		dataType: int64
+		formatString: 0
+		lineageTag: 5c673ae8-82ad-4f6e-bec2-f6343f5252c8
+		sourceLineageTag: 258a9d55-03aa-49af-a7c0-bd953e5aa4c9
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: REPORTINGCODEUSETAX
+
+		annotation SummarizationSetBy = User
+
+	column REPORTINGCODEUSETAXCREDITNOTE
+		dataType: int64
+		formatString: 0
+		lineageTag: 18d874d0-f976-4ac2-b723-8523544122d0
+		sourceLineageTag: 515db7b8-2c14-45a0-aa21-280052da5296
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: REPORTINGCODEUSETAXCREDITNOTE
+
+		annotation SummarizationSetBy = User
+
+	column REPORTINGCODEUSETAXOFFSET
+		dataType: int64
+		formatString: 0
+		lineageTag: ae9915d0-4d34-4257-b273-3e7555dcd4e7
+		sourceLineageTag: 3857960c-29b6-44a3-b39d-0970b74f7b87
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: REPORTINGCODEUSETAXOFFSET
+
+		annotation SummarizationSetBy = User
+
+	column REPORTINGCODEUSETAXOFFSETCREDITNOTE
+		dataType: int64
+		formatString: 0
+		lineageTag: 781a6856-552e-4f5d-b2db-3c6fe1d605fa
+		sourceLineageTag: d69bdfb6-d1ec-4c84-8e34-5a323ce2ca3e
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: REPORTINGCODEUSETAXOFFSETCREDITNOTE
+
+		annotation SummarizationSetBy = User
+
+	column TAXPOSTINGGROUPID
+		dataType: string
+		lineageTag: 7f167c01-3146-4959-8e39-96db1a66d859
+		sourceLineageTag: 20592141-25fe-4a8c-a772-1fba36b8ef17
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: TAXPOSTINGGROUPID
+
+		annotation SummarizationSetBy = User
+
+	column TAXBASE
+		dataType: int64
+		formatString: 0
+		lineageTag: 515a5a2e-f61a-448c-91bc-9cc7cf6e29ca
+		sourceLineageTag: 133ab95d-4b28-4cd7-afd0-53b2b137b03e
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: TAXBASE
+
+		annotation SummarizationSetBy = User
+
+	column TAXCALCULATIONMETHOD
+		dataType: int64
+		formatString: 0
+		lineageTag: 19636de5-6bcd-434b-b94b-6430cf7f6823
+		sourceLineageTag: b4967f3f-37db-4d83-91bb-02f83fcc7495
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: TAXCALCULATIONMETHOD
+
+		annotation SummarizationSetBy = User
+
+	column TAXCOUNTRYREGIONTYPE
+		dataType: int64
+		formatString: 0
+		lineageTag: 4f2734f6-7a3a-46bf-b15f-8274531507f8
+		sourceLineageTag: d64c1686-85a4-4987-90f9-c448eae9ba9e
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: TAXCOUNTRYREGIONTYPE
+
+		annotation SummarizationSetBy = User
+
+	column TAXCURRENCYCODEID
+		dataType: string
+		lineageTag: 2e7ef17c-6e82-4c22-891c-fe44b47ab040
+		sourceLineageTag: 40b46233-58ec-4031-9bf5-7834b4513d60
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: TAXCURRENCYCODEID
+
+		annotation SummarizationSetBy = User
+
+	column CALCULATEUNITTAXBEFORESALESTAX
+		dataType: int64
+		formatString: 0
+		lineageTag: 5f3a4724-bcec-411c-92d4-a1a8dbcab0ca
+		sourceLineageTag: 9070da65-7f59-4df5-b3f1-dc1d0fe4db6d
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: CALCULATEUNITTAXBEFORESALESTAX
+
+		annotation SummarizationSetBy = User
+
+	column TAXLIMITBASE
+		dataType: int64
+		formatString: 0
+		lineageTag: db813e5f-5449-4e0f-9a86-ecfd9d50e8de
+		sourceLineageTag: 20dbfa4a-ea03-48ee-88f2-ce66fc4e6fac
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: TAXLIMITBASE
+
+		annotation SummarizationSetBy = User
+
+	column TAXNAME
+		dataType: string
+		lineageTag: b9e08602-247a-42aa-b788-8c0e5eda6153
+		sourceLineageTag: 3e417357-4c9c-4c6b-9597-b32db6dd3d5d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: TAXNAME
+
+		annotation SummarizationSetBy = User
+
+	column TAXONTAX
+		dataType: string
+		lineageTag: 0e39c945-850f-4d5c-9d61-5c50d96ae129
+		sourceLineageTag: ed3b88a2-1ac4-488a-b065-3440b7453eed
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: TAXONTAX
+
+		annotation SummarizationSetBy = User
+
+	column PACKINGDUTYSORTCODE
+		dataType: string
+		lineageTag: 195f53cd-12e6-4992-81f4-e298c48d9550
+		sourceLineageTag: 412424d2-8d4d-4ffe-bdc4-990129a7a8b9
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PACKINGDUTYSORTCODE
+
+		annotation SummarizationSetBy = User
+
+	column PACKINGDUTY
+		dataType: int64
+		formatString: 0
+		lineageTag: 4498a900-8c47-4b77-b069-f5f715a6740b
+		sourceLineageTag: 8c6169ab-b3a7-4156-abcc-c2c333adc3b9
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: PACKINGDUTY
+
+		annotation SummarizationSetBy = User
+
+	column TAXPERIODID
+		dataType: string
+		lineageTag: d79e6183-8acc-43af-83e8-526c86751565
+		sourceLineageTag: d4faadf3-fdf6-4c74-b082-b3f43629e3e4
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: TAXPERIODID
+
+		annotation SummarizationSetBy = User
+
+	column TAXROUNDOFF
+		dataType: double
+		lineageTag: 29b6ce47-2a0b-4f65-8220-eb61e8a30bcd
+		sourceLineageTag: 7e3d7461-8ee5-43a0-928d-2ea408f3b646
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: TAXROUNDOFF
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TAXROUNDOFFTYPE
+		dataType: int64
+		formatString: 0
+		lineageTag: 98be978a-9815-40f0-bff1-e69e4af38424
+		sourceLineageTag: 60315709-8e0e-4869-92b3-bebb893d1136
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: TAXROUNDOFFTYPE
+
+		annotation SummarizationSetBy = User
+
+	column TAXUNITID
+		dataType: string
+		lineageTag: 1547e347-6383-45c2-8b0b-a14295d2fd9a
+		sourceLineageTag: fd4f28e2-959f-45e6-b903-3368ea1de690
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: TAXUNITID
+
+		annotation SummarizationSetBy = User
+
+	column PRINTCODETYPE
+		dataType: int64
+		formatString: 0
+		lineageTag: 5e3c9428-4fc6-4334-acfa-34d20de2e865
+		sourceLineageTag: 3173d857-74b8-44b1-bfa7-e760f6a518d8
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: PRINTCODETYPE
+
+		annotation SummarizationSetBy = User
+
+	column INCLUDEDTAX
+		dataType: int64
+		formatString: 0
+		lineageTag: f4db780f-7a52-42db-8602-84acacd9ad7b
+		sourceLineageTag: 42ae8fc3-124b-493a-98b6-98dfeef99e94
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: INCLUDEDTAX
+
+		annotation SummarizationSetBy = User
+
+	column RETAINEDTAX
+		dataType: int64
+		formatString: 0
+		lineageTag: 9e397230-beca-4c70-b70b-f0cdd47fed0b
+		sourceLineageTag: a67ecd82-c923-45ae-8d97-82006347038c
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: RETAINEDTAX
+
+		annotation SummarizationSetBy = User
+
+	column TAXATIONCODE
+		dataType: string
+		lineageTag: 8398a902-ac5b-4b54-b068-4208c82462d3
+		sourceLineageTag: e635e4ed-e40b-4f4f-af13-065e24feb4ad
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: TAXATIONCODE
+
+		annotation SummarizationSetBy = User
+
+	column FISCALVALUE
+		dataType: int64
+		formatString: 0
+		lineageTag: 3122fc5c-552f-462e-8665-2b7cd821fb6a
+		sourceLineageTag: 8866316c-730b-4413-8e66-1305f30cf33c
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: FISCALVALUE
+
+		annotation SummarizationSetBy = User
+
+	column TAXSUBSTITUTIONMETHOD
+		dataType: int64
+		formatString: 0
+		lineageTag: dd700d65-f200-4469-ba2a-b2128d902a17
+		sourceLineageTag: 849421e7-b29d-4011-99c3-e1a823ac41c5
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: TAXSUBSTITUTIONMETHOD
+
+		annotation SummarizationSetBy = User
+
+	column BRAZILTAXTYPE
+		dataType: int64
+		formatString: 0
+		lineageTag: b03d62ea-8b09-44b8-a638-caedbdf9d818
+		sourceLineageTag: 0ae111eb-2c7a-4eff-936f-fd1ee9e71c73
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: BRAZILTAXTYPE
+
+		annotation SummarizationSetBy = User
+
+	column DIOTADDINFO
+		dataType: int64
+		formatString: 0
+		lineageTag: 389342e8-d822-4d60-80ff-6b25d9762300
+		sourceLineageTag: 5a046ce8-62f9-4c3f-b90f-d474b8e8939f
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: DIOTADDINFO
+
+		annotation SummarizationSetBy = User
+
+	column MEXICOTAXTYPE
+		dataType: int64
+		formatString: 0
+		lineageTag: 8cccc26a-4292-41af-a7d4-efb3b124bb06
+		sourceLineageTag: cc1f3854-e5aa-41b4-a0b9-505bb2e90c43
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: MEXICOTAXTYPE
+
+		annotation SummarizationSetBy = User
+
+	column TAXVATREPORTCATEGORYCODE
+		dataType: string
+		lineageTag: d95af20f-f11f-4c7e-a9bf-363daa82aff5
+		sourceLineageTag: 59b6723f-7ba5-4f49-b2ff-92460fb44bd8
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: TAXVATREPORTCATEGORYCODE
+
+		annotation SummarizationSetBy = User
+
+	column UNREALIZEDTAX
+		dataType: int64
+		formatString: 0
+		lineageTag: ba054069-4cf4-4f0e-936e-59b4671af433
+		sourceLineageTag: b6474aef-b135-4a34-b483-2367e5a1fb71
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: UNREALIZEDTAX
+
+		annotation SummarizationSetBy = User
+
+	column SINGAPORETAXTYPE
+		dataType: int64
+		formatString: 0
+		lineageTag: 79436a88-33d9-4efc-adbd-8fa409cb97d2
+		sourceLineageTag: 637cafbd-0566-4306-b2cc-3990c9a8d253
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: SINGAPORETAXTYPE
+
+		annotation SummarizationSetBy = User
+
+	column REPORTINGCODEBASEINCOMINGDEBITNOTE
+		dataType: int64
+		formatString: 0
+		lineageTag: cb4f6a57-bd9d-4882-923e-a37536d55890
+		sourceLineageTag: 729a9282-8d85-4826-8e74-4e0ebfe57037
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: REPORTINGCODEBASEINCOMINGDEBITNOTE
+
+		annotation SummarizationSetBy = User
+
+	column REPORTINGCODEBASEOUTGOINGDEBITNOTE
+		dataType: int64
+		formatString: 0
+		lineageTag: cccd6728-44ca-4d4e-8bd6-52f35f282827
+		sourceLineageTag: 4c77279c-179b-4655-b910-9366ac009e29
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: REPORTINGCODEBASEOUTGOINGDEBITNOTE
+
+		annotation SummarizationSetBy = User
+
+	column REPORTINGCODETAXFREEBUYDEBITNOTE
+		dataType: int64
+		formatString: 0
+		lineageTag: b2aa7ae4-7e99-410f-87a0-2130c9fa9312
+		sourceLineageTag: ca336505-560b-43b5-bf04-c3799fd752a0
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: REPORTINGCODETAXFREEBUYDEBITNOTE
+
+		annotation SummarizationSetBy = User
+
+	column REPORTINGCODETAXFREESALESDEBITNOTE
+		dataType: int64
+		formatString: 0
+		lineageTag: 3e83c55c-b557-42a7-9fab-e761b438dfc3
+		sourceLineageTag: caa8e9a2-b1a9-4db7-b06c-c2aba21615f8
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: REPORTINGCODETAXFREESALESDEBITNOTE
+
+		annotation SummarizationSetBy = User
+
+	column REPORTINGCODETAXINCOMINGDEBITNOTE
+		dataType: int64
+		formatString: 0
+		lineageTag: 848893e6-22a8-46c1-b121-37c592f0a099
+		sourceLineageTag: 99f85b86-c05e-49ae-bd88-d5234f8ead97
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: REPORTINGCODETAXINCOMINGDEBITNOTE
+
+		annotation SummarizationSetBy = User
+
+	column REPORTINGCODETAXOUTGOINGDEBITNOTE
+		dataType: int64
+		formatString: 0
+		lineageTag: dbaa9432-73db-4d67-b847-5668e6a4a888
+		sourceLineageTag: b2edb046-f97b-4c67-a9b2-2447294379a3
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: REPORTINGCODETAXOUTGOINGDEBITNOTE
+
+		annotation SummarizationSetBy = User
+
+	column TYPEOFTAX
+		dataType: int64
+		formatString: 0
+		lineageTag: 02215781-9996-4f7a-bba7-883b8d448bc4
+		sourceLineageTag: 75ed49d9-c882-477e-bdc4-e6267abe9ec3
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: TYPEOFTAX
+
+		annotation SummarizationSetBy = User
+
+	column TAXTYPE
+		dataType: int64
+		formatString: 0
+		lineageTag: 2912c3e6-ae39-4267-bba4-588de05d5f3a
+		sourceLineageTag: 585ed474-bbd3-4b61-9176-a923e947dfa0
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: TAXTYPE
+
+		annotation SummarizationSetBy = User
+
+	column DOMESTICCUSTOMSPRACTICE
+		dataType: int64
+		formatString: 0
+		lineageTag: 45a187c2-0331-4ee8-9648-ee4a739b1720
+		sourceLineageTag: 36d5168b-960c-4ff2-a476-1be6cbbe8cc9
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: DOMESTICCUSTOMSPRACTICE
+
+		annotation SummarizationSetBy = User
+
+	column EXCLUDEFROMINVOICE
+		dataType: int64
+		formatString: 0
+		lineageTag: 2204325d-84fb-4dac-8a96-5af4b607a61e
+		sourceLineageTag: d299b8de-c60e-4f7b-8652-b55b34d1a1d2
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: EXCLUDEFROMINVOICE
+
+		annotation SummarizationSetBy = User
+
+	column TAXSUBSTITUTIONCALCULATIONMETHOD
+		dataType: int64
+		formatString: 0
+		lineageTag: 7608ad64-6c50-4ada-917c-e9faf61cb4c4
+		sourceLineageTag: efe71d23-2fe5-417a-ab9d-92c93a73abbe
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: TAXSUBSTITUTIONCALCULATIONMETHOD
+
+		annotation SummarizationSetBy = User
+
+	column REVENUECODE
+		dataType: string
+		lineageTag: 6e014326-58da-4d7b-a4dd-09d6793fafab
+		sourceLineageTag: b79f1fc2-ba15-41dc-918c-32e7098e6ca5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: REVENUECODE
+
+		annotation SummarizationSetBy = User
+
+	column VATCHARGESOURCE
+		dataType: int64
+		formatString: 0
+		lineageTag: af3301c6-bb19-4675-955d-3ae1b85e41de
+		sourceLineageTag: f78408c2-2e50-41d1-964a-f2d61ffc5f57
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: VATCHARGESOURCE
+
+		annotation SummarizationSetBy = User
+
+	column JAPANTAXTYPE
+		dataType: int64
+		formatString: 0
+		lineageTag: d9b91fee-a9ad-4029-a80f-346aff5a9637
+		sourceLineageTag: ad063f4f-2cee-4069-87fe-87e9b201fed0
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: JAPANTAXTYPE
+
+		annotation SummarizationSetBy = User
+
+	column DESCRIPTIONQRBILL
+		dataType: string
+		lineageTag: 980a4097-66a5-4a9e-85e0-7b3452888c17
+		sourceLineageTag: 257ccd96-bf88-4d12-85fd-abcd9083f3f4
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DESCRIPTIONQRBILL
+
+		annotation SummarizationSetBy = User
+
+	column PARTITION
+		dataType: string
+		lineageTag: 1ba07f6f-df41-47f2-9667-7410525f782b
+		sourceLineageTag: 4aeb6328-9d30-4808-8852-4121618fa7c4
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PARTITION
+
+		annotation SummarizationSetBy = User
+
+	column ISINVESTMENT
+		dataType: int64
+		formatString: 0
+		lineageTag: 8d77ace5-d28e-4ff7-8ba5-318cbc82929d
+		sourceLineageTag: 636d0319-01ac-4d4b-bb08-9bf57c1a6c5c
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ISINVESTMENT
+
+		annotation SummarizationSetBy = User
+
+	column DATAAREAID
+		dataType: string
+		lineageTag: 2a48a98a-664a-47e9-9647-9ff180205732
+		sourceLineageTag: 71176ddd-7855-4b2b-bf0b-1c233b4560cb
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DATAAREAID
+
+		annotation SummarizationSetBy = User
+
+	column SYNCSTARTDATETIME
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: 61736b6d-729c-47b8-be74-8c8d0c3b76bb
+		sourceLineageTag: 675499c6-7707-475f-88e6-2ba522c485ce
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SYNCSTARTDATETIME
+
+		variation Variation
+			isDefault
+			relationship: 109f3b0f-3746-49c4-8b3c-dc303f668067
+			defaultHierarchy: LocalDateTable_23c8844d-a0af-42a5-9674-8ea5b81bde45.'Date Hierarchy'
+
+		annotation SummarizationSetBy = User
+
+	partition TaxCodeEntityStaging = entity
+		mode: directQuery
+		source
+			entityName: TaxCodeEntityStaging
+			expressionSource: 'DirectQuery to AS - FIN & MI tables'
+

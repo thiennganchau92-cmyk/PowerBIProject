@@ -1,0 +1,196 @@
+table ExchangeRateEntityStaging
+	lineageTag: 26dbac32-c0b6-45e0-ac2d-e609e397bdf4
+	sourceLineageTag: de9c9dac-050a-4497-943f-7b8987e8724b
+
+	column DEFINITIONGROUP
+		dataType: string
+		lineageTag: d2fbae10-caa2-4ea3-bc3e-01abafd24eb1
+		sourceLineageTag: b015e5af-2599-4178-96c2-ed03f641bd44
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DEFINITIONGROUP
+
+		annotation SummarizationSetBy = User
+
+	column EXECUTIONID
+		dataType: string
+		lineageTag: e89b0d8d-04ae-4d78-a3a1-a383273f9066
+		sourceLineageTag: e34d93bf-a24e-4c0a-8172-fecf32fc8c18
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: EXECUTIONID
+
+		annotation SummarizationSetBy = User
+
+	column ISSELECTED
+		dataType: int64
+		formatString: 0
+		lineageTag: d6fe7a0e-42a8-4f17-903c-3c224605b1c8
+		sourceLineageTag: 94b8d845-0be7-4a05-afea-f62d05454303
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ISSELECTED
+
+		annotation SummarizationSetBy = User
+
+	column TRANSFERSTATUS
+		dataType: int64
+		formatString: 0
+		lineageTag: dae6cf0c-a20b-45aa-90e8-c7d3779e2c39
+		sourceLineageTag: 1d9ff578-bb7b-4d1b-ab6e-f2abe73e5fa9
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: TRANSFERSTATUS
+
+		annotation SummarizationSetBy = User
+
+	column EXCHANGERATEFORSTORAGE
+		dataType: double
+		lineageTag: 887f4350-5780-4193-ad72-0e87e45f364d
+		sourceLineageTag: 58eee282-115a-40c3-bee8-191bac313610
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: EXCHANGERATEFORSTORAGE
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column STARTDATE
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: 0e65d3ac-a8d9-4be7-8dfb-daca00ab8abe
+		sourceLineageTag: 6283dfdb-351f-4393-86ea-c3ecb53db37f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: STARTDATE
+
+		variation Variation
+			isDefault
+			relationship: e677c385-ff48-4e9e-b905-82dbcecb8483
+			defaultHierarchy: LocalDateTable_eadf5370-f4a7-4cd6-8cb3-094c9dfe8046.'Date Hierarchy'
+
+		annotation SummarizationSetBy = User
+
+	column ENDDATE
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: 75b37f4f-4105-4e75-99df-b289d3b95e19
+		sourceLineageTag: 8c64d6a9-135c-46ac-9a79-feca97c70616
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ENDDATE
+
+		variation Variation
+			isDefault
+			relationship: 617a1250-ad32-4b67-a648-500575ef04f1
+			defaultHierarchy: LocalDateTable_f3ea46cf-b928-4185-84ce-cbe0b0d3cee8.'Date Hierarchy'
+
+		annotation SummarizationSetBy = User
+
+	column CONVERSIONFACTOR
+		dataType: int64
+		formatString: 0
+		lineageTag: 1369d7ea-8ace-421c-a711-ff4178136301
+		sourceLineageTag: 2a699619-95d2-45c3-a406-9a77ea712c49
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: CONVERSIONFACTOR
+
+		annotation SummarizationSetBy = User
+
+	column FROMCURRENCY
+		dataType: string
+		lineageTag: d0d57ec0-2511-41a1-bc68-1f8dcecffec7
+		sourceLineageTag: 4d6ecfe3-527d-4a52-89af-3fb1bf5ff755
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: FROMCURRENCY
+
+		annotation SummarizationSetBy = User
+
+	column TOCURRENCY
+		dataType: string
+		lineageTag: fb9b794a-69c6-44d9-b239-8027fbb91a81
+		sourceLineageTag: 5841c2e3-1d99-46db-a015-b0fe3633e7ef
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: TOCURRENCY
+
+		annotation SummarizationSetBy = User
+
+	column RATETYPEDESCRIPTION
+		dataType: string
+		lineageTag: 853b171e-edef-4697-8adf-ff945e6f181d
+		sourceLineageTag: c30dc8a6-9018-4e07-99ca-b43854eaeca6
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: RATETYPEDESCRIPTION
+
+		annotation SummarizationSetBy = User
+
+	column RATETYPENAME
+		dataType: string
+		lineageTag: 0f22e33d-66f9-4715-94a7-3425cca77cc7
+		sourceLineageTag: 0e534adb-bcdb-4243-978d-0305bdfc507b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: RATETYPENAME
+
+		annotation SummarizationSetBy = User
+
+	column RATE
+		dataType: double
+		lineageTag: 7ee2e124-d556-4511-b535-ba72a410c551
+		sourceLineageTag: 44d41178-ba04-4f97-8b26-ab4b07b4a382
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: RATE
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PARTITION
+		dataType: string
+		lineageTag: 1ce9d913-8297-4c9e-8687-71dc9b19c620
+		sourceLineageTag: c2ef05e5-dfd4-4717-a8d5-a09ee8d8a517
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PARTITION
+
+		annotation SummarizationSetBy = User
+
+	column SYNCSTARTDATETIME
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: becb1f29-ca39-4c19-98ff-addbc55de84a
+		sourceLineageTag: 1c5b925d-b87d-419e-a386-665ea079eb91
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SYNCSTARTDATETIME
+
+		variation Variation
+			isDefault
+			relationship: 3b80492a-45cf-4cb4-91b6-8ee0616e1e88
+			defaultHierarchy: LocalDateTable_fb4f6d5c-93f3-480f-86cb-7cbab890bee8.'Date Hierarchy'
+
+		annotation SummarizationSetBy = User
+
+	column RECID
+		dataType: int64
+		formatString: 0
+		lineageTag: 9bb1c406-a3c5-4216-be91-894fd5b07095
+		sourceLineageTag: 1d731d54-879a-41ff-afbe-523ea33dbff0
+		dataCategory: Uncategorized
+		summarizeBy: count
+		sourceColumn: RECID
+
+		annotation SummarizationSetBy = User
+
+	partition ExchangeRateEntityStaging = entity
+		mode: directQuery
+		source
+			entityName: ExchangeRateEntityStaging
+			expressionSource: 'DirectQuery to AS - FIN & MI tables'
+

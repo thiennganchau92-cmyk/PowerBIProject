@@ -1,0 +1,151 @@
+table VendorPostingProfileHeaderStaging
+	lineageTag: 1ed698a6-2998-48b8-abd1-a79922bd9aa2
+	sourceLineageTag: 771b3dcf-75b9-412c-acdf-e6f01f88c1eb
+
+	column DEFINITIONGROUP
+		dataType: string
+		lineageTag: a36ca02a-fc0f-479a-82bb-75421a63926d
+		sourceLineageTag: c6846655-7f48-45c0-aba9-eae53a7803bf
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DEFINITIONGROUP
+
+		annotation SummarizationSetBy = User
+
+	column EXECUTIONID
+		dataType: string
+		lineageTag: 7eec8015-aaf4-4f1d-8953-f3e4e9b63197
+		sourceLineageTag: 1d29eeb6-55f3-4a59-bd81-d38de9eeee95
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: EXECUTIONID
+
+		annotation SummarizationSetBy = User
+
+	column ISSELECTED
+		dataType: int64
+		formatString: 0
+		lineageTag: ca3b28aa-c632-4d20-ade1-2658e467b00f
+		sourceLineageTag: 5a971f5b-f85c-460c-8f44-d5d46b715ade
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ISSELECTED
+
+		annotation SummarizationSetBy = User
+
+	column TRANSFERSTATUS
+		dataType: int64
+		formatString: 0
+		lineageTag: f3cd91b9-c625-4fb7-9dbc-e13fcf286504
+		sourceLineageTag: 34e91a25-ba6b-4026-8b6c-3efb56b0a8e1
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: TRANSFERSTATUS
+
+		annotation SummarizationSetBy = User
+
+	column ISTRANSACTIONCANCELENABLED
+		dataType: int64
+		formatString: 0
+		lineageTag: 347b6d4c-71f4-483d-bfee-8285d4c05a09
+		sourceLineageTag: e148e855-1912-4884-a2bc-e3bf4e2a39b9
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ISTRANSACTIONCANCELENABLED
+
+		annotation SummarizationSetBy = User
+
+	column DESCRIPTION
+		dataType: string
+		lineageTag: 25ba8a2b-a439-4787-b9eb-77af7e150b0c
+		sourceLineageTag: 21ca1c55-7883-4a78-a10d-b2ea51cd37fe
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DESCRIPTION
+
+		annotation SummarizationSetBy = User
+
+	column POSTINGPROFILE
+		dataType: string
+		lineageTag: f0c1a79f-1f00-4010-beaa-946afbb864d5
+		sourceLineageTag: 9e981fbb-16c9-4c53-b722-5ef92ff6f689
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: POSTINGPROFILE
+
+		annotation SummarizationSetBy = User
+
+	column POSTINGPROFILETOCLOSESETTLEMENT
+		dataType: string
+		lineageTag: 0a4be3f6-2f81-46ad-b350-4ec29e1c5c12
+		sourceLineageTag: c38cbbb5-db4e-4404-ab3b-a43f415ca34a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: POSTINGPROFILETOCLOSESETTLEMENT
+
+		annotation SummarizationSetBy = User
+
+	column ISTRANSACTIONINCLUDEDINAUTOSETTLEMENT
+		dataType: int64
+		formatString: 0
+		lineageTag: b8b84c3a-8e33-4cb0-9a17-0ada1cd137a0
+		sourceLineageTag: c3987da4-23ca-4296-a29d-408736192e13
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ISTRANSACTIONINCLUDEDINAUTOSETTLEMENT
+
+		annotation SummarizationSetBy = User
+
+	column ALLOWEMPTYDIMENSIONVALUE
+		dataType: int64
+		formatString: 0
+		lineageTag: 12cf1368-f771-46e1-9fd6-7b9cc6c34056
+		sourceLineageTag: 150452b1-6e75-4723-84fb-08afeb6043dc
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ALLOWEMPTYDIMENSIONVALUE
+
+		annotation SummarizationSetBy = User
+
+	column PARTITION
+		dataType: string
+		lineageTag: 33bc89e7-c92a-4830-a99f-9ec2e71f1064
+		sourceLineageTag: 65ed39fc-6640-4ca8-8a2f-843687165bdc
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PARTITION
+
+		annotation SummarizationSetBy = User
+
+	column DATAAREAID
+		dataType: string
+		lineageTag: e3f61227-67f1-4723-b07d-ed9d0f0ecebf
+		sourceLineageTag: 55637227-59f5-4311-b464-606d2dbe2cc1
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DATAAREAID
+
+		annotation SummarizationSetBy = User
+
+	column SYNCSTARTDATETIME
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: f315e873-7368-44fd-a586-0852b633f278
+		sourceLineageTag: 64d2e95b-e8de-4c24-ae94-1c134b12dce3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SYNCSTARTDATETIME
+
+		variation Variation
+			isDefault
+			relationship: b5854dd1-4f0c-4168-b3e7-cdd4c95272d2
+			defaultHierarchy: LocalDateTable_a2fe6e65-ae10-4c16-860c-478789388ba5.'Date Hierarchy'
+
+		annotation SummarizationSetBy = User
+
+	partition VendorPostingProfileHeaderStaging = entity
+		mode: directQuery
+		source
+			entityName: VendorPostingProfileHeaderStaging
+			expressionSource: 'DirectQuery to AS - FIN & MI tables'
+

@@ -1,0 +1,1020 @@
+table LedgerParametersStaging
+	lineageTag: eb407871-10b5-40cc-ae32-fab7500a4595
+	sourceLineageTag: 6517571b-1303-454a-9e95-33c0e6c7973d
+
+	column INFLATIONCORRECTIONACCOUNTDISPLAYVALUE
+		dataType: string
+		lineageTag: b779810a-0d74-45e8-9398-250c719e73f2
+		sourceLineageTag: 89485a41-abbc-4c7b-9bf6-4bf0131fbe42
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: INFLATIONCORRECTIONACCOUNTDISPLAYVALUE
+
+		annotation SummarizationSetBy = User
+
+	column INFLATIONOFFSETACCOUNTDISPLAYVALUE
+		dataType: string
+		lineageTag: 96f09aa4-de73-4a3f-935d-0b8d2ca5891c
+		sourceLineageTag: 6cee92d3-86b1-4ee9-b83b-94092eb8ff51
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: INFLATIONOFFSETACCOUNTDISPLAYVALUE
+
+		annotation SummarizationSetBy = User
+
+	column FINANCIALSTATEMENTS
+		dataType: int64
+		formatString: 0
+		lineageTag: d79a4c2c-b468-4796-b091-bdfaef6c28f9
+		sourceLineageTag: f298243d-d091-4f6c-a816-a14e3eb6913d
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: FINANCIALSTATEMENTS
+
+		annotation SummarizationSetBy = User
+
+	column CHARGES
+		dataType: int64
+		formatString: 0
+		lineageTag: 2e5ed8fc-c881-4e43-a947-289e7f0f124a
+		sourceLineageTag: 4ec2f3ef-24c4-4200-a0ba-781f5d03b60f
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: CHARGES
+
+		annotation SummarizationSetBy = User
+
+	column PROCESSSOURCEDOCUMENTLINESINPARALLEL
+		dataType: int64
+		formatString: 0
+		lineageTag: be6786ae-785e-4504-aac7-5193be3e7b91
+		sourceLineageTag: d1ed9b13-5b00-4061-ae5d-b945f1ed19f8
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: PROCESSSOURCEDOCUMENTLINESINPARALLEL
+
+		annotation SummarizationSetBy = User
+
+	column DEFINITIONGROUP
+		dataType: string
+		lineageTag: d31e8ad0-6a18-4bc7-bd15-09a41cc44005
+		sourceLineageTag: dcc846e8-9d7f-4a54-b3a0-1e96fbc23eec
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DEFINITIONGROUP
+
+		annotation SummarizationSetBy = User
+
+	column EXECUTIONID
+		dataType: string
+		lineageTag: 6121f132-476f-41cd-97cb-b46417a29300
+		sourceLineageTag: b70b351d-b81a-4c73-9b57-d6c375197acc
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: EXECUTIONID
+
+		annotation SummarizationSetBy = User
+
+	column ISSELECTED
+		dataType: int64
+		formatString: 0
+		lineageTag: bf8b4d84-3bdf-4d05-af62-dc5abc52618f
+		sourceLineageTag: fa024ec2-3f1f-46ac-b10d-1a31ab824c28
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ISSELECTED
+
+		annotation SummarizationSetBy = User
+
+	column TRANSFERSTATUS
+		dataType: int64
+		formatString: 0
+		lineageTag: 5e12bf66-b627-444d-b23d-658753c50606
+		sourceLineageTag: 707dd3af-c8c7-475d-ad59-c53f9e4c3858
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: TRANSFERSTATUS
+
+		annotation SummarizationSetBy = User
+
+	column DONOTUSEERRORACCOUNT
+		dataType: int64
+		formatString: 0
+		lineageTag: 0e0d1833-9f12-4053-9e3c-3aff89612ecb
+		sourceLineageTag: 91ad9d93-4f89-4007-b785-f28d16cd8a79
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: DONOTUSEERRORACCOUNT
+
+		annotation SummarizationSetBy = User
+
+	column REQUIRECONTINUOUSNUMBERSEQUENCES
+		dataType: int64
+		formatString: 0
+		lineageTag: 71ef9700-2602-4804-b1e4-a721d4bc3f89
+		sourceLineageTag: 81d4d207-e19e-453a-be06-9d2d02003d7c
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: REQUIRECONTINUOUSNUMBERSEQUENCES
+
+		annotation SummarizationSetBy = User
+
+	column REQUIREJOURNALIZINGONFISCALPERIODCLOSE
+		dataType: int64
+		formatString: 0
+		lineageTag: 17212366-5c3b-4ebb-ac4b-c00b9fcb62d0
+		sourceLineageTag: 9567a6ec-1c32-44ff-b228-256551ffff49
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: REQUIREJOURNALIZINGONFISCALPERIODCLOSE
+
+		annotation SummarizationSetBy = User
+
+	column DUPLICATEVOUCHEROPTION
+		dataType: int64
+		formatString: 0
+		lineageTag: be0a244e-0c65-4936-b113-146e26498233
+		sourceLineageTag: df0196fc-9d53-4390-97fc-ed6177a7db6f
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: DUPLICATEVOUCHEROPTION
+
+		annotation SummarizationSetBy = User
+
+	column DELETEPREVIOUSCLOSINGTRANSACTIONSDURINGFISCALYEARCLOSE
+		dataType: int64
+		formatString: 0
+		lineageTag: b5c0fd19-51bc-4c36-baa9-68b281d937dd
+		sourceLineageTag: 48d3188e-2649-4cd9-8775-3afdd476ffd6
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: DELETEPREVIOUSCLOSINGTRANSACTIONSDURINGFISCALYEARCLOSE
+
+		annotation SummarizationSetBy = User
+
+	column DIMENSIONVALUESUSEDFORSUMMARYACCOUNTOPTION
+		dataType: int64
+		formatString: 0
+		lineageTag: 1ba438c9-55ea-4c0e-baf8-65c428161b9a
+		sourceLineageTag: 03fb084b-eb51-4135-8e74-adefeb17472a
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: DIMENSIONVALUESUSEDFORSUMMARYACCOUNTOPTION
+
+		annotation SummarizationSetBy = User
+
+	column USEBUDGETAPPROPRIATION
+		dataType: int64
+		formatString: 0
+		lineageTag: 1065119f-08a3-42e5-be0c-1ee0982f9de4
+		sourceLineageTag: 862ae330-4c28-425c-9e38-b87c4b0688bb
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: USEBUDGETAPPROPRIATION
+
+		annotation SummarizationSetBy = User
+
+	column USEBUDGETRESERVATIONPROCESS
+		dataType: int64
+		formatString: 0
+		lineageTag: 42be519c-d426-4c14-8457-01471ada93f7
+		sourceLineageTag: 74394d91-4954-46b7-8e2c-278fc99b329b
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: USEBUDGETRESERVATIONPROCESS
+
+		annotation SummarizationSetBy = User
+
+	column USEENCUMBRANCEPROCESS
+		dataType: int64
+		formatString: 0
+		lineageTag: fff62739-a4f1-4e31-a37b-4aade2ec51c0
+		sourceLineageTag: 9d988e99-8d0a-4670-9381-3f1b178a2f53
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: USEENCUMBRANCEPROCESS
+
+		annotation SummarizationSetBy = User
+
+	column USEPREENCUMBRANCEPROCESS
+		dataType: int64
+		formatString: 0
+		lineageTag: d6d69740-14bc-44c0-a472-3484919d5638
+		sourceLineageTag: a7216207-477f-4a08-aa6f-7afb0be04d75
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: USEPREENCUMBRANCEPROCESS
+
+		annotation SummarizationSetBy = User
+
+	column STARTJOURNALIZEREPORTONPAGEONE
+		dataType: int64
+		formatString: 0
+		lineageTag: 21632b2c-99cc-4e05-9c9d-7d84e4295389
+		sourceLineageTag: 6778b1b9-a0b4-4f3e-97cc-30ffd69fdad9
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: STARTJOURNALIZEREPORTONPAGEONE
+
+		annotation SummarizationSetBy = User
+
+	column ORDERJOURNALIZINGREPORTBYCREATEDDATEANDTIME
+		dataType: int64
+		formatString: 0
+		lineageTag: 32de7bfa-3b4c-4dd6-8c41-9b9ab5618b34
+		sourceLineageTag: 03cd29c8-c8c9-4d55-8bbf-a0911a818a23
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ORDERJOURNALIZINGREPORTBYCREATEDDATEANDTIME
+
+		annotation SummarizationSetBy = User
+
+	column USEPOSTINGDEFINITIONS
+		dataType: int64
+		formatString: 0
+		lineageTag: ce2255e3-7ac5-4d9f-b0a8-d9e0056e4fb9
+		sourceLineageTag: ba66a3a4-5669-4f80-9b05-f18e60a2c1e1
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: USEPOSTINGDEFINITIONS
+
+		annotation SummarizationSetBy = User
+
+	column MAXIMUMNUMBEROFOPENFISCALYEARS
+		dataType: int64
+		formatString: 0
+		lineageTag: c2cc8c9a-77b7-4677-b7b6-4f3b09e13d08
+		sourceLineageTag: 186743ca-b683-400d-bce4-1e1678bb1942
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: MAXIMUMNUMBEROFOPENFISCALYEARS
+
+		annotation SummarizationSetBy = User
+
+	column MAXIMUMPENNYDIFFERENCEINACCOUNTINGCURRENCY
+		dataType: double
+		lineageTag: f06f5e66-791a-4f3c-83e8-3623de8052fe
+		sourceLineageTag: c6d8683a-9dc3-460c-986d-45099876ec41
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: MAXIMUMPENNYDIFFERENCEINACCOUNTINGCURRENCY
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MAXIMUMPENNYDIFFERENCEINREPORTINGCURRENCY
+		dataType: double
+		lineageTag: fc2f23e8-7eda-4106-b04b-771b90595783
+		sourceLineageTag: 7495f101-ae77-4c14-ad8a-495a75c1bdca
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: MAXIMUMPENNYDIFFERENCEINREPORTINGCURRENCY
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column UPLOADJOURNALNAME
+		dataType: string
+		lineageTag: 01ac5500-8073-44e5-ab14-bacdc9968434
+		sourceLineageTag: 28582767-0ded-49fe-a400-8b81045414e0
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: UPLOADJOURNALNAME
+
+		annotation SummarizationSetBy = User
+
+	column VOUCHERNUMBERREQUIREDFORFISCALYEARCLOSE
+		dataType: int64
+		formatString: 0
+		lineageTag: 43482129-117c-4568-8680-c79ea6bb120c
+		sourceLineageTag: 9ca7c8b2-44ba-436a-8ff9-032bce91e722
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: VOUCHERNUMBERREQUIREDFORFISCALYEARCLOSE
+
+		annotation SummarizationSetBy = User
+
+	column SKIPBUDGETTRANSACTIONSFORFISCALYEARCLOSE
+		dataType: int64
+		formatString: 0
+		lineageTag: 4c527779-2410-46d3-a9ad-64a4b12b2729
+		sourceLineageTag: 873aa28b-e7aa-4972-b738-fe107762ff6a
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: SKIPBUDGETTRANSACTIONSFORFISCALYEARCLOSE
+
+		annotation SummarizationSetBy = User
+
+	column CREATECLOSINGTRANSACTIONSDURINGFISCALYEARCLOSE
+		dataType: int64
+		formatString: 0
+		lineageTag: 1a4678c9-9497-4a58-ac96-a38d284a293d
+		sourceLineageTag: f96e6a8b-fcc9-4fdc-9e30-d9f5777f3368
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: CREATECLOSINGTRANSACTIONSDURINGFISCALYEARCLOSE
+
+		annotation SummarizationSetBy = User
+
+	column USEFUNDDIMENSIONTOCARRYFORWARDPURCHASEORDERS
+		dataType: int64
+		formatString: 0
+		lineageTag: bcd7372b-c2a6-4a3e-837d-b761c9a013b7
+		sourceLineageTag: ca555631-25f8-4109-94f6-6b90cae24000
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: USEFUNDDIMENSIONTOCARRYFORWARDPURCHASEORDERS
+
+		annotation SummarizationSetBy = User
+
+	column REVERSEOPPOSITESIGNAMOUNTS
+		dataType: int64
+		formatString: 0
+		lineageTag: 500e50ea-2879-4c46-8eac-bc75c23cf4cf
+		sourceLineageTag: f1029a25-b6c1-44bc-bc70-c66b7c6c6bb4
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: REVERSEOPPOSITESIGNAMOUNTS
+
+		annotation SummarizationSetBy = User
+
+	column CREATEREVERSALSASCORRECTIONS
+		dataType: int64
+		formatString: 0
+		lineageTag: fa5c5da6-ceef-43b8-8380-e08d604addb8
+		sourceLineageTag: 1da39f77-62fe-4ae5-8c87-e4c90dc78fb4
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: CREATEREVERSALSASCORRECTIONS
+
+		annotation SummarizationSetBy = User
+
+	column SETFISCALYEARTOCLOSEDDURINGFISCALYEARCLOSE
+		dataType: int64
+		formatString: 0
+		lineageTag: 6b748e13-51be-4957-b1ad-391018899a51
+		sourceLineageTag: c9f07e04-6a8c-4145-9409-a14e2d7810f4
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: SETFISCALYEARTOCLOSEDDURINGFISCALYEARCLOSE
+
+		annotation SummarizationSetBy = User
+
+	column TACCOUNT
+		dataType: int64
+		formatString: 0
+		lineageTag: 028d39f1-b7c5-48e4-97ac-9e046eb82f9f
+		sourceLineageTag: dbfdd4c5-b73d-425f-82b4-40fe80ed2db0
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: TACCOUNT
+
+		annotation SummarizationSetBy = User
+
+	column WITHHOLDINGTAXMINIMUMINVOICEAMOUNT
+		dataType: double
+		lineageTag: abfe8db3-f97a-467a-8e58-af5b4ad57b0b
+		sourceLineageTag: a50c3af9-bf31-4c0c-9aae-903e0d42372c
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: WITHHOLDINGTAXMINIMUMINVOICEAMOUNT
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ERFORMATMEXICANBALANCESHEET
+		dataType: string
+		lineageTag: 254cd82a-1ab3-47d5-9470-30b376bbfe61
+		sourceLineageTag: 5b13fa90-942b-4178-9876-988f34baf64a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ERFORMATMEXICANBALANCESHEET
+
+		annotation SummarizationSetBy = User
+
+	column ERSOLUTIONMEXICANBALANCESHEET
+		dataType: string
+		lineageTag: 07338dcc-1ac7-4d37-a857-30059dd97f0a
+		sourceLineageTag: fa3e56a8-3efb-48c3-a605-f6edc9243a7e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ERSOLUTIONMEXICANBALANCESHEET
+
+		annotation SummarizationSetBy = User
+
+	column ERPROVIDERMEXICANBALANCESHEET
+		dataType: string
+		lineageTag: 1e4d1561-4d88-45f3-b010-ab155c91585f
+		sourceLineageTag: 5ffe4ef3-c0a3-45c3-a369-7fdc44b1b9cd
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ERPROVIDERMEXICANBALANCESHEET
+
+		annotation SummarizationSetBy = User
+
+	column ERFORMATMEXICANCHARTOFACCOUNT
+		dataType: string
+		lineageTag: 530d6584-c82f-463c-bdf1-69c2feffaedf
+		sourceLineageTag: 4a86a21d-986d-4e48-b291-50c204d53554
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ERFORMATMEXICANCHARTOFACCOUNT
+
+		annotation SummarizationSetBy = User
+
+	column ERSOLUTIONMEXICANCHARTOFACCOUNT
+		dataType: string
+		lineageTag: 114083e0-f98b-4bd0-b49a-770cfbee721a
+		sourceLineageTag: 28e9f50d-b673-4e70-988c-55dd5a44d3bd
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ERSOLUTIONMEXICANCHARTOFACCOUNT
+
+		annotation SummarizationSetBy = User
+
+	column ERPROVIDERMEXICANCHARTOFACCOUNT
+		dataType: string
+		lineageTag: ccc05eac-63a2-4ebe-8566-cf9e8f3d228c
+		sourceLineageTag: 5e84b320-14dc-4199-b1db-1b519f16aa3b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ERPROVIDERMEXICANCHARTOFACCOUNT
+
+		annotation SummarizationSetBy = User
+
+	column ERFORMATMEXICANLEDGERENTRIES
+		dataType: string
+		lineageTag: 53cf0bff-2315-4937-ba62-2243683909d4
+		sourceLineageTag: a9235c20-a60a-476b-9473-211fdd48cfef
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ERFORMATMEXICANLEDGERENTRIES
+
+		annotation SummarizationSetBy = User
+
+	column ERSOLUTIONMEXICANLEDGERENTRIES
+		dataType: string
+		lineageTag: ff812825-fe1f-4468-bfaa-85140c2a162c
+		sourceLineageTag: a4326c6f-f34e-49eb-ac85-b05923ae61e9
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ERSOLUTIONMEXICANLEDGERENTRIES
+
+		annotation SummarizationSetBy = User
+
+	column ERPROVIDERMEXICANLEDGERENTRIES
+		dataType: string
+		lineageTag: 12b2ccca-53c6-4d64-a8d3-23ddd06cab2a
+		sourceLineageTag: ca4b7b86-39e3-44e0-a3e2-e8f2f37f44fd
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ERPROVIDERMEXICANLEDGERENTRIES
+
+		annotation SummarizationSetBy = User
+
+	column ERFORMATMEXICANAUXILIARYLEDGER
+		dataType: string
+		lineageTag: e23a9e2b-66dd-48ba-8ce9-a6956206ad6e
+		sourceLineageTag: 00c9d9a5-194b-44e3-85f3-e0ab2eecea0f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ERFORMATMEXICANAUXILIARYLEDGER
+
+		annotation SummarizationSetBy = User
+
+	column ERSOLUTIONMEXICANAUXILIARYLEDGER
+		dataType: string
+		lineageTag: b2c44b49-dee7-464a-81e8-e21c74fc543f
+		sourceLineageTag: 7428d548-813d-4f8b-b051-4e0d70466260
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ERSOLUTIONMEXICANAUXILIARYLEDGER
+
+		annotation SummarizationSetBy = User
+
+	column ERPROVIDERMEXICANAUXILIARYLEDGER
+		dataType: string
+		lineageTag: 0141e5ce-af9f-4d52-839c-0d85378d2fe4
+		sourceLineageTag: d21654ee-4b0a-4df9-8d15-90cb8b1c51fd
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ERPROVIDERMEXICANAUXILIARYLEDGER
+
+		annotation SummarizationSetBy = User
+
+	column LIMITEDOPENFISCALPERIODS
+		dataType: int64
+		formatString: 0
+		lineageTag: ac8ba8a3-b72f-4298-965c-3ecb1b4fa990
+		sourceLineageTag: 3d13fe09-2f1a-4008-96be-2bf5dfe9bf7d
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: LIMITEDOPENFISCALPERIODS
+
+		annotation SummarizationSetBy = User
+
+	column SHOWAMOUNTDEBITCREDIT
+		dataType: int64
+		formatString: 0
+		lineageTag: dd9ac411-2ed8-4017-a3a4-c5f2eef9df11
+		sourceLineageTag: 6ce84a8a-26ce-449f-9544-ef8228d6bcca
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: SHOWAMOUNTDEBITCREDIT
+
+		annotation SummarizationSetBy = User
+
+	column CISFORMATMAPPING
+		dataType: string
+		lineageTag: 60e6de1a-76b6-43cf-92ec-bf9e7b0481d5
+		sourceLineageTag: e19f2024-6f77-4a39-903f-5dbaff5abbb0
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CISFORMATMAPPING
+
+		annotation SummarizationSetBy = User
+
+	column ZAKATEXPENSEACCOUNT
+		dataType: string
+		lineageTag: c9976412-4ea4-4e33-985c-9db6fea972fa
+		sourceLineageTag: e312f7ea-01b0-463b-9769-b149a597a0e5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ZAKATEXPENSEACCOUNT
+
+		annotation SummarizationSetBy = User
+
+	column ISZAKATENABLED
+		dataType: int64
+		formatString: 0
+		lineageTag: 8ac9f4ae-8745-41af-9a45-6e1d11cdb746
+		sourceLineageTag: 6e758cfa-dccc-4ca3-a367-7e5d536b38db
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ISZAKATENABLED
+
+		annotation SummarizationSetBy = User
+
+	column ZAKATPROVISIONACCOUNT
+		dataType: string
+		lineageTag: 7266962a-83f8-4f16-a1d7-1e8c72257328
+		sourceLineageTag: b4680609-b9bd-4c02-bf53-a93258311711
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ZAKATPROVISIONACCOUNT
+
+		annotation SummarizationSetBy = User
+
+	column ENABLESELFAPPROVAL
+		dataType: int64
+		formatString: 0
+		lineageTag: af30d077-5508-48ba-b90a-2e831b989cd4
+		sourceLineageTag: 521f257c-7b48-4a23-a4a6-18e6c71657b1
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ENABLESELFAPPROVAL
+
+		annotation SummarizationSetBy = User
+
+	column ENABLEEXTENDEDCUSTVENDBALANCEINQUIRY
+		dataType: int64
+		formatString: 0
+		lineageTag: caeca7d8-de33-4530-9996-de3e9e0d4ae1
+		sourceLineageTag: 280d716a-734f-4ff2-a9ab-e3c6bbbe10f1
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ENABLEEXTENDEDCUSTVENDBALANCEINQUIRY
+
+		annotation SummarizationSetBy = User
+
+	column ENABLESHOWAMOUNTINDEBITCREDITCOLUMN
+		dataType: int64
+		formatString: 0
+		lineageTag: 6817a5ef-03ea-4d59-9bd3-12c1bd7208bd
+		sourceLineageTag: 348d9409-a4d3-4bc8-9b6e-fa7696cfb511
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ENABLESHOWAMOUNTINDEBITCREDITCOLUMN
+
+		annotation SummarizationSetBy = User
+
+	column ENABLEJOURNALAPPROVALSTATUS
+		dataType: int64
+		formatString: 0
+		lineageTag: 495943df-8229-4798-9354-7e29eca651cb
+		sourceLineageTag: 45fe8371-8d08-4bf6-a9b3-86813870b739
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ENABLEJOURNALAPPROVALSTATUS
+
+		annotation SummarizationSetBy = User
+
+	column ENABLECOMMONACCOUNTTYPE
+		dataType: int64
+		formatString: 0
+		lineageTag: 9110d23b-3622-45b2-9545-5b56fb0531fb
+		sourceLineageTag: d5e04809-3472-4987-907f-4f57c3a632cd
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ENABLECOMMONACCOUNTTYPE
+
+		annotation SummarizationSetBy = User
+
+	column ENABLECHINESEVOUCHERSYSTEM
+		dataType: int64
+		formatString: 0
+		lineageTag: d2945aad-54b6-49d5-aa9e-4d43f2790abd
+		sourceLineageTag: ad955307-e085-441f-a788-d8df2f2eeaca
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ENABLECHINESEVOUCHERSYSTEM
+
+		annotation SummarizationSetBy = User
+
+	column ENABLEEXCLUDEUNUSEDACCOUNTS
+		dataType: int64
+		formatString: 0
+		lineageTag: fd74c955-d5f0-4371-a349-14c8ab6c2f70
+		sourceLineageTag: eac7aadf-5de8-4199-a940-9afae35a4c00
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ENABLEEXCLUDEUNUSEDACCOUNTS
+
+		annotation SummarizationSetBy = User
+
+	column ENABLEEXTENDEDLEDGERINQUIRY
+		dataType: int64
+		formatString: 0
+		lineageTag: 92f4478a-bae5-40f2-9652-e991dd4f6ca4
+		sourceLineageTag: 684421c6-d468-4a21-9032-62fc7c48a344
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ENABLEEXTENDEDLEDGERINQUIRY
+
+		annotation SummarizationSetBy = User
+
+	column ENABLEALANDTAXREQUIREMENTS
+		dataType: int64
+		formatString: 0
+		lineageTag: 4f6bdf9e-0c14-4263-9146-1131dedb2c3b
+		sourceLineageTag: 67631b4a-5c17-4db8-974a-cf63cdcc3956
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ENABLEALANDTAXREQUIREMENTS
+
+		annotation SummarizationSetBy = User
+
+	column ENABLEREVERSECHARGE
+		dataType: int64
+		formatString: 0
+		lineageTag: 5dba394c-a76c-4880-8cfc-c0c04090c8cd
+		sourceLineageTag: 13d272e9-3fd9-4040-8e07-27ff75c63386
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ENABLEREVERSECHARGE
+
+		annotation SummarizationSetBy = User
+
+	column REVERSECHARGEPURCHTAXGROUP
+		dataType: string
+		lineageTag: 4de3516e-8fa1-4ce8-8d4f-7616cc1ac81d
+		sourceLineageTag: df434e63-12a4-4a97-b8da-a3bd62d61552
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: REVERSECHARGEPURCHTAXGROUP
+
+		annotation SummarizationSetBy = User
+
+	column REVERSECHARGESALESTAXGROUP
+		dataType: string
+		lineageTag: e5ba4377-b848-4c0e-8488-e1e345b2a6fb
+		sourceLineageTag: a71c7d88-83a7-42b6-a20a-1833bb01a95c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: REVERSECHARGESALESTAXGROUP
+
+		annotation SummarizationSetBy = User
+
+	column REVERSECHARGECONTACTNAME
+		dataType: string
+		lineageTag: 8616ae94-c3ec-40dd-854a-534124c49c58
+		sourceLineageTag: 0dc0d4e7-5b4f-4acc-b3f3-163b01a29bba
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: REVERSECHARGECONTACTNAME
+
+		annotation SummarizationSetBy = User
+
+	column REVERSECHARGECONTACTPHONE
+		dataType: string
+		lineageTag: e9ebc034-9035-42fa-8061-7e7da9ce3502
+		sourceLineageTag: adf8a4be-8ad3-40ed-935e-5965139b7b6a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: REVERSECHARGECONTACTPHONE
+
+		annotation SummarizationSetBy = User
+
+	column ERFORMATMAPPINGSALESLISTEXPORT_UK
+		dataType: int64
+		formatString: 0
+		lineageTag: c0b43607-17b0-4f91-81c1-e6bb6ac7916d
+		sourceLineageTag: 4d896157-8fdb-4367-8cd4-dce4fadaf52a
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ERFORMATMAPPINGSALESLISTEXPORT_UK
+
+		annotation SummarizationSetBy = User
+
+	column USECORRESPONDINGMECHANISM
+		dataType: int64
+		formatString: 0
+		lineageTag: f356a51f-a6e4-4fa9-bdd9-a1eb34cc2ae8
+		sourceLineageTag: 166327ba-8706-4068-8440-d24090f9cd6e
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: USECORRESPONDINGMECHANISM
+
+		annotation SummarizationSetBy = User
+
+	column SALESPURCHASEBOOKDATENUMBERDELIMITER
+		dataType: string
+		lineageTag: a8e50c4e-d144-4f8e-b6fc-85ad546f2ed9
+		sourceLineageTag: d7cfc21c-3bf5-4cf7-893d-3e1515b3451c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SALESPURCHASEBOOKDATENUMBERDELIMITER
+
+		annotation SummarizationSetBy = User
+
+	column FACTUREOPERATIONCODEDELIMITER
+		dataType: string
+		lineageTag: 5125f395-7de7-4dad-92ac-97b8751880e1
+		sourceLineageTag: cef61908-5969-4287-897e-2d3b05c7e635
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: FACTUREOPERATIONCODEDELIMITER
+
+		annotation SummarizationSetBy = User
+
+	column USEPRECALCULATEDDATA
+		dataType: int64
+		formatString: 0
+		lineageTag: a3195c0a-681a-4cf9-a68b-f2b69c660225
+		sourceLineageTag: 9d988bce-e106-4e2c-b7c0-39914458c629
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: USEPRECALCULATEDDATA
+
+		annotation SummarizationSetBy = User
+
+	column ADVANCEREVALUATIONCANCELATION
+		dataType: int64
+		formatString: 0
+		lineageTag: 9d764873-904b-4522-a0d6-635b00d94d8c
+		sourceLineageTag: 68d08c58-0f0a-4687-a413-c36b0a430288
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ADVANCEREVALUATIONCANCELATION
+
+		annotation SummarizationSetBy = User
+
+	column ALLOWMULTIPLETRANSACTIONSWITHINONEVOUCHER
+		dataType: int64
+		formatString: 0
+		lineageTag: 52d7f492-84db-4c90-b01a-9c2441a16d75
+		sourceLineageTag: a455e95e-b0e9-49ae-ad11-66b3b63b841d
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ALLOWMULTIPLETRANSACTIONSWITHINONEVOUCHER
+
+		annotation SummarizationSetBy = User
+
+	column RDEFERRALSPOSTINGPROFILE
+		dataType: string
+		lineageTag: 607c8ea4-bb41-4fa2-b49c-5ac84d45c3c1
+		sourceLineageTag: ce563736-d51a-47fb-87e2-1f9219419eca
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: RDEFERRALSPOSTINGPROFILE
+
+		annotation SummarizationSetBy = User
+
+	column RDEFERRALSROUNDOFFOPERATION
+		dataType: double
+		lineageTag: d5580717-2452-42aa-ae52-d5a0b8494472
+		sourceLineageTag: bdcd490f-00c1-4d21-a858-0f3c4e3a3572
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: RDEFERRALSROUNDOFFOPERATION
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column RDEFERRALSBASEVALUEMODEL
+		dataType: string
+		lineageTag: fc9452c2-013b-41cc-9eb5-df7cc5e93bda
+		sourceLineageTag: 87ec5062-e584-42b9-b4d0-112c77ef3e9a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: RDEFERRALSBASEVALUEMODEL
+
+		annotation SummarizationSetBy = User
+
+	column VATREFUNDINGMETHOD
+		dataType: int64
+		formatString: 0
+		lineageTag: 188085c7-5080-47aa-bd70-38e39f2a4f58
+		sourceLineageTag: 3c1a51b5-5c85-42a7-96cd-00d7d4202fd1
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: VATREFUNDINGMETHOD
+
+		annotation SummarizationSetBy = User
+
+	column EXCHRATECALCULATIONMETHOD
+		dataType: int64
+		formatString: 0
+		lineageTag: 499f047f-3bc4-4138-9ec9-dec803f919b8
+		sourceLineageTag: 209f84b5-dd3a-4d3f-9f98-3d4c25299b21
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: EXCHRATECALCULATIONMETHOD
+
+		annotation SummarizationSetBy = User
+
+	column ENABLELEDGERSETTLEMENT
+		dataType: int64
+		formatString: 0
+		lineageTag: 0f824cbb-5910-4802-add0-8f475032ff2a
+		sourceLineageTag: a70fbb38-053b-4cb1-a790-3df981f15272
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ENABLELEDGERSETTLEMENT
+
+		annotation SummarizationSetBy = User
+
+	column PSNPRIORYEARCORRECTION
+		dataType: int64
+		formatString: 0
+		lineageTag: 3a6b7269-054c-478e-a4e7-69327b7c24e4
+		sourceLineageTag: 3e3fd0b2-dcf8-4336-804d-f20d5fde745f
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: PSNPRIORYEARCORRECTION
+
+		annotation SummarizationSetBy = User
+
+	column PSNLEDGERINTERESTDISTRIBUTIONFUNDINGSOURCERULES
+		dataType: int64
+		formatString: 0
+		lineageTag: bf52cd52-139b-4d85-b95f-ecb0f89b8915
+		sourceLineageTag: a121a64f-9067-44d6-b9e7-7621e9ffb39d
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: PSNLEDGERINTERESTDISTRIBUTIONFUNDINGSOURCERULES
+
+		annotation SummarizationSetBy = User
+
+	column PSNLEDGERINTERESTDISTRIBUTIONPOSTALE
+		dataType: int64
+		formatString: 0
+		lineageTag: b0766f79-5aab-4cc0-be35-a196a4215081
+		sourceLineageTag: e1bc9df5-14a3-4adb-9789-425cde38d080
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: PSNLEDGERINTERESTDISTRIBUTIONPOSTALE
+
+		annotation SummarizationSetBy = User
+
+	column PSNLEDGERINTERESTDISTRIBUTIONENABLE
+		dataType: int64
+		formatString: 0
+		lineageTag: 06baf302-bca0-4320-acd1-41bc42721e18
+		sourceLineageTag: 1616309f-71bf-4d80-b3ad-96b1697f5ae3
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: PSNLEDGERINTERESTDISTRIBUTIONENABLE
+
+		annotation SummarizationSetBy = User
+
+	column PSNCASHCONTROLDIMENSIONHIERARCHYNAME
+		dataType: string
+		lineageTag: 484cd1a9-10f2-4f8b-8528-5bc5299bf88e
+		sourceLineageTag: ec7f9c97-2da4-4579-b82f-7cc9ffa7d3a4
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PSNCASHCONTROLDIMENSIONHIERARCHYNAME
+
+		annotation SummarizationSetBy = User
+
+	column PSNCASHCONTROLOVERRIDEGROUPID
+		dataType: string
+		lineageTag: 7d268138-d18d-4aad-86bf-2ec0f2202b4e
+		sourceLineageTag: 4496c27f-c7c8-4469-b1aa-13c5b71c9935
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PSNCASHCONTROLOVERRIDEGROUPID
+
+		annotation SummarizationSetBy = User
+
+	column REVRECJOURNALNAMEID
+		dataType: string
+		lineageTag: 6d43c20b-02bb-42d0-99e6-6f77dcd7c392
+		sourceLineageTag: e37dd849-540f-4aaa-91f5-51bb74d1a4ad
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: REVRECJOURNALNAMEID
+
+		annotation SummarizationSetBy = User
+
+	column REVRECENABLEREALLOCATION
+		dataType: int64
+		formatString: 0
+		lineageTag: 6aafca02-5e0b-405b-b4ed-759576a67490
+		sourceLineageTag: 4c5a01d9-c108-4f96-ae4b-c85f8c1c9d56
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: REVRECENABLEREALLOCATION
+
+		annotation SummarizationSetBy = User
+
+	column REVRECDISABLECONTRACTTERMS
+		dataType: int64
+		formatString: 0
+		lineageTag: 27d24937-6bc6-4430-af0f-89461a658ed8
+		sourceLineageTag: bed47cd7-5319-4d1a-841e-0b09c1ef2952
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: REVRECDISABLECONTRACTTERMS
+
+		annotation SummarizationSetBy = User
+
+	column REVRECHEADERDISCOUNTS
+		dataType: int64
+		formatString: 0
+		lineageTag: 8ae49683-7f1f-4993-ad9f-15672dc565b2
+		sourceLineageTag: d7fa77a9-3f2b-4803-a164-601b2c9682d6
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: REVRECHEADERDISCOUNTS
+
+		annotation SummarizationSetBy = User
+
+	column REVRECPOSTTOACCOUNTSRECEIVABLE
+		dataType: int64
+		formatString: 0
+		lineageTag: 484db49e-4c00-4c7b-bd5f-8775d882fab4
+		sourceLineageTag: 8651a5ef-4f9c-4f21-9e48-8edc14a7a407
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: REVRECPOSTTOACCOUNTSRECEIVABLE
+
+		annotation SummarizationSetBy = User
+
+	column PARTITION
+		dataType: string
+		lineageTag: edd9c669-a3e2-49f5-87bc-3f0640f6ce4a
+		sourceLineageTag: 24564636-ba5c-4d97-b7c2-7426a0a76dcc
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PARTITION
+
+		annotation SummarizationSetBy = User
+
+	column DATAAREAID
+		dataType: string
+		lineageTag: 10eda23e-8a2e-4f8c-8793-8bd6cdedbf81
+		sourceLineageTag: 64efdf0f-ca22-4ba1-9522-734b0f219468
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DATAAREAID
+
+		annotation SummarizationSetBy = User
+
+	column SYNCSTARTDATETIME
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: e6bb4090-401e-4031-9e27-3ac8dad34202
+		sourceLineageTag: c25b52f8-7e56-4392-8b7d-af71c2af5751
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SYNCSTARTDATETIME
+
+		variation Variation
+			isDefault
+			relationship: c8401de5-a7dd-4ada-9a5c-094a183167c7
+			defaultHierarchy: LocalDateTable_537d77dd-70da-4279-8e31-28eb8b5e4ead.'Date Hierarchy'
+
+		annotation SummarizationSetBy = User
+
+	partition LedgerParametersStaging = entity
+		mode: directQuery
+		source
+			entityName: LedgerParametersStaging
+			expressionSource: 'DirectQuery to AS - FIN & MI tables'
+
