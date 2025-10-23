@@ -1,0 +1,9 @@
+table BudgetVsActualMeasures
+        measure 'Budget Amount' = SUM(BudgetRegisterEntryStaging[ACCOUNTINGCURRENCYAMOUNT])
+                formatString: "\$#,0.00"
+        measure 'Actual Amount' = SUM(GeneralJournalAccountEntryStaging[ACCOUNTINGCURRENCYAMOUNT])
+                formatString: "\$#,0.00"
+        measure 'Variance Amount' = [Actual Amount] - [Budget Amount]
+                formatString: "\$#,0.00"
+        measure 'Variance %' = DIVIDE([Variance Amount], [Budget Amount])
+                formatString: "0.00%"

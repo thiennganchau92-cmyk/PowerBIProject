@@ -1,0 +1,345 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "budget_vs_actuals",
+  "displayName": "Budget vs Actuals",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280,
+  "visualContainers": [
+    {
+      "name": "title_text",
+      "layouts": [
+        {
+          "id": 0,
+          "position": {
+            "x": 40,
+            "y": 20,
+            "z": 0,
+            "width": 520,
+            "height": 80
+          }
+        }
+      ],
+      "singleVisual": {
+        "visualType": "textbox",
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "paragraphs": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "[{\\\"textRuns\\\":[{\\\"value\\\":\\\"Budget vs. Actuals\\\",\\\"textStyle\\\":{\\\"fontWeight\\\":\\\"Bold\\\",\\\"fontSize\\\":20}}]}]"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "card_budget",
+      "layouts": [
+        {
+          "id": 0,
+          "position": {
+            "x": 40,
+            "y": 120,
+            "z": 0,
+            "width": 220,
+            "height": 120
+          }
+        }
+      ],
+      "singleVisual": {
+        "visualType": "card",
+        "projections": {
+          "Values": [
+            {
+              "queryRef": "BudgetVsActualMeasures[Budget Amount]"
+            }
+          ]
+        },
+        "objects": {
+          "title": [
+            {
+              "properties": {
+                "text": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "\"Total Budget\""
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "card_actual",
+      "layouts": [
+        {
+          "id": 0,
+          "position": {
+            "x": 280,
+            "y": 120,
+            "z": 0,
+            "width": 220,
+            "height": 120
+          }
+        }
+      ],
+      "singleVisual": {
+        "visualType": "card",
+        "projections": {
+          "Values": [
+            {
+              "queryRef": "BudgetVsActualMeasures[Actual Amount]"
+            }
+          ]
+        },
+        "objects": {
+          "title": [
+            {
+              "properties": {
+                "text": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "\"Total Actuals\""
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "card_variance",
+      "layouts": [
+        {
+          "id": 0,
+          "position": {
+            "x": 520,
+            "y": 120,
+            "z": 0,
+            "width": 220,
+            "height": 120
+          }
+        }
+      ],
+      "singleVisual": {
+        "visualType": "card",
+        "projections": {
+          "Values": [
+            {
+              "queryRef": "BudgetVsActualMeasures[Variance Amount]"
+            }
+          ]
+        },
+        "objects": {
+          "title": [
+            {
+              "properties": {
+                "text": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "\"Variance\""
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "card_variance_pct",
+      "layouts": [
+        {
+          "id": 0,
+          "position": {
+            "x": 760,
+            "y": 120,
+            "z": 0,
+            "width": 220,
+            "height": 120
+          }
+        }
+      ],
+      "singleVisual": {
+        "visualType": "card",
+        "projections": {
+          "Values": [
+            {
+              "queryRef": "BudgetVsActualMeasures[Variance %]"
+            }
+          ]
+        },
+        "objects": {
+          "title": [
+            {
+              "properties": {
+                "text": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "\"Variance %\""
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "slicer_entity",
+      "layouts": [
+        {
+          "id": 0,
+          "position": {
+            "x": 1020,
+            "y": 120,
+            "z": 0,
+            "width": 220,
+            "height": 180
+          }
+        }
+      ],
+      "singleVisual": {
+        "visualType": "slicer",
+        "projections": {
+          "Category": [
+            {
+              "queryRef": "BudgetRegisterEntryStaging[DATAAREAID]"
+            }
+          ]
+        },
+        "objects": {
+          "title": [
+            {
+              "properties": {
+                "text": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "\"Entity\""
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "chart_trend",
+      "layouts": [
+        {
+          "id": 0,
+          "position": {
+            "x": 40,
+            "y": 260,
+            "z": 0,
+            "width": 720,
+            "height": 320
+          }
+        }
+      ],
+      "singleVisual": {
+        "visualType": "clusteredColumnChart",
+        "projections": {
+          "Category": [
+            {
+              "queryRef": "BudgetRegisterEntryStaging[DATE]"
+            }
+          ],
+          "Values": [
+            {
+              "queryRef": "BudgetVsActualMeasures[Budget Amount]"
+            },
+            {
+              "queryRef": "BudgetVsActualMeasures[Actual Amount]"
+            }
+          ]
+        },
+        "objects": {
+          "title": [
+            {
+              "properties": {
+                "text": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "\"Budget vs Actual Trend\""
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "matrix_variance",
+      "layouts": [
+        {
+          "id": 0,
+          "position": {
+            "x": 780,
+            "y": 320,
+            "z": 0,
+            "width": 460,
+            "height": 360
+          }
+        }
+      ],
+      "singleVisual": {
+        "visualType": "matrix",
+        "projections": {
+          "Rows": [
+            {
+              "queryRef": "BudgetRegisterEntryStaging[DIMENSIONDISPLAYVALUE]"
+            }
+          ],
+          "Values": [
+            {
+              "queryRef": "BudgetVsActualMeasures[Budget Amount]"
+            },
+            {
+              "queryRef": "BudgetVsActualMeasures[Actual Amount]"
+            },
+            {
+              "queryRef": "BudgetVsActualMeasures[Variance Amount]"
+            },
+            {
+              "queryRef": "BudgetVsActualMeasures[Variance %]"
+            }
+          ]
+        },
+        "objects": {
+          "title": [
+            {
+              "properties": {
+                "text": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "\"Variance by Dimension\""
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
