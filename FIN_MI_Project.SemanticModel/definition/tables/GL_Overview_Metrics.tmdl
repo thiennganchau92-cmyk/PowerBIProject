@@ -1,0 +1,22 @@
+table 'GL Overview Metrics'
+        isPrivate: true
+
+        measure 'Total Debit Amount'
+                formatString: "\u00a4#,0.00"
+                expression: = SUM ( GeneralJournalAccountEntryStaging[TRANSACTIONCURRENCYDEBITAMOUNT] )
+
+        measure 'Total Credit Amount'
+                formatString: "\u00a4#,0.00"
+                expression: = SUM ( GeneralJournalAccountEntryStaging[TRANSACTIONCURRENCYCREDITAMOUNT] )
+
+        measure 'Net Amount'
+                formatString: "\u00a4#,0.00"
+                expression: = [Total Debit Amount] - [Total Credit Amount]
+
+        measure 'Transaction Count'
+                formatString: "#,0"
+                expression: = DISTINCTCOUNT ( GeneralJournalAccountEntryStaging[GENERALJOURNALACCOUNTENTRYRECID] )
+
+        measure 'Average Transaction Amount'
+                formatString: "\u00a4#,0.00"
+                expression: = DIVIDE ( [Net Amount], [Transaction Count] )
