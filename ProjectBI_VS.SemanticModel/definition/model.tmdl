@@ -16,5 +16,12 @@ ref table InventTransInfo
 ref table InventDimInfo
 ref table ReleasedProductV2Info
 
+relationship InventTransInfo-InventDimInfo
+	fromColumn: InventTransInfo.InventDimId
+	toColumn: InventDimInfo.INVENTDIMID
+relationship InventTransInfo-ReleasedProductV2Info
+	fromColumn: InventTransInfo.ItemId
+	toColumn: ReleasedProductV2Info.ItemNumber
+
 ref cultureInfo en-US
 

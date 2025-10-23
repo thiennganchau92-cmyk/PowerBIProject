@@ -1,0 +1,152 @@
+table OUCRU_SegerationPIReportStaging
+	lineageTag: 230b0727-1e19-41cc-97af-90d348af1f91
+	sourceLineageTag: 1015d9dd-5a7a-49ad-8200-07f6d99f48ea
+
+	column DEFINITIONGROUP
+		dataType: string
+		lineageTag: fd3e4b03-6688-4427-b4be-d22cb0899d7a
+		sourceLineageTag: 502b8ffe-476f-42ae-b308-c8e07e7d9c83
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DEFINITIONGROUP
+
+		annotation SummarizationSetBy = User
+
+	column EXECUTIONID
+		dataType: string
+		lineageTag: ba615478-0784-4143-97ee-781ef71f0161
+		sourceLineageTag: c06d7a8b-e5b6-4895-bdfa-6a00617854b9
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: EXECUTIONID
+
+		annotation SummarizationSetBy = User
+
+	column ISSELECTED
+		dataType: int64
+		formatString: 0
+		lineageTag: e539c035-983b-4421-b9ec-76f74af0495d
+		sourceLineageTag: 5e71674d-32d6-472f-95cc-d92c11d7e030
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ISSELECTED
+
+		annotation SummarizationSetBy = User
+
+	column TRANSFERSTATUS
+		dataType: int64
+		formatString: 0
+		lineageTag: 72ae3102-753c-4d6e-ae4f-245750599b4c
+		sourceLineageTag: 42c7314f-5ec9-4fb1-a604-47e9795b6fb7
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: TRANSFERSTATUS
+
+		annotation SummarizationSetBy = User
+
+	column REFRECID
+		dataType: int64
+		formatString: 0
+		lineageTag: 755181e8-639d-4f84-94e9-aa8173e4809c
+		sourceLineageTag: 26ca464f-5960-4189-90bf-89b20dd709af
+		dataCategory: Uncategorized
+		summarizeBy: count
+		sourceColumn: REFRECID
+
+		annotation SummarizationSetBy = User
+
+	column WORKER
+		dataType: int64
+		formatString: 0
+		lineageTag: cb7ff304-4223-4bb6-aa5d-3fad7f7a66b2
+		sourceLineageTag: 34723e34-c629-4493-9c1b-e90158e872c7
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: WORKER
+
+		annotation SummarizationSetBy = User
+
+	column WORKERPERSONNELNUMBER
+		dataType: string
+		lineageTag: 989ec195-770a-421b-bea9-52928819db14
+		sourceLineageTag: eb4ae9c4-4706-4e4d-ba56-b86f33e050c8
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: WORKERPERSONNELNUMBER
+
+		annotation SummarizationSetBy = User
+
+	column WORKERNAME
+		dataType: string
+		lineageTag: 9bb40f91-2531-4dfc-89f6-c29d7e5508c1
+		sourceLineageTag: 8eaf5adb-7d8c-411e-94d4-537dec7ba9b6
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: WORKERNAME
+
+		annotation SummarizationSetBy = User
+
+	column ISFULLAC
+		dataType: int64
+		formatString: 0
+		lineageTag: 4a47586e-54bf-42a3-9e56-e5b84d942567
+		sourceLineageTag: e01c410f-f837-44b3-8daa-b32a23e80ed5
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ISFULLAC
+
+		annotation SummarizationSetBy = User
+
+	column PARTITION
+		dataType: string
+		lineageTag: 3bec99af-a5aa-4781-b278-3fbc6695a7b8
+		sourceLineageTag: 093aa858-4872-48ca-9bf7-516635f58737
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PARTITION
+
+		annotation SummarizationSetBy = User
+
+	column DATAAREAID
+		dataType: string
+		lineageTag: aadab1b5-feda-43d2-a517-1798d16dc829
+		sourceLineageTag: cfd4d9d6-44f5-4a71-bb94-393d17d73f2a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DATAAREAID
+
+		annotation SummarizationSetBy = User
+
+	column SYNCSTARTDATETIME
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: fef1e014-f4a4-4c4c-b833-d55efd27eda7
+		sourceLineageTag: b3f36e20-a7af-4c08-9f6f-cea3c8958d5b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SYNCSTARTDATETIME
+
+		variation Variation
+			isDefault
+			relationship: c2f994a0-b91e-4dea-843c-60a75a391be8
+			defaultHierarchy: LocalDateTable_db2c1d17-087e-45f8-b41f-4209d34f8a27.'Date Hierarchy'
+
+		annotation SummarizationSetBy = User
+
+	column RECID
+		dataType: int64
+		formatString: 0
+		lineageTag: 3f8d6f50-5c9c-41db-9c09-463e0801a081
+		sourceLineageTag: 3ffd5e3d-8e38-4988-bb62-879b20bdae4a
+		dataCategory: Uncategorized
+		summarizeBy: count
+		sourceColumn: RECID
+
+		annotation SummarizationSetBy = User
+
+	partition OUCRU_SegerationPIReportStaging = entity
+		mode: directQuery
+		source
+			entityName: OUCRU_SegerationPIReportStaging
+			expressionSource: 'DirectQuery to AS - FIN & MI tables'
+

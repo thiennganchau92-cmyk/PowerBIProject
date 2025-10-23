@@ -1,0 +1,341 @@
+table OUCRU_DimensionAttributeValueListMapStaging
+	lineageTag: 685b2a69-4114-4860-af66-cc92ee0c2729
+	sourceLineageTag: 3ef3ed79-7d9b-48ac-bca5-a48315279879
+
+	column DEFINITIONGROUP
+		dataType: string
+		lineageTag: 2d03b46b-b2e5-4b10-9537-1106ca167665
+		sourceLineageTag: 8da079c4-c1fe-4909-96bc-5db0a07ec285
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DEFINITIONGROUP
+
+		annotation SummarizationSetBy = User
+
+	column EXECUTIONID
+		dataType: string
+		lineageTag: 56c6771a-dd0e-4445-8cc7-c6e7d54be20a
+		sourceLineageTag: 50926691-2607-4632-bb0b-8b3bd679d1f6
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: EXECUTIONID
+
+		annotation SummarizationSetBy = User
+
+	column ISSELECTED
+		dataType: int64
+		formatString: 0
+		lineageTag: 01ed01ae-afb0-4ebc-af6c-d3b83eab873e
+		sourceLineageTag: eab15670-551d-4f9a-b8a7-242f34433353
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ISSELECTED
+
+		annotation SummarizationSetBy = User
+
+	column TRANSFERSTATUS
+		dataType: int64
+		formatString: 0
+		lineageTag: 5d5f6e69-e8cf-4322-83f9-3a3ebfdf0c29
+		sourceLineageTag: 5c0d8e89-c680-49fe-bb27-f32c7edb937f
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: TRANSFERSTATUS
+
+		annotation SummarizationSetBy = User
+
+	column DIMENSIONVALUEKEY
+		dataType: string
+		lineageTag: 0c321f14-10a2-4476-bae9-ff509173ee03
+		sourceLineageTag: 853f9243-e3a7-4b5a-943c-51551d202136
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DIMENSIONVALUEKEY
+
+		annotation SummarizationSetBy = User
+
+	column DIMENSIONVALUEKEY1
+		dataType: string
+		lineageTag: 80f12a69-ed23-4072-addf-e6ffec278217
+		sourceLineageTag: 901dc81a-e70a-458d-a88e-bb9654c6e2e5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DIMENSIONVALUEKEY1
+
+		annotation SummarizationSetBy = User
+
+	column DIMENSIONVALUE1
+		dataType: string
+		lineageTag: 8cf691b5-ab9c-4947-b165-c2cd51ac898a
+		sourceLineageTag: 06807da6-ba19-4845-ba82-053149ff6cbf
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DIMENSIONVALUE1
+
+		annotation SummarizationSetBy = User
+
+	column DIMENSIONVALUE2
+		dataType: string
+		lineageTag: ca335923-3c18-42ff-8426-8e29e4432d09
+		sourceLineageTag: e6cc12b7-1244-43c3-850a-412d5b5df217
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DIMENSIONVALUE2
+
+		annotation SummarizationSetBy = User
+
+	column DIMENSIONVALUE3
+		dataType: string
+		lineageTag: 264eeb31-c420-47ef-9b88-051ffa04c6da
+		sourceLineageTag: e89385e5-7555-40b7-8a9d-5cf16421f26b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DIMENSIONVALUE3
+
+		annotation SummarizationSetBy = User
+
+	column DIMENSIONVALUE4
+		dataType: string
+		lineageTag: 402b395d-08c9-4204-a84f-dbab311194b8
+		sourceLineageTag: 31c18145-b38e-48a7-99d0-1884830ded0d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DIMENSIONVALUE4
+
+		annotation SummarizationSetBy = User
+
+	column DIMENSIONVALUE5
+		dataType: string
+		lineageTag: 88c2824b-d9d1-42aa-a74d-abd605252f60
+		sourceLineageTag: 33ff347d-d2b0-4bbc-8ff5-695e85aedbd5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DIMENSIONVALUE5
+
+		annotation SummarizationSetBy = User
+
+	column DIMENSIONVALUE6
+		dataType: string
+		lineageTag: 49527070-1abd-4184-93cd-6ad8bebff0fa
+		sourceLineageTag: 29e9cb55-96e8-487d-89d0-6ec5ae66357f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DIMENSIONVALUE6
+
+		annotation SummarizationSetBy = User
+
+	column DIMENSIONVALUE7
+		dataType: string
+		lineageTag: 0a68291b-1db2-43c0-8f45-6e836fd6f073
+		sourceLineageTag: 9314b4ad-9d2f-4713-b3f7-cdc9df3901ea
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DIMENSIONVALUE7
+
+		annotation SummarizationSetBy = User
+
+	column DIMENSIONVALUE8
+		dataType: string
+		lineageTag: f0703520-493e-4b10-834b-adba2aa49dcb
+		sourceLineageTag: 4c0f3794-10af-4186-b21f-d012b53b2a1d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DIMENSIONVALUE8
+
+		annotation SummarizationSetBy = User
+
+	column DIMENSIONVALUE9
+		dataType: string
+		lineageTag: aa9b2fe0-1cf1-474a-8672-c78c06b53a5b
+		sourceLineageTag: 71b57a73-a677-4878-9284-4765d7d951ac
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DIMENSIONVALUE9
+
+		annotation SummarizationSetBy = User
+
+	column PARTITION
+		dataType: string
+		lineageTag: 3b6ce1d9-46bc-4988-8ae2-6d274cfdf913
+		sourceLineageTag: 87048d36-086b-4ff2-a6c6-04551ac35b17
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PARTITION
+
+		annotation SummarizationSetBy = User
+
+	column ISSUSPENDED
+		dataType: int64
+		formatString: 0
+		lineageTag: 2f6b2ee7-5318-4239-b279-db951a7fd7eb
+		sourceLineageTag: fb007162-2b23-4248-abd4-013a43f1db64
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ISSUSPENDED
+
+		annotation SummarizationSetBy = User
+
+	column FUNDEREXPTYPEDES
+		dataType: string
+		lineageTag: 249a2913-9ec1-4b5b-9053-fe594ca44e73
+		sourceLineageTag: 2eb18400-2897-4884-9a08-6543d953ae5f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: FUNDEREXPTYPEDES
+
+		annotation SummarizationSetBy = User
+
+	column MAINACCOUNTDES
+		dataType: string
+		lineageTag: e3de596e-7ec7-49a6-90f7-77004747d8b7
+		sourceLineageTag: 68ef6e8b-0c78-4404-8a0e-4ba1f4bf40fb
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: MAINACCOUNTDES
+
+		annotation SummarizationSetBy = User
+
+	column OUCRUEXPTYPEDES
+		dataType: string
+		lineageTag: 91b9e70a-d9cc-4a99-b7a1-f7253d140fdf
+		sourceLineageTag: 13d78830-798d-4dd8-9156-e2cdc7a95db5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: OUCRUEXPTYPEDES
+
+		annotation SummarizationSetBy = User
+
+	column OXFORDEXPTYPEDES
+		dataType: string
+		lineageTag: 20ba9ba4-0b34-4a06-88ef-5649bd03cab8
+		sourceLineageTag: 444986a6-5ae0-4ab3-b396-80e2ea1f1976
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: OXFORDEXPTYPEDES
+
+		annotation SummarizationSetBy = User
+
+	column PROJECTAGREEMENTDES
+		dataType: string
+		lineageTag: 8aec5394-ac3f-45c9-8c5b-c7b71ce23c21
+		sourceLineageTag: 77ce0d07-47cd-41dd-9fa8-8a0b3480c2b3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PROJECTAGREEMENTDES
+
+		annotation SummarizationSetBy = User
+
+	column PROJECTGRANTDES
+		dataType: string
+		lineageTag: efb56da4-af7c-4b83-a200-c7adc338b5af
+		sourceLineageTag: dfef8cac-98aa-43ee-86e4-3aec85f91d8d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PROJECTGRANTDES
+
+		annotation SummarizationSetBy = User
+
+	column REGULATORYDES
+		dataType: string
+		lineageTag: dbbb1cb9-0408-464f-b1a5-4220ad094115
+		sourceLineageTag: 4434edeb-23f4-4c3d-a60e-7c06fac46fd5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: REGULATORYDES
+
+		annotation SummarizationSetBy = User
+
+	column SUBTASKDES
+		dataType: string
+		lineageTag: ad3ace4d-a83a-4c94-bbb0-00c5fc84e032
+		sourceLineageTag: 0b0dcd75-ad00-42f2-90a3-0e7701d5d9b2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SUBTASKDES
+
+		annotation SummarizationSetBy = User
+
+	column TBBUDES
+		dataType: string
+		lineageTag: 3b0ed253-4b1a-46cb-b1f6-57e84aece295
+		sourceLineageTag: 71288dfc-3b28-4218-ad9f-6e44a862f11a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: TBBUDES
+
+		annotation SummarizationSetBy = User
+
+	column TOPTASKDES
+		dataType: string
+		lineageTag: 43156695-fd3f-4f22-b681-c9dfdf2821f8
+		sourceLineageTag: 8a682f5e-4588-4c00-8bb3-10c240d02b6d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: TOPTASKDES
+
+		annotation SummarizationSetBy = User
+
+	column APPROVALCODEDES
+		dataType: string
+		lineageTag: 0665df45-e8d2-4b99-90f7-7fad7fe1a5b7
+		sourceLineageTag: 27367be7-c4a8-4379-b93b-694f3ed45032
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: APPROVALCODEDES
+
+		annotation SummarizationSetBy = User
+
+	column REFRECID
+		dataType: int64
+		formatString: 0
+		lineageTag: 0c31893c-db72-4725-bcaa-ea43ff0efdc5
+		sourceLineageTag: 141438c6-2a4d-4065-b4a1-c04f940f91ff
+		dataCategory: Uncategorized
+		summarizeBy: count
+		sourceColumn: REFRECID
+
+		annotation SummarizationSetBy = User
+
+	column DATAAREAID
+		dataType: string
+		lineageTag: fa90b3f8-87cc-42ac-84c7-4eb897b0bfa1
+		sourceLineageTag: 7a31bb26-464f-4493-beb3-c991ca3b17ab
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DATAAREAID
+
+		annotation SummarizationSetBy = User
+
+	column SYNCSTARTDATETIME
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: a6e17f2b-3715-4648-b668-664f2306bb3d
+		sourceLineageTag: cb5aa7fb-b2df-4a43-98a4-448a20856d41
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SYNCSTARTDATETIME
+
+		variation Variation
+			isDefault
+			relationship: 4b5ab893-f588-4186-a5e8-c2bb9a85f215
+			defaultHierarchy: LocalDateTable_f110a786-3a4e-4e51-8e2b-d7a9995d9e8b.'Date Hierarchy'
+
+		annotation SummarizationSetBy = User
+
+	column RECID
+		dataType: int64
+		formatString: 0
+		lineageTag: cac6d7d9-ba24-4aae-bbe2-73163185110f
+		sourceLineageTag: 0b64d39d-7668-44b4-a619-b30c4bc7710a
+		dataCategory: Uncategorized
+		summarizeBy: count
+		sourceColumn: RECID
+
+		annotation SummarizationSetBy = User
+
+	partition OUCRU_DimensionAttributeValueListMapStaging = entity
+		mode: directQuery
+		source
+			entityName: OUCRU_DimensionAttributeValueListMapStaging
+			expressionSource: 'DirectQuery to AS - FIN & MI tables'
+

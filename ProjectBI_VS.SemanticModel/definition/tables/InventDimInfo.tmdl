@@ -62,7 +62,7 @@ table InventDimInfo
 
 		annotation SummarizationSetBy = User
 
-	column INVENTDIMENSION1
+	column 'Stock Code'
 		dataType: string
 		lineageTag: b9818c02-b1a8-4520-a24f-534968976aa8
 		sourceLineageTag: 29724ba6-e83e-43b3-bcf2-4edd0906ade5
@@ -72,7 +72,7 @@ table InventDimInfo
 
 		annotation SummarizationSetBy = User
 
-	column INVENTDIMENSION2
+	column 'Study Code'
 		dataType: string
 		lineageTag: a480dccd-3d8e-479a-86b6-ce48acff99c1
 		sourceLineageTag: d6e284d8-2bcc-43d0-b86d-daae37529b4c

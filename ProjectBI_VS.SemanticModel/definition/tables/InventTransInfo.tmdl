@@ -617,16 +617,9 @@ table InventTransInfo
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	column InvoiceReturned
-		dataType: string
-		lineageTag: a56b7725-3e10-42d7-82ae-fb5cc6ac8ddb
-		sourceLineageTag: b56e97c4-406d-47ad-b385-faa78ed06491
-		dataCategory: Uncategorized
-		summarizeBy: none
-		sourceColumn: InvoiceReturned
-
-		annotation SummarizationSetBy = User
-
+	measure 'On-hand Quantity' = SUM(InventTransInfo[Qty])
+	            formatString: #,0.00
+	            lineageTag: 91111111-1111-1111-1111-111111111111
 	partition InventTransInfo = entity
 		mode: directQuery
 		source

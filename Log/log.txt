@@ -1,0 +1,2 @@
+There's a problem with the definition content in your Power BI Project.  
+The expected target-type Column of property 'fromColumn' does not match the actual path 'InventDimId'!

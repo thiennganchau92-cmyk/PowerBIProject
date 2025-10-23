@@ -1,0 +1,3095 @@
+table VendVendorV2Staging
+	lineageTag: 4a8a1e1b-582c-4398-a794-d86b4f331d76
+	sourceLineageTag: ec5be62e-b1b9-4419-a973-97c8844a42d5
+
+	column ISOWNERDISABLED
+		dataType: int64
+		formatString: 0
+		lineageTag: b6763209-32f7-433c-8194-e7da17640a1d
+		sourceLineageTag: ee97efdb-8658-42d5-8a73-0ce588b3edb2
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ISOWNERDISABLED
+
+		annotation SummarizationSetBy = User
+
+	column ETHNICORIGINID
+		dataType: string
+		lineageTag: 8e43ea65-c5fd-4e90-823a-952bc4cbddf3
+		sourceLineageTag: 09193594-7211-4f33-8f34-ba905f2c28e5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ETHNICORIGINID
+
+		annotation SummarizationSetBy = User
+
+	column ISWOMANOWNER
+		dataType: int64
+		formatString: 0
+		lineageTag: 1179f0c5-e319-471c-afbc-35cf992cbacd
+		sourceLineageTag: 7b35b9f7-a3ce-4d1d-a413-e1b1f619b453
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ISWOMANOWNER
+
+		annotation SummarizationSetBy = User
+
+	column ISVENDORLOCALLYOWNED
+		dataType: int64
+		formatString: 0
+		lineageTag: 33a8c33b-635e-47b5-b6d0-1fd01965505e
+		sourceLineageTag: bd2ef8ae-f044-4be3-905c-3d93b9ffe9bb
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ISVENDORLOCALLYOWNED
+
+		annotation SummarizationSetBy = User
+
+	column ISMINORITYOWNED
+		dataType: int64
+		formatString: 0
+		lineageTag: c8f96a27-9633-47a7-8830-d18fbab8f936
+		sourceLineageTag: 8690e7db-1317-4511-9332-25c760fba067
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ISMINORITYOWNED
+
+		annotation SummarizationSetBy = User
+
+	column TAX1099FEDERALTAXID
+		dataType: string
+		lineageTag: 281107ef-c6c7-469d-8789-13707b49fc42
+		sourceLineageTag: d98633dd-ea7b-48e4-b5f2-cf191cdb44ec
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: TAX1099FEDERALTAXID
+
+		annotation SummarizationSetBy = User
+
+	column ISSERVICEVETERANOWNED
+		dataType: int64
+		formatString: 0
+		lineageTag: 9e94e7bb-56ad-4644-817f-47ebd14ad05e
+		sourceLineageTag: cf1146a3-a9fb-4768-a6f6-a5e4786f67ef
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ISSERVICEVETERANOWNED
+
+		annotation SummarizationSetBy = User
+
+	column DEFAULTLEDGERDIMENSIONDISPLAYVALUE
+		dataType: string
+		lineageTag: 054d00fc-8a2a-4a12-8787-74ea47b761b8
+		sourceLineageTag: 9ff8ba83-c688-450a-b21a-98a36233f3c8
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DEFAULTLEDGERDIMENSIONDISPLAYVALUE
+
+		annotation SummarizationSetBy = User
+
+	column DEFAULTOFFSETLEDGERACCOUNTDISPLAYVALUE
+		dataType: string
+		lineageTag: 832d7c6d-d40d-44f1-a6c5-fa3fe793dc15
+		sourceLineageTag: b6efaf69-e39b-4be5-a1c0-0744dae8507f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DEFAULTOFFSETLEDGERACCOUNTDISPLAYVALUE
+
+		annotation SummarizationSetBy = User
+
+	column ADDRESSBOOKS
+		dataType: string
+		lineageTag: 9ef421e5-6662-48e7-b30a-52defae6e55f
+		sourceLineageTag: db7aea6a-ee50-41a3-b486-083c8a25db33
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ADDRESSBOOKS
+
+		annotation SummarizationSetBy = User
+
+	column ADDRESSLOCATIONROLES
+		dataType: string
+		lineageTag: d3b8e5ac-1939-4db2-835e-c6ff8bb7fce0
+		sourceLineageTag: f30d1947-6ccb-4dbe-83bd-8f30837d5b6e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ADDRESSLOCATIONROLES
+
+		annotation SummarizationSetBy = User
+
+	column VENDORPARTYTYPE
+		dataType: string
+		lineageTag: 61142d3e-f7ec-4d53-b5ed-7cf5e8b827b2
+		sourceLineageTag: 4d1272f8-2b7f-4203-a919-cac6b554c217
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: VENDORPARTYTYPE
+
+		annotation SummarizationSetBy = User
+
+	column PRIMARYEMAILADDRESSPURPOSE
+		dataType: string
+		lineageTag: 298f280d-3d41-47e3-ac84-a8a7f37af48c
+		sourceLineageTag: b530e6ba-8aee-450b-b8d4-f8c5e3a1fa4e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PRIMARYEMAILADDRESSPURPOSE
+
+		annotation SummarizationSetBy = User
+
+	column PRIMARYFAXNUMBERPURPOSE
+		dataType: string
+		lineageTag: af3cbb18-ed03-42b8-b2b1-22013d6616bd
+		sourceLineageTag: d43a0965-d380-4ee8-a259-6811908e25f5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PRIMARYFAXNUMBERPURPOSE
+
+		annotation SummarizationSetBy = User
+
+	column PRIMARYPHONENUMBERPURPOSE
+		dataType: string
+		lineageTag: aafeeb1d-3d0d-40cb-a31c-6f91c4f585ad
+		sourceLineageTag: fe42080f-db51-4f7f-86ab-4b4136237310
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PRIMARYPHONENUMBERPURPOSE
+
+		annotation SummarizationSetBy = User
+
+	column PRIMARYTELEXPURPOSE
+		dataType: string
+		lineageTag: e9eede59-8424-418d-a3ff-fd5e6730912f
+		sourceLineageTag: 4543f945-78ca-46d6-a3f6-6e9f58ce06e1
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PRIMARYTELEXPURPOSE
+
+		annotation SummarizationSetBy = User
+
+	column PRIMARYURLPURPOSE
+		dataType: string
+		lineageTag: bbaba8b0-ef36-4ebc-9be0-8b5cfda08038
+		sourceLineageTag: e887a644-8274-4250-8d3e-c742d03e0716
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PRIMARYURLPURPOSE
+
+		annotation SummarizationSetBy = User
+
+	column COMPOSITIONSCHEME
+		dataType: int64
+		formatString: 0
+		lineageTag: c1c3edd0-9b42-47e1-95c3-a7e93ec1a5f7
+		sourceLineageTag: 2cfe855e-9837-44e9-9075-f481299894dd
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: COMPOSITIONSCHEME
+
+		annotation SummarizationSetBy = User
+
+	column FOREIGNVENDOR
+		dataType: int64
+		formatString: 0
+		lineageTag: 648fa649-a131-4a74-b6f8-1b25c6c40f7e
+		sourceLineageTag: ddc63899-a7cd-47f6-845c-cbec9f1e66f4
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: FOREIGNVENDOR
+
+		annotation SummarizationSetBy = User
+
+	column GTAVENDOR
+		dataType: int64
+		formatString: 0
+		lineageTag: 55254d35-9d9f-43ca-9e99-7f0b2d0003f6
+		sourceLineageTag: 0ffa5684-492c-4d4c-bacf-f78d1f35ac25
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: GTAVENDOR
+
+		annotation SummarizationSetBy = User
+
+	column PREFERENTIALVENDOR
+		dataType: int64
+		formatString: 0
+		lineageTag: b46ba468-4c64-4996-8ea9-81db62830fa9
+		sourceLineageTag: 6388765d-db2b-4727-bfe8-8f7ac10774be
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: PREFERENTIALVENDOR
+
+		annotation SummarizationSetBy = User
+
+	column SSIVENDOR
+		dataType: int64
+		formatString: 0
+		lineageTag: 2ea2bd7a-5e51-4c2f-9046-18fe36586ee5
+		sourceLineageTag: 4d4bd1b8-e5a6-420f-913e-12340212b11b
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: SSIVENDOR
+
+		annotation SummarizationSetBy = User
+
+	column NATUREOFASSESSEE
+		dataType: int64
+		formatString: 0
+		lineageTag: 10f75967-1948-4b25-a1cd-78332e3d5d09
+		sourceLineageTag: b56d1f2f-3d82-494f-b766-d3a709e05e8a
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: NATUREOFASSESSEE
+
+		annotation SummarizationSetBy = User
+
+	column PANNUMBER
+		dataType: string
+		lineageTag: d23edbf0-a3b8-468b-95ec-68744dc62e66
+		sourceLineageTag: 9d600597-f9f0-44a3-a1ad-0435b229ce26
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PANNUMBER
+
+		annotation SummarizationSetBy = User
+
+	column PANREFERENCENUMBER
+		dataType: string
+		lineageTag: dda5f1a4-1954-4dd7-a7d1-bd6f8b5e79ac
+		sourceLineageTag: 8957164a-9bcd-4418-979d-295e5e9c45c0
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PANREFERENCENUMBER
+
+		annotation SummarizationSetBy = User
+
+	column PANSTATUS
+		dataType: int64
+		formatString: 0
+		lineageTag: 2a57bac8-71de-4601-8f95-0b7c7bd735a3
+		sourceLineageTag: abf5d581-8d1e-4613-9e26-949f4f778337
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: PANSTATUS
+
+		annotation SummarizationSetBy = User
+
+	column SSIVALIDITYDATE
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: e8ecae66-2dad-45d4-a2c5-45b82c3deff9
+		sourceLineageTag: b5edbca9-6bde-4055-9a2b-f489eadd0082
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SSIVALIDITYDATE
+
+		variation Variation
+			isDefault
+			relationship: 092dde41-0973-479c-93eb-d67902bd22cd
+			defaultHierarchy: LocalDateTable_d9d8a909-6881-44cc-a3fa-1a9ad54fa589.'Date Hierarchy'
+
+		annotation SummarizationSetBy = User
+
+	column TCSGROUP
+		dataType: string
+		lineageTag: a5a6c3c1-c92f-49f5-89d2-660a5e95d8cf
+		sourceLineageTag: a4f3dc60-347a-4190-8bca-f48c21003477
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: TCSGROUP
+
+		annotation SummarizationSetBy = User
+
+	column TDSGROUP
+		dataType: string
+		lineageTag: b5109278-494d-472c-832a-bd9eed4688e0
+		sourceLineageTag: cfbee40d-c887-4490-956c-fa0f1649e7fd
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: TDSGROUP
+
+		annotation SummarizationSetBy = User
+
+	column ELECTRONICLOCATIONID
+		dataType: string
+		lineageTag: da524475-1cc2-41a8-96fe-538a4906247c
+		sourceLineageTag: 944ba387-b2d6-42f1-8048-e51119b1e3c8
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ELECTRONICLOCATIONID
+
+		annotation SummarizationSetBy = User
+
+	column VENDORACCOUNTNUMBER
+		dataType: string
+		lineageTag: e3f10d53-031d-44de-b3bb-54db82428fbc
+		sourceLineageTag: 0e9b3799-13cd-4fd2-8434-ffa5b47dcda1
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: VENDORACCOUNTNUMBER
+
+		annotation SummarizationSetBy = User
+
+	column VENDORPAYMENTFINECODE
+		dataType: string
+		lineageTag: 2501f0c6-0ebb-420e-b0ed-c2a028e5cf83
+		sourceLineageTag: 3f5deda2-b81c-44a2-8171-7c590cf59c28
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: VENDORPAYMENTFINECODE
+
+		annotation SummarizationSetBy = User
+
+	column VENDORPAYMENTFINANCIALINTERESTCODE
+		dataType: string
+		lineageTag: 18f71b7d-5455-4688-9e44-a0c168ff6b8f
+		sourceLineageTag: 210a5106-0c1a-49e8-992c-dfa3af4569e3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: VENDORPAYMENTFINANCIALINTERESTCODE
+
+		annotation SummarizationSetBy = User
+
+	column BIRTHPLACE
+		dataType: string
+		lineageTag: e100630d-6e85-4712-849b-646e562f1c8e
+		sourceLineageTag: fa7028c4-f7fd-4e73-9aa1-9879e7150fc5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: BIRTHPLACE
+
+		annotation SummarizationSetBy = User
+
+	column BIRTHCOUNTYCODE
+		dataType: string
+		lineageTag: 6fd0fdbc-9116-4ad4-b541-e6969ec8ffad
+		sourceLineageTag: eaa35fec-226b-4305-9ede-9672b1fde07c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: BIRTHCOUNTYCODE
+
+		annotation SummarizationSetBy = User
+
+	column RESIDENCEFOREIGNCOUNTRYREGIONID
+		dataType: string
+		lineageTag: 5dda6792-6800-400b-9f50-0e059e81b754
+		sourceLineageTag: 8f7118bc-2d57-4a2d-a2d5-03f64963d6da
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: RESIDENCEFOREIGNCOUNTRYREGIONID
+
+		annotation SummarizationSetBy = User
+
+	column FISCALDOCUMENTINCOMECODE
+		dataType: string
+		lineageTag: cc2bbf46-89ec-4a8b-9ef4-e35ede9e14f3
+		sourceLineageTag: 9cd53e9b-65ea-4cdf-9ed3-bfbfcd2f1e78
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: FISCALDOCUMENTINCOMECODE
+
+		annotation SummarizationSetBy = User
+
+	column PRIMARYFACEBOOKPURPOSE
+		dataType: string
+		lineageTag: 105add7c-310c-4cb9-b3a9-e8f8b9f2e5c8
+		sourceLineageTag: e2504311-2baf-4cce-9ea3-093e81d04f99
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PRIMARYFACEBOOKPURPOSE
+
+		annotation SummarizationSetBy = User
+
+	column PRIMARYLINKEDINPURPOSE
+		dataType: string
+		lineageTag: c7569a3b-49bf-47c6-b5c7-3a693ed9118e
+		sourceLineageTag: 414cecb7-60d9-407b-bb15-e8b729468b2d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PRIMARYLINKEDINPURPOSE
+
+		annotation SummarizationSetBy = User
+
+	column PRIMARYTWITTERPURPOSE
+		dataType: string
+		lineageTag: 1b11ad6b-7188-473b-bf7d-6aa481adf5c8
+		sourceLineageTag: 19e5d5de-4367-4aea-8308-7c97596cc884
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PRIMARYTWITTERPURPOSE
+
+		annotation SummarizationSetBy = User
+
+	column DUNSNUMBER
+		dataType: string
+		lineageTag: 9b6bdde9-955c-4ea9-a8b3-4d509a83b5b5
+		sourceLineageTag: 72f315f8-d059-45ce-9ddd-002339f1ff61
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DUNSNUMBER
+
+		annotation SummarizationSetBy = User
+
+	column ADDRESSCOUNTRYREGIONISOCODE
+		dataType: string
+		lineageTag: a793c1c4-c82c-4142-ba95-f19dfe04052b
+		sourceLineageTag: f7300351-02d8-4c90-9b84-a9f557ba0e00
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ADDRESSCOUNTRYREGIONISOCODE
+
+		annotation SummarizationSetBy = User
+
+	column DEFINITIONGROUP
+		dataType: string
+		lineageTag: 79c9d3d7-5c84-49c7-9464-7e6fa052da0a
+		sourceLineageTag: 3752d73c-53e4-41ad-9be2-bf6b37c052f2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DEFINITIONGROUP
+
+		annotation SummarizationSetBy = User
+
+	column EXECUTIONID
+		dataType: string
+		lineageTag: f5703e13-da9c-42ab-b659-3fe6fc3b5ddb
+		sourceLineageTag: ae0c89e0-32c4-442b-a164-66ffed0b0f62
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: EXECUTIONID
+
+		annotation SummarizationSetBy = User
+
+	column ISSELECTED
+		dataType: int64
+		formatString: 0
+		lineageTag: f4d919ee-abe2-4863-9969-9346030c5bdf
+		sourceLineageTag: 75d37d34-1659-49f6-87d6-8013e9458422
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ISSELECTED
+
+		annotation SummarizationSetBy = User
+
+	column TRANSFERSTATUS
+		dataType: int64
+		formatString: 0
+		lineageTag: 74c2cb49-a82d-43ef-bb55-dd86f9c8618e
+		sourceLineageTag: e0fe568a-69a6-48a4-93d8-d066ce0cbd14
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: TRANSFERSTATUS
+
+		annotation SummarizationSetBy = User
+
+	column WITHHOLDINGTAXGROUPCODE
+		dataType: string
+		lineageTag: 0ead446f-747c-48ff-8960-72e093fde4e4
+		sourceLineageTag: f569ecbf-2c7e-44df-8aa9-9415a3955b9b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: WITHHOLDINGTAXGROUPCODE
+
+		annotation SummarizationSetBy = User
+
+	column DEFAULTPAYMENTTERMSNAME
+		dataType: string
+		lineageTag: 5bacde66-03f5-4f5d-a545-048af9103857
+		sourceLineageTag: 943083bd-e72b-405f-8876-356c1c408c3b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DEFAULTPAYMENTTERMSNAME
+
+		annotation SummarizationSetBy = User
+
+	column LINEDISCOUNTVENDORGROUPCODE
+		dataType: string
+		lineageTag: 46e5383f-f474-46b2-baba-2986562cd9df
+		sourceLineageTag: 594c42cd-8274-4ba0-ae2a-d688ba8bced4
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: LINEDISCOUNTVENDORGROUPCODE
+
+		annotation SummarizationSetBy = User
+
+	column BANKACCOUNTID
+		dataType: string
+		lineageTag: f4da4f58-411a-4f72-be59-a9289a1bf6db
+		sourceLineageTag: 015c122c-dbbc-43a5-b60a-ef3a1ec4ebad
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: BANKACCOUNTID
+
+		annotation SummarizationSetBy = User
+
+	column CENTRALBANKPURPOSECODE
+		dataType: string
+		lineageTag: 8ba24384-3c6b-4866-af3c-265088478766
+		sourceLineageTag: 02b13b48-ed0f-4b52-9bb9-47952b41ad80
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CENTRALBANKPURPOSECODE
+
+		annotation SummarizationSetBy = User
+
+	column CENTRALBANKPURPOSETEXT
+		dataType: string
+		lineageTag: 2b3c3eff-a145-4ef7-8a62-f1106296f654
+		sourceLineageTag: 651b1790-7066-44de-8839-3df3441abc34
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CENTRALBANKPURPOSETEXT
+
+		annotation SummarizationSetBy = User
+
+	column HASONLYTAKENBIDS
+		dataType: int64
+		formatString: 0
+		lineageTag: f9f5b970-a428-4684-aa88-c5dc272d6fb2
+		sourceLineageTag: 08470426-0b00-4495-8e43-112e9c3eff7a
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: HASONLYTAKENBIDS
+
+		annotation SummarizationSetBy = User
+
+	column ONHOLDSTATUS
+		dataType: int64
+		formatString: 0
+		lineageTag: 5b8b1230-119d-4c7b-8a0e-e610f31c9a26
+		sourceLineageTag: 658b205a-deab-4305-b318-1500818a3e82
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ONHOLDSTATUS
+
+		annotation SummarizationSetBy = User
+
+	column VENDORHOLDRELEASEDATE
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: d27c6d94-4dd7-4bea-8208-342b0aca7664
+		sourceLineageTag: 409686d2-886f-4287-918c-58317bd0c1e3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: VENDORHOLDRELEASEDATE
+
+		variation Variation
+			isDefault
+			relationship: a4a9c60f-ff7e-4b8c-994a-980a63375d46
+			defaultHierarchy: LocalDateTable_d312758b-d9b5-40f4-90ce-8752e3dddd3f.'Date Hierarchy'
+
+		annotation SummarizationSetBy = User
+
+	column CASHDISCOUNTCODE
+		dataType: string
+		lineageTag: 200cc972-540b-47d7-9322-dd5a2222060e
+		sourceLineageTag: c2a35521-5284-4478-96c2-d2e484231daa
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CASHDISCOUNTCODE
+
+		annotation SummarizationSetBy = User
+
+	column ISPURCHASEORDERCHANGEREQUESTOVERRIDEALLOWED
+		dataType: int64
+		formatString: 0
+		lineageTag: 759ae55f-d1c4-461e-87a2-627a501a466b
+		sourceLineageTag: 219a7619-d185-4def-9bc7-004297149cbc
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ISPURCHASEORDERCHANGEREQUESTOVERRIDEALLOWED
+
+		annotation SummarizationSetBy = User
+
+	column ISCHANGEMANAGEMENTACTIVATED
+		dataType: int64
+		formatString: 0
+		lineageTag: 1adbbb66-79e5-44a8-adca-97f5d9d59b5d
+		sourceLineageTag: c2b5cdda-1c1a-47de-ad96-cf96b4472bea
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ISCHANGEMANAGEMENTACTIVATED
+
+		annotation SummarizationSetBy = User
+
+	column ISCHANGEMANGEMENTOVERRIDEBYVENDORALLOWED
+		dataType: int64
+		formatString: 0
+		lineageTag: 3248de29-2b12-4c25-ba2f-ec910d4d77c7
+		sourceLineageTag: a0615b08-29d2-4697-b326-68aee9097e01
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ISCHANGEMANGEMENTOVERRIDEBYVENDORALLOWED
+
+		annotation SummarizationSetBy = User
+
+	column CISCOMPANYREGISTRATIONNUMBER
+		dataType: string
+		lineageTag: d99c0586-9c83-4c82-b77f-1284e8c061dc
+		sourceLineageTag: 16ca3cca-b65b-4b9b-ad23-9c2d74ba2a9f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CISCOMPANYREGISTRATIONNUMBER
+
+		annotation SummarizationSetBy = User
+
+	column CISNATIONALINSURANCENUMBER
+		dataType: string
+		lineageTag: 09d86205-fc89-4559-bccd-a791ad2d028d
+		sourceLineageTag: 8cf3f4b5-d48b-4e4e-8806-940f22f75f92
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CISNATIONALINSURANCENUMBER
+
+		annotation SummarizationSetBy = User
+
+	column CISSTATUS
+		dataType: int64
+		formatString: 0
+		lineageTag: 14d0cfd2-ad19-46de-97e7-b8a0d7431915
+		sourceLineageTag: aefefa98-277f-458d-bbfc-88e0c0d09d7b
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: CISSTATUS
+
+		annotation SummarizationSetBy = User
+
+	column CISUNIQUETAXPAYERREFERENCE
+		dataType: string
+		lineageTag: 21c2e83b-1906-4493-8633-2ccaa886b236
+		sourceLineageTag: 7171aacd-2750-40f6-aba6-775f42e63270
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CISUNIQUETAXPAYERREFERENCE
+
+		annotation SummarizationSetBy = User
+
+	column CISVERIFICATIONDATE
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: 5d816e0e-907c-4774-8583-22bd9b329166
+		sourceLineageTag: 3d632d91-474e-4592-8fa1-7e621767a7d0
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CISVERIFICATIONDATE
+
+		variation Variation
+			isDefault
+			relationship: 74444919-ed01-470f-9dd0-aff2e655155b
+			defaultHierarchy: LocalDateTable_7ff90e52-7359-4877-b48d-ffedf391a5e1.'Date Hierarchy'
+
+		annotation SummarizationSetBy = User
+
+	column CISVERIFICATIONNUMBER
+		dataType: string
+		lineageTag: 8026d075-0d48-44d7-8f08-c8aa102bb480
+		sourceLineageTag: 164cd7b0-c101-4f7a-acf3-dc28eed42e3e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CISVERIFICATIONNUMBER
+
+		annotation SummarizationSetBy = User
+
+	column CLEARINGPERIODPAYMENTTERMSID
+		dataType: string
+		lineageTag: fe7b286a-a5a1-4091-8696-3e84739c8721
+		sourceLineageTag: 7481db5f-c2df-4ec6-a7fa-05a2b44d57eb
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CLEARINGPERIODPAYMENTTERMSID
+
+		annotation SummarizationSetBy = User
+
+	column COMMERCIALREGISTERNAME
+		dataType: string
+		lineageTag: 5ce17539-005b-4534-b24f-c545c2c88433
+		sourceLineageTag: 44c62fca-e0a6-4448-a9e2-57c7e7545f9a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: COMMERCIALREGISTERNAME
+
+		annotation SummarizationSetBy = User
+
+	column COMMERCIALREGISTERINSETNUMBER
+		dataType: string
+		lineageTag: b2fc0c50-b3bb-4f6e-93d2-e4d343adc233
+		sourceLineageTag: 7374a6cf-01ee-47ea-b7cb-64cdf9806774
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: COMMERCIALREGISTERINSETNUMBER
+
+		annotation SummarizationSetBy = User
+
+	column COMMERCIALREGISTERSECTION
+		dataType: string
+		lineageTag: 799ab020-f58e-4d75-bf96-bf8e2f994341
+		sourceLineageTag: 43ecade7-bb96-48f7-b44f-1f940646f2f8
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: COMMERCIALREGISTERSECTION
+
+		annotation SummarizationSetBy = User
+
+	column COMPANYCHAINNAME
+		dataType: string
+		lineageTag: 06765903-b04e-40eb-b64c-dab4ac978c3f
+		sourceLineageTag: e51314f6-dc6d-4237-afd0-07784ab046ba
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: COMPANYCHAINNAME
+
+		annotation SummarizationSetBy = User
+
+	column SIRETNUMBER
+		dataType: string
+		lineageTag: 939a927f-0252-4b9b-9415-9962e713de57
+		sourceLineageTag: 7342e169-b352-49db-9f24-a87106e40704
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SIRETNUMBER
+
+		annotation SummarizationSetBy = User
+
+	column COMPANYTYPE
+		dataType: int64
+		formatString: 0
+		lineageTag: 46da1fa6-59ad-4881-b3ee-dd4332d49bea
+		sourceLineageTag: c6f2792a-64eb-4ae9-b8a3-a82e601acfc3
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: COMPANYTYPE
+
+		annotation SummarizationSetBy = User
+
+	column PRIMARYCONTACTPERSONID
+		dataType: string
+		lineageTag: b4d66afb-9e35-4e61-be68-3296636d6f2e
+		sourceLineageTag: d6453695-f488-43f5-8595-bdc5543181ba
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PRIMARYCONTACTPERSONID
+
+		annotation SummarizationSetBy = User
+
+	column CREDITLIMIT
+		dataType: double
+		lineageTag: 37e97ef9-1723-426a-bb37-60e85e7eb3dd
+		sourceLineageTag: 3ad3cd7d-5fae-47fc-8acd-6c9a4781efe6
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: CREDITLIMIT
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CREDITRATING
+		dataType: string
+		lineageTag: 8d3a13ab-35b2-4685-a453-a60d305064e6
+		sourceLineageTag: c6c79fb2-7049-471c-acf8-235771d73c3e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CREDITRATING
+
+		annotation SummarizationSetBy = User
+
+	column UNIQUEPOPULATIONREGISTRYCODE
+		dataType: string
+		lineageTag: 1bc4f02f-0b8d-4428-98f5-5bfbbe3e4fc9
+		sourceLineageTag: 2e66f40c-f3af-44ea-829e-8ec41ae6d923
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: UNIQUEPOPULATIONREGISTRYCODE
+
+		annotation SummarizationSetBy = User
+
+	column CURRENCYCODE
+		dataType: string
+		lineageTag: a7f69791-67f3-4f0d-8d18-3b9c7f68981d
+		sourceLineageTag: a97d22da-bd75-47da-986b-131bf4b081e9
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CURRENCYCODE
+
+		annotation SummarizationSetBy = User
+
+	column TAX1099DOINGBUSINESSASNAME
+		dataType: string
+		lineageTag: 9971c733-5466-4d9f-9738-8ec0232f3cfe
+		sourceLineageTag: 94fde4f9-c8f5-411f-83f9-ad158930509b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: TAX1099DOINGBUSINESSASNAME
+
+		annotation SummarizationSetBy = User
+
+	column DEFAULTINVENTORYSTATUSID
+		dataType: string
+		lineageTag: 55a3d419-0243-410b-9cd9-71f22363cad8
+		sourceLineageTag: d4bfb6eb-3f4b-4b5a-9211-529a7fd6bf8f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DEFAULTINVENTORYSTATUSID
+
+		annotation SummarizationSetBy = User
+
+	column DESTINATIONCODE
+		dataType: string
+		lineageTag: f39c8357-d714-49d8-9b8e-bbde05835256
+		sourceLineageTag: 51b5ba2b-c36c-418f-82cf-2405f5714844
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DESTINATIONCODE
+
+		annotation SummarizationSetBy = User
+
+	column DIOTCOUNTRYCODE
+		dataType: string
+		lineageTag: 9e0cf8be-81de-4433-9c51-8b4632fb8b94
+		sourceLineageTag: d2cb978b-c1b0-423c-9004-7e6239925cf0
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DIOTCOUNTRYCODE
+
+		annotation SummarizationSetBy = User
+
+	column DEFAULTDELIVERYMODEID
+		dataType: string
+		lineageTag: 24c5fd6c-8613-403e-bd71-da388b4191db
+		sourceLineageTag: 35e5d6ac-607e-4ba5-9215-c8c2d2f1159e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DEFAULTDELIVERYMODEID
+
+		annotation SummarizationSetBy = User
+
+	column DEFAULTDELIVERYTERMSCODE
+		dataType: string
+		lineageTag: f24c62eb-813c-4b18-8dee-b686351f2386
+		sourceLineageTag: 9d499fb7-4fd7-4041-af09-1a61d726f44c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DEFAULTDELIVERYTERMSCODE
+
+		annotation SummarizationSetBy = User
+
+	column DEFAULTTOTALDISCOUNTVENDORGROUPCODE
+		dataType: string
+		lineageTag: d8a3809b-9c43-43e0-a528-d44dace1db86
+		sourceLineageTag: 86a8faf6-b8ad-432f-a362-a0936b1bab3e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DEFAULTTOTALDISCOUNTVENDORGROUPCODE
+
+		annotation SummarizationSetBy = User
+
+	column FACTORINGVENDORACCOUNTNUMBER
+		dataType: string
+		lineageTag: ee1d977f-31ad-4f40-8bd1-d111f7c19bc8
+		sourceLineageTag: dc01de05-a078-42ba-80c2-ea4870b3b73b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: FACTORINGVENDORACCOUNTNUMBER
+
+		annotation SummarizationSetBy = User
+
+	column FISCALCODE
+		dataType: string
+		lineageTag: 61cd644f-c34d-437b-9dec-634deb7f249d
+		sourceLineageTag: 505e4bfd-1cd9-4805-a145-12a3378c7171
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: FISCALCODE
+
+		annotation SummarizationSetBy = User
+
+	column ISFOREIGNENTITY
+		dataType: int64
+		formatString: 0
+		lineageTag: ec59fdc1-b4f9-4991-955e-ff62943ddd87
+		sourceLineageTag: d4c6bffc-ae7d-4af6-877c-fc7743a8642e
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ISFOREIGNENTITY
+
+		annotation SummarizationSetBy = User
+
+	column FOREIGNVENDORTAXREGISTRATIONID
+		dataType: string
+		lineageTag: 2836b0d0-c770-45ce-b91a-3de68bb56cf3
+		sourceLineageTag: 8fe95a76-ef14-4492-b7f2-290cb21025b1
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: FOREIGNVENDORTAXREGISTRATIONID
+
+		annotation SummarizationSetBy = User
+
+	column UPSFREIGHTZONE
+		dataType: string
+		lineageTag: 829decdd-6619-4e9b-b454-b8ba645a30bb
+		sourceLineageTag: 17ebe281-0578-4456-960e-7564b04aca36
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: UPSFREIGHTZONE
+
+		annotation SummarizationSetBy = User
+
+	column ISVENDORLOCATEDINHUBZONE
+		dataType: int64
+		formatString: 0
+		lineageTag: d1439e16-0d0a-4cfb-9215-698f1a9126fe
+		sourceLineageTag: 94f07c7c-5dad-49f6-8792-85d8eaeeedde
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ISVENDORLOCATEDINHUBZONE
+
+		annotation SummarizationSetBy = User
+
+	column AREPRICESINCLUDINGSALESTAX
+		dataType: int64
+		formatString: 0
+		lineageTag: 62aa5af3-6c99-4245-bc7b-e33e7a59286d
+		sourceLineageTag: 7e337bb7-f921-4aa0-bf47-9812902e0c83
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: AREPRICESINCLUDINGSALESTAX
+
+		annotation SummarizationSetBy = User
+
+	column DEFAULTPROCUMENTWAREHOUSEID
+		dataType: string
+		lineageTag: bf77e441-da04-45e6-9dc1-ae415a81b623
+		sourceLineageTag: b0849d98-fa10-4d32-96d9-0a8503eee547
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DEFAULTPROCUMENTWAREHOUSEID
+
+		annotation SummarizationSetBy = User
+
+	column DEFAULTPURCHASESITEID
+		dataType: string
+		lineageTag: 5baed9c8-3c18-44b0-af32-4b6a16a1cdec
+		sourceLineageTag: 026d09c3-8d0f-4967-91a8-fd75bf4a268d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DEFAULTPURCHASESITEID
+
+		annotation SummarizationSetBy = User
+
+	column INVOICEVENDORACCOUNTNUMBER
+		dataType: string
+		lineageTag: a1266af0-738e-45e5-a021-304f9c03e36d
+		sourceLineageTag: dacb41ff-1a90-4110-bbe1-0ad756f8b3d6
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: INVOICEVENDORACCOUNTNUMBER
+
+		annotation SummarizationSetBy = User
+
+	column BUYERGROUPID
+		dataType: string
+		lineageTag: b14d0449-19e6-4e7a-84ed-8c196d8331b1
+		sourceLineageTag: 1c0e0482-a882-471b-be9f-a225142daa8a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: BUYERGROUPID
+
+		annotation SummarizationSetBy = User
+
+	column LINEOFBUSINESSID
+		dataType: string
+		lineageTag: 43295520-2bea-4816-9471-a27bdd7b81ec
+		sourceLineageTag: dfe42bab-f377-45a4-8e4b-152eff19c47d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: LINEOFBUSINESSID
+
+		annotation SummarizationSetBy = User
+
+	column CHARGEVENDORGROUPID
+		dataType: string
+		lineageTag: df71ecc8-f5c7-40d0-99ba-b59bbb08b7a0
+		sourceLineageTag: 1ab3ea87-5aa7-441c-a448-aca4c6fca8ff
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CHARGEVENDORGROUPID
+
+		annotation SummarizationSetBy = User
+
+	column VENDORINVOICELINEMATCHINGPOLICY
+		dataType: int64
+		formatString: 0
+		lineageTag: b5605cf7-9e10-469d-8ac9-9d545b2120d1
+		sourceLineageTag: 053abfc5-0a42-4bbb-8a08-15cd095990be
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: VENDORINVOICELINEMATCHINGPOLICY
+
+		annotation SummarizationSetBy = User
+
+	column NOTES
+		dataType: string
+		lineageTag: 5174dede-28c1-408d-aef1-5ce06da06d2e
+		sourceLineageTag: 4436152b-d61d-4918-9afe-0094b9432167
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: NOTES
+
+		annotation SummarizationSetBy = User
+
+	column MULTILINEDISCOUNTVENDORGROUPCODE
+		dataType: string
+		lineageTag: 3c7b4046-1a6e-4342-a88b-b58adb3ca9f2
+		sourceLineageTag: 5b490f25-6205-4cf3-95fe-f14fd56b9904
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: MULTILINEDISCOUNTVENDORGROUPCODE
+
+		annotation SummarizationSetBy = User
+
+	column NAMECONTROL
+		dataType: string
+		lineageTag: 02502e30-e7d5-401a-92ea-2d8a74b1062d
+		sourceLineageTag: 6f619b80-4e66-4bd4-bde3-d2673e623594
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: NAMECONTROL
+
+		annotation SummarizationSetBy = User
+
+	column NATIONALITY
+		dataType: string
+		lineageTag: ace80603-cdce-49b6-9994-04c04aeabe88
+		sourceLineageTag: 28469b51-490b-4aea-9f82-67c995d6124c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: NATIONALITY
+
+		annotation SummarizationSetBy = User
+
+	column NUMBERSEQUENCEGROUPID
+		dataType: string
+		lineageTag: 60c743a8-8702-494f-9cb5-136f1929da58
+		sourceLineageTag: 86f6344b-6f26-41d0-871d-a174cb07e8e5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: NUMBERSEQUENCEGROUPID
+
+		annotation SummarizationSetBy = User
+
+	column DEFAULTOFFSETACCOUNTTYPE
+		dataType: int64
+		formatString: 0
+		lineageTag: a78a07d4-dc56-438e-8ad2-481ed4058095
+		sourceLineageTag: 01d3038b-ea63-43b4-a542-95cc4228b711
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: DEFAULTOFFSETACCOUNTTYPE
+
+		annotation SummarizationSetBy = User
+
+	column ISONETIMEVENDOR
+		dataType: int64
+		formatString: 0
+		lineageTag: 3621269c-648d-4e93-893b-94077309b284
+		sourceLineageTag: 53efd80d-d1d4-4e95-9e6c-4032e6861162
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ISONETIMEVENDOR
+
+		annotation SummarizationSetBy = User
+
+	column DIOTOPERATIONTYPE
+		dataType: int64
+		formatString: 0
+		lineageTag: 34fca8a8-edc0-438f-b0da-66a0ee0c14f5
+		sourceLineageTag: 76377e94-1293-416f-829a-5aa2892a51aa
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: DIOTOPERATIONTYPE
+
+		annotation SummarizationSetBy = User
+
+	column NATIONALREGISTRYNUMBERID
+		dataType: string
+		lineageTag: f8c54765-9402-4b75-9a3f-5b136d624be7
+		sourceLineageTag: 4dd27db0-a576-4ffa-963a-0b39f4a01b73
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: NATIONALREGISTRYNUMBERID
+
+		annotation SummarizationSetBy = User
+
+	column DEFAULTPAYMENTDAYNAME
+		dataType: string
+		lineageTag: 873ab960-907f-47d1-9a4c-a304fce60b31
+		sourceLineageTag: b156f0ed-4be1-4058-8edb-c2cea5afb43e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DEFAULTPAYMENTDAYNAME
+
+		annotation SummarizationSetBy = User
+
+	column PAYMENTID
+		dataType: string
+		lineageTag: a13ec0c5-42a8-4f69-bf20-172ec20827a6
+		sourceLineageTag: fd57516d-016f-4954-a4dd-23228027d7ba
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PAYMENTID
+
+		annotation SummarizationSetBy = User
+
+	column DEFAULTVENDORPAYMENTMETHODNAME
+		dataType: string
+		lineageTag: d7540f8d-a81b-48c8-a328-b7155d3e9fa1
+		sourceLineageTag: 0d2b3dfe-5181-4ff4-99d1-37ae2b4bf09c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DEFAULTVENDORPAYMENTMETHODNAME
+
+		annotation SummarizationSetBy = User
+
+	column DEFAULTPAYMENTSCHEDULENAME
+		dataType: string
+		lineageTag: 34e03f07-ca85-4c2c-b43c-b67d321b0288
+		sourceLineageTag: d26c50ff-7f23-4145-876e-680834949bb0
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DEFAULTPAYMENTSCHEDULENAME
+
+		annotation SummarizationSetBy = User
+
+	column PAYMENTSPECIFICATIONID
+		dataType: string
+		lineageTag: 56c3c04c-7ca6-449d-b59e-871bb8fac9b3
+		sourceLineageTag: 5e5af72d-c3b6-447c-a404-b9cabc31f51e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PAYMENTSPECIFICATIONID
+
+		annotation SummarizationSetBy = User
+
+	column PRICEVENDORGROUPID
+		dataType: string
+		lineageTag: 5f357b1c-1273-4a8f-b1c9-32825355ce89
+		sourceLineageTag: 6af478e4-b006-4fc5-8552-d52918a27bb7
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PRICEVENDORGROUPID
+
+		annotation SummarizationSetBy = User
+
+	column WILLPURCHASEORDERINCLUDEPRICESANDAMOUNTS
+		dataType: int64
+		formatString: 0
+		lineageTag: 3be322b5-1f76-449e-867e-a158e7f1c7a5
+		sourceLineageTag: b602cdc0-7df4-409f-addd-452693a63a6b
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: WILLPURCHASEORDERINCLUDEPRICESANDAMOUNTS
+
+		annotation SummarizationSetBy = User
+
+	column PURCHASEWORKCALENDARID
+		dataType: string
+		lineageTag: fbd392e2-b5b4-4722-8810-462182f34d47
+		sourceLineageTag: fa56d629-ec8c-4298-9181-fcb39c5f1d67
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PURCHASEWORKCALENDARID
+
+		annotation SummarizationSetBy = User
+
+	column DEFAULTPURCHASEORDERPOOLID
+		dataType: string
+		lineageTag: 959496fa-894d-491e-ac0c-61dc904ac62a
+		sourceLineageTag: 81a0dc59-417c-422f-a05d-72675d90417e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DEFAULTPURCHASEORDERPOOLID
+
+		annotation SummarizationSetBy = User
+
+	column RFCFEDERALTAXNUMBER
+		dataType: string
+		lineageTag: b7635460-bf1d-4c24-9c67-5d7927a330c8
+		sourceLineageTag: cc020477-2f0b-490f-aaa7-c45f9c5c79b2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: RFCFEDERALTAXNUMBER
+
+		annotation SummarizationSetBy = User
+
+	column ISFLAGGEDWITHSECONDTIN
+		dataType: int64
+		formatString: 0
+		lineageTag: 3e4f694a-b556-4956-a9c0-d30e2b8e5c87
+		sourceLineageTag: 62bbad7e-d13e-459e-86a7-21e38c443e86
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ISFLAGGEDWITHSECONDTIN
+
+		annotation SummarizationSetBy = User
+
+	column BUSINESSSEGMENTCODE
+		dataType: string
+		lineageTag: 0a37529e-f862-4980-bd99-9fcb37ff5bb8
+		sourceLineageTag: 80500777-3733-4157-8ca0-5e91aa5c6349
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: BUSINESSSEGMENTCODE
+
+		annotation SummarizationSetBy = User
+
+	column ISSMALLBUSINESS
+		dataType: int64
+		formatString: 0
+		lineageTag: 770749b0-6d24-47bb-9fc4-a18f66e66bbc
+		sourceLineageTag: f58d0482-0557-4e04-bd8e-7fff627930d0
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ISSMALLBUSINESS
+
+		annotation SummarizationSetBy = User
+
+	column STATEINSCRIPTION
+		dataType: string
+		lineageTag: fefd66ea-d2a1-44a8-b0bd-33931a3a4624
+		sourceLineageTag: 907b0f13-6545-4972-922e-f3b3ce920ee3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: STATEINSCRIPTION
+
+		annotation SummarizationSetBy = User
+
+	column BUSINESSSUBSEGMENTCODE
+		dataType: string
+		lineageTag: f6f50670-2fb7-4ee4-b8ee-bf8c2cb9a3f6
+		sourceLineageTag: b45ae33a-60eb-49cf-a291-52be17f253ad
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: BUSINESSSUBSEGMENTCODE
+
+		annotation SummarizationSetBy = User
+
+	column DEFAULTSUPPLEMENTARYPRODUCTVENDORGROUPID
+		dataType: string
+		lineageTag: 1a3b5c42-37dd-4d81-a3a8-1fd68759b373
+		sourceLineageTag: bfc4e9a9-ca74-46ea-a3d4-c0d0d471f8f3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DEFAULTSUPPLEMENTARYPRODUCTVENDORGROUPID
+
+		annotation SummarizationSetBy = User
+
+	column PURCHASEREBATEVENDORGROUPID
+		dataType: string
+		lineageTag: 3a231672-5941-4944-a545-b4b3441d1482
+		sourceLineageTag: 26aec6dc-b301-45d8-8610-6c7a802ac930
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PURCHASEREBATEVENDORGROUPID
+
+		annotation SummarizationSetBy = User
+
+	column TAX1099NAMETOUSE
+		dataType: int64
+		formatString: 0
+		lineageTag: 909373c7-8bc7-43e5-a9f8-e905d86d9bec
+		sourceLineageTag: 6b86f591-f6b4-435f-9e5d-2f934b72607a
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: TAX1099NAMETOUSE
+
+		annotation SummarizationSetBy = User
+
+	column ISREPORTINGTAX1099
+		dataType: int64
+		formatString: 0
+		lineageTag: a3ea897c-2f8b-4816-b107-c70370a6106f
+		sourceLineageTag: 5a4cf3f8-8c4e-4ce6-b948-3e8ac68822db
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ISREPORTINGTAX1099
+
+		annotation SummarizationSetBy = User
+
+	column SALESTAXGROUPCODE
+		dataType: string
+		lineageTag: 23f2bf3f-fb30-4a0d-8e1b-b187e6daa877
+		sourceLineageTag: 40807c21-e67f-4aac-ada4-490dd3daa60e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SALESTAXGROUPCODE
+
+		annotation SummarizationSetBy = User
+
+	column TAX1099IDTYPE
+		dataType: int64
+		formatString: 0
+		lineageTag: c691ea31-14c1-4656-a879-5f085640bd33
+		sourceLineageTag: e29bc8a5-0c22-4a6b-94a2-49588bec9d26
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: TAX1099IDTYPE
+
+		annotation SummarizationSetBy = User
+
+	column ISWITHHOLDINGTAXCALCULATED
+		dataType: int64
+		formatString: 0
+		lineageTag: 37e37b4d-2414-4bb1-9db9-4db5cc7c556d
+		sourceLineageTag: e32a5c19-d070-4dde-b6fc-e315d7a321c9
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ISWITHHOLDINGTAXCALCULATED
+
+		annotation SummarizationSetBy = User
+
+	column DEFAULTCASHDISCOUNTUSAGE
+		dataType: int64
+		formatString: 0
+		lineageTag: d000b8bd-2a7e-45d4-ab40-bb4ebadf8eee
+		sourceLineageTag: 50c57a63-e528-497b-97e7-17f42d5cd3b8
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: DEFAULTCASHDISCOUNTUSAGE
+
+		annotation SummarizationSetBy = User
+
+	column TAXEXEMPTNUMBER
+		dataType: string
+		lineageTag: 64d33b27-ed38-4556-b7c9-17cf727936ac
+		sourceLineageTag: 3c2f763e-69da-48a9-a5a5-887e383b9160
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: TAXEXEMPTNUMBER
+
+		annotation SummarizationSetBy = User
+
+	column VENDORGROUPID
+		dataType: string
+		lineageTag: 28ec1647-1a08-49a8-b178-c0d49c1df5a9
+		sourceLineageTag: c579eecb-5107-4875-add2-637ad93febe7
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: VENDORGROUPID
+
+		annotation SummarizationSetBy = User
+
+	column PRODUCTDESCRIPTIONVENDORGROUPID
+		dataType: string
+		lineageTag: 0983b6d4-6c8b-4d7e-92bb-d14e89904259
+		sourceLineageTag: 30592a21-574d-4716-8203-1a74742e2ed7
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PRODUCTDESCRIPTIONVENDORGROUPID
+
+		annotation SummarizationSetBy = User
+
+	column DIOTVENDORTYPE
+		dataType: int64
+		formatString: 0
+		lineageTag: 5593cf64-fdbf-4e43-bc8b-9a22e96836e3
+		sourceLineageTag: c2516fd1-5932-4507-9e41-c7624e6d75e0
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: DIOTVENDORTYPE
+
+		annotation SummarizationSetBy = User
+
+	column VENDORPRICETOLERANCEGROUPID
+		dataType: string
+		lineageTag: 17f7e90f-0a54-4768-85b2-e9bb70b4e8b5
+		sourceLineageTag: 5d0b6999-ca67-48bd-9b04-81532352d188
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: VENDORPRICETOLERANCEGROUPID
+
+		annotation SummarizationSetBy = User
+
+	column ISW9RECEIVED
+		dataType: int64
+		formatString: 0
+		lineageTag: 444ec085-f1e0-4424-a368-5386fcf3711a
+		sourceLineageTag: 1b96c2d3-b55f-479b-aaca-01bf746bb496
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ISW9RECEIVED
+
+		annotation SummarizationSetBy = User
+
+	column ISW9CHECKINGENABLED
+		dataType: int64
+		formatString: 0
+		lineageTag: af61ed48-f612-4024-96a9-4d04645450fe
+		sourceLineageTag: 2c2bd04a-d3e5-4498-a677-f75ad9196d63
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ISW9CHECKINGENABLED
+
+		annotation SummarizationSetBy = User
+
+	column OURACCOUNTNUMBER
+		dataType: string
+		lineageTag: b509e35b-2cd1-4aef-9c61-836b3acf682b
+		sourceLineageTag: 218aead4-a087-48ae-95f0-f2234b77245d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: OURACCOUNTNUMBER
+
+		annotation SummarizationSetBy = User
+
+	column NAFCODE
+		dataType: string
+		lineageTag: b74645d0-51a3-4d88-a1e9-5acdfa991d0b
+		sourceLineageTag: 59d7ebcd-9fc6-4b4f-bf0e-151ed43b5041
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: NAFCODE
+
+		annotation SummarizationSetBy = User
+
+	column VENDORINVOICEDECLARATIONID
+		dataType: string
+		lineageTag: c070d3ce-735f-47c5-97a1-86ec263383f0
+		sourceLineageTag: 71851448-0578-423c-8854-35de7af304b2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: VENDORINVOICEDECLARATIONID
+
+		annotation SummarizationSetBy = User
+
+	column PAYMENTTRANSACTIONCODE
+		dataType: string
+		lineageTag: 506b86a0-6629-4699-884a-eacb3058c6de
+		sourceLineageTag: 77d2a78f-364f-4244-b69b-f0cfa3f90566
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PAYMENTTRANSACTIONCODE
+
+		annotation SummarizationSetBy = User
+
+	column MAINCONTACTPERSONNELNUMBER
+		dataType: string
+		lineageTag: 834176e2-2e99-481c-bca6-ef523513d9ca
+		sourceLineageTag: 6ff10715-f777-420d-8d22-12ea6b264e5e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: MAINCONTACTPERSONNELNUMBER
+
+		annotation SummarizationSetBy = User
+
+	column TAX1099BOXID
+		dataType: string
+		lineageTag: 41e577ed-ee32-428e-81bd-b56af5321b5d
+		sourceLineageTag: 08729126-968a-451f-9312-fabaedac1a22
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: TAX1099BOXID
+
+		annotation SummarizationSetBy = User
+
+	column TAX1099TYPE
+		dataType: int64
+		formatString: 0
+		lineageTag: a006f030-b300-4023-8600-a86e600f5b2d
+		sourceLineageTag: 0349c77e-b8f8-4ce8-8710-8e7a819a2c05
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: TAX1099TYPE
+
+		annotation SummarizationSetBy = User
+
+	column VENDOREXCEPTIONGROUPID
+		dataType: string
+		lineageTag: fb81f7b6-8222-410e-b436-23fc69baffea
+		sourceLineageTag: db082fa4-5da3-40fb-97da-49e18cc1bea2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: VENDOREXCEPTIONGROUPID
+
+		annotation SummarizationSetBy = User
+
+	column ADDRESSDESCRIPTION
+		dataType: string
+		lineageTag: c05f0db3-5f31-4e67-af8e-d2d243946454
+		sourceLineageTag: b905d338-5795-4420-b01f-57e70b142121
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ADDRESSDESCRIPTION
+
+		annotation SummarizationSetBy = User
+
+	column ADDRESSCITY
+		dataType: string
+		lineageTag: 8d4b7c3d-18a6-41a9-9047-fe725906f957
+		sourceLineageTag: 15b0b286-d9f3-4430-a2ef-e86ac7eb8511
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ADDRESSCITY
+
+		annotation SummarizationSetBy = User
+
+	column ADDRESSCOUNTRYREGIONID
+		dataType: string
+		lineageTag: 563cd0e9-9b8f-40c2-ad23-de9d42221598
+		sourceLineageTag: eeddd343-fc69-485e-8032-78620598c7c3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ADDRESSCOUNTRYREGIONID
+
+		annotation SummarizationSetBy = User
+
+	column ADDRESSCOUNTYID
+		dataType: string
+		lineageTag: 2db154af-871e-46a9-a69a-7cbe20121728
+		sourceLineageTag: 541b33fa-fc72-4316-92ad-ee520c58307b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ADDRESSCOUNTYID
+
+		annotation SummarizationSetBy = User
+
+	column ADDRESSDISTRICTNAME
+		dataType: string
+		lineageTag: 293b9e98-65f7-4176-a930-8573a4532408
+		sourceLineageTag: 45d00650-76f4-430d-a5a5-1bafcf6139c3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ADDRESSDISTRICTNAME
+
+		annotation SummarizationSetBy = User
+
+	column ADDRESSLATITUDE
+		dataType: double
+		lineageTag: 9153345e-2d0b-44a8-a7d6-4beb35547965
+		sourceLineageTag: 7a7e422d-42af-4c8d-800e-493fb1addc6a
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ADDRESSLATITUDE
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ADDRESSLOCATIONID
+		dataType: string
+		lineageTag: 63ffb2f6-5523-4f9d-9394-c8d32666ad81
+		sourceLineageTag: 3fae3fb3-d429-495a-ac50-3f440f157a96
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ADDRESSLOCATIONID
+
+		annotation SummarizationSetBy = User
+
+	column ADDRESSLONGITUDE
+		dataType: double
+		lineageTag: 279837fb-9dcf-4397-b13f-c3e9633d3760
+		sourceLineageTag: 26f16f00-cd48-40d9-8494-facf2d1716a7
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ADDRESSLONGITUDE
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ADDRESSSTATEID
+		dataType: string
+		lineageTag: 1a8c4a7d-79ea-49b4-afe7-38fd514bd491
+		sourceLineageTag: 13d170f1-5924-4003-a533-a0d7628c35f0
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ADDRESSSTATEID
+
+		annotation SummarizationSetBy = User
+
+	column ADDRESSSTREET
+		dataType: string
+		lineageTag: d59acd68-4a36-4366-a336-32156b56895a
+		sourceLineageTag: dd3846ee-bd26-4475-be27-b27f7045b0de
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ADDRESSSTREET
+
+		annotation SummarizationSetBy = User
+
+	column ADDRESSBUILDINGCOMPLIMENT
+		dataType: string
+		lineageTag: 105d18b4-138f-4f4e-86ad-676f6b5758cd
+		sourceLineageTag: 87666efd-7bc1-42fc-aad6-12292ab5aaf6
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ADDRESSBUILDINGCOMPLIMENT
+
+		annotation SummarizationSetBy = User
+
+	column ADDRESSSTREETNUMBER
+		dataType: string
+		lineageTag: 0edc1287-b5b2-4338-a260-d22bfa5a055b
+		sourceLineageTag: 45bdb29b-322a-4cf8-8017-a6c5156fdb4e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ADDRESSSTREETNUMBER
+
+		annotation SummarizationSetBy = User
+
+	column ADDRESSTIMEZONE
+		dataType: int64
+		formatString: 0
+		lineageTag: ffae7a40-fc98-4109-8a60-29684f97a400
+		sourceLineageTag: ab9390be-e2e2-4122-ba2d-5b49e523190f
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ADDRESSTIMEZONE
+
+		annotation SummarizationSetBy = User
+
+	column ADDRESSVALIDFROM
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: fc67237a-8399-4437-9d5f-5c055a2c44eb
+		sourceLineageTag: af4aaf6d-eeec-40d8-af56-610534bf920e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ADDRESSVALIDFROM
+
+		variation Variation
+			isDefault
+			relationship: 44eb0362-813c-43ed-807f-7e1d4eb01917
+			defaultHierarchy: LocalDateTable_9bef5854-04ff-4fc9-8e32-f1aab415c799.'Date Hierarchy'
+
+		annotation SummarizationSetBy = User
+
+	column ADDRESSVALIDTO
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: 30a41702-65ce-4f82-b9c9-83ec92c45b1d
+		sourceLineageTag: c9ee69de-6cd2-4199-9036-fc68c3a62b2a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ADDRESSVALIDTO
+
+		variation Variation
+			isDefault
+			relationship: adf507a0-c507-4113-b441-ec35fc5b9e02
+			defaultHierarchy: LocalDateTable_826eb214-0e27-4473-9e9d-2590017308dc.'Date Hierarchy'
+
+		annotation SummarizationSetBy = User
+
+	column ADDRESSZIPCODE
+		dataType: string
+		lineageTag: 16b0bb15-7690-4ecb-b9ea-0c56265a4268
+		sourceLineageTag: eebbde81-3744-48d4-b836-d55d841a96f0
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ADDRESSZIPCODE
+
+		annotation SummarizationSetBy = User
+
+	column ADDRESSPOSTBOX
+		dataType: string
+		lineageTag: af6dbec3-3bf7-4e30-b026-4f5a343f7f9e
+		sourceLineageTag: eefb3057-44a4-4a7a-95fd-c51f126a83ac
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ADDRESSPOSTBOX
+
+		annotation SummarizationSetBy = User
+
+	column ADDRESSCITYINKANA
+		dataType: string
+		lineageTag: 497d4fc8-f1b3-4b82-9b4e-c1542e3b8e53
+		sourceLineageTag: 7cdf8bb3-1699-4adf-9d36-ecd5c04f10c5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ADDRESSCITYINKANA
+
+		annotation SummarizationSetBy = User
+
+	column ADDRESSSTREETINKANA
+		dataType: string
+		lineageTag: 33276a2f-1636-4f77-b433-742ea294334c
+		sourceLineageTag: cc851305-c0c2-400d-8520-f2d4bae43228
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ADDRESSSTREETINKANA
+
+		annotation SummarizationSetBy = User
+
+	column ADDRESSBRAZILIANCNPJORCPF
+		dataType: string
+		lineageTag: fec958d7-4e1a-4598-b853-dda35a1d4f1c
+		sourceLineageTag: 73ce1462-47eb-41f7-9cf3-3e1e22fe6c73
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ADDRESSBRAZILIANCNPJORCPF
+
+		annotation SummarizationSetBy = User
+
+	column ADDRESSBRAZILIANIE
+		dataType: string
+		lineageTag: 32d15c1e-6481-4979-afd0-96f40bc6ff1a
+		sourceLineageTag: 96b5bbab-80c3-4a36-9a29-abc360cf08be
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ADDRESSBRAZILIANIE
+
+		annotation SummarizationSetBy = User
+
+	column FORMATTEDPRIMARYADDRESS
+		dataType: string
+		lineageTag: 8b52d6e9-676d-461f-95a3-dec39d6ce4be
+		sourceLineageTag: 52eeb456-2d41-48fa-8c84-de28033d6813
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: FORMATTEDPRIMARYADDRESS
+
+		annotation SummarizationSetBy = User
+
+	column VENDORKNOWNASNAME
+		dataType: string
+		lineageTag: dd6248f2-713f-44f5-aef4-883293ffa14e
+		sourceLineageTag: 644f852c-3f32-40e2-8ee5-25622cfd4475
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: VENDORKNOWNASNAME
+
+		annotation SummarizationSetBy = User
+
+	column LANGUAGEID
+		dataType: string
+		lineageTag: 85d57f9b-615b-4827-ab88-4049c3a8d801
+		sourceLineageTag: 4c6eaa97-55cb-41b3-916d-117bdf537571
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: LANGUAGEID
+
+		annotation SummarizationSetBy = User
+
+	column VENDORORGANIZATIONNAME
+		dataType: string
+		lineageTag: 59073388-d441-45a0-b8d7-ff57639c342e
+		sourceLineageTag: 63302af0-8371-4821-acbd-69d96e68ade1
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: VENDORORGANIZATIONNAME
+
+		annotation SummarizationSetBy = User
+
+	column VENDORSEARCHNAME
+		dataType: string
+		lineageTag: f2c19cce-4021-4c63-9703-511366dc8674
+		sourceLineageTag: f93240b6-17a6-496d-b560-2ae1102c058b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: VENDORSEARCHNAME
+
+		annotation SummarizationSetBy = User
+
+	column ORGANIZATIONABCCODE
+		dataType: int64
+		formatString: 0
+		lineageTag: 07fe7201-4ad1-4690-85da-dfe1d1ea5295
+		sourceLineageTag: accc7e66-81c9-4e1c-889e-92823ac9a5fb
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ORGANIZATIONABCCODE
+
+		annotation SummarizationSetBy = User
+
+	column ORGANIZATIONNUMBER
+		dataType: string
+		lineageTag: 7de846db-b2fa-4cfa-8935-a65ee8e1541e
+		sourceLineageTag: 7a5377b0-515e-4a7c-8943-7cc166927d08
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ORGANIZATIONNUMBER
+
+		annotation SummarizationSetBy = User
+
+	column ORGANIZATIONEMPLOYEEAMOUNT
+		dataType: int64
+		formatString: 0
+		lineageTag: 198fa071-4472-4d10-92c2-694b8b052a1e
+		sourceLineageTag: a44bba1c-960e-4597-857c-c04bd50a33dd
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ORGANIZATIONEMPLOYEEAMOUNT
+
+		annotation SummarizationSetBy = User
+
+	column ORGANIZATIONPHONETICNAME
+		dataType: string
+		lineageTag: 5a8d42b9-d150-4087-8510-abd79562fba8
+		sourceLineageTag: b1dbb13d-4599-410a-9baa-309d65ab0b6b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ORGANIZATIONPHONETICNAME
+
+		annotation SummarizationSetBy = User
+
+	column VENDORPARTYNUMBER
+		dataType: string
+		lineageTag: 80d791b8-84a9-47f7-a024-33a8cee99749
+		sourceLineageTag: f8535924-3f11-4c78-8116-5056aa77c93f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: VENDORPARTYNUMBER
+
+		annotation SummarizationSetBy = User
+
+	column PERSONANNIVERSARYDAY
+		dataType: int64
+		formatString: 0
+		lineageTag: 394ab90b-4f97-4d63-be0d-3fb5bf131ece
+		sourceLineageTag: 1510a14e-f0cc-4543-8822-2dc274c7a8ed
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: PERSONANNIVERSARYDAY
+
+		annotation SummarizationSetBy = User
+
+	column PERSONANNIVERSARYMONTH
+		dataType: int64
+		formatString: 0
+		lineageTag: b67cf176-78ae-4a60-bfda-a1a8691f9eb2
+		sourceLineageTag: 16d0baf4-0eae-4e42-a2a5-54a47c35471a
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: PERSONANNIVERSARYMONTH
+
+		annotation SummarizationSetBy = User
+
+	column PERSONANNIVERSARYYEAR
+		dataType: int64
+		formatString: 0
+		lineageTag: dde03227-7e71-4253-be59-b1778a050c88
+		sourceLineageTag: 4c2c3bff-1610-40a3-9ae7-a1b47b6b3ff8
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: PERSONANNIVERSARYYEAR
+
+		annotation SummarizationSetBy = User
+
+	column PERSONBIRTHDAY
+		dataType: int64
+		formatString: 0
+		lineageTag: 0cb66112-50d3-49df-8dc0-9d7b0d617e0c
+		sourceLineageTag: 0bc28203-4393-4503-9f24-6b75943f04e6
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: PERSONBIRTHDAY
+
+		annotation SummarizationSetBy = User
+
+	column PERSONBIRTHMONTH
+		dataType: int64
+		formatString: 0
+		lineageTag: 7e36aaed-b71e-4007-aadd-ab9c0b6004fc
+		sourceLineageTag: 341152a3-a9f0-45cc-9df6-4c3da1fcbf55
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: PERSONBIRTHMONTH
+
+		annotation SummarizationSetBy = User
+
+	column PERSONBIRTHYEAR
+		dataType: int64
+		formatString: 0
+		lineageTag: 4c14bb01-c5ff-46d6-905f-f6a6b0083a85
+		sourceLineageTag: 15bf7f29-cd81-4a31-8d3c-598f3818301c
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: PERSONBIRTHYEAR
+
+		annotation SummarizationSetBy = User
+
+	column PERSONCHILDRENNAMES
+		dataType: string
+		lineageTag: 555a75b5-ff2a-4176-97cb-9261d12f6aa0
+		sourceLineageTag: 571192cb-8d6b-4560-907b-f23d89a432ef
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PERSONCHILDRENNAMES
+
+		annotation SummarizationSetBy = User
+
+	column PERSONGENDER
+		dataType: int64
+		formatString: 0
+		lineageTag: f8d210a9-e771-4987-b8b4-dd820b53b372
+		sourceLineageTag: e139bfb2-05ad-4234-8fba-65d9049e2cb1
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: PERSONGENDER
+
+		annotation SummarizationSetBy = User
+
+	column PERSONHOBBIES
+		dataType: string
+		lineageTag: 6e00475a-1484-4da5-aa13-e8e0692e9e9a
+		sourceLineageTag: 45241c59-03f8-4742-bf89-ab6d8286c133
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PERSONHOBBIES
+
+		annotation SummarizationSetBy = User
+
+	column PERSONFIRSTNAME
+		dataType: string
+		lineageTag: 3fb515d9-4c20-4a62-ac60-5626be74a23f
+		sourceLineageTag: 48b50b16-df1a-494c-a1a8-14d22a3d8490
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PERSONFIRSTNAME
+
+		annotation SummarizationSetBy = User
+
+	column PERSONMIDDLENAME
+		dataType: string
+		lineageTag: fd092a48-9313-4771-9d4c-b50db2373778
+		sourceLineageTag: 93acd0e5-638b-4405-b4a0-3b87e5dd6b0d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PERSONMIDDLENAME
+
+		annotation SummarizationSetBy = User
+
+	column PERSONLASTNAMEPREFIX
+		dataType: string
+		lineageTag: b28ad241-22b4-4cac-82f1-1633c03d9986
+		sourceLineageTag: 98407b50-aaec-48ce-8fc3-683338595ee0
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PERSONLASTNAMEPREFIX
+
+		annotation SummarizationSetBy = User
+
+	column PERSONLASTNAME
+		dataType: string
+		lineageTag: 394dadde-4302-45e3-8644-d0d4e98cf8fd
+		sourceLineageTag: 0262da28-4634-4e80-b018-f448281e9fab
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PERSONLASTNAME
+
+		annotation SummarizationSetBy = User
+
+	column PERSONINITIALS
+		dataType: string
+		lineageTag: 8e4929b1-6811-405d-b1c9-d0d4d570a0f6
+		sourceLineageTag: a258cb3f-32f9-40bf-802f-9d17a675a6cf
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PERSONINITIALS
+
+		annotation SummarizationSetBy = User
+
+	column PERSONMARITALSTATUS
+		dataType: int64
+		formatString: 0
+		lineageTag: 314e5a84-5b5a-43f4-ad09-513a6050b124
+		sourceLineageTag: cf0a85ec-2ba5-49a5-a919-8ccc9ed660af
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: PERSONMARITALSTATUS
+
+		annotation SummarizationSetBy = User
+
+	column PERSONPERSONALSUFFIX
+		dataType: string
+		lineageTag: 74d71bc9-afec-4611-9e25-25f0019be2c0
+		sourceLineageTag: ec9b4c97-9d2a-4a9f-a6b7-9d1faf04dc29
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PERSONPERSONALSUFFIX
+
+		annotation SummarizationSetBy = User
+
+	column PERSONPERSONALTITLE
+		dataType: string
+		lineageTag: 6eee5a6f-5eda-4620-95cf-a9d27d23bb81
+		sourceLineageTag: f54aa220-603b-42f4-aa90-ba1c3e550b75
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PERSONPERSONALTITLE
+
+		annotation SummarizationSetBy = User
+
+	column PERSONPHONETICFIRSTNAME
+		dataType: string
+		lineageTag: 6a9ad0a7-9fda-492f-aafa-650118d4bbf1
+		sourceLineageTag: 6065602e-8ae8-4ee0-9e61-8404fe179f2b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PERSONPHONETICFIRSTNAME
+
+		annotation SummarizationSetBy = User
+
+	column PERSONPHONETICLASTNAME
+		dataType: string
+		lineageTag: c6eb23c7-7ef0-4372-9939-784c1ee0e2ff
+		sourceLineageTag: 5a061006-eab1-46e8-a25b-3eff3d8dd188
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PERSONPHONETICLASTNAME
+
+		annotation SummarizationSetBy = User
+
+	column PERSONPHONETICMIDDLENAME
+		dataType: string
+		lineageTag: c741e19f-8e80-4277-bdbb-a53ff78317f7
+		sourceLineageTag: 9acbb6fc-53c8-4454-94c7-8a37408a8584
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PERSONPHONETICMIDDLENAME
+
+		annotation SummarizationSetBy = User
+
+	column PERSONPROFESSIONALSUFFIX
+		dataType: string
+		lineageTag: 4d68581e-38b1-4f14-87c9-e14978e3b917
+		sourceLineageTag: 65ef2fff-e205-44dd-b4ec-ffc8f1fc3241
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PERSONPROFESSIONALSUFFIX
+
+		annotation SummarizationSetBy = User
+
+	column PERSONPROFESSIONALTITLE
+		dataType: string
+		lineageTag: 006a3a0f-f512-4035-b9ba-a2cfc003ff8f
+		sourceLineageTag: b4ef809a-a0ea-4dfa-993f-afb5ea4fbdde
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PERSONPROFESSIONALTITLE
+
+		annotation SummarizationSetBy = User
+
+	column PRIMARYEMAILADDRESS
+		dataType: string
+		lineageTag: ff13be61-101c-46c3-8017-94dba932a116
+		sourceLineageTag: a70c667f-78cb-4b45-8d2b-df2735ba596f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PRIMARYEMAILADDRESS
+
+		annotation SummarizationSetBy = User
+
+	column PRIMARYEMAILADDRESSDESCRIPTION
+		dataType: string
+		lineageTag: 8313e85a-c787-4c3b-b196-b02ebc99c9dd
+		sourceLineageTag: e3529f4c-5d94-4196-b4f9-40ff3bf1b323
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PRIMARYEMAILADDRESSDESCRIPTION
+
+		annotation SummarizationSetBy = User
+
+	column ISPRIMARYEMAILADDRESSIMENABLED
+		dataType: int64
+		formatString: 0
+		lineageTag: 6e187d2c-d1af-4c79-8b0b-9afdf4978fe9
+		sourceLineageTag: e5602f42-77c3-403a-b49c-d0a4984e3ed8
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ISPRIMARYEMAILADDRESSIMENABLED
+
+		annotation SummarizationSetBy = User
+
+	column PRIMARYFAXNUMBER
+		dataType: string
+		lineageTag: 4b72bac6-3731-4eb5-8a53-c4a30d24804e
+		sourceLineageTag: 3a44b7ff-0aad-4dec-a11d-61d22ec99ac3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PRIMARYFAXNUMBER
+
+		annotation SummarizationSetBy = User
+
+	column PRIMARYFAXNUMBERDESCRIPTION
+		dataType: string
+		lineageTag: 392584d4-1f5f-4f7f-b407-4880ce700471
+		sourceLineageTag: 82f98de8-315d-460b-b283-7a195d19e48d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PRIMARYFAXNUMBERDESCRIPTION
+
+		annotation SummarizationSetBy = User
+
+	column PRIMARYFAXNUMBEREXTENSION
+		dataType: string
+		lineageTag: 5dc16cd1-4e61-46cf-ae7f-cfb84d228c5a
+		sourceLineageTag: 6d585052-09cc-442f-b3a7-69b6630bf8e6
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PRIMARYFAXNUMBEREXTENSION
+
+		annotation SummarizationSetBy = User
+
+	column PRIMARYPHONENUMBER
+		dataType: string
+		lineageTag: a07b2c18-2023-4b43-9cd3-21167d96e91a
+		sourceLineageTag: 265594a0-4a5b-4e83-8a00-e95cc6afcd7d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PRIMARYPHONENUMBER
+
+		annotation SummarizationSetBy = User
+
+	column PRIMARYPHONENUMBERDESCRIPTION
+		dataType: string
+		lineageTag: 1f5c9f3d-d8a5-409f-be8f-8dbccbb15b3f
+		sourceLineageTag: 75f94bb7-448e-44ec-9e31-88779f121858
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PRIMARYPHONENUMBERDESCRIPTION
+
+		annotation SummarizationSetBy = User
+
+	column ISPRIMARYPHONENUMBERMOBILE
+		dataType: int64
+		formatString: 0
+		lineageTag: ac37ac7f-7e36-423c-bf2c-45c0f97a3ed7
+		sourceLineageTag: c048f82f-7411-4190-9022-ca411408e279
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ISPRIMARYPHONENUMBERMOBILE
+
+		annotation SummarizationSetBy = User
+
+	column PRIMARYTELEX
+		dataType: string
+		lineageTag: 04ad851a-a7ed-4e4c-a7fc-2072ea02b313
+		sourceLineageTag: bd7e7725-f368-488d-8092-a5fc2b99e451
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PRIMARYTELEX
+
+		annotation SummarizationSetBy = User
+
+	column PRIMARYTELEXDESCRIPTION
+		dataType: string
+		lineageTag: 0a00b4d2-3067-4ccd-8631-2c59cf14d42e
+		sourceLineageTag: 68b8cf87-7984-4341-abb6-846a7d084b8e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PRIMARYTELEXDESCRIPTION
+
+		annotation SummarizationSetBy = User
+
+	column PRIMARYURL
+		dataType: string
+		lineageTag: bc2885a8-5c6d-46f9-9586-57caaae71573
+		sourceLineageTag: 77cae240-b1df-4f19-b7b1-66de54d7a9b2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PRIMARYURL
+
+		annotation SummarizationSetBy = User
+
+	column PRIMARYURLDESCRIPTION
+		dataType: string
+		lineageTag: 4a6bf2be-5128-4cfb-aa00-aab224d703c0
+		sourceLineageTag: f720f44f-8c15-4c34-ac20-a6a5cd73c901
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PRIMARYURLDESCRIPTION
+
+		annotation SummarizationSetBy = User
+
+	column PRIMARYFACEBOOK
+		dataType: string
+		lineageTag: c90ff880-387b-4ff1-a9c1-d21d00485fc8
+		sourceLineageTag: ac60355b-4f88-4829-87e4-9f84cbdaada2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PRIMARYFACEBOOK
+
+		annotation SummarizationSetBy = User
+
+	column PRIMARYFACEBOOKDESCRIPTION
+		dataType: string
+		lineageTag: 594e62f5-e219-4d67-a40e-91f63ef39c1b
+		sourceLineageTag: 1323dd0a-58eb-4c6f-a220-df89847ea6f8
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PRIMARYFACEBOOKDESCRIPTION
+
+		annotation SummarizationSetBy = User
+
+	column PRIMARYLINKEDIN
+		dataType: string
+		lineageTag: c0cd803d-90a3-4be4-aa20-555ab0761b2c
+		sourceLineageTag: 0c3c2474-5869-41de-9ccb-9df83388641a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PRIMARYLINKEDIN
+
+		annotation SummarizationSetBy = User
+
+	column PRIMARYLINKEDINDESCRIPTION
+		dataType: string
+		lineageTag: 4a794edb-2e23-4369-b2e0-c12e5787feb9
+		sourceLineageTag: f3e8cb45-4eab-4bf5-884f-fd2ce2573a91
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PRIMARYLINKEDINDESCRIPTION
+
+		annotation SummarizationSetBy = User
+
+	column PRIMARYTWITTER
+		dataType: string
+		lineageTag: eddc7671-4ef5-4bf3-ae3c-b7c169d5df9c
+		sourceLineageTag: 0aa8c9cc-5931-4e20-8359-6283dc1b1997
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PRIMARYTWITTER
+
+		annotation SummarizationSetBy = User
+
+	column PRIMARYTWITTERDESCRIPTION
+		dataType: string
+		lineageTag: 23899aa6-f19a-42b6-ac05-0e7692e2c29a
+		sourceLineageTag: c2d12f87-2d6d-4bf9-8aa7-bc80ddb1b06e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PRIMARYTWITTERDESCRIPTION
+
+		annotation SummarizationSetBy = User
+
+	column WILLPURCHASEORDERPROCESSINGSUMMARYUPDATEPURCHASEORDER
+		dataType: int64
+		formatString: 0
+		lineageTag: 3c7d31c9-b80d-4fa7-a103-d68b502883f8
+		sourceLineageTag: c5550178-6a3f-4760-b47f-9e9a1b7b9c31
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: WILLPURCHASEORDERPROCESSINGSUMMARYUPDATEPURCHASEORDER
+
+		annotation SummarizationSetBy = User
+
+	column WILLPRODUCTRECEIPTPROCESSINGSUMMARYUPDATEPURCHASEORDER
+		dataType: int64
+		formatString: 0
+		lineageTag: 292ebf3d-5f27-4cf7-b0c1-57af7077a34f
+		sourceLineageTag: 86de078c-183a-4586-a13a-e766b13a828d
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: WILLPRODUCTRECEIPTPROCESSINGSUMMARYUPDATEPURCHASEORDER
+
+		annotation SummarizationSetBy = User
+
+	column WILLRECEIPTSLISTPROCESSINGSUMMARYUPDATEPURCHASEORDER
+		dataType: int64
+		formatString: 0
+		lineageTag: e93c7625-6edf-4098-9752-44ed953f2fa8
+		sourceLineageTag: 32fa99ff-45db-465d-a7f4-e566d1f443e7
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: WILLRECEIPTSLISTPROCESSINGSUMMARYUPDATEPURCHASEORDER
+
+		annotation SummarizationSetBy = User
+
+	column WILLINVOICEPROCESSINGSUMMARYUPDATEPURCHASEORDER
+		dataType: int64
+		formatString: 0
+		lineageTag: a0c148f9-5f83-48f4-aa0b-6206bb30f1e5
+		sourceLineageTag: c20bacda-157a-4c4e-af12-575d1f6e3e31
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: WILLINVOICEPROCESSINGSUMMARYUPDATEPURCHASEORDER
+
+		annotation SummarizationSetBy = User
+
+	column ISCUSIPIDENTIFICATIONNUMBERAPPLICABLE
+		dataType: int64
+		formatString: 0
+		lineageTag: 8f858148-9eba-4461-a326-0d2a68e380c5
+		sourceLineageTag: 27f5dc98-40c8-4581-b84e-e70ebb70264e
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ISCUSIPIDENTIFICATIONNUMBERAPPLICABLE
+
+		annotation SummarizationSetBy = User
+
+	column CUSIPIDENTIFICATIONNUMBER
+		dataType: string
+		lineageTag: 2fa9404a-7b80-4500-a044-ad8af8d5c4db
+		sourceLineageTag: f8059e01-c094-4e81-8e55-98a31c966c37
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CUSIPIDENTIFICATIONNUMBER
+
+		annotation SummarizationSetBy = User
+
+	column CUSIPDETAILS
+		dataType: string
+		lineageTag: a361c6cf-38d9-445d-b696-fa981ab3d437
+		sourceLineageTag: c1cb87eb-a747-40cc-875d-11c20dce8c67
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CUSIPDETAILS
+
+		annotation SummarizationSetBy = User
+
+	column OIDINVESTORTYPE
+		dataType: int64
+		formatString: 0
+		lineageTag: 823c0580-8630-4214-853b-c43cd57b5740
+		sourceLineageTag: f2c44b95-79fe-4910-83b0-c9c9ec3685ea
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: OIDINVESTORTYPE
+
+		annotation SummarizationSetBy = User
+
+	column OIDNOMINEEDETAILS
+		dataType: string
+		lineageTag: 24fe9038-d0a9-4b04-adb1-320ff874bf38
+		sourceLineageTag: 1cdc96bd-8d79-4cbb-8607-fcbe9d2b1312
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: OIDNOMINEEDETAILS
+
+		annotation SummarizationSetBy = User
+
+	column ISNATIONALREGISTRYNUMBER
+		dataType: string
+		lineageTag: 2d7dc427-e888-4b26-9552-ffda40f1e2e0
+		sourceLineageTag: 4e0523ba-cb74-4c6e-9cb8-d9f2667c680d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ISNATIONALREGISTRYNUMBER
+
+		annotation SummarizationSetBy = User
+
+	column WITHHOLDINGTAXVENDORTYPE
+		dataType: int64
+		formatString: 0
+		lineageTag: 6e93683d-b6ee-4a86-85ba-d7140fddb13c
+		sourceLineageTag: 5745d397-2eb1-4583-acd5-324fa76d2301
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: WITHHOLDINGTAXVENDORTYPE
+
+		annotation SummarizationSetBy = User
+
+	column PURCHASEORDERCONSOLIDATIONDAYOFMONTH
+		dataType: int64
+		formatString: 0
+		lineageTag: 3b79f8f0-4e60-4fa5-b40f-c8707e8d2b4a
+		sourceLineageTag: 6ce96ee6-5519-4594-b887-42c902b811bc
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: PURCHASEORDERCONSOLIDATIONDAYOFMONTH
+
+		annotation SummarizationSetBy = User
+
+	column PAYMENTFEEGROUPID
+		dataType: string
+		lineageTag: 0e6173aa-1443-4a0d-9b3b-fa7a1818c955
+		sourceLineageTag: f573fd47-d492-4f8f-beaf-b26a5bb70e69
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PAYMENTFEEGROUPID
+
+		annotation SummarizationSetBy = User
+
+	column ISVENDORPAYINGBANKPAYMENTFEE
+		dataType: int64
+		formatString: 0
+		lineageTag: 13c3ef60-d7c8-473f-84f1-4bb9d5c1ff23
+		sourceLineageTag: c5b66e03-f7a5-4404-8c6a-8a2aad01b302
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ISVENDORPAYINGBANKPAYMENTFEE
+
+		annotation SummarizationSetBy = User
+
+	column BRAZILIANCCM
+		dataType: string
+		lineageTag: fecf6552-604d-4d96-a4e9-44fe449ce2b2
+		sourceLineageTag: 41247629-6b8e-4a0b-afca-67488e4c6769
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: BRAZILIANCCM
+
+		annotation SummarizationSetBy = User
+
+	column BRAZILIANCNPJORCPF
+		dataType: string
+		lineageTag: 408e82ab-8b7e-45c3-b99c-23dc32987490
+		sourceLineageTag: eaa9d0ab-4ea4-4034-a48d-dbd49c670f94
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: BRAZILIANCNPJORCPF
+
+		annotation SummarizationSetBy = User
+
+	column BRAZILIANCNAE
+		dataType: string
+		lineageTag: 346c374f-ef5a-408b-b3fa-c29a87638f3b
+		sourceLineageTag: 73bbaf2d-a938-4bf2-bc6b-f3109e53b433
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: BRAZILIANCNAE
+
+		annotation SummarizationSetBy = User
+
+	column FOREIGNERID
+		dataType: string
+		lineageTag: ba56c691-0086-4374-8f2f-a84afaa37a0c
+		sourceLineageTag: e1b3c183-652c-4f7a-95ac-1cded821b844
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: FOREIGNERID
+
+		annotation SummarizationSetBy = User
+
+	column BRAZILIANIE
+		dataType: string
+		lineageTag: b6c75749-5721-4d3b-9d4c-77f97bd6b08e
+		sourceLineageTag: a615ea59-c1dd-4bb5-a509-098a8b93d7f4
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: BRAZILIANIE
+
+		annotation SummarizationSetBy = User
+
+	column BRAZILIANNIT
+		dataType: string
+		lineageTag: 86114a98-ba2f-4604-917a-40f498c606ed
+		sourceLineageTag: 82091780-4e52-41ae-9918-9de0bbd43063
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: BRAZILIANNIT
+
+		annotation SummarizationSetBy = User
+
+	column FISCALOPERATIONPRESENCETYPE
+		dataType: int64
+		formatString: 0
+		lineageTag: ce402466-47d8-47cf-a81c-7a0efb135b6a
+		sourceLineageTag: c8201b91-ef50-434a-a062-d398d09e68e6
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: FISCALOPERATIONPRESENCETYPE
+
+		annotation SummarizationSetBy = User
+
+	column ISSERVICEDELIVERYADDRESSBASED
+		dataType: int64
+		formatString: 0
+		lineageTag: bb16b651-409a-4078-b6f9-62747ed59d42
+		sourceLineageTag: 73c0e3bf-4b45-494f-af01-4e8c35c0b96b
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ISSERVICEDELIVERYADDRESSBASED
+
+		annotation SummarizationSetBy = User
+
+	column ISPURCHASECONSUMED
+		dataType: int64
+		formatString: 0
+		lineageTag: 998f3ada-7fe8-415c-bc3d-c5b7867e2dc0
+		sourceLineageTag: f7e6c8b5-ffea-4cfc-abc3-db68bbf76ca1
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ISPURCHASECONSUMED
+
+		annotation SummarizationSetBy = User
+
+	column BRAZILIANINSSCEI
+		dataType: string
+		lineageTag: d3668919-f631-4fab-bacb-94818e65d8c9
+		sourceLineageTag: 005766a9-0c6e-433d-ae1f-2b026892c1a7
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: BRAZILIANINSSCEI
+
+		annotation SummarizationSetBy = User
+
+	column ISINCOMINGFISCALDOCUMENTGENERATED
+		dataType: int64
+		formatString: 0
+		lineageTag: 8287f88c-b717-4d24-b685-71fd11f7505c
+		sourceLineageTag: 20f3df6d-e18e-4cc0-9e66-3f1f74dd9907
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ISINCOMINGFISCALDOCUMENTGENERATED
+
+		annotation SummarizationSetBy = User
+
+	column ISICMSCONTRIBUTOR
+		dataType: int64
+		formatString: 0
+		lineageTag: f8cae0d7-a9dd-4e4c-a888-d3bc65712081
+		sourceLineageTag: 58dcbea8-3545-4b61-bcb2-14e3506e1604
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ISICMSCONTRIBUTOR
+
+		annotation SummarizationSetBy = User
+
+	column VENDORPORTALCOLLABORATIONMETHOD
+		dataType: int64
+		formatString: 0
+		lineageTag: 11e1cbfc-b144-4359-9434-c6da2e123fa4
+		sourceLineageTag: 68498743-038c-41c1-aaf3-f97dec266558
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: VENDORPORTALCOLLABORATIONMETHOD
+
+		annotation SummarizationSetBy = User
+
+	column PRIMARYPHONENUMBEREXTENSION
+		dataType: string
+		lineageTag: d3c6dade-dedd-4e12-8c79-78f4cb259937
+		sourceLineageTag: cd6ce249-b973-4051-aa3d-81cbe886b605
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PRIMARYPHONENUMBEREXTENSION
+
+		annotation SummarizationSetBy = User
+
+	column ZAKATREGISTRATIONNUMBER
+		dataType: string
+		lineageTag: 1cafd568-f0a8-41cd-b769-3146f7c82822
+		sourceLineageTag: 531db713-08bb-43e0-ae52-437714c06e88
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ZAKATREGISTRATIONNUMBER
+
+		annotation SummarizationSetBy = User
+
+	column ZAKATFILENUMBER
+		dataType: string
+		lineageTag: 2243e890-2aaf-4d79-a3c8-d59eb1187c49
+		sourceLineageTag: 739a7a87-fb05-485b-acf9-375d16ebdfd4
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ZAKATFILENUMBER
+
+		annotation SummarizationSetBy = User
+
+	column ISSUBCONTRACTOR
+		dataType: int64
+		formatString: 0
+		lineageTag: 3065aa3b-4941-4d13-8609-64b76dadf9d6
+		sourceLineageTag: 636cfc3c-0400-46c1-87f7-1ab840874903
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ISSUBCONTRACTOR
+
+		annotation SummarizationSetBy = User
+
+	column ZAKATSERVICETYPE
+		dataType: string
+		lineageTag: c0538e0b-99e9-4c86-9f73-687cb258e26b
+		sourceLineageTag: 7280596c-746e-4b71-90d9-8784e8de6dda
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ZAKATSERVICETYPE
+
+		annotation SummarizationSetBy = User
+
+	column ISGSTCOMPOSITIONSCHEMEENABLED
+		dataType: int64
+		formatString: 0
+		lineageTag: 6a111d2d-1034-49dc-bb54-eb2fea02d445
+		sourceLineageTag: 330cf42f-643e-4878-bdac-045e759e6dad
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ISGSTCOMPOSITIONSCHEMEENABLED
+
+		annotation SummarizationSetBy = User
+
+	column BANKTRANSACTIONTYPE
+		dataType: string
+		lineageTag: 4460f6a6-dd92-4d5f-84a0-2d34fe82447a
+		sourceLineageTag: e61dfc15-2a11-4b20-93b6-c29178b3f38e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: BANKTRANSACTIONTYPE
+
+		annotation SummarizationSetBy = User
+
+	column BANKORDEROFPAYMENT
+		dataType: string
+		lineageTag: 6337a954-06b9-49a0-ba77-5fb696d77af1
+		sourceLineageTag: 83dc691f-4016-48ec-867f-fc9ddafb205b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: BANKORDEROFPAYMENT
+
+		annotation SummarizationSetBy = User
+
+	column FOREIGNRESIDENT
+		dataType: int64
+		formatString: 0
+		lineageTag: c32dbbc8-a72c-4b75-bf4f-6502a87ee3b2
+		sourceLineageTag: 6bf9cb0d-bd8a-415b-aeb8-4b1418c8268b
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: FOREIGNRESIDENT
+
+		annotation SummarizationSetBy = User
+
+	column INVENTORYPROFILE
+		dataType: string
+		lineageTag: 479be04a-6be7-401d-a5cd-45db31f84f2c
+		sourceLineageTag: 7dd84bb9-ee09-41c0-be8c-b22a467821f0
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: INVENTORYPROFILE
+
+		annotation SummarizationSetBy = User
+
+	column INVENTORYPROFILETYPE
+		dataType: int64
+		formatString: 0
+		lineageTag: 67fa6bef-cb08-47c6-b03a-cb873f64a2ad
+		sourceLineageTag: b19872ec-aad1-4c3c-89eb-17ecd827ba12
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: INVENTORYPROFILETYPE
+
+		annotation SummarizationSetBy = User
+
+	column SEPARATEDIVISIONID
+		dataType: string
+		lineageTag: 3a5694ce-2d09-437e-bdd1-db24b9d85817
+		sourceLineageTag: 352fe867-c8f4-4562-8d5a-c091693e69ac
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SEPARATEDIVISIONID
+
+		annotation SummarizationSetBy = User
+
+	column STRUCTUREDEPARTMENT
+		dataType: string
+		lineageTag: 6ccc2393-7cf7-425d-8177-de901f5279ce
+		sourceLineageTag: fb99d132-17da-4cac-80a6-c1092ffffce3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: STRUCTUREDEPARTMENT
+
+		annotation SummarizationSetBy = User
+
+	column TAXOPERATIONCODE
+		dataType: string
+		lineageTag: d3818b25-c056-4ba6-aebc-c25bfb343ef3
+		sourceLineageTag: f0079ead-a7d0-4cfe-9220-b7b762b773b6
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: TAXOPERATIONCODE
+
+		annotation SummarizationSetBy = User
+
+	column TAXPARTNERKIND
+		dataType: int64
+		formatString: 0
+		lineageTag: 269baa09-bce3-47ed-b858-ea2475394df6
+		sourceLineageTag: 21c82603-9b15-4759-9e2a-e5d9927ad58a
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: TAXPARTNERKIND
+
+		annotation SummarizationSetBy = User
+
+	column TAXAGENT
+		dataType: int64
+		formatString: 0
+		lineageTag: 9eb4ac29-db32-4645-b06a-ded3c52dac3a
+		sourceLineageTag: ed744c15-d70e-43cf-927a-c0848edbda6b
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: TAXAGENT
+
+		annotation SummarizationSetBy = User
+
+	column PRIMARYCONTACTFAXRECORDID
+		dataType: int64
+		formatString: 0
+		lineageTag: 1e681f42-bd75-473d-9722-5b9803965284
+		sourceLineageTag: f2475459-ac1e-4303-a38c-17e488609870
+		dataCategory: Uncategorized
+		summarizeBy: count
+		sourceColumn: PRIMARYCONTACTFAXRECORDID
+
+		annotation SummarizationSetBy = User
+
+	column PRIMARYCONTACTPHONERECORDID
+		dataType: int64
+		formatString: 0
+		lineageTag: ce305dd3-fc33-479f-9e64-a710b4c29afb
+		sourceLineageTag: dd44c039-d7b1-4604-bb5c-1c9b2aca1b21
+		dataCategory: Uncategorized
+		summarizeBy: count
+		sourceColumn: PRIMARYCONTACTPHONERECORDID
+
+		annotation SummarizationSetBy = User
+
+	column PRIMARYCONTACTEMAILRECORDID
+		dataType: int64
+		formatString: 0
+		lineageTag: 35b8efcc-07fa-4956-b7d6-f781916db91d
+		sourceLineageTag: 7b13e4ae-8d9b-4dc0-9af3-4451b150c25c
+		dataCategory: Uncategorized
+		summarizeBy: count
+		sourceColumn: PRIMARYCONTACTEMAILRECORDID
+
+		annotation SummarizationSetBy = User
+
+	column PRIMARYCONTACTURLRECORDID
+		dataType: int64
+		formatString: 0
+		lineageTag: 26be3a3c-941e-4dec-ab51-579e7035aedc
+		sourceLineageTag: 31e2d0d3-b0d4-45c1-b838-65798293ac9e
+		dataCategory: Uncategorized
+		summarizeBy: count
+		sourceColumn: PRIMARYCONTACTURLRECORDID
+
+		annotation SummarizationSetBy = User
+
+	column ADDRESSRECORDID
+		dataType: int64
+		formatString: 0
+		lineageTag: 47bf1f43-3185-4428-a2d1-43ccb083ab15
+		sourceLineageTag: 854ae789-407a-484e-adde-ded2cdf35416
+		dataCategory: Uncategorized
+		summarizeBy: count
+		sourceColumn: ADDRESSRECORDID
+
+		annotation SummarizationSetBy = User
+
+	column OVERRIDESALESTAX
+		dataType: int64
+		formatString: 0
+		lineageTag: 2d0b04e8-4602-4859-aaf3-f02552d77667
+		sourceLineageTag: 393cff9d-342b-4e25-932b-06828d0b1b29
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: OVERRIDESALESTAX
+
+		annotation SummarizationSetBy = User
+
+	column ISTAXATIONOVERPAYROLL_BR
+		dataType: int64
+		formatString: 0
+		lineageTag: 2ff406a5-ad9f-4038-a5ba-4fd49d0e969f
+		sourceLineageTag: 0ccb8acd-6a80-4f65-a6d9-fbefd464fee9
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ISTAXATIONOVERPAYROLL_BR
+
+		annotation SummarizationSetBy = User
+
+	column ISPUBLICSECTOR_IT
+		dataType: int64
+		formatString: 0
+		lineageTag: e70290dd-7547-4bd9-9384-96127b2b937a
+		sourceLineageTag: f4710f20-e993-487e-89a3-7e0e7a79ee55
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ISPUBLICSECTOR_IT
+
+		annotation SummarizationSetBy = User
+
+	column DEFAULTAGENTVENDORACCOUNTNUMBER
+		dataType: string
+		lineageTag: fdd8560c-406e-4b60-bab5-5147023a5ae8
+		sourceLineageTag: 61bea452-3f50-45c1-924b-353fcfcda8ac
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DEFAULTAGENTVENDORACCOUNTNUMBER
+
+		annotation SummarizationSetBy = User
+
+	column VENDORCOSTTYPEGROUP
+		dataType: string
+		lineageTag: 72191c62-4d9c-48cd-aff3-61edfacb5a8d
+		sourceLineageTag: 47bc9111-f493-4063-bf76-68d1703ae24e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: VENDORCOSTTYPEGROUP
+
+		annotation SummarizationSetBy = User
+
+	column DEFAULTFROMSHIPPINGPORTID
+		dataType: string
+		lineageTag: 47462985-d18b-4b34-9ad0-bc117efa306e
+		sourceLineageTag: e9526288-9c49-491d-9c24-f0cdc6e8eb23
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DEFAULTFROMSHIPPINGPORTID
+
+		annotation SummarizationSetBy = User
+
+	column ISIMPORTCOSTINGVENDOR
+		dataType: int64
+		formatString: 0
+		lineageTag: f4039691-9e2d-42cb-84bc-5d34862f424e
+		sourceLineageTag: 1314d67f-138d-49f9-8d58-04604a18407f
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ISIMPORTCOSTINGVENDOR
+
+		annotation SummarizationSetBy = User
+
+	column VENDOROVERUNDERDELIVERYTOLERANCEGROUPID
+		dataType: string
+		lineageTag: 5013aa31-cb8c-427c-8c2d-8f2aa363d44a
+		sourceLineageTag: 1c34c110-fcb3-4bb1-82f6-2d0814e6b9fb
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: VENDOROVERUNDERDELIVERYTOLERANCEGROUPID
+
+		annotation SummarizationSetBy = User
+
+	column ISTRANSPORTATIONSERVICESPROVIDER
+		dataType: int64
+		formatString: 0
+		lineageTag: ee26774f-ff59-4a54-9364-20aa35c8bd0f
+		sourceLineageTag: 277a6c20-672c-4668-9ec2-cfd4e28bbb81
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ISTRANSPORTATIONSERVICESPROVIDER
+
+		annotation SummarizationSetBy = User
+
+	column SHIPPINGVENDORACCOUNTNUMBER
+		dataType: string
+		lineageTag: 4e0bdc34-c124-422f-a1bf-c0bcdfc4a33e
+		sourceLineageTag: e161f2d1-2358-4a23-8926-eaf7ee9b0148
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SHIPPINGVENDORACCOUNTNUMBER
+
+		annotation SummarizationSetBy = User
+
+	column SHIPPINGVENDORTYPE
+		dataType: int64
+		formatString: 0
+		lineageTag: a78afebc-bea2-47d6-957c-07927c64f2c4
+		sourceLineageTag: 55baddb3-7400-4c73-b9bd-f36c217cee83
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: SHIPPINGVENDORTYPE
+
+		annotation SummarizationSetBy = User
+
+	column PARTITION
+		dataType: string
+		lineageTag: 368134f2-294e-480f-82c8-934ac63af0d7
+		sourceLineageTag: 90474c39-dbd7-41d1-9278-30a4d0c41572
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PARTITION
+
+		annotation SummarizationSetBy = User
+
+	column VENDORDUNSNUMBER
+		dataType: string
+		lineageTag: 30907eeb-54d5-4cad-8df3-0529bfacc5bd
+		sourceLineageTag: 5b86d8a5-49f1-437a-9eb7-dd3c67d0bf21
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: VENDORDUNSNUMBER
+
+		annotation SummarizationSetBy = User
+
+	column BARCODENUMBERSEQUENCE
+		dataType: string
+		lineageTag: 7e30a293-c6f0-4608-86a2-a4e61b404213
+		sourceLineageTag: d0f080c0-47b7-401f-af53-0f67fa0d9b1f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: BARCODENUMBERSEQUENCE
+
+		annotation SummarizationSetBy = User
+
+	column VENDORPRODUCTHIERARCHYID
+		dataType: int64
+		formatString: 0
+		lineageTag: 47f3484d-7230-460d-8f3f-09c2e8297d70
+		sourceLineageTag: 06348469-3b53-4729-b801-5b01c766a805
+		dataCategory: Uncategorized
+		summarizeBy: count
+		sourceColumn: VENDORPRODUCTHIERARCHYID
+
+		annotation SummarizationSetBy = User
+
+	column COLORIDPREFIX
+		dataType: string
+		lineageTag: ef48fd73-e8f8-47af-9453-36b8eef95cda
+		sourceLineageTag: e5a151db-ef71-4696-913c-d08ae205e705
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: COLORIDPREFIX
+
+		annotation SummarizationSetBy = User
+
+	column STYLEIDPREFIX
+		dataType: string
+		lineageTag: d2c398fa-fecc-43df-9a46-a0d4470a72ad
+		sourceLineageTag: 0df72fa8-1ed2-4ffc-9be6-d2de7cd6a692
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: STYLEIDPREFIX
+
+		annotation SummarizationSetBy = User
+
+	column SIZEIDPREFIX
+		dataType: string
+		lineageTag: 15a4f1ba-20b6-454d-acea-111dac0575ef
+		sourceLineageTag: 47a55acb-1bd3-4c02-8140-a76698d2a396
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SIZEIDPREFIX
+
+		annotation SummarizationSetBy = User
+
+	column SERVICECATEGORY
+		dataType: string
+		lineageTag: 6d8fee7f-5777-4543-98aa-3ab01d87c38b
+		sourceLineageTag: 1190fcb2-b7fd-4aad-a4eb-b494bde95ae8
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SERVICECATEGORY
+
+		annotation SummarizationSetBy = User
+
+	column CREATEBARCODEIFNEEDED
+		dataType: int64
+		formatString: 0
+		lineageTag: d1249635-7d8d-49fa-aa5c-51e08ecf9c72
+		sourceLineageTag: d3f39fa2-d379-4c20-87bb-1aebdc2f46b6
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: CREATEBARCODEIFNEEDED
+
+		annotation SummarizationSetBy = User
+
+	column VENDORTYPE
+		dataType: int64
+		formatString: 0
+		lineageTag: f6cdd6a0-af51-47d2-86fc-1d18fa726694
+		sourceLineageTag: 9515a90c-f08c-4da0-a818-63004184d3c2
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: VENDORTYPE
+
+		annotation SummarizationSetBy = User
+
+	column EXCHANGERATE
+		dataType: double
+		lineageTag: 5e42aee8-72c7-4468-a01d-dd846852eb53
+		sourceLineageTag: 2b54c15b-1782-47ea-873f-b5f9dd3b0610
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: EXCHANGERATE
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column FIXEDEXCHANGERATE
+		dataType: int64
+		formatString: 0
+		lineageTag: 3be03730-aed7-4156-8ab1-eacab47cb652
+		sourceLineageTag: 961aa71e-1348-4cee-9258-aca78ebdc5ca
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: FIXEDEXCHANGERATE
+
+		annotation SummarizationSetBy = User
+
+	column PRICEPOINTROUNDINGTYPE
+		dataType: int64
+		formatString: 0
+		lineageTag: 52d2fe37-eb29-4b59-b1cb-a571346d164f
+		sourceLineageTag: bfce1246-acbb-4ec3-a1f3-703035a35702
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: PRICEPOINTROUNDINGTYPE
+
+		annotation SummarizationSetBy = User
+
+	column PRICEPOINTGROUPID
+		dataType: string
+		lineageTag: 70759777-b173-48b4-9fd0-d34b36df3628
+		sourceLineageTag: 3272af56-7407-4398-80f9-63f491180a0f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PRICEPOINTGROUPID
+
+		annotation SummarizationSetBy = User
+
+	column ROUNDINGMETHOD
+		dataType: string
+		lineageTag: fed8f058-748a-43c5-a0b0-0291f77164c5
+		sourceLineageTag: cb3f725b-6be8-4d33-b887-8127cf14055b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ROUNDINGMETHOD
+
+		annotation SummarizationSetBy = User
+
+	column SALESPRICEROUNDING
+		dataType: int64
+		formatString: 0
+		lineageTag: 3e6754e0-6bed-465e-8551-2dd698bbf518
+		sourceLineageTag: 56c43225-eea6-47bb-b1cd-d031e80578f8
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: SALESPRICEROUNDING
+
+		annotation SummarizationSetBy = User
+
+	column PURCHASESHIPCALENDARID
+		dataType: string
+		lineageTag: e367be6d-1bc9-463b-bfcf-0e8686c6b03b
+		sourceLineageTag: fa39b3eb-986d-4ccf-87d4-445b123ff4b1
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PURCHASESHIPCALENDARID
+
+		annotation SummarizationSetBy = User
+
+	column DATAAREAID
+		dataType: string
+		lineageTag: d30e8269-8d29-416e-9784-d199ccd6a77a
+		sourceLineageTag: 872382f5-8022-4cd3-abb5-0973c834749f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DATAAREAID
+
+		annotation SummarizationSetBy = User
+
+	column SYNCSTARTDATETIME
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: 999e4a39-a150-448a-9482-0064885405c8
+		sourceLineageTag: 2e23218d-b52b-48a2-b0ff-8f42568cb2e8
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SYNCSTARTDATETIME
+
+		variation Variation
+			isDefault
+			relationship: 7485f20b-a762-457d-afdd-ec825bd3f370
+			defaultHierarchy: LocalDateTable_f4b77bc1-056b-4384-8d83-0a8ea3b8d15f.'Date Hierarchy'
+
+		annotation SummarizationSetBy = User
+
+	partition VendVendorV2Staging = entity
+		mode: directQuery
+		source
+			entityName: VendVendorV2Staging
+			expressionSource: 'DirectQuery to AS - FIN & MI tables'
+

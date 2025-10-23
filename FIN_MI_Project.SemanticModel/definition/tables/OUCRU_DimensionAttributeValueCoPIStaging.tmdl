@@ -1,0 +1,160 @@
+table OUCRU_DimensionAttributeValueCoPIStaging
+	lineageTag: 6bbd59c8-6c46-437f-a5d2-153d2dfbc0d6
+	sourceLineageTag: e0b1c050-1300-4243-8c96-16056209fe62
+
+	column DEFINITIONGROUP
+		dataType: string
+		lineageTag: 581ba554-ee9f-4aaf-9b41-e26d0780d021
+		sourceLineageTag: f1665fa4-2e4f-442d-85a1-5f7381175099
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DEFINITIONGROUP
+
+		annotation SummarizationSetBy = User
+
+	column EXECUTIONID
+		dataType: string
+		lineageTag: 6fb332b1-664b-4786-8ed0-dd5c24c44e8b
+		sourceLineageTag: 11386c96-7342-4bd6-984a-9af4bea759f3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: EXECUTIONID
+
+		annotation SummarizationSetBy = User
+
+	column ISSELECTED
+		dataType: int64
+		formatString: 0
+		lineageTag: 9f90214d-4876-421c-9bd2-01de745d9741
+		sourceLineageTag: 5055f2c5-a797-4247-ac1a-9848f1b6160d
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ISSELECTED
+
+		annotation SummarizationSetBy = User
+
+	column TRANSFERSTATUS
+		dataType: int64
+		formatString: 0
+		lineageTag: d557591e-f461-4c55-a34f-d7b58281d7e3
+		sourceLineageTag: 5b827a85-b67f-4601-94b7-05862db1b2bd
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: TRANSFERSTATUS
+
+		annotation SummarizationSetBy = User
+
+	column FINDIMNAME
+		dataType: string
+		lineageTag: 5ea0f357-686d-4374-b284-f21778ecfbd6
+		sourceLineageTag: c02a94a6-abf8-4fa0-87e8-bd52ad777da5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: FINDIMNAME
+
+		annotation SummarizationSetBy = User
+
+	column FINDIMVALUESNAME
+		dataType: string
+		lineageTag: 9e7a403f-6061-4c1d-8fe1-0e06c89690fd
+		sourceLineageTag: 8cb93a5a-f2d5-4efd-96f8-31421b9dfb8d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: FINDIMVALUESNAME
+
+		annotation SummarizationSetBy = User
+
+	column FINDIMVALUESREFRECID
+		dataType: int64
+		formatString: 0
+		lineageTag: d62bc96c-ff51-40ab-a01b-4f3713f5939f
+		sourceLineageTag: 7e1c4d75-a37a-4acb-a929-6e2c6af4bfa4
+		dataCategory: Uncategorized
+		summarizeBy: count
+		sourceColumn: FINDIMVALUESREFRECID
+
+		annotation SummarizationSetBy = User
+
+	column COPI
+		dataType: string
+		lineageTag: 3e445b70-37b3-4899-8bdb-8f5af34f4a6b
+		sourceLineageTag: b60e3e5b-770e-495c-baa1-c8391f4dba47
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: COPI
+
+		annotation SummarizationSetBy = User
+
+	column COPINAME
+		dataType: string
+		lineageTag: 701eb521-56df-4c3f-8cc3-19649dc30fc0
+		sourceLineageTag: 3398b090-3cb7-46dc-b207-7585a3ef6050
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: COPINAME
+
+		annotation SummarizationSetBy = User
+
+	column LEGALENTITYID
+		dataType: string
+		lineageTag: bef425a4-7c91-4a0f-a2c9-228a05521d53
+		sourceLineageTag: c023bf90-cc53-4c32-ae79-cf996e3534d8
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: LEGALENTITYID
+
+		annotation SummarizationSetBy = User
+
+	column ISSUSPEND
+		dataType: int64
+		formatString: 0
+		lineageTag: fa60568f-03e5-4d1b-a9a9-32d63d47f9cc
+		sourceLineageTag: ce60d40c-99f0-4fbe-8506-fa98a38c6267
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ISSUSPEND
+
+		annotation SummarizationSetBy = User
+
+	column PARTITION
+		dataType: string
+		lineageTag: 917a6075-14e7-48a9-b737-d251c061d233
+		sourceLineageTag: 433fb39f-a11a-431a-b77d-4d45c3d239cd
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PARTITION
+
+		annotation SummarizationSetBy = User
+
+	column DATAAREAID
+		dataType: string
+		lineageTag: 17d57189-66ec-451c-a224-a2a69c5e93f5
+		sourceLineageTag: 3017cee6-83be-4e60-8b39-3c22f68b484d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DATAAREAID
+
+		annotation SummarizationSetBy = User
+
+	column SYNCSTARTDATETIME
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: a1e15bd1-b59c-40f1-a55d-be3ab1275f93
+		sourceLineageTag: 40eaef38-c8ed-46d9-a533-6bc78ec03ed4
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SYNCSTARTDATETIME
+
+		variation Variation
+			isDefault
+			relationship: 1806bc0c-0b6a-4792-b30b-f042ce2363ff
+			defaultHierarchy: LocalDateTable_baacc455-49a8-4a16-831c-030f58203c33.'Date Hierarchy'
+
+		annotation SummarizationSetBy = User
+
+	partition OUCRU_DimensionAttributeValueCoPIStaging = entity
+		mode: directQuery
+		source
+			entityName: OUCRU_DimensionAttributeValueCoPIStaging
+			expressionSource: 'DirectQuery to AS - FIN & MI tables'
+

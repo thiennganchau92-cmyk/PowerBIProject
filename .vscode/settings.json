@@ -1,5 +1,15 @@
 {
     "powerquery.client.additionalSymbolsDirectories": [
         "d:/PowerBIProject/.vscode/excel-pq-symbols"
-    ]
+    ],
+    "window.autoDetectColorScheme": false,
+    "accessibility.signals.chatEditModifiedFile": {
+        "sound": "off"
+    },
+    "accessibility.signals.chatResponseReceived": {
+        "sound": "off"
+    },
+    "accessibility.signals.codeActionApplied": {
+        "sound": "off"
+    }
 }
