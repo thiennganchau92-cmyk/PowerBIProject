@@ -14,6 +14,7 @@ annotation PBI_ProTooling = ["DevMode"]
 
 ref table LedgerJournalEntityStaging
 ref table BudgetRegisterEntryStaging
+ref table BudgetVsActualMeasures
 ref table OUCRU_VendInvoiceJourStaging
 ref table OUCRU_DimensionAttributeValueCoPIStaging
 ref table BankAccountStaging
