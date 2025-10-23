@@ -120,4 +120,5 @@ ref table LocalDateTable_826eb214-0e27-4473-9e9d-2590017308dc
 ref table LocalDateTable_f4b77bc1-056b-4384-8d83-0a8ea3b8d15f
 
 ref cultureInfo en-US
+ref table 'GL Overview Metrics'
 

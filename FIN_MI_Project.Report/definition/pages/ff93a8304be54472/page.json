@@ -1,0 +1,446 @@
+{
+    "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+    "name": "ff93a8304be54472",
+    "displayName": "GL Overview",
+    "displayOption": "FitToPage",
+    "height": 720,
+    "width": 1280,
+    "visualContainers": [
+        {
+            "name": "cardTotalDebit",
+            "layouts": [
+                {
+                    "id": 0,
+                    "position": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0,
+                        "width": 256,
+                        "height": 144
+                    }
+                }
+            ],
+            "tabOrder": 0,
+            "z": 0,
+            "config": {
+                "singleVisual": {
+                    "visualType": "card",
+                    "projections": {
+                        "Values": [
+                            {
+                                "queryRef": "TotalDebitAmount"
+                            }
+                        ]
+                    },
+                    "prototypeQuery": {
+                        "Version": 2,
+                        "From": [
+                            {
+                                "Name": "m",
+                                "Entity": "'GL Overview Metrics'"
+                            }
+                        ],
+                        "Select": [
+                            {
+                                "Name": "TotalDebitAmount",
+                                "Measure": {
+                                    "Expression": {
+                                        "SourceRef": {
+                                            "Source": "m"
+                                        }
+                                    },
+                                    "Property": "Total Debit Amount"
+                                }
+                            }
+                        ]
+                    },
+                    "drillFilterOtherVisuals": true,
+                    "modelId": 0
+                }
+            }
+        },
+        {
+            "name": "cardTotalCredit",
+            "layouts": [
+                {
+                    "id": 0,
+                    "position": {
+                        "x": 272,
+                        "y": 0,
+                        "z": 0,
+                        "width": 256,
+                        "height": 144
+                    }
+                }
+            ],
+            "tabOrder": 1,
+            "z": 0,
+            "config": {
+                "singleVisual": {
+                    "visualType": "card",
+                    "projections": {
+                        "Values": [
+                            {
+                                "queryRef": "TotalCreditAmount"
+                            }
+                        ]
+                    },
+                    "prototypeQuery": {
+                        "Version": 2,
+                        "From": [
+                            {
+                                "Name": "m",
+                                "Entity": "'GL Overview Metrics'"
+                            }
+                        ],
+                        "Select": [
+                            {
+                                "Name": "TotalCreditAmount",
+                                "Measure": {
+                                    "Expression": {
+                                        "SourceRef": {
+                                            "Source": "m"
+                                        }
+                                    },
+                                    "Property": "Total Credit Amount"
+                                }
+                            }
+                        ]
+                    },
+                    "drillFilterOtherVisuals": true,
+                    "modelId": 0
+                }
+            }
+        },
+        {
+            "name": "cardNetAmount",
+            "layouts": [
+                {
+                    "id": 0,
+                    "position": {
+                        "x": 544,
+                        "y": 0,
+                        "z": 0,
+                        "width": 256,
+                        "height": 144
+                    }
+                }
+            ],
+            "tabOrder": 2,
+            "z": 0,
+            "config": {
+                "singleVisual": {
+                    "visualType": "card",
+                    "projections": {
+                        "Values": [
+                            {
+                                "queryRef": "NetAmount"
+                            }
+                        ]
+                    },
+                    "prototypeQuery": {
+                        "Version": 2,
+                        "From": [
+                            {
+                                "Name": "m",
+                                "Entity": "'GL Overview Metrics'"
+                            }
+                        ],
+                        "Select": [
+                            {
+                                "Name": "NetAmount",
+                                "Measure": {
+                                    "Expression": {
+                                        "SourceRef": {
+                                            "Source": "m"
+                                        }
+                                    },
+                                    "Property": "Net Amount"
+                                }
+                            }
+                        ]
+                    },
+                    "drillFilterOtherVisuals": true,
+                    "modelId": 0
+                }
+            }
+        },
+        {
+            "name": "cardTxnCount",
+            "layouts": [
+                {
+                    "id": 0,
+                    "position": {
+                        "x": 816,
+                        "y": 0,
+                        "z": 0,
+                        "width": 256,
+                        "height": 144
+                    }
+                }
+            ],
+            "tabOrder": 3,
+            "z": 0,
+            "config": {
+                "singleVisual": {
+                    "visualType": "card",
+                    "projections": {
+                        "Values": [
+                            {
+                                "queryRef": "TransactionCount"
+                            }
+                        ]
+                    },
+                    "prototypeQuery": {
+                        "Version": 2,
+                        "From": [
+                            {
+                                "Name": "m",
+                                "Entity": "'GL Overview Metrics'"
+                            }
+                        ],
+                        "Select": [
+                            {
+                                "Name": "TransactionCount",
+                                "Measure": {
+                                    "Expression": {
+                                        "SourceRef": {
+                                            "Source": "m"
+                                        }
+                                    },
+                                    "Property": "Transaction Count"
+                                }
+                            }
+                        ]
+                    },
+                    "drillFilterOtherVisuals": true,
+                    "modelId": 0
+                }
+            }
+        },
+        {
+            "name": "cardAvgTxn",
+            "layouts": [
+                {
+                    "id": 0,
+                    "position": {
+                        "x": 1088,
+                        "y": 0,
+                        "z": 0,
+                        "width": 192,
+                        "height": 144
+                    }
+                }
+            ],
+            "tabOrder": 4,
+            "z": 0,
+            "config": {
+                "singleVisual": {
+                    "visualType": "card",
+                    "projections": {
+                        "Values": [
+                            {
+                                "queryRef": "AverageTransactionAmount"
+                            }
+                        ]
+                    },
+                    "prototypeQuery": {
+                        "Version": 2,
+                        "From": [
+                            {
+                                "Name": "m",
+                                "Entity": "'GL Overview Metrics'"
+                            }
+                        ],
+                        "Select": [
+                            {
+                                "Name": "AverageTransactionAmount",
+                                "Measure": {
+                                    "Expression": {
+                                        "SourceRef": {
+                                            "Source": "m"
+                                        }
+                                    },
+                                    "Property": "Average Transaction Amount"
+                                }
+                            }
+                        ]
+                    },
+                    "drillFilterOtherVisuals": true,
+                    "modelId": 0
+                }
+            }
+        },
+        {
+            "name": "lineNetTrend",
+            "layouts": [
+                {
+                    "id": 0,
+                    "position": {
+                        "x": 0,
+                        "y": 160,
+                        "z": 0,
+                        "width": 768,
+                        "height": 304
+                    }
+                }
+            ],
+            "tabOrder": 5,
+            "z": 0,
+            "config": {
+                "singleVisual": {
+                    "visualType": "lineChart",
+                    "projections": {
+                        "Values": [
+                            {
+                                "queryRef": "NetAmount"
+                            }
+                        ],
+                        "Category": [
+                            {
+                                "queryRef": "AccountingDate"
+                            }
+                        ]
+                    },
+                    "prototypeQuery": {
+                        "Version": 2,
+                        "From": [
+                            {
+                                "Name": "g",
+                                "Entity": "GeneralJournalAccountEntryStaging"
+                            },
+                            {
+                                "Name": "m",
+                                "Entity": "'GL Overview Metrics'"
+                            }
+                        ],
+                        "Select": [
+                            {
+                                "Name": "AccountingDate",
+                                "Aggregation": {
+                                    "Expression": {
+                                        "Column": {
+                                            "Expression": {
+                                                "SourceRef": {
+                                                    "Source": "g"
+                                                }
+                                            },
+                                            "Property": "ACCOUNTINGDATE"
+                                        }
+                                    },
+                                    "Function": "Min"
+                                }
+                            },
+                            {
+                                "Name": "NetAmount",
+                                "Measure": {
+                                    "Expression": {
+                                        "SourceRef": {
+                                            "Source": "m"
+                                        }
+                                    },
+                                    "Property": "Net Amount"
+                                }
+                            }
+                        ],
+                        "GroupBy": [
+                            {
+                                "SourceRef": {
+                                    "Source": "g"
+                                }
+                            }
+                        ]
+                    },
+                    "drillFilterOtherVisuals": true,
+                    "modelId": 0
+                }
+            }
+        },
+        {
+            "name": "tableTopAccounts",
+            "layouts": [
+                {
+                    "id": 0,
+                    "position": {
+                        "x": 784,
+                        "y": 160,
+                        "z": 0,
+                        "width": 496,
+                        "height": 304
+                    }
+                }
+            ],
+            "tabOrder": 6,
+            "z": 0,
+            "config": {
+                "singleVisual": {
+                    "visualType": "tableEx",
+                    "projections": {
+                        "Values": [
+                            {
+                                "queryRef": "LedgerAccount"
+                            },
+                            {
+                                "queryRef": "NetAmount"
+                            }
+                        ]
+                    },
+                    "prototypeQuery": {
+                        "Version": 2,
+                        "From": [
+                            {
+                                "Name": "g",
+                                "Entity": "GeneralJournalAccountEntryStaging"
+                            },
+                            {
+                                "Name": "m",
+                                "Entity": "'GL Overview Metrics'"
+                            }
+                        ],
+                        "Select": [
+                            {
+                                "Name": "LedgerAccount",
+                                "Column": {
+                                    "Expression": {
+                                        "SourceRef": {
+                                            "Source": "g"
+                                        }
+                                    },
+                                    "Property": "LEDGERACCOUNT"
+                                }
+                            },
+                            {
+                                "Name": "NetAmount",
+                                "Measure": {
+                                    "Expression": {
+                                        "SourceRef": {
+                                            "Source": "m"
+                                        }
+                                    },
+                                    "Property": "Net Amount"
+                                }
+                            }
+                        ],
+                        "OrderBy": [
+                            {
+                                "Direction": 1,
+                                "Expression": {
+                                    "Measure": {
+                                        "Expression": {
+                                            "SourceRef": {
+                                                "Source": "m"
+                                            }
+                                        },
+                                        "Property": "Net Amount"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "drillFilterOtherVisuals": true,
+                    "modelId": 0
+                }
+            }
+        }
+    ]
+}
