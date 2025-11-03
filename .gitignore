@@ -1,2 +1,15 @@
 **/.pbi/localSettings.json
 **/.pbi/cache.abf
+
+# Power BI project files
+*.pbip
+*.pbix
+*.pbit
+*.csv
+
+# Directories
+FIN_MI/
+OnhandList_v2.Report/
+OnhandList_v2.SemanticModel/
+Templates/
+Visuals template/
