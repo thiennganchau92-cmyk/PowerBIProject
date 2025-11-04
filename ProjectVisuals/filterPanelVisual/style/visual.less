@@ -1,0 +1,399 @@
+/* OUCRU Theme Variables */
+@oucru-bg: #F9F7F2;
+@oucru-fg: #0A400C;
+@oucru-text: #141414;
+@oucru-light-gray: #E8E6E1;
+@oucru-border: #D4D2CD;
+
+/* CSS Variables for dynamic theming */
+.filter-panel {
+    --accent-color: #0A400C;
+    --border-radius: 4px;
+    --bg-color: #F9F7F2;
+    --text-color: #141414;
+    --light-gray: #E8E6E1;
+    --border-color: #D4D2CD;
+}
+
+/* Main Panel Container */
+.filter-panel {
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 13px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    padding: 16px;
+    box-sizing: border-box;
+}
+
+/* Active Chips Section */
+.active-chips-container {
+    margin-bottom: 16px;
+    padding: 12px;
+    background-color: white;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+
+    .chips-header {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--accent-color);
+        margin-bottom: 8px;
+    }
+
+    .chips-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+
+        .empty-message {
+            color: #999;
+            font-style: italic;
+            font-size: 12px;
+        }
+    }
+}
+
+/* Filter Chip */
+.filter-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    background-color: var(--accent-color);
+    color: white;
+    border-radius: var(--border-radius);
+    font-size: 12px;
+    transition: opacity 0.2s;
+
+    &:hover {
+        opacity: 0.9;
+    }
+
+    .chip-label {
+        flex: 1;
+    }
+
+    .chip-remove {
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: bold;
+        line-height: 1;
+        padding: 0 4px;
+        border-radius: 50%;
+        transition: background-color 0.2s;
+
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+    }
+}
+
+/* Controls Container */
+.controls-container {
+    flex: 1;
+    overflow-y: auto;
+
+    .empty-message {
+        padding: 24px;
+        text-align: center;
+        color: #999;
+        font-style: italic;
+    }
+}
+
+/* Control Section */
+.control-section {
+    margin-bottom: 16px;
+    padding: 12px;
+    background-color: white;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+
+    .control-header {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--accent-color);
+        margin-bottom: 12px;
+        padding-bottom: 8px;
+        border-bottom: 2px solid var(--accent-color);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        
+        .count-badge {
+            font-size: 11px;
+            font-weight: 500;
+            padding: 2px 8px;
+            border-radius: 12px;
+            background-color: #e0e0e0;
+            color: #666;
+            
+            &.filtered {
+                background-color: #fff3cd;
+                color: #856404;
+                border: 1px solid #ffc107;
+            }
+        }
+    }
+
+    .search-input {
+        width: 100%;
+        padding: 8px 12px;
+        border: 1px solid var(--border-color);
+        border-radius: var(--border-radius);
+        font-size: 13px;
+        margin-bottom: 12px;
+        box-sizing: border-box;
+        transition: border-color 0.2s;
+
+        &:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+
+        &::placeholder {
+            color: #999;
+        }
+    }
+
+    // Form inputs and labels for numeric/date/TopN controls
+    label {
+        display: block;
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--text-color);
+        margin-bottom: 6px;
+        margin-top: 12px;
+
+        &:first-of-type {
+            margin-top: 0;
+        }
+    }
+
+    input[type="number"],
+    input[type="text"],
+    select {
+        width: 100%;
+        padding: 8px 12px;
+        border: 1px solid var(--border-color);
+        border-radius: var(--border-radius);
+        font-size: 13px;
+        box-sizing: border-box;
+        transition: border-color 0.2s;
+        background-color: white;
+
+        &:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+
+        &::placeholder {
+            color: #999;
+        }
+    }
+
+    select {
+        cursor: pointer;
+        appearance: auto;
+    }
+
+    // Form row for inline labels and inputs
+    .form-row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 8px;
+
+        label {
+            margin: 0;
+            white-space: nowrap;
+            min-width: 40px;
+        }
+
+        input {
+            flex: 1;
+        }
+    }
+
+    .actions-row {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 12px;
+
+        .action-btn {
+            flex: 1;
+            padding: 6px 12px;
+            background-color: white;
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+            border-radius: var(--border-radius);
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+
+            &:hover {
+                background-color: var(--accent-color);
+                color: white;
+            }
+
+            &:active {
+                transform: translateY(1px);
+            }
+        }
+    }
+
+    .values-list {
+        max-height: 300px;
+        overflow-y: auto;
+        border: 1px solid var(--border-color);
+        border-radius: var(--border-radius);
+        background-color: var(--bg-color);
+
+        .category-item {
+            display: flex;
+            align-items: center;
+            padding: 8px 12px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+
+            &:hover {
+                background-color: var(--light-gray);
+            }
+
+            input[type="checkbox"] {
+                margin: 0 8px 0 0;
+                cursor: pointer;
+                accent-color: var(--accent-color);
+            }
+
+            label {
+                flex: 1;
+                cursor: pointer;
+                user-select: none;
+            }
+        }
+    }
+}
+
+/* Footer Container */
+.footer-container {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+
+    .footer-btn {
+        padding: 10px 20px;
+        border-radius: var(--border-radius);
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+        border: none;
+
+        &:active {
+            transform: translateY(1px);
+        }
+
+        &.reset-btn {
+            background-color: white;
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+
+            &:hover {
+                background-color: var(--light-gray);
+            }
+        }
+
+        &.apply-btn {
+            background-color: var(--accent-color);
+            color: white;
+
+            &:hover {
+                opacity: 0.9;
+            }
+
+            &:disabled {
+                background-color: #ccc;
+                color: #666;
+                cursor: not-allowed;
+                opacity: 0.6;
+
+                &:hover {
+                    opacity: 0.6;
+                }
+            }
+        }
+    }
+}
+
+/* Scrollbar Styling */
+.filter-panel,
+.values-list {
+    &::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: var(--light-gray);
+        border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: var(--accent-color);
+        border-radius: 4px;
+
+        &:hover {
+            background: darken(@oucru-fg, 10%);
+        }
+    }
+}
+
+/* Toggle Button and Panel Visibility */
+.filter-toggle-btn {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--accent-color);
+    font-weight: 500;
+    margin-bottom: 16px;
+
+    svg {
+        width: 20px;
+        height: 20px;
+        stroke: @oucru-fg;
+        flex-shrink: 0;
+    }
+
+    .toggle-text {
+        white-space: nowrap;
+    }
+
+    &:hover {
+        background-color: @oucru-light-gray;
+        border-color: @oucru-border;
+    }
+}
+
+.filter-content.hidden {
+    display: none;
+}
+
+.filter-panel.hidden {
+    display: none;
+}

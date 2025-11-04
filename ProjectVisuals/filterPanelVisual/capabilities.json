@@ -1,0 +1,180 @@
+{
+    "dataRoles": [
+        {
+            "displayName": "Category Fields",
+            "name": "categoryFields",
+            "kind": "Grouping"
+        },
+        {
+            "displayName": "Numeric Fields",
+            "name": "numericFields",
+            "kind": "Measure"
+        },
+        {
+            "displayName": "Date Fields",
+            "name": "dateFields",
+            "kind": "Grouping"
+        },
+        {
+            "displayName": "Top N Measure",
+            "name": "topByMeasure",
+            "kind": "Measure"
+        }
+    ],
+    "objects": {
+        "panelSettings": {
+            "displayName": "Panel Settings",
+            "properties": {
+                "scope": {
+                    "displayName": "Filter Scope",
+                    "type": {
+                        "enumeration": [
+                            {
+                                "displayName": "Visual",
+                                "value": "Visual"
+                            },
+                            {
+                                "displayName": "Page",
+                                "value": "Page"
+                            },
+                            {
+                                "displayName": "Report",
+                                "value": "Report"
+                            }
+                        ]
+                    }
+                },
+                "applyMode": {
+                    "displayName": "Apply Mode",
+                    "type": {
+                        "enumeration": [
+                            {
+                                "displayName": "Instant",
+                                "value": "Instant"
+                            },
+                            {
+                                "displayName": "Commit",
+                                "value": "Commit"
+                            }
+                        ]
+                    }
+                },
+                "showActiveChips": {
+                    "displayName": "Show Active Filters",
+                    "type": {
+                        "bool": true
+                    }
+                },
+                "showReset": {
+                    "displayName": "Show Reset Button",
+                    "type": {
+                        "bool": true
+                    }
+                },
+                "denseMode": {
+                    "displayName": "Dense Mode",
+                    "type": {
+                        "bool": true
+                    }
+                },
+                "enableCrossFiltering": {
+                    "displayName": "Enable Filter Relationships",
+                    "type": {
+                        "bool": true
+                    }
+                },
+                "initialState": {
+                    "displayName": "Initial Panel State",
+                    "type": {
+                        "enumeration": [
+                            {
+                                "displayName": "Visible",
+                                "value": "Visible"
+                            },
+                            {
+                                "displayName": "Hidden",
+                                "value": "Hidden"
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        "theming": {
+            "displayName": "Theming",
+            "properties": {
+                "accentColor": {
+                    "displayName": "Accent Color",
+                    "type": {
+                        "fill": {
+                            "solid": {
+                                "color": true
+                            }
+                        }
+                    }
+                },
+                "chipStyle": {
+                    "displayName": "Chip Style",
+                    "type": {
+                        "enumeration": [
+                            {
+                                "displayName": "Rounded",
+                                "value": "Rounded"
+                            },
+                            {
+                                "displayName": "Square",
+                                "value": "Square"
+                            }
+                        ]
+                    }
+                },
+                "borderRadius": {
+                    "displayName": "Border Radius",
+                    "type": {
+                        "numeric": true
+                    }
+                }
+            }
+        }
+    },
+    "dataViewMappings": [
+        {
+            "categorical": {
+                "categories": {
+                    "select": [
+                        {
+                            "for": {
+                                "in": "categoryFields"
+                            }
+                        },
+                        {
+                            "for": {
+                                "in": "dateFields"
+                            }
+                        }
+                    ],
+                    "dataReductionAlgorithm": {
+                        "top": {
+                            "count": 10000
+                        }
+                    }
+                },
+                "values": {
+                    "select": [
+                        {
+                            "for": {
+                                "in": "numericFields"
+                            }
+                        },
+                        {
+                            "for": {
+                                "in": "topByMeasure"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    ],
+    "privileges": []
+}

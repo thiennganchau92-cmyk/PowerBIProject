@@ -1,0 +1,189 @@
+/*
+*  Power BI Visual CLI
+*
+*  Copyright (c) Microsoft Corporation
+*  All rights reserved.
+*  MIT License
+*
+*  Permission is hereby granted, free of charge, to any person obtaining a copy
+*  of this software and associated documentation files (the ""Software""), to deal
+*  in the Software without restriction, including without limitation the rights
+*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+*  copies of the Software, and to permit persons to whom the Software is
+*  furnished to do so, subject to the following conditions:
+*
+*  The above copyright notice and this permission notice shall be included in
+*  all copies or substantial portions of the Software.
+*
+*  THE SOFTWARE IS PROVIDED *AS IS*, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+*  THE SOFTWARE.
+*/
+
+// OUCRU Theme Color variables
+@oucru-background: #F9F7F2;
+@oucru-foreground: #0A400C;
+@oucru-text: #141414;
+@oucru-accent: #426871;
+@oucru-secondary: #819067;
+
+// Legacy colors for compatibility
+@primary-color: @oucru-foreground;
+@secondary-color: @oucru-background;
+@font-color: @oucru-text;
+
+// Main container
+.slicer-container {
+    background-color: @oucru-background;
+    padding: 10px;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: @oucru-text;
+}
+
+// Search container with icons
+.search-container {
+    display: flex;
+    align-items: center;
+    background-color: @oucru-background;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    gap: 8px;
+}
+
+.search-icon {
+    color: @oucru-foreground;
+    font-size: 18px;
+    cursor: default;
+    user-select: none;
+}
+
+.search-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 5px;
+    background-color: transparent;
+    color: @oucru-text;
+    font-size: 14px;
+
+    &::placeholder {
+        color: #999;
+    }
+}
+
+.refresh-icon {
+    color: @oucru-foreground;
+    font-size: 20px;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.3s ease;
+
+    &:hover {
+        transform: rotate(180deg);
+        color: @oucru-accent;
+    }
+
+    &:active {
+        transform: rotate(360deg);
+    }
+}
+
+// Dropdown
+.dropdown {
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: @oucru-background;
+    margin-top: 5px;
+
+    &.hidden {
+        display: none;
+    }
+}
+
+// Dropdown item
+.dropdown-item {
+    padding: 10px;
+    cursor: pointer;
+    color: @oucru-text;
+    background-color: @oucru-background;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+        background-color: #EFF5D2; // Light green from OUCRU dataColors
+    }
+
+    &.selected {
+        background-color: @oucru-foreground;
+        color: @oucru-background;
+    }
+}
+
+// Selected items
+.selected-items-container {
+    margin-bottom: 10px;
+}
+
+.selected-item {
+    display: inline-block;
+    background-color: @oucru-foreground;
+    color: @oucru-background;
+    padding: 5px 10px;
+    border-radius: 4px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.remove-item {
+    margin-left: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: color 0.2s ease;
+
+    &:hover {
+        color: #BF1C1C; // Bad/error color from OUCRU theme
+    }
+}
+
+// Layouts
+.slicer-container.horizontal .dropdown {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.slicer-container.horizontal .dropdown-item {
+    margin-right: 5px;
+}
+
+.slicer-container.dropdown .dropdown {
+    display: none;
+    position: absolute;
+    background-color: white;
+    width: 100%;
+    z-index: 1;
+}
+
+.slicer-container.dropdown input:focus + .dropdown {
+    display: block;
+}
+
+// Hierarchy
+.expander {
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.children-container.hidden {
+    display: none;
+}
+
+// Expander styles for hierarchy
+.expander {
+    color: @oucru-foreground;
+    font-weight: bold;
+}

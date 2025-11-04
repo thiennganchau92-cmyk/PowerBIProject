@@ -1,0 +1,31 @@
+import powerbi from "powerbi-visuals-api";
+import "./../style/visual.less";
+import VisualConstructorOptions = powerbi.extensibility.visual.VisualConstructorOptions;
+import VisualUpdateOptions = powerbi.extensibility.visual.VisualUpdateOptions;
+import IVisual = powerbi.extensibility.visual.IVisual;
+import { CategoryData, NumericData, DateData } from "./data/dataManager";
+import { NumericRange, RelativeDateConfig, TopNConfig } from "./filters";
+export declare class Visual implements IVisual {
+    private host;
+    private formattingSettings;
+    private formattingSettingsService;
+    private uiManager;
+    private dataManager;
+    private filterManager;
+    private crossFilterManager;
+    private isInitialLoad;
+    constructor(options: VisualConstructorOptions);
+    update(options: VisualUpdateOptions): void;
+    handleCategoryChange(categoryData: CategoryData, value: any, checked: boolean, fieldKey: string): void;
+    selectAllCategories(categoryData: CategoryData, fieldKey: string): void;
+    clearCategorySelection(categoryData: CategoryData, fieldKey: string): void;
+    applyCategoryFilter(categoryData: CategoryData, fieldKey: string): void;
+    applyFilters(): void;
+    removeFilter(id: string): void;
+    resetAll(): void;
+    applyNumericFilter(numericData: NumericData, range: NumericRange): void;
+    applyDateFilter(dateData: DateData, config: RelativeDateConfig): void;
+    applyTopNFilter(categoryData: CategoryData, config: TopNConfig): void;
+    getSelectedCategories(): Map<string, Set<any>>;
+    getFormattingModel(): powerbi.visuals.FormattingModel;
+}
