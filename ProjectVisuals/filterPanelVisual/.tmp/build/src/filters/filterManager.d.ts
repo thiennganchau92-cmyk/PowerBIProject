@@ -1,0 +1,34 @@
+import powerbi from "powerbi-visuals-api";
+import IVisualHost = powerbi.extensibility.visual.IVisualHost;
+import { VisualFormattingSettingsModel } from "../settings";
+import { NumericRange, RelativeDateConfig, TopNConfig } from "./index";
+import { DataManager, CategoryData, NumericData, DateData, ActiveFilter } from "../data/dataManager";
+import { UIManager } from "../ui/uiManager";
+import { CrossFilterManager } from "../cross-filter/crossFilterManager";
+export declare class FilterManager {
+    private host;
+    private formattingSettings;
+    private dataManager;
+    uiManager: UIManager;
+    crossFilterManager: CrossFilterManager;
+    selectedCategories: Map<string, Set<any>>;
+    numericRanges: Map<string, NumericRange>;
+    relativeDateConfigs: Map<string, RelativeDateConfig>;
+    topNConfigs: Map<string, TopNConfig>;
+    activeFilters: Map<string, ActiveFilter>;
+    pendingChanges: boolean;
+    constructor(host: IVisualHost, dataManager: DataManager, uiManager: UIManager, crossFilterManager: CrossFilterManager);
+    updateFormattingSettings(formattingSettings: VisualFormattingSettingsModel): void;
+    handleCategoryChange(categoryData: CategoryData, value: any, checked: boolean, fieldKey: string): void;
+    selectAllCategories(categoryData: CategoryData, fieldKey: string): void;
+    clearCategorySelection(categoryData: CategoryData, fieldKey: string): void;
+    applyCategoryFilter(categoryData: CategoryData, fieldKey: string): void;
+    applyFilters(): void;
+    removeFilter(id: string): void;
+    resetAll(): void;
+    applyNumericFilter(numericData: NumericData, range: NumericRange): void;
+    applyDateFilter(dateData: DateData, config: RelativeDateConfig): void;
+    applyTopNFilter(categoryData: CategoryData, config: TopNConfig): void;
+    getSelectedCategories(): Map<string, Set<any>>;
+    private renderUI;
+}

@@ -1,0 +1,146 @@
+/*
+*  Power BI Visual CLI
+*
+*  Copyright (c) Microsoft Corporation
+*  All rights reserved.
+*  MIT License
+*
+*  Permission is hereby granted, free of charge, to any person obtaining a copy
+*  of this software and associated documentation files (the ""Software""), to deal
+*  in the Software without restriction, including without limitation the rights
+*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+*  copies of the Software, and to permit persons to whom the Software is
+*  furnished to do so, subject to the following conditions:
+*
+*  The above copyright notice and this permission notice shall be included in
+*  all copies or substantial portions of the Software.
+*
+*  THE SOFTWARE IS PROVIDED *AS IS*, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+*  THE SOFTWARE.
+*/
+.slicer-container {
+  background-color: #F9F7F2;
+  padding: 10px;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  color: #141414;
+}
+.search-container {
+  display: flex;
+  align-items: center;
+  background-color: #F9F7F2;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  gap: 8px;
+}
+.search-icon {
+  color: #0A400C;
+  font-size: 18px;
+  cursor: default;
+  user-select: none;
+}
+.search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 5px;
+  background-color: transparent;
+  color: #141414;
+  font-size: 14px;
+}
+.search-input::placeholder {
+  color: #999;
+}
+.refresh-icon {
+  color: #0A400C;
+  font-size: 20px;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.3s ease;
+}
+.refresh-icon:hover {
+  transform: rotate(180deg);
+  color: #426871;
+}
+.refresh-icon:active {
+  transform: rotate(360deg);
+}
+.dropdown {
+  max-height: 200px;
+  overflow-y: auto;
+  background-color: #F9F7F2;
+  margin-top: 5px;
+}
+.dropdown.hidden {
+  display: none;
+}
+.dropdown-item {
+  padding: 10px;
+  cursor: pointer;
+  color: #141414;
+  background-color: #F9F7F2;
+  transition: background-color 0.2s ease;
+}
+.dropdown-item:hover {
+  background-color: #EFF5D2;
+}
+.dropdown-item.selected {
+  background-color: #0A400C;
+  color: #F9F7F2;
+}
+.selected-items-container {
+  margin-bottom: 10px;
+}
+.selected-item {
+  display: inline-block;
+  background-color: #0A400C;
+  color: #F9F7F2;
+  padding: 5px 10px;
+  border-radius: 4px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+.remove-item {
+  margin-left: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: color 0.2s ease;
+}
+.remove-item:hover {
+  color: #BF1C1C;
+}
+.slicer-container.horizontal .dropdown {
+  display: flex;
+  flex-wrap: wrap;
+}
+.slicer-container.horizontal .dropdown-item {
+  margin-right: 5px;
+}
+.slicer-container.dropdown .dropdown {
+  display: none;
+  position: absolute;
+  background-color: white;
+  width: 100%;
+  z-index: 1;
+}
+.slicer-container.dropdown input:focus + .dropdown {
+  display: block;
+}
+.expander {
+  margin-right: 5px;
+  cursor: pointer;
+}
+.children-container.hidden {
+  display: none;
+}
+.expander {
+  color: #0A400C;
+  font-weight: bold;
+}
+

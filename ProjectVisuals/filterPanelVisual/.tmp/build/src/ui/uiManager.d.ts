@@ -1,0 +1,42 @@
+import { VisualFormattingSettingsModel } from "../settings";
+import { Visual } from "../visual";
+import { CategoryData, NumericData, DateData, ActiveFilter } from "../data/dataManager";
+import { FilterManager } from "../filters/filterManager";
+import { CrossFilterManager } from "../cross-filter/crossFilterManager";
+export declare class UIManager {
+    private visual;
+    private filterManager;
+    private crossFilterManager;
+    private target;
+    private panelContainer;
+    private toggleText;
+    private contentWrapper;
+    private activeChipsContainer;
+    private controlsContainer;
+    private footerContainer;
+    constructor(visual: Visual, filterManager: FilterManager, crossFilterManager: CrossFilterManager, target: HTMLElement);
+    initialize(): void;
+    togglePanel(): void;
+    private updateToggleText;
+    applyInitialPanelState(formattingSettings: VisualFormattingSettingsModel): void;
+    render(formattingSettings: VisualFormattingSettingsModel, data: {
+        categoryData: CategoryData[];
+        numericData: NumericData[];
+        dateData: DateData[];
+        measureData: any[];
+        originalCategoryData: CategoryData[];
+        activeFilters: Map<string, ActiveFilter>;
+        pendingChanges: boolean;
+    }): void;
+    private renderActiveChips;
+    private createFilterChip;
+    private renderControls;
+    private renderCategoryControl;
+    private createCategoryItem;
+    private filterCategoryList;
+    private renderFooter;
+    private renderNumericControl;
+    private renderDateControl;
+    private renderTopNControl;
+    applyTheming(formattingSettings: VisualFormattingSettingsModel): void;
+}
