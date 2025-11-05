@@ -14,6 +14,9 @@ export declare class UIManager {
     private activeChipsContainer;
     private controlsContainer;
     private footerContainer;
+    private externalResetButton;
+    private collapsedSections;
+    private searchDebounceTimers;
     constructor(visual: Visual, filterManager: FilterManager, crossFilterManager: CrossFilterManager, target: HTMLElement);
     initialize(): void;
     togglePanel(): void;
@@ -28,10 +31,13 @@ export declare class UIManager {
         activeFilters: Map<string, ActiveFilter>;
         pendingChanges: boolean;
     }, layout: string): void;
+    private updateExternalResetButton;
     private renderActiveChips;
     private createFilterChip;
     private renderControls;
+    private createFilterGroup;
     private renderCategoryControl;
+    private debouncedSearch;
     private createCategoryItem;
     private filterCategoryList;
     private renderFooter;
