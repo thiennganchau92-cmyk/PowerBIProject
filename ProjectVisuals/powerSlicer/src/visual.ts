@@ -28,7 +28,7 @@
 import powerbi from "powerbi-visuals-api";
 import { FormattingSettingsService } from "powerbi-visuals-utils-formattingmodel";
 import "./../style/visual.less";
-import { IFilterColumnTarget, BasicFilter } from "powerbi-models";
+import { IFilterColumnTarget, BasicFilter, IBasicFilter, IFilter, FilterType } from "powerbi-models";
 
 import VisualConstructorOptions = powerbi.extensibility.visual.VisualConstructorOptions;
 import VisualUpdateOptions = powerbi.extensibility.visual.VisualUpdateOptions;
@@ -62,6 +62,7 @@ export class Visual implements IVisual {
     private formattingSettings: VisualFormattingSettingsModel;
     private formattingSettingsService: FormattingSettingsService;
     private previousResetTrigger: boolean | null = null;
+    private hostFilterActive: boolean = false;
 
     constructor(options: VisualConstructorOptions) {
         this.target = options.element;
@@ -188,8 +189,74 @@ export class Visual implements IVisual {
         // Apply global styles
         this.applyGlobalStyles();
 
+        this.syncSelectionsFromFilters(options.jsonFilters as IFilter[] | undefined);
+
         // Render dropdown
         this.renderDropdown();
+    }
+
+    private syncSelectionsFromFilters(jsonFilters?: IFilter[]): void {
+        if (!this.dataView || !this.dataView.categorical || !this.dataView.categorical.categories || this.dataView.categorical.categories.length === 0) {
+            return;
+        }
+
+        const target = this.parseFilterTarget();
+        let matchingFilter: IBasicFilter | undefined;
+
+        if (jsonFilters && jsonFilters.length > 0) {
+            for (const filter of jsonFilters) {
+                if (!filter) {
+                    continue;
+                }
+
+                if (filter.filterType === FilterType.Basic) {
+                    const basicFilter = filter as IBasicFilter;
+                    const filterTarget = basicFilter.target as IFilterColumnTarget;
+
+                    if (filterTarget && filterTarget.table === target.table && filterTarget.column === target.column) {
+                        matchingFilter = basicFilter;
+                        break;
+                    }
+                }
+            }
+        }
+
+        if (matchingFilter && Array.isArray(matchingFilter.values)) {
+            const hostSelections = matchingFilter.values
+                .map(value => value !== null && value !== undefined ? value.toString() : "")
+                .filter(value => value.length > 0);
+
+            if (!this.areSelectionsEqual(hostSelections, this.selectedItems)) {
+                this.selectedItems = hostSelections;
+                this.renderSelectedItems();
+                this.dropdown.classList.add("hidden");
+            }
+
+            this.hostFilterActive = hostSelections.length > 0;
+        } else {
+            if (this.hostFilterActive && this.selectedItems.length > 0) {
+                this.clearAll(false);
+            }
+
+            this.hostFilterActive = false;
+        }
+    }
+
+    private areSelectionsEqual(a: string[], b: string[]): boolean {
+        if (a.length !== b.length) {
+            return false;
+        }
+
+        const sortedA = [...a].sort();
+        const sortedB = [...b].sort();
+
+        for (let i = 0; i < sortedA.length; i++) {
+            if (sortedA[i] !== sortedB[i]) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     private applyGlobalStyles() {
@@ -492,12 +559,17 @@ export class Visual implements IVisual {
         return { table, column };
     }
 
-    private clearAll(): void {
+    private clearAll(notifyHost: boolean = true): void {
         this.selectedItems = [];
+        this.lastSelectedItemIndex = -1;
         this.searchInput.value = ""; // Clear search input
         this.dropdown.classList.add("hidden"); // Hide dropdown
         this.renderSelectedItems();
-        this.host.applyJsonFilter(null, "general", "filter", FilterAction.remove);
+        this.hostFilterActive = false;
+
+        if (notifyHost) {
+            this.host.applyJsonFilter(null, "general", "filter", FilterAction.remove);
+        }
     }
 
     /**

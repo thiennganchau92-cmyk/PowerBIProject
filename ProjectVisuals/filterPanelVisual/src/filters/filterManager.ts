@@ -293,7 +293,7 @@ export class FilterManager {
         if (filter) {
             const scope = this.formattingSettings.panelSettingsCard.scope.value.value as string;
             const target = this.getFilterTarget(scope);
-            
+
             this.host.applyJsonFilter(
                 filter,
                 target.objectName,
@@ -313,6 +313,14 @@ export class FilterManager {
 
             this.renderUI();
         }
+    }
+
+    public hasActiveState(): boolean {
+        return this.selectedCategories.size > 0 ||
+            this.numericRanges.size > 0 ||
+            this.relativeDateConfigs.size > 0 ||
+            this.topNConfigs.size > 0 ||
+            this.activeFilters.size > 0;
     }
 
     public getSelectedCategories(): Map<string, Set<any>> {
