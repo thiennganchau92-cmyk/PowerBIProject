@@ -15,6 +15,7 @@ declare class PanelCardSettings extends FormattingSettingsCard {
     initialState: formattingSettings.ItemDropdown;
     layout: formattingSettings.ItemDropdown;
     filterLayout: formattingSettings.ItemDropdown;
+    bookmarkResetTrigger: formattingSettings.ToggleSwitch;
     name: string;
     displayName: string;
     slices: Array<FormattingSettingsSlice>;

@@ -112,9 +112,16 @@ class PanelCardSettings extends FormattingSettingsCard {
         value: { displayName: "Vertical", value: "Vertical" }
     });
 
+    bookmarkResetTrigger = new formattingSettings.ToggleSwitch({
+        name: "bookmarkResetTrigger",
+        displayName: "Bookmark Reset Trigger",
+        description: "Toggle this to reset all filters via bookmark. Create bookmarks with different values to trigger reset.",
+        value: false
+    });
+
     name: string = "panelSettings";
     displayName: string = "Panel Settings";
-    slices: Array<FormattingSettingsSlice> = [this.scope, this.applyMode, this.showActiveChips, this.showReset, this.denseMode, this.enableCrossFiltering, this.initialState, this.layout, this.filterLayout];
+    slices: Array<FormattingSettingsSlice> = [this.scope, this.applyMode, this.showActiveChips, this.showReset, this.denseMode, this.enableCrossFiltering, this.initialState, this.layout, this.filterLayout, this.bookmarkResetTrigger];
 }
 
 /**

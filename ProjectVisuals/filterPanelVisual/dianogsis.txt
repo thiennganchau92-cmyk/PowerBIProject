@@ -1,0 +1,117 @@
+Thanks for the updated file — this confirms the root cause. ✅
+Here is the key detail:
+
+Your **`capabilities.json`** defines a property called:
+
+> `"bookmarkResetTrigger"` under `"panelSettings"`
+> *(a bool property used to represent UI state)*
+>
+
+---
+
+## ✅ Why Bookmark Reset Still Does NOT Work
+
+Bookmarks in Power BI **only** store and restore:
+
+| Tracked by Bookmark                   | Not Tracked by Bookmark                                   |
+| ------------------------------------- | --------------------------------------------------------- |
+| Filters applied via `applyJsonFilter` | Any internal UI state                                     |
+| Slicer state                          | Visual custom properties not tied to data model           |
+| Selection filters from other visuals  | Custom filter logic that doesn’t modify PBIX Filter Model |
+
+Right now, your custom visual:
+
+✅ Toggles UI selections
+✅ Stores internal selections in `settings.ts` / memory
+❌ Does **NOT** push state into Power BI Filter Model
+❌ Does **NOT** reload state from Filter Model when bookmark restores
+
+So when the bookmark reset button is pressed:
+
+> Visual resets what Power BI knows
+> Your custom filter keeps its own state → not touched
+
+---
+
+## 🔍 Most critical missing pieces in your custom visual
+
+To support bookmark reset, your visual **must**:
+
+### 1️⃣ Apply filters using Power BI Filter API
+
+(so bookmarks know the “filter state” exists)
+
+```ts
+this.host.applyJsonFilter(
+    filter,
+    "tableName",
+    "columnName",
+    powerbi.FilterAction.merge
+);
+```
+
+Right now, your filter UI is **not** calling this.
+
+---
+
+### 2️⃣ Store selections in `visual.update(options)` based on restored filters
+
+Power BI calls update() when a bookmark is restored —
+if you read the filter model here, you can **rebuild selection UI**.
+
+This is missing → so UI stays “dirty.”
+
+---
+
+### 3️⃣ Use `BookmarkResetTrigger` only as **UI-switch**, not state reset**
+
+You defined the property, but:
+
+✅ It appears in Format Pane
+❌ It does NOT clear the internal selection model
+❌ It does NOT interact with bookmarks
+
+So Power BI toggles the flag… but your visual **ignores it** when updating.
+
+---
+
+## ✅ To Fix Bookmark Reset
+
+You need to implement:
+
+| Fix                                             | Location in Code           | Status    |
+| ----------------------------------------------- | -------------------------- | --------- |
+| Apply filters via host.applyJsonFilter          | filterManager.ts           | ❌ missing |
+| Deserialize filters in visual.update()          | visual.ts                  | ❌ missing |
+| Clear local UI state when filter model is empty | uiManager.ts / settings.ts | ❌ missing |
+
+---
+
+### ✅ Minimum Insert To Detect Bookmark Reset
+
+Inside `visual.update(options)`, detect that all external filters are wiped:
+
+```ts
+const hasFilters =
+    options.jsonFilters && options.jsonFilters.length > 0;
+
+if (!hasFilters) {
+    this.settings.clearSelections();  // ✅ your custom method required
+    this.ui.reset();                  // ✅ re-render UI clean
+}
+```
+
+This ensures the UI **resets** when bookmark resets filters.
+
+---
+
+## ✅ Summary (Simple & Direct)
+
+> Right now your custom visual only filters inside itself.
+> Power BI bookmarks only reset what Power BI tracks.
+> Therefore your filter visual keeps selections when bookmarks reset.
+
+Fix = Sync your visual state with PBIX Filter Model!
+
+---
+
