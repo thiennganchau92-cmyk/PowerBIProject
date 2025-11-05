@@ -14,6 +14,7 @@ export declare class Visual implements IVisual {
     private filterManager;
     private crossFilterManager;
     private isInitialLoad;
+    private previousResetTrigger;
     constructor(options: VisualConstructorOptions);
     update(options: VisualUpdateOptions): void;
     handleCategoryChange(categoryData: CategoryData, value: any, checked: boolean, fieldKey: string): void;

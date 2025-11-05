@@ -77,9 +77,16 @@ class DataPointCardSettings extends FormattingSettingsCard {
         value: { value: "vertical", displayName: "Vertical" }
     });
 
+    bookmarkResetTrigger = new formattingSettings.ToggleSwitch({
+        name: "bookmarkResetTrigger",
+        displayName: "Bookmark Reset Trigger",
+        description: "Toggle this to reset all selections via bookmark. Create bookmarks with different values to trigger reset.",
+        value: false
+    });
+
     name: string = "dataPoint";
     displayName: string = "Data colors";
-    slices: Array<FormattingSettingsSlice> = [this.defaultColor, this.showAllDataPoints, this.fill, this.fillRule, this.fontSize, this.layout];
+    slices: Array<FormattingSettingsSlice> = [this.defaultColor, this.showAllDataPoints, this.fill, this.fillRule, this.fontSize, this.layout, this.bookmarkResetTrigger];
 }
 
 /**

@@ -61,6 +61,8 @@ export class FilterManager {
     }
 
     public handleCategoryChange(categoryData: CategoryData, value: any, checked: boolean, fieldKey: string): void {
+        console.log(`[FilterManager] handleCategoryChange: fieldKey=${fieldKey}, value=${value}, checked=${checked}`);
+        
         let selections = this.selectedCategories.get(fieldKey);
         if (!selections) {
             selections = new Set();
@@ -72,6 +74,8 @@ export class FilterManager {
         } else {
             selections.delete(value);
         }
+
+        console.log(`[FilterManager] After change, selections for ${fieldKey}:`, Array.from(selections));
 
         this.pendingChanges = true;
         this.renderUI();
@@ -109,6 +113,8 @@ export class FilterManager {
         const selections = this.selectedCategories.get(fieldKey);
         const selectedValues = selections ? Array.from(selections) : [];
 
+        console.log(`[FilterManager] applyCategoryFilter: fieldKey=${fieldKey}, selectedValues count=${selectedValues.length}`);
+
         if (selectedValues.length > 0) {
             const filter = buildBasicFilter(
                 categoryData.table,
@@ -118,10 +124,14 @@ export class FilterManager {
             );
 
             if (filter) {
+                console.log(`[FilterManager] Applying filter to Power BI for ${fieldKey}`);
+                const scope = this.formattingSettings.panelSettingsCard.scope.value.value as string;
+                const target = this.getFilterTarget(scope);
+                
                 this.host.applyJsonFilter(
                     filter,
-                    "general",
-                    "filter",
+                    target.objectName,
+                    target.propertyName,
                     FilterAction.merge
                 );
 
@@ -131,8 +141,10 @@ export class FilterManager {
                     description: `${selectedValues.length} selected`,
                     filterType: 'category'
                 });
+                console.log(`[FilterManager] Active filter set for ${fieldKey}`);
             }
         } else {
+            console.log(`[FilterManager] No selections, calling removeFilter for ${fieldKey}`);
             this.removeFilter(fieldKey);
         }
 
@@ -177,19 +189,31 @@ export class FilterManager {
     }
 
     public resetAll(): void {
+        console.log('[FilterManager] resetAll() called');
         this.selectedCategories.clear();
         this.numericRanges.clear();
         this.relativeDateConfigs.clear();
         this.topNConfigs.clear();
         this.activeFilters.clear();
         this.pendingChanges = false;
-
         this.host.applyJsonFilter(
             null,
             "general",
             "filter",
             FilterAction.remove
         );
+
+        this.renderUI();
+    }
+
+    public clearInternalState(): void {
+        console.log('[FilterManager] clearInternalState() called');
+        this.selectedCategories.clear();
+        this.numericRanges.clear();
+        this.relativeDateConfigs.clear();
+        this.topNConfigs.clear();
+        this.activeFilters.clear();
+        this.pendingChanges = false;
 
         this.renderUI();
     }
@@ -203,10 +227,13 @@ export class FilterManager {
         );
 
         if (filter) {
+            const scope = this.formattingSettings.panelSettingsCard.scope.value.value as string;
+            const target = this.getFilterTarget(scope);
+            
             this.host.applyJsonFilter(
                 filter,
-                "general",
-                "filter",
+                target.objectName,
+                target.propertyName,
                 FilterAction.merge
             );
 
@@ -232,10 +259,13 @@ export class FilterManager {
         );
 
         if (filter) {
+            const scope = this.formattingSettings.panelSettingsCard.scope.value.value as string;
+            const target = this.getFilterTarget(scope);
+            
             this.host.applyJsonFilter(
                 filter,
-                "general",
-                "filter",
+                target.objectName,
+                target.propertyName,
                 FilterAction.merge
             );
 
@@ -261,10 +291,13 @@ export class FilterManager {
         );
 
         if (filter) {
+            const scope = this.formattingSettings.panelSettingsCard.scope.value.value as string;
+            const target = this.getFilterTarget(scope);
+            
             this.host.applyJsonFilter(
                 filter,
-                "general",
-                "filter",
+                target.objectName,
+                target.propertyName,
                 FilterAction.merge
             );
 
@@ -286,6 +319,19 @@ export class FilterManager {
         return this.selectedCategories;
     }
 
+    private getFilterTarget(scope: string): { objectName: string, propertyName: string } {
+        switch (scope) {
+            case "Visual":
+                return { objectName: "general", propertyName: "filter" };
+            case "Page":
+                return { objectName: "general", propertyName: "filter" };
+            case "Report":
+                return { objectName: "general", propertyName: "filter" };
+            default:
+                return { objectName: "general", propertyName: "filter" };
+        }
+    }
+
     private renderUI(): void {
         this.crossFilterManager.applyFiltersCount();
         this.uiManager.render(this.formattingSettings, {
@@ -296,6 +342,6 @@ export class FilterManager {
             originalCategoryData: this.dataManager.originalCategoryData,
             activeFilters: this.activeFilters,
             pendingChanges: this.pendingChanges
-        });
+        }, this.formattingSettings.panelSettingsCard.layout.value.value as string);
     }
 }

@@ -27,7 +27,7 @@ export declare class UIManager {
         originalCategoryData: CategoryData[];
         activeFilters: Map<string, ActiveFilter>;
         pendingChanges: boolean;
-    }): void;
+    }, layout: string): void;
     private renderActiveChips;
     private createFilterChip;
     private renderControls;

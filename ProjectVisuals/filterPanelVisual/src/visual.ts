@@ -28,8 +28,6 @@
 import powerbi from "powerbi-visuals-api";
 import { FormattingSettingsService } from "powerbi-visuals-utils-formattingmodel";
 import "./../style/visual.less";
-import * as models from "powerbi-models";
-
 import VisualConstructorOptions = powerbi.extensibility.visual.VisualConstructorOptions;
 import VisualUpdateOptions = powerbi.extensibility.visual.VisualUpdateOptions;
 import IVisual = powerbi.extensibility.visual.IVisual;
@@ -53,6 +51,7 @@ export class Visual implements IVisual {
     private crossFilterManager: CrossFilterManager;
 
     private isInitialLoad: boolean = true;
+    private previousResetTrigger: boolean | null = null;
 
     constructor(options: VisualConstructorOptions) {
         this.host = options.host;
@@ -71,6 +70,8 @@ export class Visual implements IVisual {
     }
 
     public update(options: VisualUpdateOptions) {
+        console.log('[Visual] update() called, type:', options.type, 'editMode:', options.editMode);
+        
         if (!options.dataViews || !options.dataViews[0]) {
             return;
         }
@@ -79,8 +80,19 @@ export class Visual implements IVisual {
 
         if (this.isInitialLoad) {
             this.uiManager.applyInitialPanelState(this.formattingSettings);
+            this.previousResetTrigger = this.formattingSettings.panelSettingsCard.bookmarkResetTrigger.value;
             this.isInitialLoad = false;
         }
+
+        // Check if reset trigger has changed (bookmark-based reset via toggle)
+        const currentResetTrigger = this.formattingSettings.panelSettingsCard.bookmarkResetTrigger.value;
+        if (this.previousResetTrigger !== null && this.previousResetTrigger !== currentResetTrigger) {
+            console.log('FilterPanel: Bookmark reset trigger changed, resetting all filters');
+            this.filterManager.resetAll();
+        }
+        this.previousResetTrigger = currentResetTrigger;
+
+
 
         this.dataManager.extractData(options);
         this.filterManager.updateFormattingSettings(this.formattingSettings);
@@ -96,7 +108,7 @@ export class Visual implements IVisual {
             originalCategoryData: this.dataManager.originalCategoryData,
             activeFilters: this.filterManager.activeFilters,
             pendingChanges: this.filterManager.pendingChanges
-        });
+        }, this.formattingSettings.panelSettingsCard.layout.value.value as string);
     }
 
     public handleCategoryChange(categoryData: CategoryData, value: any, checked: boolean, fieldKey: string): void {

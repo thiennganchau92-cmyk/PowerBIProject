@@ -48,8 +48,24 @@
                             "fontSize": true
                         }
                     }
+                },
+            "layout": {
+                "displayName": "Layout",
+                "type": {
+                    "enumeration": [
+                        { "displayName": "Vertical", "value": "vertical" },
+                        { "displayName": "Horizontal", "value": "horizontal" },
+                        { "displayName": "Dropdown", "value": "dropdown" }
+                    ]
                 }
-            ,
+            },
+            "bookmarkResetTrigger": {
+                "displayName": "Bookmark Reset Trigger",
+                "description": "Toggle this to reset all selections via bookmark. Create bookmarks with different values to trigger reset.",
+                "type": {
+                    "bool": true
+                }
+            },
             "selectionMode": {
                 "displayName": "Selection mode",
                 "type": {

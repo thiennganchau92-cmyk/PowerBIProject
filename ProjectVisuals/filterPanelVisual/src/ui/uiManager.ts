@@ -152,11 +152,19 @@ export class UIManager {
         originalCategoryData: CategoryData[],
         activeFilters: Map<string, ActiveFilter>,
         pendingChanges: boolean
-    }): void {
+    }, layout: string): void {
         this.renderActiveChips(formattingSettings, data.activeFilters);
-        this.renderControls(data.categoryData, data.numericData, data.dateData, data.measureData, data.originalCategoryData, formattingSettings);
+        this.renderControls(data.categoryData, data.numericData, data.dateData, data.measureData, data.originalCategoryData, formattingSettings, layout);
         this.renderFooter(formattingSettings, data.pendingChanges);
         this.applyTheming(formattingSettings);
+
+        if (layout === 'Horizontal') {
+            this.panelContainer.classList.add('horizontal');
+            this.panelContainer.classList.remove('vertical');
+        } else {
+            this.panelContainer.classList.add('vertical');
+            this.panelContainer.classList.remove('horizontal');
+        }
     }
 
     private renderActiveChips(formattingSettings: VisualFormattingSettingsModel, activeFilters: Map<string, ActiveFilter>): void {
@@ -213,26 +221,36 @@ export class UIManager {
         return chip;
     }
 
-    private renderControls(categoryData: CategoryData[], numericData: NumericData[], dateData: DateData[], measureData: any[], originalCategoryData: CategoryData[], formattingSettings: VisualFormattingSettingsModel): void {
-        while (this.controlsContainer.firstChild) {
-            this.controlsContainer.removeChild(this.controlsContainer.firstChild);
-        }
+    private renderControls(categoryData: CategoryData[], numericData: NumericData[], dateData: DateData[], measureData: any[], originalCategoryData: CategoryData[], formattingSettings: VisualFormattingSettingsModel, panelLayout: string): void {
+    while (this.controlsContainer.firstChild) {
+    this.controlsContainer.removeChild(this.controlsContainer.firstChild);
+    }
 
-        const hasData = categoryData.length > 0 || numericData.length > 0 || dateData.length > 0 || measureData.length > 0;
+    const hasData = categoryData.length > 0 || numericData.length > 0 || dateData.length > 0 || measureData.length > 0;
 
-        if (!hasData) {
-            const emptyMsg = document.createElement("div");
-            emptyMsg.className = "empty-message";
-            emptyMsg.textContent = "Add fields to begin filtering";
-            this.controlsContainer.appendChild(emptyMsg);
-            return;
-        }
+    if (!hasData) {
+    const emptyMsg = document.createElement("div");
+    emptyMsg.className = "empty-message";
+    emptyMsg.textContent = "Add fields to begin filtering";
+    this.controlsContainer.appendChild(emptyMsg);
+    return;
+    }
 
-        categoryData.forEach(category => {
+    const filterLayout = formattingSettings.panelSettingsCard.filterLayout.value.value as string;
+
+    // Apply filter layout classes
+        this.controlsContainer.classList.remove('filter-layout-vertical', 'filter-layout-horizontal');
+    if (filterLayout === 'Horizontal') {
+    this.controlsContainer.classList.add('filter-layout-horizontal');
+    } else {
+            this.controlsContainer.classList.add('filter-layout-vertical');
+    }
+
+    categoryData.forEach(category => {
             this.renderCategoryControl(category, originalCategoryData, formattingSettings);
-        });
+    });
 
-        numericData.forEach(numeric => {
+    numericData.forEach(numeric => {
             this.renderNumericControl(numeric);
         });
 

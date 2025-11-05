@@ -61,6 +61,7 @@ export class Visual implements IVisual {
     private listbox: HTMLElement;
     private formattingSettings: VisualFormattingSettingsModel;
     private formattingSettingsService: FormattingSettingsService;
+    private previousResetTrigger: boolean | null = null;
 
     constructor(options: VisualConstructorOptions) {
         this.target = options.element;
@@ -162,6 +163,14 @@ export class Visual implements IVisual {
 
     public update(options: VisualUpdateOptions) {
         this.formattingSettings = this.formattingSettingsService.populateFormattingSettingsModel(VisualFormattingSettingsModel, options.dataViews[0]);
+
+        // Check if reset trigger has changed (bookmark-based reset via toggle)
+        const currentResetTrigger = this.formattingSettings.dataPointCard.bookmarkResetTrigger.value;
+        if (this.previousResetTrigger !== null && this.previousResetTrigger !== currentResetTrigger) {
+            console.log('PowerSlicer: Bookmark reset trigger changed, clearing all selections');
+            this.clearAll();
+        }
+        this.previousResetTrigger = currentResetTrigger;
 
         // Get data from data view
         this.dataView = options.dataViews[0];

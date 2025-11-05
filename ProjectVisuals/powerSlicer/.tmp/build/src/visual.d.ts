@@ -21,6 +21,7 @@ export declare class Visual implements IVisual {
     private listbox;
     private formattingSettings;
     private formattingSettingsService;
+    private previousResetTrigger;
     constructor(options: VisualConstructorOptions);
     update(options: VisualUpdateOptions): void;
     private applyGlobalStyles;

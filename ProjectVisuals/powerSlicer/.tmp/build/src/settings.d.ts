@@ -12,6 +12,7 @@ declare class DataPointCardSettings extends FormattingSettingsCard {
     fillRule: formattingSettings.ColorPicker;
     fontSize: formattingSettings.NumUpDown;
     layout: formattingSettings.ItemDropdown;
+    bookmarkResetTrigger: formattingSettings.ToggleSwitch;
     name: string;
     displayName: string;
     slices: Array<FormattingSettingsSlice>;

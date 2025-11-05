@@ -26,9 +26,11 @@ export declare class FilterManager {
     applyFilters(): void;
     removeFilter(id: string): void;
     resetAll(): void;
+    clearInternalState(): void;
     applyNumericFilter(numericData: NumericData, range: NumericRange): void;
     applyDateFilter(dateData: DateData, config: RelativeDateConfig): void;
     applyTopNFilter(categoryData: CategoryData, config: TopNConfig): void;
     getSelectedCategories(): Map<string, Set<any>>;
+    private getFilterTarget;
     private renderUI;
 }
