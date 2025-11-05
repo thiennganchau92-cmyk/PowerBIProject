@@ -183,7 +183,6 @@ export class FilterManager {
         this.topNConfigs.clear();
         this.activeFilters.clear();
         this.pendingChanges = false;
-
         this.host.applyJsonFilter(
             null,
             "general",
@@ -296,6 +295,6 @@ export class FilterManager {
             originalCategoryData: this.dataManager.originalCategoryData,
             activeFilters: this.activeFilters,
             pendingChanges: this.pendingChanges
-        });
+        }, this.formattingSettings.panelSettingsCard.layout.value.value as string);
     }
 }

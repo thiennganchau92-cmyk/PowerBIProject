@@ -92,9 +92,29 @@ class PanelCardSettings extends FormattingSettingsCard {
         value: { displayName: "Visible", value: "Visible" }
     });
 
+    layout = new formattingSettings.ItemDropdown({
+    name: "layout",
+    displayName: "Layout",
+    items: [
+    { displayName: "Vertical", value: "Vertical" },
+    { displayName: "Horizontal", value: "Horizontal" }
+    ],
+    value: { displayName: "Vertical", value: "Vertical" }
+    });
+
+    filterLayout = new formattingSettings.ItemDropdown({
+        name: "filterLayout",
+        displayName: "Filter Controls Layout",
+        items: [
+            { displayName: "Vertical", value: "Vertical" },
+            { displayName: "Horizontal", value: "Horizontal" }
+        ],
+        value: { displayName: "Vertical", value: "Vertical" }
+    });
+
     name: string = "panelSettings";
     displayName: string = "Panel Settings";
-    slices: Array<FormattingSettingsSlice> = [this.scope, this.applyMode, this.showActiveChips, this.showReset, this.denseMode, this.enableCrossFiltering, this.initialState];
+    slices: Array<FormattingSettingsSlice> = [this.scope, this.applyMode, this.showActiveChips, this.showReset, this.denseMode, this.enableCrossFiltering, this.initialState, this.layout, this.filterLayout];
 }
 
 /**

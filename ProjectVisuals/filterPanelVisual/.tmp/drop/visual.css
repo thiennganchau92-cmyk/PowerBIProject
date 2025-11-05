@@ -22,6 +22,35 @@
   padding: 16px;
   box-sizing: border-box;
 }
+.filter-panel.vertical {
+  flex-direction: column;
+}
+.filter-panel.horizontal {
+  flex-direction: row;
+  gap: 16px;
+}
+.filter-panel.horizontal .active-chips-container,
+.filter-panel.horizontal .controls-container,
+.filter-panel.horizontal .footer-container {
+  flex: 1;
+  overflow-y: auto;
+}
+.filter-panel.horizontal .controls-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.filter-panel.horizontal .footer-container {
+  flex: none;
+  border-top: none;
+  border-left: 1px solid var(--border-color);
+  padding-left: 16px;
+  margin-top: 0;
+  padding-top: 0;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
+}
 /* Active Chips Section */
 .active-chips-container {
   margin-bottom: 16px;
@@ -86,6 +115,23 @@
   text-align: center;
   color: #999;
   font-style: italic;
+}
+.controls-container.filter-layout-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.controls-container.filter-layout-horizontal {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+.controls-container.filter-layout-horizontal .control-section {
+  flex: 1;
+  min-width: 250px;
+  max-width: calc(50% - 8px);
 }
 /* Control Section */
 .control-section {
@@ -306,7 +352,7 @@
 }
 /* Toggle Button and Panel Visibility */
 .filter-toggle-btn {
-  background: transparent;
+  background: #B2C299;
   border: 1px solid var(--border-color);
   cursor: pointer;
   padding: 8px 12px;
@@ -315,22 +361,31 @@
   align-items: center;
   gap: 8px;
   font-size: 13px;
-  color: var(--accent-color);
+  color: #3B3934;
   font-weight: 500;
   margin-bottom: 16px;
+  max-width: 150px;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.5s;
+  box-shadow: 0 -0.869981px 2.60994px rgba(0, 0, 0, 0.05), inset 0 3.47992px 13.0497px #f8f0e0, inset 0 -1.73996px 3.47992px rgba(0, 0, 0, 0.1);
 }
 .filter-toggle-btn svg {
   width: 20px;
   height: 20px;
-  stroke: #0A400C;
+  stroke: #3B3934;
   flex-shrink: 0;
 }
 .filter-toggle-btn .toggle-text {
   white-space: nowrap;
 }
 .filter-toggle-btn:hover {
-  background-color: #E8E6E1;
-  border-color: #D4D2CD;
+  /*
+        background-color: @oucru-light-gray;
+        border-color: @oucru-border;
+        */
 }
 .filter-content.hidden {
   display: none;

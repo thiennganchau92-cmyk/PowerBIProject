@@ -28,8 +28,6 @@
 import powerbi from "powerbi-visuals-api";
 import { FormattingSettingsService } from "powerbi-visuals-utils-formattingmodel";
 import "./../style/visual.less";
-import * as models from "powerbi-models";
-
 import VisualConstructorOptions = powerbi.extensibility.visual.VisualConstructorOptions;
 import VisualUpdateOptions = powerbi.extensibility.visual.VisualUpdateOptions;
 import IVisual = powerbi.extensibility.visual.IVisual;
@@ -96,7 +94,7 @@ export class Visual implements IVisual {
             originalCategoryData: this.dataManager.originalCategoryData,
             activeFilters: this.filterManager.activeFilters,
             pendingChanges: this.filterManager.pendingChanges
-        });
+        }, this.formattingSettings.panelSettingsCard.layout.value.value as string);
     }
 
     public handleCategoryChange(categoryData: CategoryData, value: any, checked: boolean, fieldKey: string): void {

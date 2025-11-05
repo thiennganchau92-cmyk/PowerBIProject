@@ -13,6 +13,8 @@ declare class PanelCardSettings extends FormattingSettingsCard {
     denseMode: formattingSettings.ToggleSwitch;
     enableCrossFiltering: formattingSettings.ToggleSwitch;
     initialState: formattingSettings.ItemDropdown;
+    layout: formattingSettings.ItemDropdown;
+    filterLayout: formattingSettings.ItemDropdown;
     name: string;
     displayName: string;
     slices: Array<FormattingSettingsSlice>;

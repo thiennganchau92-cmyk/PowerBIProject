@@ -84,16 +84,46 @@
                     }
                 },
                 "initialState": {
-                    "displayName": "Initial Panel State",
+                "displayName": "Initial Panel State",
+                "type": {
+                "enumeration": [
+                {
+                "displayName": "Visible",
+                "value": "Visible"
+                },
+                {
+                "displayName": "Hidden",
+                "value": "Hidden"
+                }
+                ]
+                }
+                },
+                "layout": {
+                "displayName": "Layout",
+                "type": {
+                "enumeration": [
+                {
+                "displayName": "Vertical",
+                "value": "Vertical"
+                },
+                {
+                "displayName": "Horizontal",
+                "value": "Horizontal"
+                }
+                ]
+                }
+                },
+                "filterLayout": {
+                    "displayName": "Filter Controls Layout",
                     "type": {
                         "enumeration": [
                             {
-                                "displayName": "Visible",
-                                "value": "Visible"
+                                "displayName": "Vertical",
+                                "value": "Vertical"
                             },
                             {
-                                "displayName": "Hidden",
-                                "value": "Hidden"
+                                "displayName": "Horizontal",
+                                "value": "Horizontal"
                             }
                         ]
                     }
