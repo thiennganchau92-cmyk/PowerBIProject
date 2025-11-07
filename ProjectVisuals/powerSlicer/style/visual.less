@@ -28,7 +28,7 @@
 @oucru-background: #F9F7F2;
 @oucru-foreground: #0A400C;
 @oucru-text: #141414;
-@oucru-accent: #426871;
+@oucru-accent: #658C58;
 @oucru-secondary: #819067;
 
 // Legacy colors for compatibility
@@ -42,18 +42,38 @@
     padding: 10px;
     font-family: 'Segoe UI', Arial, sans-serif;
     color: @oucru-text;
+    display: flex;
+    flex-direction: column;
+    max-height: 100%;
+    overflow: hidden;
+    transition: all 0.2s ease;
+
+    &.collapsed {
+        // Minimal state when collapsed
+        .dropdown {
+            display: none !important;
+        }
+        
+        .actions-bar {
+            display: none !important;
+        }
+    }
 }
 
-// Search container with icons
+// Search container with icons (sticky at top)
 .search-container {
     display: flex;
     align-items: center;
     background-color: @oucru-background;
     border: 1px solid #ccc;
     border-radius: 4px;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     padding: 5px 10px;
     gap: 8px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .search-icon {
@@ -77,6 +97,23 @@
     }
 }
 
+.clear-search-icon {
+    color: @oucru-foreground;
+    font-size: 22px;
+    cursor: pointer;
+    user-select: none;
+    transition: color 0.2s ease;
+    padding: 0 5px;
+
+    &:hover {
+        color: #BF1C1C;
+    }
+
+    &.hidden {
+        display: none;
+    }
+}
+
 .refresh-icon {
     color: @oucru-foreground;
     font-size: 20px;
@@ -91,6 +128,70 @@
 
     &:active {
         transform: rotate(360deg);
+    }
+}
+
+// Actions bar (compact horizontal layout)
+.actions-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 4px 0;
+    margin-bottom: 4px;
+    min-height: 24px;
+
+    &.hidden {
+        display: none;
+    }
+}
+
+// Item count badge (compact inline)
+.item-count-badge {
+    font-size: 11px;
+    color: @oucru-text;
+    padding: 3px 8px;
+    background-color: rgba(239, 245, 210, 0.6);
+    border-radius: 3px;
+    white-space: nowrap;
+    flex-shrink: 0;
+
+    &.hidden {
+        display: none;
+    }
+
+    .count-number {
+        font-weight: 600;
+        color: @oucru-foreground;
+    }
+}
+
+// Select all button (compact)
+.select-all-button {
+    padding: 4px 10px;
+    background-color: @oucru-foreground;
+    color: @oucru-background;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 11px;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+
+    &:hover {
+        background-color: @oucru-accent;
+        transform: translateY(-1px);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+
+    &.hidden {
+        display: none;
     }
 }
 
@@ -113,40 +214,112 @@
     color: @oucru-text;
     background-color: @oucru-background;
     transition: background-color 0.2s ease;
+    outline: none;
 
-    &:hover {
-        background-color: #EFF5D2; // Light green from OUCRU dataColors
+    &:hover, &:focus {
+        background-color: #EFF5D2;
+        outline: 2px solid @oucru-accent;
+        outline-offset: -2px;
     }
 
     &.selected {
         background-color: @oucru-foreground;
         color: @oucru-background;
+
+        &:hover, &:focus {
+            background-color: @oucru-accent;
+        }
+    }
+
+    strong {
+        font-weight: bold;
+        color: @oucru-accent;
+        background-color: rgba(66, 104, 113, 0.2);
+        padding: 1px 3px;
+        border-radius: 2px;
+        
+        &.match-exact {
+            background-color: rgba(66, 104, 113, 0.3);
+            color: @oucru-foreground;
+            font-weight: 700;
+        }
+        
+        &.match-token {
+            background-color: rgba(66, 104, 113, 0.15);
+        }
     }
 }
 
-// Selected items
+// Selected items (compact scrollable container)
 .selected-items-container {
-    margin-bottom: 10px;
+    max-height: 80px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-bottom: 8px;
+    padding: 2px;
+    
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.05);
+        border-radius: 3px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: @oucru-accent;
+        border-radius: 3px;
+
+        &:hover {
+            background: @oucru-foreground;
+        }
+    }
+
+    &:empty {
+        display: none;
+        margin: 0;
+        padding: 0;
+    }
 }
 
 .selected-item {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
     background-color: @oucru-foreground;
     color: @oucru-background;
-    padding: 5px 10px;
-    border-radius: 4px;
-    margin-right: 5px;
-    margin-bottom: 5px;
+    padding: 3px 8px;
+    border-radius: 3px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+    font-size: 11px;
+    max-width: 100%;
+    
+    .selected-item-text {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        max-width: 180px;
+    }
 }
 
 .remove-item {
-    margin-left: 5px;
+    margin-left: 6px;
     cursor: pointer;
     font-weight: bold;
-    transition: color 0.2s ease;
+    font-size: 14px;
+    line-height: 1;
+    padding: 0 2px;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
 
     &:hover {
-        color: #BF1C1C; // Bad/error color from OUCRU theme
+        color: #BF1C1C;
+        transform: scale(1.2);
+    }
+
+    &:active {
+        transform: scale(1);
     }
 }
 

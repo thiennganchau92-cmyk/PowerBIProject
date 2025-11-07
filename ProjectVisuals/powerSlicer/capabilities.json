@@ -86,7 +86,9 @@
                         "in": "category"
                     },
                     "dataReductionAlgorithm": {
-                        "top": {}
+                        "top": {
+                            "count": 30000
+                        }
                     }
                 },
                 "values": {
