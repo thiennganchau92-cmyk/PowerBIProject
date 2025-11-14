@@ -44,6 +44,10 @@ export class UIManager {
     private activeChipsContainer: HTMLElement;
     private controlsContainer: HTMLElement;
     private footerContainer: HTMLElement;
+    private externalResetButton: HTMLElement;
+    private expandedSections: Set<string> = new Set();
+    private searchDebounceTimers: Map<string, number> = new Map();
+    private clickOutsideHandler: (event: MouseEvent) => void;
 
     constructor(visual: Visual, filterManager: FilterManager, crossFilterManager: CrossFilterManager, target: HTMLElement) {
         this.visual = visual;
@@ -52,6 +56,8 @@ export class UIManager {
         this.target = target;
         this.toggleText = document.createElement("span"); // placeholder
         this.contentWrapper = document.createElement("div"); // placeholder
+        this.externalResetButton = document.createElement("button"); // placeholder
+        this.clickOutsideHandler = this.handleClickOutside.bind(this);
     }
 
     public initialize(): void {
@@ -103,7 +109,51 @@ export class UIManager {
     toggleButton.appendChild(this.toggleText);
 
     toggleButton.addEventListener("click", () => this.togglePanel());
-    this.panelContainer.appendChild(toggleButton);
+    
+    const buttonContainer = document.createElement("div");
+    buttonContainer.className = "button-container";
+    buttonContainer.appendChild(toggleButton);
+    
+    this.externalResetButton = document.createElement("button");
+    this.externalResetButton.className = "external-reset-btn";
+    this.externalResetButton.title = "Clear all filters in this panel";
+    
+    const resetIcon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    resetIcon.setAttribute("width", "20");
+    resetIcon.setAttribute("height", "20");
+    resetIcon.setAttribute("fill", "none");
+    resetIcon.setAttribute("stroke", "#595959");
+    resetIcon.setAttribute("stroke-width", "2");
+    resetIcon.setAttribute("stroke-linecap", "round");
+    resetIcon.setAttribute("stroke-linejoin", "round");
+    resetIcon.setAttribute("viewBox", "0 0 24 24");
+    
+    const resetPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    resetPath.setAttribute("d", "M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8");
+    resetIcon.appendChild(resetPath);
+    
+    const resetPath2 = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    resetPath2.setAttribute("d", "M21 3v5h-5");
+    resetIcon.appendChild(resetPath2);
+    
+    const resetPath3 = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    resetPath3.setAttribute("d", "M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16");
+    resetIcon.appendChild(resetPath3);
+    
+    const resetPath4 = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    resetPath4.setAttribute("d", "M3 21v-5h5");
+    resetIcon.appendChild(resetPath4);
+    
+    const resetText = document.createElement("span");
+    resetText.textContent = "Clear Panel";
+    resetText.className = "reset-text";
+    
+    this.externalResetButton.appendChild(resetIcon);
+    this.externalResetButton.appendChild(resetText);
+    this.externalResetButton.addEventListener("click", () => this.filterManager.resetAll());
+    
+    buttonContainer.appendChild(this.externalResetButton);
+    this.panelContainer.appendChild(buttonContainer);
 
     this.contentWrapper = document.createElement("div");
     this.contentWrapper.className = "filter-content";
@@ -130,10 +180,33 @@ export class UIManager {
     public togglePanel(): void {
     this.contentWrapper.classList.toggle("hidden");
         this.updateToggleText();
+        
+        if (this.contentWrapper.classList.contains("hidden")) {
+            document.removeEventListener("click", this.clickOutsideHandler);
+        } else {
+            setTimeout(() => {
+                document.addEventListener("click", this.clickOutsideHandler);
+            }, 0);
+        }
     }
 
     private updateToggleText(): void {
         this.toggleText.textContent = this.contentWrapper.classList.contains("hidden") ? "show filter" : "hide filter";
+    }
+
+    private handleClickOutside(event: MouseEvent): void {
+        const target = event.target as HTMLElement;
+        
+        if (!this.contentWrapper.classList.contains("hidden") && 
+            !this.panelContainer.contains(target)) {
+            this.contentWrapper.classList.add("hidden");
+            this.updateToggleText();
+            document.removeEventListener("click", this.clickOutsideHandler);
+        }
+    }
+
+    public cleanup(): void {
+        document.removeEventListener("click", this.clickOutsideHandler);
     }
 
     public applyInitialPanelState(formattingSettings: VisualFormattingSettingsModel): void {
@@ -141,6 +214,10 @@ export class UIManager {
     if (initialState === "Hidden") {
     this.contentWrapper.classList.add("hidden");
         this.updateToggleText();
+        } else {
+            setTimeout(() => {
+                document.addEventListener("click", this.clickOutsideHandler);
+            }, 0);
         }
     }
 
@@ -153,6 +230,7 @@ export class UIManager {
         activeFilters: Map<string, ActiveFilter>,
         pendingChanges: boolean
     }, layout: string): void {
+        this.updateExternalResetButton(formattingSettings);
         this.renderActiveChips(formattingSettings, data.activeFilters);
         this.renderControls(data.categoryData, data.numericData, data.dateData, data.measureData, data.originalCategoryData, formattingSettings, layout);
         this.renderFooter(formattingSettings, data.pendingChanges);
@@ -164,6 +242,15 @@ export class UIManager {
         } else {
             this.panelContainer.classList.add('vertical');
             this.panelContainer.classList.remove('horizontal');
+        }
+    }
+    
+    private updateExternalResetButton(formattingSettings: VisualFormattingSettingsModel): void {
+        const showReset = formattingSettings.panelSettingsCard.showReset.value;
+        if (showReset) {
+            this.externalResetButton.style.display = "flex";
+        } else {
+            this.externalResetButton.style.display = "none";
         }
     }
 
@@ -238,43 +325,119 @@ export class UIManager {
 
     const filterLayout = formattingSettings.panelSettingsCard.filterLayout.value.value as string;
 
-    // Apply filter layout classes
-        this.controlsContainer.classList.remove('filter-layout-vertical', 'filter-layout-horizontal');
+    this.controlsContainer.classList.remove('filter-layout-vertical', 'filter-layout-horizontal');
     if (filterLayout === 'Horizontal') {
     this.controlsContainer.classList.add('filter-layout-horizontal');
     } else {
             this.controlsContainer.classList.add('filter-layout-vertical');
     }
 
-    categoryData.forEach(category => {
-            this.renderCategoryControl(category, originalCategoryData, formattingSettings);
-    });
-
-    numericData.forEach(numeric => {
-            this.renderNumericControl(numeric);
+    if (categoryData.length > 0) {
+        const categoryGroup = this.createFilterGroup("Category Filters", categoryData.length);
+        categoryData.forEach(category => {
+            this.renderCategoryControl(category, originalCategoryData, formattingSettings, categoryGroup.contentArea);
         });
-
-        dateData.forEach(date => {
-            this.renderDateControl(date);
-        });
-
-        if (measureData.length > 0 && categoryData.length > 0) {
-            this.renderTopNControl(categoryData, measureData);
-        }
+        this.controlsContainer.appendChild(categoryGroup.container);
     }
 
-    private renderCategoryControl(categoryData: CategoryData, originalCategoryData: CategoryData[], formattingSettings: VisualFormattingSettingsModel): void {
+    if (numericData.length > 0) {
+        const numericGroup = this.createFilterGroup("Numeric Filters", numericData.length);
+        numericData.forEach(numeric => {
+            this.renderNumericControl(numeric, numericGroup.contentArea);
+        });
+        this.controlsContainer.appendChild(numericGroup.container);
+    }
+
+    if (dateData.length > 0) {
+        const dateGroup = this.createFilterGroup("Date Filters", dateData.length);
+        dateData.forEach(date => {
+            this.renderDateControl(date, dateGroup.contentArea);
+        });
+        this.controlsContainer.appendChild(dateGroup.container);
+    }
+
+    if (measureData.length > 0 && categoryData.length > 0) {
+        const topNGroup = this.createFilterGroup("Top N Filters", 1);
+        this.renderTopNControl(categoryData, measureData, topNGroup.contentArea);
+        this.controlsContainer.appendChild(topNGroup.container);
+    }
+    }
+
+    private createFilterGroup(title: string, count: number): { container: HTMLElement, contentArea: HTMLElement } {
+        const container = document.createElement("div");
+        container.className = "filter-group";
+
+        const header = document.createElement("div");
+        header.className = "filter-group-header";
+        
+        const titleText = document.createElement("span");
+        titleText.className = "filter-group-title";
+        titleText.textContent = title;
+        
+        const badge = document.createElement("span");
+        badge.className = "filter-group-badge";
+        badge.textContent = count.toString();
+        
+        const expandIcon = document.createElement("span");
+        expandIcon.className = "expand-icon";
+        expandIcon.innerHTML = "▼";
+        
+        header.appendChild(titleText);
+        header.appendChild(badge);
+        header.appendChild(expandIcon);
+        
+        const contentArea = document.createElement("div");
+        contentArea.className = "filter-group-content";
+        
+        const groupId = title.replace(/\s+/g, '-').toLowerCase();
+        if (!this.expandedSections.has(groupId)) {
+            contentArea.classList.add("collapsed");
+            expandIcon.innerHTML = "▶";
+        } else {
+            expandIcon.innerHTML = "▼";
+        }
+        
+        header.addEventListener("click", () => {
+            const isCollapsed = contentArea.classList.toggle("collapsed");
+            expandIcon.innerHTML = isCollapsed ? "▶" : "▼";
+            if (isCollapsed) {
+                this.expandedSections.delete(groupId);
+            } else {
+                this.expandedSections.add(groupId);
+            }
+        });
+        
+        container.appendChild(header);
+        container.appendChild(contentArea);
+        
+        return { container, contentArea };
+    }
+
+    private renderCategoryControl(categoryData: CategoryData, originalCategoryData: CategoryData[], formattingSettings: VisualFormattingSettingsModel, parentContainer?: HTMLElement): void {
         const controlSection = document.createElement("div");
-        controlSection.className = "control-section";
+        controlSection.className = "control-section collapsible";
 
         const fieldKey = `${categoryData.table}.${categoryData.column}`;
 
         const header = document.createElement("div");
-        header.className = "control-header";
+        header.className = "control-header clickable";
+        
+        const headerLeft = document.createElement("div");
+        headerLeft.className = "header-left";
+        
+        const expandIcon = document.createElement("span");
+        expandIcon.className = "section-expand-icon";
+        expandIcon.innerHTML = "▼";
         
         const headerText = document.createElement("span");
         headerText.textContent = categoryData.displayName;
-        header.appendChild(headerText);
+        
+        headerLeft.appendChild(expandIcon);
+        headerLeft.appendChild(headerText);
+        header.appendChild(headerLeft);
+
+        const contentBody = document.createElement("div");
+        contentBody.className = "control-body";
         
         if (formattingSettings?.panelSettingsCard?.enableCrossFiltering?.value) {
             const originalData = originalCategoryData.find(d => 
@@ -299,13 +462,28 @@ export class UIManager {
             }
         }
         
+        if (!this.expandedSections.has(fieldKey)) {
+            contentBody.classList.add("collapsed");
+            expandIcon.innerHTML = "▶";
+        }
+        
+        header.addEventListener("click", () => {
+            const isCollapsed = contentBody.classList.toggle("collapsed");
+            expandIcon.innerHTML = isCollapsed ? "▶" : "▼";
+            if (isCollapsed) {
+                this.expandedSections.delete(fieldKey);
+            } else {
+                this.expandedSections.add(fieldKey);
+            }
+        });
+        
         controlSection.appendChild(header);
 
         const searchBox = document.createElement("input");
         searchBox.type = "text";
         searchBox.className = "search-input";
         searchBox.placeholder = `Search ${categoryData.displayName}...`;
-        controlSection.appendChild(searchBox);
+        contentBody.appendChild(searchBox);
 
         const actionsRow = document.createElement("div");
         actionsRow.className = "actions-row";
@@ -313,32 +491,61 @@ export class UIManager {
         const selectAllBtn = document.createElement("button");
         selectAllBtn.textContent = "Select All";
         selectAllBtn.className = "action-btn";
-        selectAllBtn.addEventListener("click", () => this.filterManager.selectAllCategories(categoryData, fieldKey));
+        selectAllBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            this.filterManager.selectAllCategories(categoryData, fieldKey);
+        });
         actionsRow.appendChild(selectAllBtn);
 
         const clearBtn = document.createElement("button");
         clearBtn.textContent = "Clear";
         clearBtn.className = "action-btn";
-        clearBtn.addEventListener("click", () => this.filterManager.clearCategorySelection(categoryData, fieldKey));
+        clearBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            this.filterManager.clearCategorySelection(categoryData, fieldKey);
+        });
         actionsRow.appendChild(clearBtn);
 
-        controlSection.appendChild(actionsRow);
+        contentBody.appendChild(actionsRow);
 
         const valuesList = document.createElement("div");
         valuesList.className = "values-list";
         valuesList.id = `category-values-list-${fieldKey}`;
+
+        if (categoryData.values.length > 100) {
+            valuesList.classList.add("virtual-scroll");
+        }
 
         categoryData.values.forEach((value, index) => {
             const item = this.createCategoryItem(categoryData, value, index, fieldKey);
             valuesList.appendChild(item);
         });
 
-        controlSection.appendChild(valuesList);
-        this.controlsContainer.appendChild(controlSection);
+        contentBody.appendChild(valuesList);
+        controlSection.appendChild(contentBody);
+        
+        if (parentContainer) {
+            parentContainer.appendChild(controlSection);
+        } else {
+            this.controlsContainer.appendChild(controlSection);
+        }
 
         searchBox.addEventListener("input", (e) => {
-            this.filterCategoryList(fieldKey, (e.target as HTMLInputElement).value);
+            this.debouncedSearch(fieldKey, (e.target as HTMLInputElement).value, 300);
         });
+    }
+    
+    private debouncedSearch(fieldKey: string, searchText: string, delay: number): void {
+        if (this.searchDebounceTimers.has(fieldKey)) {
+            window.clearTimeout(this.searchDebounceTimers.get(fieldKey));
+        }
+        
+        const timerId = window.setTimeout(() => {
+            this.filterCategoryList(fieldKey, searchText);
+            this.searchDebounceTimers.delete(fieldKey);
+        }, delay);
+        
+        this.searchDebounceTimers.set(fieldKey, timerId);
     }
 
     private createCategoryItem(categoryData: CategoryData, value: any, index: number, fieldKey: string): HTMLElement {
@@ -386,33 +593,58 @@ export class UIManager {
         }
 
         const applyMode = formattingSettings.panelSettingsCard.applyMode.value.value;
-        const showReset = formattingSettings.panelSettingsCard.showReset.value;
-
-        if (showReset) {
-        const resetBtn = document.createElement("button");
-        resetBtn.className = "footer-btn reset-btn";
-        resetBtn.textContent = "Reset All";
-        resetBtn.addEventListener("click", () => this.filterManager.resetAll());
-        this.footerContainer.appendChild(resetBtn);
-        }
 
         if (applyMode === "Commit") {
         const applyBtn = document.createElement("button");
         applyBtn.className = "footer-btn apply-btn";
-        applyBtn.textContent = "Apply";
+        applyBtn.textContent = "Apply Filters";
         applyBtn.disabled = !pendingChanges;
         applyBtn.addEventListener("click", () => this.filterManager.applyFilters());
         this.footerContainer.appendChild(applyBtn);
         }
     }
 
-    private renderNumericControl(numericData: NumericData): void {
+    private renderNumericControl(numericData: NumericData, parentContainer?: HTMLElement): void {
         const controlSection = document.createElement("div");
-        controlSection.className = "control-section";
+        controlSection.className = "control-section collapsible";
+
+        const fieldKey = `${numericData.table}.${numericData.column}`;
 
         const header = document.createElement("div");
-        header.className = "control-header";
-        header.textContent = numericData.displayName;
+        header.className = "control-header clickable";
+        
+        const headerLeft = document.createElement("div");
+        headerLeft.className = "header-left";
+        
+        const expandIcon = document.createElement("span");
+        expandIcon.className = "section-expand-icon";
+        expandIcon.innerHTML = "▼";
+        
+        const headerText = document.createElement("span");
+        headerText.textContent = numericData.displayName;
+        
+        headerLeft.appendChild(expandIcon);
+        headerLeft.appendChild(headerText);
+        header.appendChild(headerLeft);
+        
+        const contentBody = document.createElement("div");
+        contentBody.className = "control-body";
+        
+        if (!this.expandedSections.has(fieldKey)) {
+            contentBody.classList.add("collapsed");
+            expandIcon.innerHTML = "▶";
+        }
+        
+        header.addEventListener("click", () => {
+            const isCollapsed = contentBody.classList.toggle("collapsed");
+            expandIcon.innerHTML = isCollapsed ? "▶" : "▼";
+            if (isCollapsed) {
+                this.expandedSections.delete(fieldKey);
+            } else {
+                this.expandedSections.add(fieldKey);
+            }
+        });
+        
         controlSection.appendChild(header);
 
         const minRow = document.createElement("div");
@@ -425,7 +657,7 @@ export class UIManager {
         minInput.step = "any";
         minRow.appendChild(minLabel);
         minRow.appendChild(minInput);
-        controlSection.appendChild(minRow);
+        contentBody.appendChild(minRow);
 
         const maxRow = document.createElement("div");
         maxRow.className = "form-row";
@@ -437,7 +669,7 @@ export class UIManager {
         maxInput.step = "any";
         maxRow.appendChild(maxLabel);
         maxRow.appendChild(maxInput);
-        controlSection.appendChild(maxRow);
+        contentBody.appendChild(maxRow);
 
         const actionsRow = document.createElement("div");
         actionsRow.className = "actions-row";
@@ -446,7 +678,8 @@ export class UIManager {
         const applyBtn = document.createElement("button");
         applyBtn.textContent = "Apply Range";
         applyBtn.className = "action-btn";
-        applyBtn.addEventListener("click", () => {
+        applyBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
         const min = parseFloat(minInput.value);
         const max = parseFloat(maxInput.value);
         if (!isNaN(min) && !isNaN(max) && min <= max) {
@@ -454,23 +687,63 @@ export class UIManager {
         }
         });
         actionsRow.appendChild(applyBtn);
-        controlSection.appendChild(actionsRow);
+        contentBody.appendChild(actionsRow);
 
-        this.controlsContainer.appendChild(controlSection);
+        controlSection.appendChild(contentBody);
+        
+        if (parentContainer) {
+            parentContainer.appendChild(controlSection);
+        } else {
+            this.controlsContainer.appendChild(controlSection);
+        }
     }
 
-    private renderDateControl(dateData: DateData): void {
+    private renderDateControl(dateData: DateData, parentContainer?: HTMLElement): void {
         const controlSection = document.createElement("div");
-        controlSection.className = "control-section";
+        controlSection.className = "control-section collapsible";
+
+        const fieldKey = `${dateData.table}.${dateData.column}`;
 
         const header = document.createElement("div");
-        header.className = "control-header";
-        header.textContent = dateData.displayName;
+        header.className = "control-header clickable";
+        
+        const headerLeft = document.createElement("div");
+        headerLeft.className = "header-left";
+        
+        const expandIcon = document.createElement("span");
+        expandIcon.className = "section-expand-icon";
+        expandIcon.innerHTML = "▼";
+        
+        const headerText = document.createElement("span");
+        headerText.textContent = dateData.displayName;
+        
+        headerLeft.appendChild(expandIcon);
+        headerLeft.appendChild(headerText);
+        header.appendChild(headerLeft);
+        
+        const contentBody = document.createElement("div");
+        contentBody.className = "control-body";
+        
+        if (!this.expandedSections.has(fieldKey)) {
+            contentBody.classList.add("collapsed");
+            expandIcon.innerHTML = "▶";
+        }
+        
+        header.addEventListener("click", () => {
+            const isCollapsed = contentBody.classList.toggle("collapsed");
+            expandIcon.innerHTML = isCollapsed ? "▶" : "▼";
+            if (isCollapsed) {
+                this.expandedSections.delete(fieldKey);
+            } else {
+                this.expandedSections.add(fieldKey);
+            }
+        });
+        
         controlSection.appendChild(header);
 
         const relativeDateLabel = document.createElement("label");
         relativeDateLabel.textContent = "Relative Date:";
-        controlSection.appendChild(relativeDateLabel);
+        contentBody.appendChild(relativeDateLabel);
 
         const relativeDateSelect = document.createElement("select");
         
@@ -490,7 +763,7 @@ export class UIManager {
             relativeDateSelect.appendChild(option);
         });
         
-        controlSection.appendChild(relativeDateSelect);
+        contentBody.appendChild(relativeDateSelect);
 
         const actionsRow = document.createElement("div");
         actionsRow.className = "actions-row";
@@ -499,7 +772,8 @@ export class UIManager {
         const applyBtn = document.createElement("button");
         applyBtn.textContent = "Apply Date Filter";
         applyBtn.className = "action-btn";
-        applyBtn.addEventListener("click", () => {
+        applyBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
         const selected = relativeDateSelect.value;
         if (selected) {
         const [operator, count, unit] = selected.split("-");
@@ -512,23 +786,63 @@ export class UIManager {
         }
         });
         actionsRow.appendChild(applyBtn);
-        controlSection.appendChild(actionsRow);
+        contentBody.appendChild(actionsRow);
 
-        this.controlsContainer.appendChild(controlSection);
+        controlSection.appendChild(contentBody);
+        
+        if (parentContainer) {
+            parentContainer.appendChild(controlSection);
+        } else {
+            this.controlsContainer.appendChild(controlSection);
+        }
     }
 
-    private renderTopNControl(categoryData: CategoryData[], measureData: any[]): void {
+    private renderTopNControl(categoryData: CategoryData[], measureData: any[], parentContainer?: HTMLElement): void {
         const controlSection = document.createElement("div");
-        controlSection.className = "control-section";
+        controlSection.className = "control-section collapsible";
+
+        const fieldKey = "topn-filter";
 
         const header = document.createElement("div");
-        header.className = "control-header";
-        header.textContent = "Top N Filter";
+        header.className = "control-header clickable";
+        
+        const headerLeft = document.createElement("div");
+        headerLeft.className = "header-left";
+        
+        const expandIcon = document.createElement("span");
+        expandIcon.className = "section-expand-icon";
+        expandIcon.innerHTML = "▼";
+        
+        const headerText = document.createElement("span");
+        headerText.textContent = "Top N Filter";
+        
+        headerLeft.appendChild(expandIcon);
+        headerLeft.appendChild(headerText);
+        header.appendChild(headerLeft);
+        
+        const contentBody = document.createElement("div");
+        contentBody.className = "control-body";
+        
+        if (!this.expandedSections.has(fieldKey)) {
+            contentBody.classList.add("collapsed");
+            expandIcon.innerHTML = "▶";
+        }
+        
+        header.addEventListener("click", () => {
+            const isCollapsed = contentBody.classList.toggle("collapsed");
+            expandIcon.innerHTML = isCollapsed ? "▶" : "▼";
+            if (isCollapsed) {
+                this.expandedSections.delete(fieldKey);
+            } else {
+                this.expandedSections.add(fieldKey);
+            }
+        });
+        
         controlSection.appendChild(header);
 
         const categoryLabel = document.createElement("label");
         categoryLabel.textContent = "Category:";
-        controlSection.appendChild(categoryLabel);
+        contentBody.appendChild(categoryLabel);
 
         const categorySelect = document.createElement("select");
         
@@ -543,11 +857,11 @@ export class UIManager {
             option.textContent = cat.displayName;
             categorySelect.appendChild(option);
         });
-        controlSection.appendChild(categorySelect);
+        contentBody.appendChild(categorySelect);
 
         const measureLabel = document.createElement("label");
         measureLabel.textContent = "Order by Measure:";
-        controlSection.appendChild(measureLabel);
+        contentBody.appendChild(measureLabel);
 
         const measureSelect = document.createElement("select");
         
@@ -562,7 +876,7 @@ export class UIManager {
             option.textContent = measure.displayName;
             measureSelect.appendChild(option);
         });
-        controlSection.appendChild(measureSelect);
+        contentBody.appendChild(measureSelect);
 
         const countRow = document.createElement("div");
         countRow.className = "form-row";
@@ -574,11 +888,11 @@ export class UIManager {
         countInput.min = "1";
         countRow.appendChild(countLabel);
         countRow.appendChild(countInput);
-        controlSection.appendChild(countRow);
+        contentBody.appendChild(countRow);
 
         const directionLabel = document.createElement("label");
         directionLabel.textContent = "Direction:";
-        controlSection.appendChild(directionLabel);
+        contentBody.appendChild(directionLabel);
 
         const directionSelect = document.createElement("select");
         
@@ -592,7 +906,7 @@ export class UIManager {
         bottomOption.textContent = "Bottom";
         directionSelect.appendChild(bottomOption);
         
-        controlSection.appendChild(directionSelect);
+        contentBody.appendChild(directionSelect);
 
         const actionsRow = document.createElement("div");
         actionsRow.className = "actions-row";
@@ -601,7 +915,8 @@ export class UIManager {
         const applyBtn = document.createElement("button");
         applyBtn.textContent = "Apply Top N Filter";
         applyBtn.className = "action-btn";
-        applyBtn.addEventListener("click", () => {
+        applyBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
         const categoryKey = categorySelect.value;
         const measureKey = measureSelect.value;
         const count = parseInt(countInput.value);
@@ -623,9 +938,15 @@ export class UIManager {
         }
         });
         actionsRow.appendChild(applyBtn);
-        controlSection.appendChild(actionsRow);
+        contentBody.appendChild(actionsRow);
 
-        this.controlsContainer.appendChild(controlSection);
+        controlSection.appendChild(contentBody);
+        
+        if (parentContainer) {
+            parentContainer.appendChild(controlSection);
+        } else {
+            this.controlsContainer.appendChild(controlSection);
+        }
     }
 
     public applyTheming(formattingSettings: VisualFormattingSettingsModel): void {

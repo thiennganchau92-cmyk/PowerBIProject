@@ -14,10 +14,16 @@ export declare class UIManager {
     private activeChipsContainer;
     private controlsContainer;
     private footerContainer;
+    private externalResetButton;
+    private expandedSections;
+    private searchDebounceTimers;
+    private clickOutsideHandler;
     constructor(visual: Visual, filterManager: FilterManager, crossFilterManager: CrossFilterManager, target: HTMLElement);
     initialize(): void;
     togglePanel(): void;
     private updateToggleText;
+    private handleClickOutside;
+    cleanup(): void;
     applyInitialPanelState(formattingSettings: VisualFormattingSettingsModel): void;
     render(formattingSettings: VisualFormattingSettingsModel, data: {
         categoryData: CategoryData[];
@@ -28,10 +34,13 @@ export declare class UIManager {
         activeFilters: Map<string, ActiveFilter>;
         pendingChanges: boolean;
     }, layout: string): void;
+    private updateExternalResetButton;
     private renderActiveChips;
     private createFilterChip;
     private renderControls;
+    private createFilterGroup;
     private renderCategoryControl;
+    private debouncedSearch;
     private createCategoryItem;
     private filterCategoryList;
     private renderFooter;
