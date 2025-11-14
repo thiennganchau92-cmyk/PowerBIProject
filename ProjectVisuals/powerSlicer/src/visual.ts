@@ -3,6 +3,7 @@
 import powerbi from "powerbi-visuals-api";
 import { FormattingSettingsService } from "powerbi-visuals-utils-formattingmodel";
 import "./../style/visual.less";
+import { IFilterColumnTarget, BasicFilter, IBasicFilter, IFilter, FilterType } from "powerbi-models";
 
 import VisualConstructorOptions = powerbi.extensibility.visual.VisualConstructorOptions;
 import VisualUpdateOptions = powerbi.extensibility.visual.VisualUpdateOptions;
@@ -30,6 +31,7 @@ export class Visual implements IVisual {
     private formattingSettings: VisualFormattingSettingsModel;
     private formattingSettingsService: FormattingSettingsService;
     private previousResetTrigger: boolean | null = null;
+    private hostFilterActive: boolean = false;
 
     private searchBox: SearchBox;
     private dropdown: Dropdown;

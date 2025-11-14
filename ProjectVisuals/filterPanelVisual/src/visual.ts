@@ -27,6 +27,7 @@
 
 import powerbi from "powerbi-visuals-api";
 import { FormattingSettingsService } from "powerbi-visuals-utils-formattingmodel";
+import { IFilter, FilterType } from "powerbi-models";
 import "./../style/visual.less";
 import VisualConstructorOptions = powerbi.extensibility.visual.VisualConstructorOptions;
 import VisualUpdateOptions = powerbi.extensibility.visual.VisualUpdateOptions;
@@ -52,6 +53,7 @@ export class Visual implements IVisual {
 
     private isInitialLoad: boolean = true;
     private previousResetTrigger: boolean | null = null;
+    private hostHasRelevantFilters: boolean = false;
 
     constructor(options: VisualConstructorOptions) {
         this.host = options.host;
@@ -95,6 +97,7 @@ export class Visual implements IVisual {
 
 
         this.dataManager.extractData(options);
+        this.syncStateWithHostFilters(options.jsonFilters as IFilter[] | undefined);
         this.filterManager.updateFormattingSettings(this.formattingSettings);
         this.crossFilterManager.updateFormattingSettings(this.formattingSettings);
 
@@ -157,5 +160,113 @@ export class Visual implements IVisual {
 
     public getFormattingModel(): powerbi.visuals.FormattingModel {
         return this.formattingSettingsService.buildFormattingModel(this.formattingSettings);
+    }
+
+    private syncStateWithHostFilters(jsonFilters?: IFilter[]): void {
+        const knownFieldKeys = this.getKnownFieldKeys();
+
+        if (knownFieldKeys.size === 0) {
+            this.hostHasRelevantFilters = false;
+            return;
+        }
+
+        const relevantKeys = this.extractRelevantFilterKeys(jsonFilters, knownFieldKeys);
+        const hasRelevantFilters = relevantKeys.size > 0;
+
+        if (!hasRelevantFilters && this.hostHasRelevantFilters && this.filterManager.hasActiveState()) {
+            this.filterManager.clearInternalState();
+        }
+
+        this.hostHasRelevantFilters = hasRelevantFilters;
+    }
+
+    private getKnownFieldKeys(): Set<string> {
+        const keys = new Set<string>();
+
+        this.dataManager.originalCategoryData.forEach(category => {
+            if (category.table && category.column) {
+                keys.add(`${category.table}.${category.column}`);
+            }
+        });
+
+        this.dataManager.originalNumericData.forEach(numeric => {
+            if (numeric.table && numeric.column) {
+                keys.add(`${numeric.table}.${numeric.column}`);
+            }
+        });
+
+        this.dataManager.originalDateData.forEach(date => {
+            if (date.table && date.column) {
+                keys.add(`${date.table}.${date.column}`);
+            }
+        });
+
+        return keys;
+    }
+
+    private extractRelevantFilterKeys(jsonFilters: IFilter[] | undefined, knownKeys: Set<string>): Set<string> {
+        const relevantKeys = new Set<string>();
+
+        if (!jsonFilters || jsonFilters.length === 0) {
+            return relevantKeys;
+        }
+
+        jsonFilters.forEach(filter => {
+            if (!filter || !this.isFilterTypeSupported(filter.filterType)) {
+                return;
+            }
+
+            const targetKeys = this.extractTargetKeys(filter.target);
+            targetKeys.forEach(key => {
+                if (knownKeys.has(key)) {
+                    relevantKeys.add(key);
+                }
+            });
+        });
+
+        return relevantKeys;
+    }
+
+    private isFilterTypeSupported(filterType: FilterType | undefined): boolean {
+        if (filterType === undefined || filterType === null) {
+            return false;
+        }
+
+        switch (filterType) {
+            case FilterType.Basic:
+            case FilterType.Advanced:
+            case FilterType.IncludeExclude:
+            case FilterType.RelativeDate:
+            case FilterType.TopN:
+                return true;
+            default:
+                return false;
+        }
+    }
+
+    private extractTargetKeys(target: any): string[] {
+        const keys: string[] = [];
+
+        const collect = (candidate: any) => {
+            if (!candidate || typeof candidate !== "object") {
+                return;
+            }
+
+            if (Array.isArray(candidate)) {
+                candidate.forEach(item => collect(item));
+                return;
+            }
+
+            const table = (candidate as { table?: string }).table;
+            const column = (candidate as { column?: string }).column;
+
+            if (typeof table === "string" && typeof column === "string") {
+                keys.push(`${table}.${column}`);
+            }
+        };
+
+        collect(target);
+
+        return keys;
     }
 }
