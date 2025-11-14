@@ -15,12 +15,15 @@ export declare class UIManager {
     private controlsContainer;
     private footerContainer;
     private externalResetButton;
-    private collapsedSections;
+    private expandedSections;
     private searchDebounceTimers;
+    private clickOutsideHandler;
     constructor(visual: Visual, filterManager: FilterManager, crossFilterManager: CrossFilterManager, target: HTMLElement);
     initialize(): void;
     togglePanel(): void;
     private updateToggleText;
+    private handleClickOutside;
+    cleanup(): void;
     applyInitialPanelState(formattingSettings: VisualFormattingSettingsModel): void;
     render(formattingSettings: VisualFormattingSettingsModel, data: {
         categoryData: CategoryData[];

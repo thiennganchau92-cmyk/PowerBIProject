@@ -45,8 +45,9 @@ export class UIManager {
     private controlsContainer: HTMLElement;
     private footerContainer: HTMLElement;
     private externalResetButton: HTMLElement;
-    private collapsedSections: Set<string> = new Set();
+    private expandedSections: Set<string> = new Set();
     private searchDebounceTimers: Map<string, number> = new Map();
+    private clickOutsideHandler: (event: MouseEvent) => void;
 
     constructor(visual: Visual, filterManager: FilterManager, crossFilterManager: CrossFilterManager, target: HTMLElement) {
         this.visual = visual;
@@ -56,6 +57,7 @@ export class UIManager {
         this.toggleText = document.createElement("span"); // placeholder
         this.contentWrapper = document.createElement("div"); // placeholder
         this.externalResetButton = document.createElement("button"); // placeholder
+        this.clickOutsideHandler = this.handleClickOutside.bind(this);
     }
 
     public initialize(): void {
@@ -178,10 +180,33 @@ export class UIManager {
     public togglePanel(): void {
     this.contentWrapper.classList.toggle("hidden");
         this.updateToggleText();
+        
+        if (this.contentWrapper.classList.contains("hidden")) {
+            document.removeEventListener("click", this.clickOutsideHandler);
+        } else {
+            setTimeout(() => {
+                document.addEventListener("click", this.clickOutsideHandler);
+            }, 0);
+        }
     }
 
     private updateToggleText(): void {
         this.toggleText.textContent = this.contentWrapper.classList.contains("hidden") ? "show filter" : "hide filter";
+    }
+
+    private handleClickOutside(event: MouseEvent): void {
+        const target = event.target as HTMLElement;
+        
+        if (!this.contentWrapper.classList.contains("hidden") && 
+            !this.panelContainer.contains(target)) {
+            this.contentWrapper.classList.add("hidden");
+            this.updateToggleText();
+            document.removeEventListener("click", this.clickOutsideHandler);
+        }
+    }
+
+    public cleanup(): void {
+        document.removeEventListener("click", this.clickOutsideHandler);
     }
 
     public applyInitialPanelState(formattingSettings: VisualFormattingSettingsModel): void {
@@ -189,6 +214,10 @@ export class UIManager {
     if (initialState === "Hidden") {
     this.contentWrapper.classList.add("hidden");
         this.updateToggleText();
+        } else {
+            setTimeout(() => {
+                document.addEventListener("click", this.clickOutsideHandler);
+            }, 0);
         }
     }
 
@@ -361,18 +390,20 @@ export class UIManager {
         contentArea.className = "filter-group-content";
         
         const groupId = title.replace(/\s+/g, '-').toLowerCase();
-        if (this.collapsedSections.has(groupId)) {
+        if (!this.expandedSections.has(groupId)) {
             contentArea.classList.add("collapsed");
             expandIcon.innerHTML = "▶";
+        } else {
+            expandIcon.innerHTML = "▼";
         }
         
         header.addEventListener("click", () => {
             const isCollapsed = contentArea.classList.toggle("collapsed");
             expandIcon.innerHTML = isCollapsed ? "▶" : "▼";
             if (isCollapsed) {
-                this.collapsedSections.add(groupId);
+                this.expandedSections.delete(groupId);
             } else {
-                this.collapsedSections.delete(groupId);
+                this.expandedSections.add(groupId);
             }
         });
         
@@ -404,6 +435,9 @@ export class UIManager {
         headerLeft.appendChild(expandIcon);
         headerLeft.appendChild(headerText);
         header.appendChild(headerLeft);
+
+        const contentBody = document.createElement("div");
+        contentBody.className = "control-body";
         
         if (formattingSettings?.panelSettingsCard?.enableCrossFiltering?.value) {
             const originalData = originalCategoryData.find(d => 
@@ -428,10 +462,7 @@ export class UIManager {
             }
         }
         
-        const contentBody = document.createElement("div");
-        contentBody.className = "control-body";
-        
-        if (this.collapsedSections.has(fieldKey)) {
+        if (!this.expandedSections.has(fieldKey)) {
             contentBody.classList.add("collapsed");
             expandIcon.innerHTML = "▶";
         }
@@ -440,9 +471,9 @@ export class UIManager {
             const isCollapsed = contentBody.classList.toggle("collapsed");
             expandIcon.innerHTML = isCollapsed ? "▶" : "▼";
             if (isCollapsed) {
-                this.collapsedSections.add(fieldKey);
+                this.expandedSections.delete(fieldKey);
             } else {
-                this.collapsedSections.delete(fieldKey);
+                this.expandedSections.add(fieldKey);
             }
         });
         
@@ -599,7 +630,7 @@ export class UIManager {
         const contentBody = document.createElement("div");
         contentBody.className = "control-body";
         
-        if (this.collapsedSections.has(fieldKey)) {
+        if (!this.expandedSections.has(fieldKey)) {
             contentBody.classList.add("collapsed");
             expandIcon.innerHTML = "▶";
         }
@@ -608,9 +639,9 @@ export class UIManager {
             const isCollapsed = contentBody.classList.toggle("collapsed");
             expandIcon.innerHTML = isCollapsed ? "▶" : "▼";
             if (isCollapsed) {
-                this.collapsedSections.add(fieldKey);
+                this.expandedSections.delete(fieldKey);
             } else {
-                this.collapsedSections.delete(fieldKey);
+                this.expandedSections.add(fieldKey);
             }
         });
         
@@ -693,7 +724,7 @@ export class UIManager {
         const contentBody = document.createElement("div");
         contentBody.className = "control-body";
         
-        if (this.collapsedSections.has(fieldKey)) {
+        if (!this.expandedSections.has(fieldKey)) {
             contentBody.classList.add("collapsed");
             expandIcon.innerHTML = "▶";
         }
@@ -702,9 +733,9 @@ export class UIManager {
             const isCollapsed = contentBody.classList.toggle("collapsed");
             expandIcon.innerHTML = isCollapsed ? "▶" : "▼";
             if (isCollapsed) {
-                this.collapsedSections.add(fieldKey);
+                this.expandedSections.delete(fieldKey);
             } else {
-                this.collapsedSections.delete(fieldKey);
+                this.expandedSections.add(fieldKey);
             }
         });
         
@@ -792,7 +823,7 @@ export class UIManager {
         const contentBody = document.createElement("div");
         contentBody.className = "control-body";
         
-        if (this.collapsedSections.has(fieldKey)) {
+        if (!this.expandedSections.has(fieldKey)) {
             contentBody.classList.add("collapsed");
             expandIcon.innerHTML = "▶";
         }
@@ -801,9 +832,9 @@ export class UIManager {
             const isCollapsed = contentBody.classList.toggle("collapsed");
             expandIcon.innerHTML = isCollapsed ? "▶" : "▼";
             if (isCollapsed) {
-                this.collapsedSections.add(fieldKey);
+                this.expandedSections.delete(fieldKey);
             } else {
-                this.collapsedSections.delete(fieldKey);
+                this.expandedSections.add(fieldKey);
             }
         });
         

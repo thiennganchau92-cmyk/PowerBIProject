@@ -14,3 +14,17 @@ OnhandList_v2.SemanticModel/
 Templates/
 Visuals template/
 node_modules/
+
+# PowerSlicer temporary and build files
+ProjectVisuals/powerSlicer/.tmp/
+ProjectVisuals/powerSlicer/dist/
+ProjectVisuals/powerSlicer/webpack.statistics.prod.html
+ProjectVisuals/powerSlicer/src/visual.refactored.ts
+ProjectVisuals/powerSlicer/src/visual.ts.backup
+
+# FilterPanelVisual temporary and build files
+ProjectVisuals/filterPanelVisual/.tmp/
+ProjectVisuals/filterPanelVisual/dist/
+ProjectVisuals/filterPanelVisual/webpack.statistics.prod.html
+ProjectVisuals/filterPanelVisual/src/visual.refactored.ts
+ProjectVisuals/filterPanelVisual/src/visual.ts.backup
