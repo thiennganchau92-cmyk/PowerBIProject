@@ -11,6 +11,7 @@ export declare class Visual implements IVisual {
     private formattingSettings;
     private formattingSettingsService;
     private previousResetTrigger;
+    private hostFilterActive;
     private searchBox;
     private dropdown;
     private itemCounter;

@@ -73,18 +73,7 @@
   color: #999;
 }
 .clear-search-icon {
-  color: #0A400C;
-  font-size: 22px;
-  cursor: pointer;
-  user-select: none;
-  transition: color 0.2s ease;
-  padding: 0 5px;
-}
-.clear-search-icon:hover {
-  color: #BF1C1C;
-}
-.clear-search-icon.hidden {
-  display: none;
+  display: none !important;
 }
 .refresh-icon {
   color: #0A400C;
