@@ -19,8 +19,10 @@ export class FilterService {
         this.host.applyJsonFilter(null, "general", "filter", FilterAction.remove);
     }
 
-    static parseFilterTarget(dataView: powerbi.DataView): IFilterColumnTarget {
-        const source = dataView.categorical.categories[0].source;
+    static parseFilterTarget(dataView: powerbi.DataView, categoryIndex: number = 0): IFilterColumnTarget {
+        const categories = dataView.categorical.categories;
+        const safeIndex = categoryIndex >= 0 && categoryIndex < categories.length ? categoryIndex : 0;
+        const source = categories[safeIndex].source;
         const qn = source.queryName || "";
         let table = "";
         let column = "";

@@ -8,8 +8,13 @@ export class DataService {
             ? node.children.map(child => DataService.transformTreeData(child))
             : [];
 
+        const name = DataService.getNodeDisplayName(node);
+
         return {
-            name: DataService.getNodeDisplayName(node),
+            name,
+            // For tree data we currently only have a single display value,
+            // so use it as the search text as well.
+            searchText: name,
             children
         };
     }
@@ -19,10 +24,12 @@ export class DataService {
         return raw !== undefined && raw !== null ? raw.toString() : "";
     }
 
-    static createLeafNode(value: any): SlicerNode {
+    static createLeafNode(value: any, searchText?: string, dataIndex?: number): SlicerNode {
         const display = value !== undefined && value !== null ? value.toString() : "";
         return {
             name: display,
+            searchText: searchText || display,
+            dataIndex,
             children: []
         };
     }
@@ -56,13 +63,18 @@ export class DataService {
     ): SlicerNode[] {
         const term = caseSensitive ? searchTerm : searchTerm.toLowerCase();
 
+        const getNodeSearchText = (node: SlicerNode): string => {
+            const base = node.searchText || node.name || "";
+            return caseSensitive ? base : base.toLowerCase();
+        };
+
         const filterRecursive = (nodes: SlicerNode[]): SlicerNode[] => {
             const result: SlicerNode[] = [];
 
             for (const node of nodes) {
-                const nodeName = caseSensitive ? node.name : node.name.toLowerCase();
+                const nodeText = getNodeSearchText(node);
 
-                if (nodeName.indexOf(term) > -1) {
+                if (nodeText.indexOf(term) > -1) {
                     result.push(node);
                 } else if (node.children && node.children.length > 0) {
                     const filteredChildren = filterRecursive(node.children);
@@ -92,23 +104,26 @@ export class DataService {
             minScore: 0.3
         };
 
+        const getNodeSearchText = (node: SlicerNode): string => node.searchText || node.name || "";
+
         const filterRecursive = (nodes: SlicerNode[]): SlicerNode[] => {
-            const nodeNames = nodes.map(n => n.name);
+            const nodeTexts = nodes.map(n => getNodeSearchText(n));
             const searchResults = AdvancedSearchService.search(
-                nodeNames,
+                nodeTexts,
                 searchTerm,
                 searchOptions
             );
 
-            // Create a map of matched names to their scores
-            const matchedNames = new Map(
+            // Create a map of matched search texts to their scores
+            const matchedTexts = new Map(
                 searchResults.map(r => [r.text, r.score])
             );
 
             const result: SlicerNode[] = [];
 
             for (const node of nodes) {
-                const score = matchedNames.get(node.name);
+                const key = getNodeSearchText(node);
+                const score = matchedTexts.get(key);
 
                 if (score !== undefined) {
                     // This node matches
@@ -124,8 +139,10 @@ export class DataService {
 
             // Sort by relevance score (if available)
             result.sort((a, b) => {
-                const scoreA = matchedNames.get(a.name) || 0;
-                const scoreB = matchedNames.get(b.name) || 0;
+                const keyA = getNodeSearchText(a);
+                const keyB = getNodeSearchText(b);
+                const scoreA = matchedTexts.get(keyA) || 0;
+                const scoreB = matchedTexts.get(keyB) || 0;
                 return scoreB - scoreA;
             });
 

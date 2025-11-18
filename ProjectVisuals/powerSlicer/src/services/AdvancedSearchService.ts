@@ -71,6 +71,8 @@ export class AdvancedSearchService {
         query: string,
         queryTokens: string[]
     ): SearchResult | null {
+        const queryLength = query.length;
+
         // 1. Exact match (highest score)
         if (normalizedItem === query) {
             return { text: originalItem, score: 1.0, matchType: 'exact' };
@@ -93,7 +95,12 @@ export class AdvancedSearchService {
         // 4. Tokenized match (search in individual words)
         const itemTokens = this.tokenize(normalizedItem);
         const tokenMatchScore = this.calculateTokenMatchScore(itemTokens, queryTokens);
-        if (tokenMatchScore > 0.4) {
+        // Require stronger token matches for very short queries to avoid noisy results
+        const minTokenScore =
+            queryLength <= 2 ? 0.7 :
+            queryLength <= 3 ? 0.55 :
+            0.45;
+        if (tokenMatchScore > minTokenScore) {
             return { text: originalItem, score: tokenMatchScore, matchType: 'tokenMatch' };
         }
 
@@ -103,8 +110,13 @@ export class AdvancedSearchService {
         }
 
         // 6. Fuzzy match (handles typos and variations)
+        // Make fuzzy matching stricter for short queries so results feel more exact.
         const fuzzyScore = this.calculateFuzzyScore(normalizedItem, query);
-        if (fuzzyScore > 0.3) {
+        const minFuzzyScore =
+            queryLength <= 2 ? 0.85 :
+            queryLength <= 3 ? 0.7 :
+            0.5;
+        if (fuzzyScore > minFuzzyScore) {
             return { text: originalItem, score: fuzzyScore * 0.8, matchType: 'fuzzy' };
         }
 

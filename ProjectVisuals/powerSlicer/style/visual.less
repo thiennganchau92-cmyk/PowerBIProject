@@ -101,6 +101,103 @@
     }
 }
 
+.category-selector {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-right: 6px;
+    max-width: 55%;
+}
+
+.category-pill {
+    border: 1px solid fade(@oucru-foreground, 40%);
+    border-radius: 12px;
+    padding: 2px 8px;
+    background-color: lighten(@oucru-background, 3%);
+    color: @oucru-foreground;
+    font-size: 11px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.15s ease;
+
+    &:hover {
+        background-color: fade(@oucru-accent, 20%);
+    }
+
+    &.active {
+        background-color: @oucru-accent;
+        color: @oucru-background;
+        border-color: @oucru-accent;
+        font-weight: 600;
+    }
+
+    &.parent {
+        box-shadow: 0 0 0 1px darken(@oucru-accent, 10%);
+    }
+
+    &.child {
+        background-color: fade(@oucru-accent, 15%);
+        color: @oucru-foreground;
+        border-color: fade(@oucru-accent, 40%);
+    }
+}
+
+.category-pill-name {
+    margin-right: 4px;
+}
+
+.category-pill-role {
+    font-size: 9px;
+    text-transform: uppercase;
+    padding: 1px 4px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+}
+
+.parent-role {
+    background-color: @oucru-background;
+    color: @oucru-accent;
+    border-color: fade(@oucru-accent, 60%);
+}
+
+.child-role {
+    background-color: fade(@oucru-foreground, 5%);
+    color: @oucru-foreground;
+    border-color: fade(@oucru-foreground, 30%);
+}
+
+.category-select {
+    max-width: 100%;
+    border-radius: 999px;
+    border: 1px solid fade(@oucru-foreground, 35%);
+    padding: 4px 24px 4px 10px;
+    font-size: 11px;
+    color: @oucru-foreground;
+    background-color: lighten(@oucru-background, 2%);
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: linear-gradient(45deg, transparent 50%, @oucru-foreground 50%),
+                      linear-gradient(135deg, @oucru-foreground 50%, transparent 50%);
+    background-position: calc(100% - 12px) 50%, calc(100% - 8px) 50%;
+    background-size: 6px 6px, 6px 6px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+
+    &:hover {
+        border-color: @oucru-accent;
+        box-shadow: 0 0 0 1px fade(@oucru-accent, 40%);
+        background-color: lighten(@oucru-background, 4%);
+    }
+
+    &:focus {
+        outline: none;
+        border-color: @oucru-accent;
+        box-shadow: 0 0 0 2px fade(@oucru-accent, 40%);
+    }
+}
+
 .clear-search-icon {
     display: none !important;
 }

@@ -133,6 +133,10 @@ export class SearchBox {
         return this.input;
     }
 
+    getContainer(): HTMLElement {
+        return this.container;
+    }
+
     applyStyles(fontSize: number, color?: string): void {
         DOMHelpers.applyStyles(this.input, {
             fontSize: `${fontSize}px`,
