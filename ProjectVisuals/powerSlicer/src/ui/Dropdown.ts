@@ -220,4 +220,11 @@ export class Dropdown {
             visibleItems[0].scrollIntoView({ block: "nearest" });
         }
     }
+
+    selectFirstVisibleItem(): void {
+        const visibleItems = this.items.filter(item => !item.classList.contains("hidden"));
+        if (visibleItems.length > 0) {
+            visibleItems[0].click();
+        }
+    }
 }

@@ -1,5 +1,15 @@
 export interface SlicerNode {
     name: string;
+    /**
+     * Combined text used for search.
+     * Typically includes the display name plus any additional bound columns.
+     */
+    searchText?: string;
+    /**
+     * Optional backing row index for categorical data.
+     * Used when applying filters across multiple selected category columns.
+     */
+    dataIndex?: number;
     children: SlicerNode[];
 }
 

@@ -21,6 +21,7 @@ import { ItemCounter } from "./ui/ItemCounter";
 import { SelectAllButton } from "./ui/SelectAllButton";
 import { SelectedItemsContainer } from "./ui/SelectedItemsContainer";
 import { KeyboardHandler } from "./utils/keyboard";
+import { DOMHelpers } from "./utils/domHelpers";
 
 export class Visual implements IVisual {
     private target: HTMLElement;
@@ -41,6 +42,8 @@ export class Visual implements IVisual {
     
     private selectionManager: SelectionStateManager;
     private filterService: FilterService;
+    private activeCategoryIndices: number[] = [0];
+    private categorySelector: HTMLDivElement | null = null;
     
     private currentStyleConfig: {
         fontSize: number;
@@ -73,7 +76,8 @@ export class Visual implements IVisual {
             onSearchChange: (value) => this.handleSearchChange(value),
             onClear: () => this.handleSearchClear(),
             onRefresh: () => this.handleRefresh(),
-            debounceDelay: 300
+            // Faster debounce so dropdown reflects typing more in real time
+            debounceDelay: 150
         });
 
         this.selectedItemsContainer = new SelectedItemsContainer(this.target, {
@@ -112,6 +116,14 @@ export class Visual implements IVisual {
             if (e.key === KeyboardHandler.Keys.ARROW_DOWN) {
                 e.preventDefault();
                 this.dropdown.focusFirstItem();
+            } else if (e.key === "Enter") {
+                e.preventDefault();
+                if (this.dropdown && this.dropdown.isVisible()) {
+                    this.dropdown.selectFirstVisibleItem();
+                }
+                // After confirming via Enter, collapse to the compact view
+                this.collapseView();
+                searchInput.blur();
             } else if (e.key === KeyboardHandler.Keys.ESCAPE) {
                 this.collapseView();
                 searchInput.blur();
@@ -187,13 +199,76 @@ export class Visual implements IVisual {
         this.dataView = dataView;
 
         if (dataView && dataView.tree && dataView.tree.root && dataView.tree.root.children) {
-            this.data = dataView.tree.root.children.map(child => 
+            this.data = dataView.tree.root.children.map(child =>
                 DataService.transformTreeData(child)
             );
         } else if (dataView && dataView.categorical && dataView.categorical.categories && dataView.categorical.categories[0]) {
-            this.data = dataView.categorical.categories[0].values.map(v => 
-                DataService.createLeafNode(v)
-            );
+            const categorical = dataView.categorical;
+            const categories = categorical.categories;
+            const valueColumns = categorical.values;
+
+            // Ensure category selector reflects available fields
+            this.updateCategorySelector(categories);
+
+            const totalCategories = categories.length;
+            const activeIndices = this.getActiveCategoryIndices(totalCategories);
+            const primaryIndex = this.getPrimaryCategoryIndex(totalCategories);
+
+            const primaryCategory = categories[primaryIndex];
+            const otherCategories = activeIndices
+                .filter(index => index !== primaryIndex)
+                .map(index => categories[index]);
+
+            const nodes: SlicerNode[] = [];
+
+            for (let rowIndex = 0; rowIndex < primaryCategory.values.length; rowIndex++) {
+                const searchParts: string[] = [];
+
+                const primaryRaw = primaryCategory.values[rowIndex];
+                const primaryText = primaryRaw !== undefined && primaryRaw !== null ? primaryRaw.toString() : "";
+
+                const display = primaryText;
+
+                if (primaryText) {
+                    searchParts.push(primaryText);
+                }
+
+                // Other categories: used to broaden search context only
+                otherCategories.forEach(category => {
+                    const catValues = category.values;
+                    if (catValues && rowIndex < catValues.length) {
+                        const extra = catValues[rowIndex];
+                        if (extra !== undefined && extra !== null) {
+                            const text = extra.toString();
+                            if (text && searchParts.indexOf(text) === -1) {
+                                searchParts.push(text);
+                            }
+                        }
+                    }
+                });
+
+                // Measure/value fields -> search only
+                if (valueColumns && valueColumns.length > 0) {
+                    for (let vColIndex = 0; vColIndex < valueColumns.length; vColIndex++) {
+                        const vCol = valueColumns[vColIndex];
+                        const vValues = vCol.values;
+                        if (vValues && rowIndex < vValues.length) {
+                            const extra = vValues[rowIndex];
+                            if (extra !== undefined && extra !== null) {
+                                const text = extra.toString();
+                                if (text && searchParts.indexOf(text) === -1) {
+                                    searchParts.push(text);
+                                }
+                            }
+                        }
+                    }
+                }
+
+                const searchText = searchParts.join(" | ");
+                nodes.push(DataService.createLeafNode(display, searchText, rowIndex));
+            }
+
+            this.data = nodes;
         } else {
             this.data = [];
         }
@@ -407,8 +482,25 @@ export class Visual implements IVisual {
 
     private applyFilters(): void {
         const selectedItems = this.selectionManager.getSelectedItems();
-        const target = FilterService.parseFilterTarget(this.dataView);
-        
+
+        // No data or categories: fall back to simple single-field filter
+        if (!this.dataView || !this.dataView.categorical || !this.dataView.categorical.categories) {
+            const target = FilterService.parseFilterTarget(this.dataView, this.getPrimaryCategoryIndex());
+            this.filterService.applyFilter(selectedItems, target);
+            return;
+        }
+
+        // Single-category mode: always filter on the currently selected category field.
+        if (selectedItems.length === 0) {
+            this.filterService.removeFilter();
+            return;
+        }
+
+        const categorical = this.dataView.categorical;
+        const totalCategories = categorical.categories.length;
+        const primaryIndex = this.getPrimaryCategoryIndex(totalCategories);
+        const target = FilterService.parseFilterTarget(this.dataView, primaryIndex);
+
         this.filterService.applyFilter(selectedItems, target);
     }
 
@@ -424,5 +516,100 @@ export class Visual implements IVisual {
 
     public getFormattingModel(): powerbi.visuals.FormattingModel {
         return this.formattingSettingsService.buildFormattingModel(this.formattingSettings);
+    }
+
+    private updateCategorySelector(categories: powerbi.DataViewCategoryColumn[]): void {
+        const container = this.searchBox.getContainer();
+
+        if (!this.categorySelector) {
+            const selectorContainer = document.createElement("div");
+            selectorContainer.className = "category-selector";
+
+            this.categorySelector = selectorContainer;
+            // Insert pills container between search icon and input
+            container.insertBefore(selectorContainer, this.searchBox.getInput());
+        }
+
+        // Clear existing pills
+        if (this.categorySelector) {
+            DOMHelpers.clearElement(this.categorySelector);
+        }
+
+        const totalCategories = categories.length;
+        const primaryIndex = this.getPrimaryCategoryIndex(totalCategories);
+
+        // If only one category is available, hide selector
+        if (categories.length <= 1) {
+            this.categorySelector.style.display = "none";
+            return;
+        }
+
+        this.categorySelector.style.display = "";
+
+        // Create a dropdown (select) for category choice
+        const select = document.createElement("select");
+        select.className = "category-select";
+
+        categories.forEach((category, index) => {
+            const option = document.createElement("option");
+            const source = category.source;
+            option.value = index.toString();
+            option.text = source.displayName || source.queryName || `Category ${index + 1}`;
+            if (index === primaryIndex) {
+                option.selected = true;
+            }
+            select.appendChild(option);
+        });
+
+        select.title = "Choose which field to search";
+
+        select.addEventListener("change", () => {
+            const selectedIndex = parseInt(select.value, 10);
+            const currentPrimary = this.getPrimaryCategoryIndex(totalCategories);
+
+            if (selectedIndex === currentPrimary) {
+                return;
+            }
+
+            // Single-category mode: switch active field and reset state
+            this.activeCategoryIndices = [selectedIndex];
+            this.clearAll();
+
+            if (this.dataView) {
+                this.loadData(this.dataView);
+                this.applyGlobalStyles();
+                this.updateUI();
+            }
+        });
+
+        this.categorySelector.appendChild(select);
+    }
+
+    private getPrimaryCategoryIndex(totalCategories?: number): number {
+        const first = this.activeCategoryIndices && this.activeCategoryIndices.length > 0
+            ? this.activeCategoryIndices[0]
+            : 0;
+
+        if (totalCategories === undefined) {
+            return first;
+        }
+
+        if (first < 0 || first >= totalCategories) {
+            return 0;
+        }
+
+        return first;
+    }
+
+    private getActiveCategoryIndices(totalCategories: number): number[] {
+        if (!this.activeCategoryIndices || this.activeCategoryIndices.length === 0) {
+            return [0];
+        }
+
+        const filtered = this.activeCategoryIndices.filter(index => 
+            index >= 0 && index < totalCategories
+        );
+
+        return filtered.length > 0 ? filtered : [0];
     }
 }
