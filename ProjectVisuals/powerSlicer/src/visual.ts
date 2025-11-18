@@ -69,16 +69,16 @@ export class Visual implements IVisual {
             fillRule: undefined
         };
 
-        this.selectedItemsContainer = new SelectedItemsContainer(this.target, {
-            onRemoveItem: (item) => this.handleItemRemove(item),
-            fontSize: 12
-        });
-
         this.searchBox = new SearchBox(this.target, {
             onSearchChange: (value) => this.handleSearchChange(value),
             onClear: () => this.handleSearchClear(),
             onRefresh: () => this.handleRefresh(),
             debounceDelay: 300
+        });
+
+        this.selectedItemsContainer = new SelectedItemsContainer(this.target, {
+            onRemoveItem: (item) => this.handleItemRemove(item),
+            fontSize: 12
         });
 
         // Create compact actions bar
@@ -113,8 +113,7 @@ export class Visual implements IVisual {
                 e.preventDefault();
                 this.dropdown.focusFirstItem();
             } else if (e.key === KeyboardHandler.Keys.ESCAPE) {
-                this.dropdown.hide();
-                this.selectAllButton.hide();
+                this.collapseView();
                 searchInput.blur();
             }
         });
@@ -126,11 +125,21 @@ export class Visual implements IVisual {
     }
 
     private attachClickOutsideHandler(): void {
+        // Clicks inside the visual but outside interactive elements
         document.addEventListener("click", (e) => {
-            const target = e.target as HTMLElement;
-            if (!this.target.contains(target)) {
+            const eventTarget = e.target as HTMLElement;
+            const isInsideVisual = this.target.contains(eventTarget);
+
+            if (!isInsideVisual) {
+                // Click completely outside this iframe/document will not be seen here
+                // but clicks in the visual's own background area will collapse it.
                 this.collapseView();
             }
+        });
+
+        // Losing focus (e.g., user clicks elsewhere in the report)
+        window.addEventListener("blur", () => {
+            this.collapseView();
         });
     }
 
@@ -139,9 +148,11 @@ export class Visual implements IVisual {
         this.dropdown.hide();
         this.hideActionsBar();
         this.selectAllButton.hide();
+        this.target.classList.add("collapsed");
     }
 
     private expandView(): void {
+        this.target.classList.remove("collapsed");
         const searchValue = this.searchBox.getValue();
         if (searchValue && searchValue.trim().length > 0) {
             this.showActionsBar();
@@ -193,7 +204,11 @@ export class Visual implements IVisual {
         const defaultColor = this.formattingSettings.dataPointCard.defaultColor.value?.value;
         const layout = this.formattingSettings.dataPointCard.layout.value.value;
 
+        const wasCollapsed = this.target.classList.contains("collapsed");
         this.target.className = `slicer-container ${layout}`;
+        if (wasCollapsed) {
+            this.target.classList.add("collapsed");
+        }
 
         this.searchBox.applyStyles(fontSize, defaultColor);
 
@@ -280,6 +295,7 @@ export class Visual implements IVisual {
 
     private handleSearchChange(value: string): void {
         if (value && value.trim().length > 0) {
+            this.target.classList.remove("collapsed");
             this.showActionsBar();
             this.selectAllButton.show();
             this.dropdown.show();

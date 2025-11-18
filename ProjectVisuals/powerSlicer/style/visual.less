@@ -57,6 +57,10 @@
         .actions-bar {
             display: none !important;
         }
+
+        .selected-items-container {
+            display: none !important;
+        }
     }
 }
 
@@ -188,6 +192,9 @@
     overflow-y: auto;
     background-color: @oucru-background;
     margin-top: 5px;
+    border: 1px solid fade(@oucru-foreground, 10%);
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
 
     &.hidden {
         display: none;
@@ -199,40 +206,40 @@
     padding: 10px;
     cursor: pointer;
     color: @oucru-text;
-    background-color: @oucru-background;
-    transition: background-color 0.2s ease;
+    background-color: lighten(@oucru-background, 1%);
+    transition: background-color 0.15s ease, color 0.15s ease;
     outline: none;
 
     &:hover, &:focus {
-        background-color: #EFF5D2;
-        outline: 2px solid @oucru-accent;
+        background-color: lighten(@oucru-accent, 35%);
+        outline: 1px solid fade(@oucru-accent, 70%);
         outline-offset: -2px;
     }
 
     &.selected {
-        background-color: @oucru-foreground;
+        background-color: @oucru-accent;
         color: @oucru-background;
 
         &:hover, &:focus {
-            background-color: @oucru-accent;
+            background-color: darken(@oucru-accent, 5%);
         }
     }
 
     strong {
         font-weight: bold;
-        color: @oucru-accent;
-        background-color: rgba(66, 104, 113, 0.2);
+        color: @oucru-foreground;
+        background-color: fade(@oucru-accent, 30%);
         padding: 1px 3px;
         border-radius: 2px;
         
         &.match-exact {
-            background-color: rgba(66, 104, 113, 0.3);
-            color: @oucru-foreground;
+            background-color: fade(@oucru-accent, 45%);
+            color: @oucru-background;
             font-weight: 700;
         }
         
         &.match-token {
-            background-color: rgba(66, 104, 113, 0.15);
+            background-color: fade(@oucru-accent, 20%);
         }
     }
 }
@@ -273,7 +280,7 @@
 .selected-item {
     display: inline-flex;
     align-items: center;
-    background-color: @oucru-foreground;
+    background-color: @oucru-accent;
     color: @oucru-background;
     padding: 3px 8px;
     border-radius: 3px;
