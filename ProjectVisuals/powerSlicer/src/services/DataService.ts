@@ -54,8 +54,50 @@ export class DataService {
             return this.wildcardFilterData(data, searchTerm, caseSensitive);
         }
 
+        // Code-like short queries (e.g., SA) should match strictly on the primary code/name
+        const isCodeLike = /^[a-z0-9_]+$/i.test(searchTerm);
+        if (isCodeLike && searchTerm.length <= 4) {
+            return this.codeFilterData(data, searchTerm, caseSensitive);
+        }
+
         // Advanced search with scoring
         return this.advancedFilterData(data, searchTerm, caseSensitive);
+    }
+
+    /**
+     * Strict code filter: contains check against the primary display name only.
+     */
+    private static codeFilterData(
+        data: SlicerNode[],
+        searchTerm: string,
+        caseSensitive: boolean
+    ): SlicerNode[] {
+        const term = caseSensitive ? searchTerm : searchTerm.toLowerCase();
+
+        const matchesCode = (node: SlicerNode): boolean => {
+            const name = node.name || "";
+            const source = caseSensitive ? name : name.toLowerCase();
+            return source.indexOf(term) > -1;
+        };
+
+        const filterRecursive = (nodes: SlicerNode[]): SlicerNode[] => {
+            const result: SlicerNode[] = [];
+
+            for (const node of nodes) {
+                if (matchesCode(node)) {
+                    result.push(node);
+                } else if (node.children && node.children.length > 0) {
+                    const filteredChildren = filterRecursive(node.children);
+                    if (filteredChildren.length > 0) {
+                        result.push({ ...node, children: filteredChildren });
+                    }
+                }
+            }
+
+            return result;
+        };
+
+        return filterRecursive(data);
     }
 
     /**
