@@ -211,39 +211,40 @@ export class Visual implements IVisual {
             this.updateCategorySelector(categories);
 
             const totalCategories = categories.length;
-            const activeIndices = this.getActiveCategoryIndices(totalCategories);
             const primaryIndex = this.getPrimaryCategoryIndex(totalCategories);
 
             const primaryCategory = categories[primaryIndex];
-            const otherCategories = activeIndices
-                .filter(index => index !== primaryIndex)
-                .map(index => categories[index]);
+            const searchCategories = categories.filter((_, index) => index !== primaryIndex);
 
-            const nodes: SlicerNode[] = [];
+            // De-duplicate values in the primary category (e.g., taxonomy columns)
+            // while aggregating search text from all related fields.
+            const nodeMap = new Map<string, { searchParts: Set<string>; dataIndex: number }>();
+
+            const addToSearchParts = (parts: Set<string>, value: any): void => {
+                if (value === undefined || value === null) {
+                    return;
+                }
+                const text = value.toString();
+                if (text) {
+                    parts.add(text);
+                }
+            };
 
             for (let rowIndex = 0; rowIndex < primaryCategory.values.length; rowIndex++) {
-                const searchParts: string[] = [];
-
                 const primaryRaw = primaryCategory.values[rowIndex];
                 const primaryText = primaryRaw !== undefined && primaryRaw !== null ? primaryRaw.toString() : "";
 
                 const display = primaryText;
+                const existing = nodeMap.get(display);
+                const searchParts = existing ? existing.searchParts : new Set<string>();
 
-                if (primaryText) {
-                    searchParts.push(primaryText);
-                }
+                addToSearchParts(searchParts, primaryText);
 
-                // Other categories: used to broaden search context only
-                otherCategories.forEach(category => {
+                // Other categories: used to broaden search context for text search
+                searchCategories.forEach(category => {
                     const catValues = category.values;
                     if (catValues && rowIndex < catValues.length) {
-                        const extra = catValues[rowIndex];
-                        if (extra !== undefined && extra !== null) {
-                            const text = extra.toString();
-                            if (text && searchParts.indexOf(text) === -1) {
-                                searchParts.push(text);
-                            }
-                        }
+                        addToSearchParts(searchParts, catValues[rowIndex]);
                     }
                 });
 
@@ -253,19 +254,24 @@ export class Visual implements IVisual {
                         const vCol = valueColumns[vColIndex];
                         const vValues = vCol.values;
                         if (vValues && rowIndex < vValues.length) {
-                            const extra = vValues[rowIndex];
-                            if (extra !== undefined && extra !== null) {
-                                const text = extra.toString();
-                                if (text && searchParts.indexOf(text) === -1) {
-                                    searchParts.push(text);
-                                }
-                            }
+                            addToSearchParts(searchParts, vValues[rowIndex]);
                         }
                     }
                 }
 
-                const searchText = searchParts.join(" | ");
-                nodes.push(DataService.createLeafNode(display, searchText, rowIndex));
+                const keyExists = nodeMap.has(display);
+                nodeMap.set(display, {
+                    searchParts,
+                    // Preserve the first occurrence index for consistent ordering/filtering
+                    dataIndex: keyExists && existing ? existing.dataIndex : rowIndex
+                });
+            }
+
+            // Convert aggregated map back to slicer nodes, preserving insertion order
+            const nodes: SlicerNode[] = [];
+            for (const [name, entry] of nodeMap.entries()) {
+                const searchText = Array.from(entry.searchParts).join(" | ");
+                nodes.push(DataService.createLeafNode(name, searchText, entry.dataIndex));
             }
 
             this.data = nodes;
