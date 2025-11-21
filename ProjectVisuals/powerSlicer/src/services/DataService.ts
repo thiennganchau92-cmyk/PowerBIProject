@@ -2,6 +2,15 @@ import powerbi from "powerbi-visuals-api";
 import { SlicerNode } from "../interfaces";
 import { AdvancedSearchService, SearchOptions } from "./AdvancedSearchService";
 
+interface ParsedSearchQuery {
+    raw: string;
+    normalized: string;
+    includeAll: string[];
+    orGroups: string[][];
+    exclude: string[];
+    hasWildcard: boolean;
+}
+
 export class DataService {
     static transformTreeData(node: powerbi.DataViewTreeNode): SlicerNode {
         const children = node.children && node.children.length > 0
@@ -12,9 +21,8 @@ export class DataService {
 
         return {
             name,
-            // For tree data we currently only have a single display value,
-            // so use it as the search text as well.
-            searchText: name,
+            // Index both the raw name and a normalized variant so search is more forgiving.
+            searchText: DataService.buildSearchText(name),
             children
         };
     }
@@ -28,7 +36,7 @@ export class DataService {
         const display = value !== undefined && value !== null ? value.toString() : "";
         return {
             name: display,
-            searchText: searchText || display,
+            searchText: searchText || DataService.buildSearchText(display),
             dataIndex,
             children: []
         };
@@ -44,18 +52,62 @@ export class DataService {
             return data;
         }
 
+        const parsedQuery = this.parseSearchQuery(searchTerm, caseSensitive);
+
         if (!useAdvancedSearch) {
             // Fallback to simple search
-            return this.simpleFilterData(data, searchTerm, caseSensitive);
+            return this.simpleFilterData(data, parsedQuery, caseSensitive);
         }
 
         // Wildcard search (supports '*' as multi-character wildcard)
-        if (searchTerm.indexOf("*") > -1) {
+        if (parsedQuery.hasWildcard) {
             return this.wildcardFilterData(data, searchTerm, caseSensitive);
         }
 
+        // Code-like short queries (e.g., SA) should match strictly on the primary code/name
+        const isCodeLike = /^[a-z0-9_]+$/i.test(parsedQuery.raw);
+        if (isCodeLike && parsedQuery.raw.length <= 4) {
+            return this.codeFilterData(data, parsedQuery.raw, caseSensitive);
+        }
+
         // Advanced search with scoring
-        return this.advancedFilterData(data, searchTerm, caseSensitive);
+        return this.advancedFilterData(data, parsedQuery, caseSensitive);
+    }
+
+    /**
+     * Strict code filter: contains check against the primary display name only.
+     */
+    private static codeFilterData(
+        data: SlicerNode[],
+        searchTerm: string,
+        caseSensitive: boolean
+    ): SlicerNode[] {
+        const term = caseSensitive ? searchTerm : searchTerm.toLowerCase();
+
+        const matchesCode = (node: SlicerNode): boolean => {
+            const name = node.name || "";
+            const source = caseSensitive ? name : name.toLowerCase();
+            return source.indexOf(term) > -1;
+        };
+
+        const filterRecursive = (nodes: SlicerNode[]): SlicerNode[] => {
+            const result: SlicerNode[] = [];
+
+            for (const node of nodes) {
+                if (matchesCode(node)) {
+                    result.push(node);
+                } else if (node.children && node.children.length > 0) {
+                    const filteredChildren = filterRecursive(node.children);
+                    if (filteredChildren.length > 0) {
+                        result.push({ ...node, children: filteredChildren });
+                    }
+                }
+            }
+
+            return result;
+        };
+
+        return filterRecursive(data);
     }
 
     /**
@@ -262,23 +314,16 @@ export class DataService {
      */
     private static simpleFilterData(
         data: SlicerNode[],
-        searchTerm: string,
+        parsedQuery: ParsedSearchQuery,
         caseSensitive: boolean
     ): SlicerNode[] {
-        const term = caseSensitive ? searchTerm : searchTerm.toLowerCase();
-
-        const getNodeSearchText = (node: SlicerNode): string => {
-            const base = node.searchText || node.name || "";
-            return caseSensitive ? base : base.toLowerCase();
-        };
-
         const filterRecursive = (nodes: SlicerNode[]): SlicerNode[] => {
             const result: SlicerNode[] = [];
 
             for (const node of nodes) {
-                const nodeText = getNodeSearchText(node);
+                const nodeText = node.searchText || node.name || "";
 
-                if (nodeText.indexOf(term) > -1) {
+                if (this.textMatchesParsedQuery(nodeText, parsedQuery, caseSensitive)) {
                     result.push(node);
                 } else if (node.children && node.children.length > 0) {
                     const filteredChildren = filterRecursive(node.children);
@@ -299,11 +344,9 @@ export class DataService {
      */
     private static advancedFilterData(
         data: SlicerNode[],
-        searchTerm: string,
+        parsedQuery: ParsedSearchQuery,
         caseSensitive: boolean
     ): SlicerNode[] {
-        const normalizedQuery = caseSensitive ? searchTerm : searchTerm.toLowerCase();
-
         const searchOptions: SearchOptions = {
             caseSensitive,
             fuzzyThreshold: 0.3,
@@ -312,23 +355,33 @@ export class DataService {
 
         const getNodeSearchText = (node: SlicerNode): string => node.searchText || node.name || "";
 
+        // Build a lookup of the best score per search text so we only search once.
+        const allNodeTexts: string[] = [];
+        const collectTexts = (nodes: SlicerNode[]): void => {
+            for (const node of nodes) {
+                allNodeTexts.push(getNodeSearchText(node));
+                if (node.children && node.children.length > 0) {
+                    collectTexts(node.children);
+                }
+            }
+        };
+        collectTexts(data);
+
+        const searchResults = AdvancedSearchService.search(
+            allNodeTexts,
+            parsedQuery.raw,
+            searchOptions
+        ).filter(result => this.textMatchesParsedQuery(result.text, parsedQuery, caseSensitive));
+
+        const matchedTexts = new Map<string, number>();
+        for (const res of searchResults) {
+            const existing = matchedTexts.get(res.text);
+            if (existing === undefined || res.score > existing) {
+                matchedTexts.set(res.text, res.score);
+            }
+        }
+
         const filterRecursive = (nodes: SlicerNode[]): SlicerNode[] => {
-            const nodeTexts = nodes.map(n => getNodeSearchText(n));
-            const searchResults = AdvancedSearchService.search(
-                nodeTexts,
-                searchTerm,
-                searchOptions
-            ).filter(result => {
-                const text = caseSensitive ? result.text : result.text.toLowerCase();
-                // Only keep results whose text actually contains the query
-                return text.indexOf(normalizedQuery) > -1;
-            });
-
-            // Create a map of matched search texts to their scores
-            const matchedTexts = new Map(
-                searchResults.map(r => [r.text, r.score])
-            );
-
             const result: SlicerNode[] = [];
 
             for (const node of nodes) {
@@ -336,10 +389,8 @@ export class DataService {
                 const score = matchedTexts.get(key);
 
                 if (score !== undefined) {
-                    // This node matches
                     result.push(node);
                 } else if (node.children && node.children.length > 0) {
-                    // Check children recursively
                     const filteredChildren = filterRecursive(node.children);
                     if (filteredChildren.length > 0) {
                         result.push({ ...node, children: filteredChildren });
@@ -347,7 +398,6 @@ export class DataService {
                 }
             }
 
-            // Sort by relevance score (if available)
             result.sort((a, b) => {
                 const keyA = getNodeSearchText(a);
                 const keyB = getNodeSearchText(b);
@@ -360,6 +410,129 @@ export class DataService {
         };
 
         return filterRecursive(data);
+    }
+
+    private static buildSearchText(name: string): string {
+        const normalized = this.normalizeText(name, false);
+        return normalized && normalized !== name ? `${name}|${normalized}` : name;
+    }
+
+    private static normalizeText(text: string, caseSensitive: boolean): string {
+        const stripped = text
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "");
+        return caseSensitive ? stripped : stripped.toLowerCase();
+    }
+
+    private static parseSearchQuery(searchTerm: string, caseSensitive: boolean): ParsedSearchQuery {
+        const raw = searchTerm.trim();
+        type QueryPart = { text: string; isPhrase: boolean };
+        const parts: QueryPart[] = [];
+        const exclude: string[] = [];
+
+        const regex = /"([^"]+)"|(\S+)/g;
+        let match: RegExpExecArray | null;
+        while ((match = regex.exec(raw)) !== null) {
+            const phrase = match[1];
+            const token = match[2];
+            if (phrase) {
+                parts.push({ text: phrase, isPhrase: true });
+            } else if (token) {
+                parts.push({ text: token, isPhrase: false });
+            }
+        }
+
+        const normalized = this.normalizeText(raw, caseSensitive);
+
+        const groups: string[][] = [];
+        let currentGroup: string[] = [];
+        let hasOr = false;
+
+        const pushCurrentGroup = () => {
+            if (currentGroup.length > 0) {
+                groups.push(currentGroup);
+                currentGroup = [];
+            }
+        };
+
+        for (const part of parts) {
+            const normalizedValue = this.normalizeText(part.text, caseSensitive);
+            if (!normalizedValue) {
+                continue;
+            }
+
+            if (!part.isPhrase && normalizedValue === "or") {
+                hasOr = true;
+                pushCurrentGroup();
+                continue;
+            }
+
+            const isExclusion = !part.isPhrase && normalizedValue.startsWith("-");
+            const cleanToken = isExclusion ? normalizedValue.substring(1) : normalizedValue;
+            if (!cleanToken) {
+                continue;
+            }
+
+            if (isExclusion) {
+                exclude.push(cleanToken);
+                continue;
+            }
+
+            currentGroup.push(cleanToken);
+        }
+        pushCurrentGroup();
+
+        const filteredGroups = groups.filter(group => group.length > 0);
+
+        const includeAll: string[] = [];
+        const orGroups: string[][] = [];
+
+        if (hasOr && filteredGroups.length > 0) {
+            orGroups.push(...filteredGroups);
+        } else if (filteredGroups.length > 0) {
+            includeAll.push(...filteredGroups.flat());
+        }
+
+        return {
+            raw,
+            normalized,
+            includeAll,
+            orGroups,
+            exclude,
+            hasWildcard: raw.indexOf("*") > -1
+        };
+    }
+
+    private static textMatchesParsedQuery(
+        text: string,
+        parsed: ParsedSearchQuery,
+        caseSensitive: boolean
+    ): boolean {
+        if (!parsed.raw) {
+            return true;
+        }
+
+        const normalizedText = this.normalizeText(text, caseSensitive);
+
+        if (parsed.exclude.some(tok => normalizedText.indexOf(tok) > -1)) {
+            return false;
+        }
+
+        if (parsed.orGroups.length > 0) {
+            const matchesGroup = parsed.orGroups.some(group =>
+                group.every(tok => normalizedText.indexOf(tok) > -1)
+            );
+            if (!matchesGroup) {
+                return false;
+            }
+        } else if (parsed.includeAll.length > 0) {
+            const allMatch = parsed.includeAll.every(tok => normalizedText.indexOf(tok) > -1);
+            if (!allMatch) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     static getAllNames(data: SlicerNode[]): string[] {

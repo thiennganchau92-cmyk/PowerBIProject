@@ -88,7 +88,8 @@ export class AdvancedSearchService {
         if (normalizedItem.indexOf(query) > -1) {
             const position = normalizedItem.indexOf(query);
             const positionPenalty = position * 0.01;
-            const score = 0.7 - positionPenalty;
+            const lengthPenalty = Math.min(normalizedItem.length * 0.0015, 0.15);
+            const score = 0.72 - positionPenalty - lengthPenalty;
             return { text: originalItem, score: Math.max(score, 0.5), matchType: 'contains' };
         }
 
@@ -113,11 +114,11 @@ export class AdvancedSearchService {
         // Make fuzzy matching stricter for short queries so results feel more exact.
         const fuzzyScore = this.calculateFuzzyScore(normalizedItem, query);
         const minFuzzyScore =
-            queryLength <= 2 ? 0.85 :
-            queryLength <= 3 ? 0.7 :
+            queryLength <= 2 ? 0.9 :
+            queryLength <= 3 ? 0.75 :
             0.5;
         if (fuzzyScore > minFuzzyScore) {
-            return { text: originalItem, score: fuzzyScore * 0.8, matchType: 'fuzzy' };
+            return { text: originalItem, score: fuzzyScore * 0.75, matchType: 'fuzzy' };
         }
 
         return null;
