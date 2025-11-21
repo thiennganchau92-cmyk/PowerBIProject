@@ -15,6 +15,7 @@ export declare class Visual implements IVisual {
     private crossFilterManager;
     private isInitialLoad;
     private previousResetTrigger;
+    private hostHasRelevantFilters;
     constructor(options: VisualConstructorOptions);
     update(options: VisualUpdateOptions): void;
     handleCategoryChange(categoryData: CategoryData, value: any, checked: boolean, fieldKey: string): void;
@@ -29,4 +30,9 @@ export declare class Visual implements IVisual {
     applyTopNFilter(categoryData: CategoryData, config: TopNConfig): void;
     getSelectedCategories(): Map<string, Set<any>>;
     getFormattingModel(): powerbi.visuals.FormattingModel;
+    private syncStateWithHostFilters;
+    private getKnownFieldKeys;
+    private extractRelevantFilterKeys;
+    private isFilterTypeSupported;
+    private extractTargetKeys;
 }
