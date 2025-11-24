@@ -75,6 +75,14 @@ export class SelectedItemsContainer {
         DOMHelpers.clearElement(this.element);
     }
 
+    show(): void {
+        this.element.style.display = "";
+    }
+
+    hide(): void {
+        this.element.style.display = "none";
+    }
+
     getElement(): HTMLElement {
         return this.element;
     }

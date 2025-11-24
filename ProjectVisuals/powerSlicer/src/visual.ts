@@ -28,7 +28,7 @@ export class Visual implements IVisual {
     private host: IVisualHost;
     private dataView: powerbi.DataView;
     private data: SlicerNode[] = [];
-    
+
     private formattingSettings: VisualFormattingSettingsModel;
     private formattingSettingsService: FormattingSettingsService;
     private previousResetTrigger: boolean | null = null;
@@ -39,12 +39,12 @@ export class Visual implements IVisual {
     private itemCounter: ItemCounter;
     private selectAllButton: SelectAllButton;
     private selectedItemsContainer: SelectedItemsContainer;
-    
+
     private selectionManager: SelectionStateManager;
     private filterService: FilterService;
     private activeCategoryIndices: number[] = [0];
     private categorySelector: HTMLDivElement | null = null;
-    
+
     private currentStyleConfig: {
         fontSize: number;
         defaultColor?: string;
@@ -52,11 +52,14 @@ export class Visual implements IVisual {
         fillRule?: string;
     };
 
+    private isInteracting: boolean = false;
+    private hasSelections: boolean = false;
+
     constructor(options: VisualConstructorOptions) {
         this.target = options.element;
         this.host = options.host;
         this.formattingSettingsService = new FormattingSettingsService();
-        
+
         this.selectionManager = new SelectionStateManager();
         this.filterService = new FilterService(this.host);
 
@@ -93,8 +96,12 @@ export class Visual implements IVisual {
             fontSize: 12
         });
 
+        // Start in collapsed state
+        this.target.classList.add("collapsed");
+
         this.attachKeyboardHandlers();
         this.attachClickOutsideHandler();
+        this.attachMouseLeaveHandler();
     }
 
     private createActionsBar(): void {
@@ -102,10 +109,10 @@ export class Visual implements IVisual {
         const actionsBar = document.createElement("div");
         actionsBar.className = "actions-bar hidden";
         actionsBar.id = "actions-bar";
-        
+
         this.itemCounter = new ItemCounter(actionsBar);
         this.selectAllButton = new SelectAllButton(actionsBar, () => this.handleSelectAll());
-        
+
         this.target.appendChild(actionsBar);
     }
 
@@ -132,7 +139,12 @@ export class Visual implements IVisual {
 
         searchInput.addEventListener("focus", () => {
             // Expand view when user focuses on search
+            this.isInteracting = true;
             this.expandView();
+        });
+
+        searchInput.addEventListener("blur", () => {
+            this.isInteracting = false;
         });
     }
 
@@ -155,16 +167,42 @@ export class Visual implements IVisual {
         });
     }
 
+    private attachMouseLeaveHandler(): void {
+        this.target.addEventListener("mouseleave", () => {
+            const searchInput = this.searchBox.getInput();
+            // Only collapse if:
+            // 1. Not actively typing/interacting
+            // 2. No items are selected (if items selected, keep open to show them)
+            if (document.activeElement !== searchInput && !this.hasSelections) {
+                this.collapseView();
+            }
+        });
+    }
+
     private collapseView(): void {
-        // Hide dropdown and actions bar to save space
-        this.dropdown.hide();
-        this.hideActionsBar();
-        this.selectAllButton.hide();
-        this.target.classList.add("collapsed");
+        // If there are selected items, keep them visible but hide dropdown/actions
+        if (this.hasSelections) {
+            this.dropdown.hide();
+            this.hideActionsBar();
+            this.selectAllButton.hide();
+            // Keep selected items visible
+            this.selectedItemsContainer.show();
+        } else {
+            // No selections, fully collapse
+            this.dropdown.hide();
+            this.hideActionsBar();
+            this.selectAllButton.hide();
+            this.selectedItemsContainer.hide();
+            this.target.classList.add("collapsed");
+        }
     }
 
     private expandView(): void {
+        // Remove collapsed class
         this.target.classList.remove("collapsed");
+        // Always show selected items when expanded
+        this.selectedItemsContainer.show();
+
         const searchValue = this.searchBox.getValue();
         if (searchValue && searchValue.trim().length > 0) {
             this.showActionsBar();
@@ -187,11 +225,11 @@ export class Visual implements IVisual {
 
     private handleBookmarkReset(): void {
         const currentResetTrigger = this.formattingSettings.dataPointCard.bookmarkResetTrigger.value;
-        
+
         if (this.previousResetTrigger !== null && this.previousResetTrigger !== currentResetTrigger) {
             this.clearAll();
         }
-        
+
         this.previousResetTrigger = currentResetTrigger;
     }
 
@@ -304,10 +342,10 @@ export class Visual implements IVisual {
 
     private updateUI(): void {
         const searchValue = this.searchBox.getValue();
-        
+
         // Re-render selected items with current styling
         this.renderSelectedItemsWithStyle();
-        
+
         this.updateItemCounter(searchValue);
 
         if (searchValue && searchValue.trim().length > 0) {
@@ -318,7 +356,7 @@ export class Visual implements IVisual {
     private renderSelectedItemsWithStyle(): void {
         // Clear and re-render with updated config
         this.selectedItemsContainer.clear();
-        
+
         // Render items with current style config
         const selectedItems = this.selectionManager.getSelectedItems();
         selectedItems.forEach(item => {
@@ -330,12 +368,12 @@ export class Visual implements IVisual {
         const selectedItem = document.createElement("div");
         selectedItem.className = "selected-item";
         selectedItem.title = itemName; // Full name on hover
-        
+
         // Create text span for truncation
         const textSpan = document.createElement("span");
         textSpan.className = "selected-item-text";
         textSpan.textContent = itemName;
-        
+
         // Apply styles
         if (this.currentStyleConfig.fill) {
             selectedItem.style.backgroundColor = this.currentStyleConfig.fill;
@@ -368,7 +406,7 @@ export class Visual implements IVisual {
 
         selectedItem.appendChild(textSpan);
         selectedItem.appendChild(removeButton);
-        
+
         // Get the actual container element and append
         const containerElement = this.selectedItemsContainer.getElement();
         containerElement.appendChild(selectedItem);
@@ -418,23 +456,37 @@ export class Visual implements IVisual {
 
     private handleItemRemove(item: string): void {
         this.selectionManager.removeItem(item);
+        this.hasSelections = this.selectionManager.getSelectedCount() > 0;
+
         this.applyFilters();
         this.updateUI();
+
+        // If no more selections and not focused, collapse
+        if (!this.hasSelections && !this.isInteracting) {
+            this.collapseView();
+        }
     }
 
     private handleItemClick(item: string, event: MouseEvent): void {
         const filteredData = this.getFilteredData();
         const allNames = DataService.getAllNames(filteredData);
-        
+
         this.selectionManager.handleSelection(item, allNames, event.shiftKey);
+
+        // Update hasSelections flag
+        this.hasSelections = this.selectionManager.getSelectedCount() > 0;
+
         this.applyFilters();
         this.updateUI();
+
+        // Keep visual expanded to show selections
+        this.expandView();
     }
 
     private handleSelectAll(): void {
         const filteredData = this.getFilteredData();
         const allNames = DataService.getAllNames(filteredData);
-        
+
         this.selectionManager.selectAll(allNames);
         this.applyFilters();
         this.updateUI();
@@ -451,14 +503,14 @@ export class Visual implements IVisual {
     private renderFilteredData(searchValue: string): void {
         const filteredData = this.getFilteredData();
         const selectedItems = this.selectionManager.getSelectedItems();
-        
+
         // Re-create dropdown with current style config
         const dropdownElement = this.dropdown.getElement();
         const parent = dropdownElement.parentElement;
         if (parent) {
             parent.removeChild(dropdownElement);
         }
-        
+
         this.dropdown = new Dropdown(this.target, {
             onItemClick: (item, event) => this.handleItemClick(item, event),
             fontSize: this.currentStyleConfig.fontSize,
@@ -466,9 +518,9 @@ export class Visual implements IVisual {
             fill: this.currentStyleConfig.fill,
             fillRule: this.currentStyleConfig.fillRule
         });
-        
+
         this.dropdown.render(filteredData, selectedItems, searchValue);
-        
+
         if (searchValue && searchValue.trim().length > 0) {
             this.dropdown.show();
         }
@@ -559,20 +611,20 @@ export class Visual implements IVisual {
         categories.forEach((category, index) => {
             const option = document.createElement("option");
             option.value = index.toString();
-            
+
             // Try to find the matching metadata column for this category
             // Power BI stores user-defined field renames in metadata.columns
             const metadataColumn = this.dataView?.metadata?.columns?.find(
                 col => col.queryName === category.source.queryName
             );
-            
+
             // Use metadata display name if available (this includes user renames in field well)
             // Fall back to source display name, then query name
-            option.text = metadataColumn?.displayName 
-                || category.source.displayName 
-                || category.source.queryName 
+            option.text = metadataColumn?.displayName
+                || category.source.displayName
+                || category.source.queryName
                 || `Category ${index + 1}`;
-            
+
             if (index === primaryIndex) {
                 option.selected = true;
             }
@@ -624,7 +676,7 @@ export class Visual implements IVisual {
             return [0];
         }
 
-        const filtered = this.activeCategoryIndices.filter(index => 
+        const filtered = this.activeCategoryIndices.filter(index =>
             index >= 0 && index < totalCategories
         );
 
