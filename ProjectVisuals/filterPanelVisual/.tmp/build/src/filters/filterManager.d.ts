@@ -30,6 +30,7 @@ export declare class FilterManager {
     applyNumericFilter(numericData: NumericData, range: NumericRange): void;
     applyDateFilter(dateData: DateData, config: RelativeDateConfig): void;
     applyTopNFilter(categoryData: CategoryData, config: TopNConfig): void;
+    hasActiveState(): boolean;
     getSelectedCategories(): Map<string, Set<any>>;
     private getFilterTarget;
     private renderUI;
