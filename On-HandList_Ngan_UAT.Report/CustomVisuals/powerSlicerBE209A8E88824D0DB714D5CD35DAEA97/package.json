@@ -1,0 +1,29 @@
+{
+  "version": "1.0.0.0",
+  "author": {
+    "name": "Gemini",
+    "email": "gemini@google.com"
+  },
+  "resources": [
+    {
+      "resourceId": "rId0",
+      "sourceType": 5,
+      "file": "resources/powerSlicerBE209A8E88824D0DB714D5CD35DAEA97.pbiviz.json"
+    }
+  ],
+  "visual": {
+    "guid": "powerSlicerBE209A8E88824D0DB714D5CD35DAEA97",
+    "name": "powerSlicer",
+    "displayName": "PowerSlicer",
+    "version": "1.0.0.0",
+    "description": "A custom slicer with search functionality.",
+    "supportUrl": "https://community.powerbi.com",
+    "gitHubUrl": "",
+    "visualClassName": "Visual"
+  },
+  "metadata": {
+    "pbivizjson": {
+      "resourceId": "rId0"
+    }
+  }
+}

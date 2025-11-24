@@ -1,0 +1,83 @@
+table 1_ManufacturerReleasedProductV2Info__BridgeTable
+	isHidden
+	lineageTag: 8aab8638-eff6-45d7-9d36-31ca40c98d91
+
+	column ItemNumber
+		dataType: string
+		isHidden
+		lineageTag: d0f6e3ca-ad27-44c1-acb9-034ff4621155
+		summarizeBy: none
+		sourceColumn: ItemNumber
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column DataAreaId
+		dataType: string
+		isHidden
+		lineageTag: 79dbdb47-159b-4f68-97e9-5407faced5ec
+		summarizeBy: none
+		sourceColumn: DataAreaId
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column OUCRU_Manufacturer
+		dataType: string
+		isHidden
+		lineageTag: d6de1483-222f-4054-acbd-35733d04cbfa
+		summarizeBy: none
+		sourceColumn: OUCRU_Manufacturer
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column #DataAreaIDManufacturerID
+		dataType: string
+		isHidden
+		lineageTag: e8dd58c5-c127-4ca3-b3c0-1e5e92b5b4f9
+		summarizeBy: none
+		sourceColumn: #DataAreaIDManufacturerID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'OUCRU_ManufactureInfo.Description'
+		dataType: string
+		isHidden
+		lineageTag: b041a6aa-b1ff-44ed-af09-10ff6f239766
+		summarizeBy: none
+		sourceColumn: OUCRU_ManufactureInfo.Description
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 1_ManufacturerReleasedProductV2Info__BridgeTable = m
+		mode: import
+		source =
+				let
+				    Source = PowerPlatform.Dataflows(null),
+				    Workspaces = Source{[Id="Workspaces"]}[Data],
+				    #"9d7b5ded-0005-472f-9fa7-04557d319871" = Workspaces{[workspaceId="9d7b5ded-0005-472f-9fa7-04557d319871"]}[Data],
+				    #"4e091d5c-729f-4274-a5df-d6f9bf6a4601" = #"9d7b5ded-0005-472f-9fa7-04557d319871"{[dataflowId="4e091d5c-729f-4274-a5df-d6f9bf6a4601"]}[Data],
+				    ReleasedProductV2Info_ = #"4e091d5c-729f-4274-a5df-d6f9bf6a4601"{[entity="ReleasedProductV2Info",version=""]}[Data],
+				    #"Added Custom" = Table.AddColumn(ReleasedProductV2Info_, "#DataAreaIDManufacturerID", each [DataAreaId]&""&[OUCRU_Manufacturer]),
+				    #"Removed Duplicates" = Table.Distinct(#"Added Custom", {"#DataAreaIDManufacturerID"}),
+				    #"Merged Queries" = Table.NestedJoin(#"Removed Duplicates", {"#DataAreaIDManufacturerID"}, OUCRU_ManufactureInfo, {"#DataAreaIDManufacturer"}, "OUCRU_ManufactureInfo", JoinKind.LeftOuter),
+				    #"Expanded OUCRU_ManufactureInfo" = Table.ExpandTableColumn(#"Merged Queries", "OUCRU_ManufactureInfo", {"Description"}, {"OUCRU_ManufactureInfo.Description"}),
+				    #"Removed Other Columns" = Table.SelectColumns(#"Expanded OUCRU_ManufactureInfo",{"ItemNumber", "DataAreaId", "OUCRU_Manufacturer", "#DataAreaIDManufacturerID", "OUCRU_ManufactureInfo.Description"}),
+				    #"Reordered Columns" = Table.ReorderColumns(#"Removed Other Columns",{"#DataAreaIDManufacturerID", "DataAreaId", "ItemNumber", "OUCRU_Manufacturer", "OUCRU_ManufactureInfo.Description"})
+				in
+				    #"Reordered Columns"
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

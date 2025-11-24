@@ -1,0 +1,238 @@
+table DimDate
+	lineageTag: 6f2825c9-77a0-4768-ad9b-5afbdc84510f
+
+	measure ExpiryStatusColor = ```
+			
+			VAR d = SELECTEDVALUE(ItemBatcheInfo[DaysToExpiry])
+			RETURN
+			SWITCH(
+			    TRUE(),
+			
+			    -- No expiry
+			    ISBLANK(d), "#BDC3C7",           -- Light grey
+			
+			    -- Expired
+			    d < 0, "#D92C2C",                -- Professional red (matches screenshot)
+			
+			    -- Expiring within 30 days
+			    d > 0 && d < 30, "#E67E22",      -- Muted orange
+			
+			    -- Expiring within 60 days
+			    d >= 30 && d < 60, "#D4AC0D",    -- Muted gold
+			
+			    -- Expiring within 90 days
+			    d >= 60 && d < 90, "#5DADE2",    -- Muted teal-blue
+			
+			    -- Expiring above 90 days
+			    d > 90, "#196F3D",               -- Forest green (aligned with header)
+			
+			    "#000000"                        -- fallback
+			)
+			
+			```
+		lineageTag: a301bdf6-312e-4cf5-a443-d29f93eaa988
+
+	column Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: b5a740c4-81b9-4882-8918-01f983bcb43c
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Year
+		dataType: double
+		lineageTag: d0a4eceb-9339-454d-8c6d-b68aea7b8726
+		summarizeBy: none
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column FiscalYear
+		dataType: double
+		lineageTag: a80ad7c3-f1db-4127-a536-d7996ae9194e
+		summarizeBy: none
+		sourceColumn: FiscalYear
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Quarter
+		dataType: string
+		lineageTag: f04ea38e-8587-4f94-bbe3-3b3d8d05578f
+		summarizeBy: none
+		sourceColumn: Quarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column FiscalQuarter
+		dataType: string
+		lineageTag: e913a21d-a355-42cd-908f-3cbfdc4c79a4
+		summarizeBy: none
+		sourceColumn: FiscalQuarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month
+		dataType: double
+		lineageTag: f5985066-e020-40b1-a1e4-2b8609fa0de1
+		summarizeBy: none
+		sourceColumn: Month
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MonthName
+		dataType: string
+		lineageTag: 5a608c7a-fdc4-474e-a40d-bc17a342f3e6
+		summarizeBy: none
+		sourceColumn: MonthName
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthShort
+		dataType: string
+		lineageTag: 7be21a2b-bc34-41e0-84b6-7966db588eb2
+		summarizeBy: none
+		sourceColumn: MonthShort
+
+		annotation SummarizationSetBy = Automatic
+
+	column Week
+		dataType: double
+		lineageTag: 2e0bac9b-dcf8-4b05-b857-4f10dceb14f6
+		summarizeBy: none
+		sourceColumn: Week
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Day
+		dataType: double
+		lineageTag: d98375c4-8f85-4a61-b47f-987d6ddfce5a
+		summarizeBy: none
+		sourceColumn: Day
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DayOfWeek
+		dataType: double
+		lineageTag: b283bd70-5352-452c-861c-e83da79f19f8
+		summarizeBy: none
+		sourceColumn: DayOfWeek
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DayName
+		dataType: string
+		lineageTag: ce121220-78b2-4cd4-bef0-8e9a08cc81bb
+		summarizeBy: none
+		sourceColumn: DayName
+
+		annotation SummarizationSetBy = Automatic
+
+	column DayShort
+		dataType: string
+		lineageTag: 2f88107c-4574-459f-90f9-c23931f9132c
+		summarizeBy: none
+		sourceColumn: DayShort
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearMonth
+		dataType: double
+		lineageTag: e1e33a0e-f1ec-4904-a6ca-afeb11dc728d
+		summarizeBy: none
+		sourceColumn: YearMonth
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column YearQuarter
+		dataType: double
+		lineageTag: 00f9d178-8cd7-4710-be70-b5c455d8df05
+		summarizeBy: none
+		sourceColumn: YearQuarter
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column IsWeekend
+		dataType: string
+		lineageTag: 687392c7-f8c4-4136-89a5-92855b0dba2b
+		summarizeBy: none
+		sourceColumn: IsWeekend
+
+		annotation SummarizationSetBy = Automatic
+
+	column DaysInMonth
+		dataType: double
+		lineageTag: 619d0554-5cd9-4d53-a515-5db64b6e3423
+		summarizeBy: none
+		sourceColumn: DaysInMonth
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition DimDate = m
+		mode: import
+		source = ```
+				// ============================================
+				// DimDate Table - Power Query M Expression
+				// ============================================
+				// Paste this in Power BI Desktop > Get Data > Blank Query > Advanced Editor
+				
+				let
+				    StartDate = #date(1990, 1, 1),
+				    EndDate = #date(2030, 12, 31),
+				    DateCount = Duration.Days(EndDate - StartDate) + 1,
+				    Dates = List.Dates(StartDate, DateCount, #duration(1, 0, 0, 0)),
+				    #"Converted to Table" = Table.FromList(Dates, Splitter.SplitByNothing(), {"Date"}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Converted to Table", {{"Date", type date}}),
+				    #"Added Year" = Table.AddColumn(#"Changed Type", "Year", each Date.Year([Date]), type number),
+				    #"Added Quarter" = Table.AddColumn(#"Added Year", "Quarter", each "Q" & Text.From(Date.QuarterOfYear([Date])), type text),
+				    #"Added Month" = Table.AddColumn(#"Added Quarter", "Month", each Date.Month([Date]), type number),
+				    #"Added MonthName" = Table.AddColumn(#"Added Month", "MonthName", each Text.Proper(Date.ToText([Date], "MMMM")), type text),
+				    #"Added MonthShort" = Table.AddColumn(#"Added MonthName", "MonthShort", each Text.Start(Date.ToText([Date], "MMM"), 3), type text),
+				    #"Added Week" = Table.AddColumn(#"Added MonthShort", "Week", each Date.WeekOfYear([Date]), type number),
+				    #"Added DayOfWeek" = Table.AddColumn(#"Added Week", "DayOfWeek", each Date.DayOfWeek([Date]), type number),
+				    #"Added DayName" = Table.AddColumn(#"Added DayOfWeek", "DayName", each Text.Proper(Date.ToText([Date], "dddd")), type text),
+				    #"Added DayShort" = Table.AddColumn(#"Added DayName", "DayShort", each Text.Start(Date.ToText([Date], "ddd"), 3), type text),
+				    #"Added Day" = Table.AddColumn(#"Added DayShort", "Day", each Date.Day([Date]), type number),
+				    #"Added YearMonth" = Table.AddColumn(#"Added Day", "YearMonth", each [Year] * 100 + [Month], type number),
+				    #"Added YearQuarter" = Table.AddColumn(#"Added YearMonth", "YearQuarter", each [Year] * 10 + Number.From(Text.End([Quarter], 1)), type number),
+				    #"Added FiscalYear" = Table.AddColumn(#"Added YearQuarter", "FiscalYear", each if [Month] < 4 then [Year] else [Year] + 1, type number),
+				    #"Added FiscalQuarter" = Table.AddColumn(#"Added FiscalYear", "FiscalQuarter", each 
+				        let
+				            FiscalMonth = if [Month] < 4 then [Month] + 9 else [Month] - 3
+				        in
+				            "FQ" & Text.From(((FiscalMonth - 1) / 3 ) + 1)
+				        , type text),
+				    #"Added IsWeekend" = Table.AddColumn(#"Added FiscalQuarter", "IsWeekend", each if [DayOfWeek] >= 5 then "Yes" else "No", type text),
+				    #"Added DaysInMonth" = Table.AddColumn(#"Added IsWeekend", "DaysInMonth", each Date.Day(Date.EndOfMonth([Date])), type number),
+				    #"Reordered Columns" = Table.ReorderColumns(#"Added DaysInMonth", 
+				        { "Date", "Year", "FiscalYear", "Quarter", "FiscalQuarter", "Month", "MonthName", "MonthShort", 
+				         "Week", "Day", "DayOfWeek", "DayName", "DayShort", "YearMonth", "YearQuarter", "IsWeekend", "DaysInMonth"})
+				in
+				    #"Reordered Columns"
+				```
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

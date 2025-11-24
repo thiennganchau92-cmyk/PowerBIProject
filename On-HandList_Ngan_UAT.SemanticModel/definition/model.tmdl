@@ -1,0 +1,38 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_QueryOrder = ["InventDimInfo","InventTransInfo","InventStockcodeInfo","ItemBatcheInfo","ReleasedProductV2Info","DimDate","DimEntity","OUCRU_ManufactureInfo","1_InventTransBatchInfo_BridgeTable","1_ManufacturerReleasedProductV2Info__BridgeTable","1_InventTransInfo_forMinimumQuantity","MinOnHand_UserInput"]
+
+annotation PBI_ProTooling = ["DevMode","TMDL-Extension","DaxQueryView_Desktop"]
+
+ref table InventDimInfo
+ref table InventTransInfo
+ref table InventStockcodeInfo
+ref table ItemBatcheInfo
+ref table ReleasedProductV2Info
+ref table 1_InventTransBatchInfo_BridgeTable
+ref table DimDate
+ref table DimEntity
+ref table OUCRU_ManufactureInfo
+ref table 1_ManufacturerReleasedProductV2Info__BridgeTable
+ref table 1_InventTransInfo_forMinimumQuantity
+ref table MinOnHand_UserInput
+
+ref role 'HCM Lab'
+ref role 'HCM CTU Pharma'
+ref role 'IDN Lab'
+ref role 'Unit-HCMC- All'
+ref role 'Unit-HN - All'
+ref role 'HN Lab'
+ref role 'HN CTU Pharma'
+ref role 'IDN CTU Pharma'
+
+ref cultureInfo en-US
+

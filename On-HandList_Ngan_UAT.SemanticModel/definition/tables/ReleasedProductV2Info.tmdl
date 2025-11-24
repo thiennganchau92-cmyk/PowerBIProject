@@ -1,0 +1,213 @@
+table ReleasedProductV2Info
+	lineageTag: 0a4857a5-9316-4e0d-b4d0-5601df6a6299
+
+	column ItemNumber
+		dataType: string
+		lineageTag: f8a4b40a-9bbc-43bd-b35b-4b5650861ead
+		summarizeBy: none
+		sourceColumn: ItemNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductNumber
+		dataType: string
+		lineageTag: a4ec83ee-148d-4516-91bb-143d680294c6
+		summarizeBy: none
+		sourceColumn: ProductNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductSearchName
+		dataType: string
+		lineageTag: d1e68b12-7440-4893-b966-085557cd2fbd
+		summarizeBy: none
+		sourceColumn: ProductSearchName
+
+		annotation SummarizationSetBy = Automatic
+
+	column DataAreaId
+		dataType: string
+		lineageTag: 69ccc03e-3dbc-4433-820a-004d1369416e
+		summarizeBy: none
+		sourceColumn: DataAreaId
+
+		annotation SummarizationSetBy = Automatic
+
+	column InventoryUnitSymbol
+		dataType: string
+		lineageTag: e4e7045e-3d0b-4777-a85e-e9ee3d60d7f9
+		summarizeBy: none
+		sourceColumn: InventoryUnitSymbol
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsBatchNumberActive
+		dataType: string
+		lineageTag: 5f8b8b01-6f78-4b22-820e-8c3deaf0de3b
+		summarizeBy: none
+		sourceColumn: IsBatchNumberActive
+
+		annotation SummarizationSetBy = Automatic
+
+	column ItemModelGroupId
+		dataType: string
+		lineageTag: 76d9acb3-12d7-450f-8a77-2b7cd41cfd07
+		summarizeBy: none
+		sourceColumn: ItemModelGroupId
+
+		annotation SummarizationSetBy = Automatic
+
+	column OUCRU_CreatedBy
+		dataType: string
+		lineageTag: 3a03aaf2-109c-4e75-8ca1-c3b1868a61cd
+		summarizeBy: none
+		sourceColumn: OUCRU_CreatedBy
+
+		annotation SummarizationSetBy = Automatic
+
+	column OUCRU_Manufacturer
+		dataType: string
+		lineageTag: eccee9a6-955c-439f-8beb-add1ff745b07
+		summarizeBy: none
+		sourceColumn: OUCRU_Manufacturer
+
+		annotation SummarizationSetBy = Automatic
+
+	column OUCRU_ModifiedBy
+		dataType: string
+		lineageTag: 90a225a2-1035-4cc0-a11c-687b68b1c404
+		summarizeBy: none
+		sourceColumn: OUCRU_ModifiedBy
+
+		annotation SummarizationSetBy = Automatic
+
+	column OUCRU_ModifiedDateTime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 4fd1ab45-1e77-4184-be66-427e8646aee1
+		summarizeBy: none
+		sourceColumn: OUCRU_ModifiedDateTime
+
+		annotation SummarizationSetBy = Automatic
+
+	column OUCRU_MSDS
+		dataType: string
+		lineageTag: 62148b92-24b4-4ae9-a5dd-0ee05de88e25
+		summarizeBy: none
+		sourceColumn: OUCRU_MSDS
+
+		annotation SummarizationSetBy = Automatic
+
+	column OUCRU_ReleaseProductName
+		dataType: string
+		lineageTag: 879d8967-9889-4fbd-ac41-c1b8c8ec3ae3
+		summarizeBy: none
+		sourceColumn: OUCRU_ReleaseProductName
+
+		annotation SummarizationSetBy = Automatic
+
+	column OUCRU_Type
+		dataType: string
+		lineageTag: b8e089e3-0edc-4d4d-91ff-36c70188a08d
+		summarizeBy: none
+		sourceColumn: OUCRU_Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column PotencyBaseAttributeValueEntryEvent
+		dataType: string
+		lineageTag: d4c6bba0-73f8-4b42-82b1-2daa4cffa2a7
+		summarizeBy: none
+		sourceColumn: PotencyBaseAttributeValueEntryEvent
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductGroupId
+		dataType: string
+		lineageTag: 7cc456c1-0496-4986-acbe-aed51b1e8dfb
+		summarizeBy: none
+		sourceColumn: ProductGroupId
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductionType
+		dataType: string
+		lineageTag: edc42a15-005c-4324-a5ee-5fb8042c4513
+		summarizeBy: none
+		sourceColumn: ProductionType
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductType
+		dataType: string
+		lineageTag: 3614b608-c14d-417a-b364-77dca36da116
+		summarizeBy: none
+		sourceColumn: ProductType
+
+		annotation SummarizationSetBy = Automatic
+
+	column SearchName
+		dataType: string
+		lineageTag: c37b0375-2ca2-4a5b-9269-1f18e93e20df
+		summarizeBy: none
+		sourceColumn: SearchName
+
+		annotation SummarizationSetBy = Automatic
+
+	column SerialNumberGroupCode
+		dataType: string
+		lineageTag: 76d14556-bc50-4dc6-b272-285cc285bfc6
+		summarizeBy: none
+		sourceColumn: SerialNumberGroupCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column StorageDimensionGroupName
+		dataType: string
+		lineageTag: ba2825b0-99f7-4994-9960-650fee21a185
+		summarizeBy: none
+		sourceColumn: StorageDimensionGroupName
+
+		annotation SummarizationSetBy = Automatic
+
+	column TrackingDimensionGroupName
+		dataType: string
+		lineageTag: 9058baab-3020-47ae-a8ef-56315dbf0eeb
+		summarizeBy: none
+		sourceColumn: TrackingDimensionGroupName
+
+		annotation SummarizationSetBy = Automatic
+
+	column #ReleaseProductID
+		dataType: string
+		lineageTag: ce82ed9a-1508-4a4d-8bad-762fbab79084
+		summarizeBy: none
+		sourceColumn: #ReleaseProductID
+
+		annotation SummarizationSetBy = Automatic
+
+	column #DataAreaIDManufacturer = ```
+			ReleasedProductV2Info[DataAreaId] &""&ReleasedProductV2Info[OUCRU_Manufacturer] 
+			```
+		lineageTag: 610e2b5f-ca13-4224-8245-c26aa78231b9
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ReleasedProductV2Info = m
+		mode: import
+		source =
+				let
+				    Source = PowerPlatform.Dataflows(null),
+				    Workspaces = Source{[Id="Workspaces"]}[Data],
+				    #"9d7b5ded-0005-472f-9fa7-04557d319871" = Workspaces{[workspaceId="9d7b5ded-0005-472f-9fa7-04557d319871"]}[Data],
+				    #"4e091d5c-729f-4274-a5df-d6f9bf6a4601" = #"9d7b5ded-0005-472f-9fa7-04557d319871"{[dataflowId="4e091d5c-729f-4274-a5df-d6f9bf6a4601"]}[Data],
+				    ReleasedProductV2Info_ = #"4e091d5c-729f-4274-a5df-d6f9bf6a4601"{[entity="ReleasedProductV2Info",version=""]}[Data],
+				    #"Added Custom" = Table.AddColumn(ReleasedProductV2Info_, "#ReleaseProductID", each [DataAreaId]&[ItemNumber])
+				in
+				    #"Added Custom"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

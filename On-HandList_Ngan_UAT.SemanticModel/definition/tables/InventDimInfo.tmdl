@@ -1,0 +1,154 @@
+table InventDimInfo
+	lineageTag: be633dbd-48c6-4c4b-95fc-837c0f5708f5
+
+	column INVENTBATCHID
+		dataType: string
+		lineageTag: f3fd9400-5c2d-45a6-b901-c18a6d69bcd9
+		summarizeBy: none
+		sourceColumn: INVENTBATCHID
+
+		annotation SummarizationSetBy = Automatic
+
+	column INVENTDIMID
+		dataType: string
+		lineageTag: 7b77c8e3-c746-43ac-a9e1-f0af11990500
+		summarizeBy: none
+		sourceColumn: INVENTDIMID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Warehouse
+		dataType: string
+		lineageTag: 6bce2225-de5f-423b-9373-14709cc8add0
+		summarizeBy: none
+		sourceColumn: Warehouse
+
+		annotation SummarizationSetBy = Automatic
+
+	column INVENTSERIALID
+		dataType: string
+		lineageTag: 18eff40d-c5f5-4d81-a8c3-f9bb92dffb5b
+		summarizeBy: none
+		sourceColumn: INVENTSERIALID
+
+		annotation SummarizationSetBy = Automatic
+
+	column INVENTSITEID
+		dataType: string
+		lineageTag: 796b670f-0f1e-4b4d-983d-f5f833ac5d6d
+		summarizeBy: none
+		sourceColumn: INVENTSITEID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Location
+		dataType: string
+		lineageTag: 82be32b7-f573-4d42-b272-5eb46014613b
+		summarizeBy: none
+		sourceColumn: Location
+
+		annotation SummarizationSetBy = Automatic
+
+	column StockCode
+		dataType: string
+		lineageTag: b2e30f1e-a7ba-4ab1-8715-e7237d6d2d6e
+		summarizeBy: none
+		sourceColumn: StockCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column Project
+		dataType: string
+		lineageTag: 89fffa1e-5685-4f59-ab53-63f58a337845
+		summarizeBy: none
+		sourceColumn: Project
+
+		annotation SummarizationSetBy = Automatic
+
+	column OUCRU_MODIFIEDBY
+		dataType: string
+		lineageTag: 28f89927-795e-4a18-a467-59862fa89578
+		summarizeBy: none
+		sourceColumn: OUCRU_MODIFIEDBY
+
+		annotation SummarizationSetBy = Automatic
+
+	column OUCRU_MODIFIEDDATETIME
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: e4d30de2-13e4-4ce9-858a-1aa5a336739b
+		summarizeBy: none
+		sourceColumn: OUCRU_MODIFIEDDATETIME
+
+		annotation SummarizationSetBy = Automatic
+
+	column OUCRU_CREATEDDATETIME
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 8cbd19ff-f2c4-487b-afd1-1556104af3aa
+		summarizeBy: none
+		sourceColumn: OUCRU_CREATEDDATETIME
+
+		annotation SummarizationSetBy = Automatic
+
+	column OUCRU_DATAAREAID
+		dataType: string
+		lineageTag: 32f32ac9-e663-4100-afb2-9bb0bd96c2f9
+		summarizeBy: none
+		sourceColumn: OUCRU_DATAAREAID
+
+		annotation SummarizationSetBy = Automatic
+
+	column OUCRU_RECID
+		dataType: int64
+		formatString: 0
+		lineageTag: 499166fc-dae2-4ee9-8f0c-9a7b8da4a573
+		summarizeBy: count
+		sourceColumn: OUCRU_RECID
+
+		annotation SummarizationSetBy = Automatic
+
+	column #InventDimKey
+		dataType: string
+		lineageTag: a1c3eed4-75c1-4c64-91a9-c3c31a1b9a78
+		summarizeBy: none
+		sourceColumn: #InventDimKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column #StockCodeId
+		dataType: string
+		lineageTag: 5622b963-e212-4c4f-9784-cb7f97f3307d
+		summarizeBy: none
+		sourceColumn: #StockCodeId
+
+		annotation SummarizationSetBy = Automatic
+
+	column #BatchId
+		dataType: string
+		lineageTag: 5cf635ce-c4c6-483e-b986-649a37ef4530
+		summarizeBy: none
+		sourceColumn: #BatchId
+
+		annotation SummarizationSetBy = Automatic
+
+	partition InventDimInfo = m
+		mode: import
+		source =
+				let
+				    Source = PowerPlatform.Dataflows(null),
+				    Workspaces = Source{[Id="Workspaces"]}[Data],
+				    #"9d7b5ded-0005-472f-9fa7-04557d319871" = Workspaces{[workspaceId="9d7b5ded-0005-472f-9fa7-04557d319871"]}[Data],
+				    #"4e091d5c-729f-4274-a5df-d6f9bf6a4601" = #"9d7b5ded-0005-472f-9fa7-04557d319871"{[dataflowId="4e091d5c-729f-4274-a5df-d6f9bf6a4601"]}[Data],
+				    InventDimInfo_ = #"4e091d5c-729f-4274-a5df-d6f9bf6a4601"{[entity="InventDimInfo",version=""]}[Data],
+				    #"Renamed Columns" = Table.RenameColumns(InventDimInfo_,{{"INVENTDIMENSION1", "StockCode"}, {"INVENTDIMENSION2", "Project"},{"INVENTLOCATIONID","Warehouse"},{"WMSLOCATIONID","Location"}}),
+				    #"Added Custom" = Table.AddColumn(#"Renamed Columns", "#InventDimKey", each [OUCRU_DATAAREAID] & [INVENTDIMID]),
+				    #"Added Custom1" = Table.AddColumn(#"Added Custom", "#StockCodeId", each [OUCRU_DATAAREAID]& [StockCode]),
+				    #"Added Custom2" = Table.AddColumn(#"Added Custom1", "#BatchId", each [OUCRU_DATAAREAID] & [INVENTBATCHID])
+				in
+				    #"Added Custom2"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

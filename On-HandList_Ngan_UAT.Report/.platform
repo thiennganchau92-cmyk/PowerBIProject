@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "On-HandList_Ngan_UAT"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "44b4f4c8-e662-4034-b8c4-f30274cf1c5c"
+  }
+}

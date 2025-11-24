@@ -4,7 +4,7 @@ import FilterAction = powerbi.FilterAction;
 import IVisualHost = powerbi.extensibility.visual.IVisualHost;
 
 export class FilterService {
-    constructor(private host: IVisualHost) {}
+    constructor(private host: IVisualHost) { }
 
     applyFilter(selectedItems: string[], target: IFilterColumnTarget): void {
         if (selectedItems.length > 0) {
@@ -37,10 +37,13 @@ export class FilterService {
             const dotIndex = qn.indexOf('.');
             if (dotIndex > -1) {
                 table = qn.substr(0, dotIndex);
+                // Extract column name from queryName after the dot
+                column = qn.substr(dotIndex + 1);
             } else {
                 table = qn || source.displayName || "";
+                // Use queryName for column, not displayName
+                column = qn || source.displayName || "";
             }
-            column = source.displayName || qn;
         }
 
         return { table, column };

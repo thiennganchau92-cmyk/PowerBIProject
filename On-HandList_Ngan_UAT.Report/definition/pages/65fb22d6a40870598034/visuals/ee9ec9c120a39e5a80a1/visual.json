@@ -1,0 +1,999 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "name": "ee9ec9c120a39e5a80a1",
+  "position": {
+    "x": 0,
+    "y": 391.7817014446228,
+    "z": 4000,
+    "height": 328.2182985553772,
+    "width": 1280.5136436597111,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "InventTransInfo"
+                    }
+                  },
+                  "Property": "ItemId"
+                }
+              },
+              "queryRef": "InventTransInfo.ItemId",
+              "nativeQueryRef": "Item Number",
+              "displayName": "Item Number"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ReleasedProductV2Info"
+                    }
+                  },
+                  "Property": "OUCRU_ReleaseProductName"
+                }
+              },
+              "queryRef": "ReleasedProductV2Info.OUCRU_ReleaseProductName",
+              "nativeQueryRef": "Item Name",
+              "displayName": "Item Name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ReleasedProductV2Info"
+                    }
+                  },
+                  "Property": "SearchName"
+                }
+              },
+              "queryRef": "ReleasedProductV2Info.SearchName",
+              "nativeQueryRef": "Cat ID",
+              "displayName": "Cat ID"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "InventTransInfo"
+                        }
+                      },
+                      "Property": "Qty"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(InventTransInfo.Qty)",
+              "nativeQueryRef": "On-hand Quantity",
+              "displayName": "On-hand Quantity"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ReleasedProductV2Info"
+                    }
+                  },
+                  "Property": "InventoryUnitSymbol"
+                }
+              },
+              "queryRef": "ReleasedProductV2Info.InventoryUnitSymbol",
+              "nativeQueryRef": "Unit",
+              "displayName": "Unit"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "InventDimInfo"
+                    }
+                  },
+                  "Property": "INVENTSITEID"
+                }
+              },
+              "queryRef": "InventDimInfo.INVENTSITEID",
+              "nativeQueryRef": "Site",
+              "displayName": "Site"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "InventDimInfo"
+                    }
+                  },
+                  "Property": "Warehouse"
+                }
+              },
+              "queryRef": "InventDimInfo.INVENTLOCATIONID",
+              "nativeQueryRef": "Warehouse"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "InventDimInfo"
+                    }
+                  },
+                  "Property": "Location"
+                }
+              },
+              "queryRef": "InventDimInfo.WMSLOCATIONID",
+              "nativeQueryRef": "WMSLOCATIONID"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "OUCRU_ManufactureInfo"
+                    }
+                  },
+                  "Property": "Description"
+                }
+              },
+              "queryRef": "OUCRU_ManufactureInfo.Description",
+              "nativeQueryRef": "Manufacturer Name",
+              "displayName": "Manufacturer Name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "InventDimInfo"
+                    }
+                  },
+                  "Property": "Project"
+                }
+              },
+              "queryRef": "InventDimInfo.Study Code",
+              "nativeQueryRef": "Study Code"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "InventDimInfo"
+                    }
+                  },
+                  "Property": "INVENTSERIALID"
+                }
+              },
+              "queryRef": "InventDimInfo.INVENTSERIALID",
+              "nativeQueryRef": "OfficeCode/Aliquote",
+              "displayName": "OfficeCode/Aliquote"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "InventDimInfo"
+                    }
+                  },
+                  "Property": "StockCode"
+                }
+              },
+              "queryRef": "InventDimInfo.StockCode",
+              "nativeQueryRef": "Stock Code",
+              "displayName": "Stock Code"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "InventStockcodeInfo"
+                    }
+                  },
+                  "Property": "Description"
+                }
+              },
+              "queryRef": "InventStockcodeInfo.Description",
+              "nativeQueryRef": "Stock code description",
+              "displayName": "Stock code description"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "InventDimInfo"
+                    }
+                  },
+                  "Property": "INVENTBATCHID"
+                }
+              },
+              "queryRef": "InventDimInfo.INVENTBATCHID",
+              "nativeQueryRef": "Batch",
+              "displayName": "Batch"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ItemBatcheInfo"
+                    }
+                  },
+                  "Property": "BatchExpirationDate"
+                }
+              },
+              "queryRef": "ItemBatcheInfo.BatchExpirationDate",
+              "nativeQueryRef": "Batch Expiration Date",
+              "displayName": "Batch Expiration Date"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ItemBatcheInfo"
+                    }
+                  },
+                  "Property": "DaysToExpiry"
+                }
+              },
+              "queryRef": "ItemBatcheInfo.DaysToExpiry",
+              "nativeQueryRef": "Days to Expiry",
+              "displayName": "Days to Expiry"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ItemBatcheInfo"
+                    }
+                  },
+                  "Property": "Expiry Status"
+                }
+              },
+              "queryRef": "ItemBatcheInfo.ExpiryStatus",
+              "nativeQueryRef": "Expiry Status",
+              "displayName": "Expiry Status"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ReleasedProductV2Info"
+                    }
+                  },
+                  "Property": "OUCRU_MSDS"
+                }
+              },
+              "queryRef": "ReleasedProductV2Info.OUCRU_MSDS",
+              "nativeQueryRef": "MSDS",
+              "displayName": "MSDS"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "InventTransInfo"
+                  }
+                },
+                "Property": "ItemId"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "286.0594928448837D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "ReleasedProductV2Info.OUCRU_ReleaseProductName"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "107.58680826927896D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "InventDimInfo.INVENTSERIALID"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "101.29919673429231D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "InventDimInfo.INVENTBATCHID"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "246.1577230577097D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "InventStockcodeInfo.Description"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "99.28478250707379D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "InventDimInfo.INVENTSITEID"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "134.47114950126115D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "OUCRU_ManufactureInfo.Description"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "920.1970863063661D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "ReleasedProductV2Info.OUCRU_MSDS"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "157.32388943249805D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "ItemBatcheInfo.ExpiryStatus"
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnFormatting": [
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Auto'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "InventTransInfo.ItemId"
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimDate"
+                        }
+                      },
+                      "Property": "ExpiryStatusColor"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ],
+            "metadata": "ItemBatcheInfo.ExpiryStatus"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "stylePreset": [
+        {
+          "properties": {
+            "name": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Condensed'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "6bad4199856247c03042",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "InventTransInfo"
+                  }
+                },
+                "Property": "Qty"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "i",
+              "Entity": "InventTransInfo",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Or": {
+                  "Left": {
+                    "Not": {
+                      "Expression": {
+                        "Comparison": {
+                          "ComparisonKind": 0,
+                          "Left": {
+                            "Aggregation": {
+                              "Expression": {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Source": "i"
+                                    }
+                                  },
+                                  "Property": "Qty"
+                                }
+                              },
+                              "Function": 0
+                            }
+                          },
+                          "Right": {
+                            "Literal": {
+                              "Value": "0L"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "Right": {
+                    "Comparison": {
+                      "ComparisonKind": 0,
+                      "Left": {
+                        "Aggregation": {
+                          "Expression": {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Source": "i"
+                                }
+                              },
+                              "Property": "Qty"
+                            }
+                          },
+                          "Function": 0
+                        }
+                      },
+                      "Right": {
+                        "Literal": {
+                          "Value": "null"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "2deb08e5ce74136e4ae0",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "InventTransInfo"
+              }
+            },
+            "Property": "StatusReceipt"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "i",
+              "Entity": "InventTransInfo",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "In": {
+                      "Expressions": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "i"
+                              }
+                            },
+                            "Property": "StatusReceipt"
+                          }
+                        }
+                      ],
+                      "Values": [
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'Ordered'"
+                            }
+                          }
+                        ]
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User",
+        "isLockedInViewMode": true,
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "ec387594ba77bcec3e81",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "InventTransInfo"
+              }
+            },
+            "Property": "StatusIssue"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "i",
+              "Entity": "InventTransInfo",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "In": {
+                      "Expressions": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "i"
+                              }
+                            },
+                            "Property": "StatusIssue"
+                          }
+                        }
+                      ],
+                      "Values": [
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'OnOrder'"
+                            }
+                          }
+                        ]
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User",
+        "isLockedInViewMode": true,
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "071e23db00b539912dc8",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "InventTransInfo"
+              }
+            },
+            "Property": "ItemId"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "401fcbddd70731e59e11",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "ReleasedProductV2Info"
+              }
+            },
+            "Property": "OUCRU_ReleaseProductName"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "b226cac752142b6542da",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "ReleasedProductV2Info"
+              }
+            },
+            "Property": "SearchName"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "7660164024b1c5b5a87b",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "ReleasedProductV2Info"
+              }
+            },
+            "Property": "InventoryUnitSymbol"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "473ff7cc37323cde3938",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "InventDimInfo"
+              }
+            },
+            "Property": "INVENTSITEID"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "470b968beb8112d02aa4",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "InventDimInfo"
+              }
+            },
+            "Property": "Warehouse"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "888e7d3a734ccad654ae",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "InventDimInfo"
+              }
+            },
+            "Property": "Location"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "33e532b06e58c0d56ae2",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "InventDimInfo"
+              }
+            },
+            "Property": "Project"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "054fe07e50ae88a8bdad",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "InventDimInfo"
+              }
+            },
+            "Property": "INVENTSERIALID"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "bb10be30a8e3e070210e",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "InventDimInfo"
+              }
+            },
+            "Property": "StockCode"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "f072f4521db7279d7826",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "InventStockcodeInfo"
+              }
+            },
+            "Property": "Description"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "3b73629c44a1d904d324",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "InventDimInfo"
+              }
+            },
+            "Property": "INVENTBATCHID"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "6cc2040d5d25ec0e0420",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "ItemBatcheInfo"
+              }
+            },
+            "Property": "BatchExpirationDate"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "a4aa984022108b77d008",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "ItemBatcheInfo"
+              }
+            },
+            "Property": "DaysToExpiry"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "515330500e7949900266",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "ItemBatcheInfo"
+              }
+            },
+            "Property": "Expiry Status"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "24fe5a7e15aad9688b26",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "ReleasedProductV2Info"
+              }
+            },
+            "Property": "OUCRU_MSDS"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "0636eda8c68571038526",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "OUCRU_ManufactureInfo"
+              }
+            },
+            "Property": "Description"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

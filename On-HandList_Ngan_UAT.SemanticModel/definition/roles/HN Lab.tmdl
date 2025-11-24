@@ -1,0 +1,9 @@
+role 'HN Lab'
+	modelPermission: read
+
+	tablePermission InventDimInfo = [INVENTSITEID] == "OUCRU-HN"
+
+	tablePermission ReleasedProductV2Info = [OUCRU_Type] == "SA" || [OUCRU_Type] == "SB" || [OUCRU_Type] == "MC" || [OUCRU_Type] == "SM"
+
+	annotation PBI_Id = 59ec11c350a44e8192f47d709a0410b8
+

@@ -1,0 +1,50 @@
+relationship AutoDetected_f7da3db1-1aca-470f-9131-ece3c37e3f93
+	crossFilteringBehavior: bothDirections
+	fromColumn: InventTransInfo.#InventDimKey
+	toColumn: InventDimInfo.#InventDimKey
+
+relationship 133040c2-ee11-c798-325d-417a96a6e0c0
+	crossFilteringBehavior: bothDirections
+	fromColumn: InventTransInfo.#ReleasedProductID
+	toColumn: ReleasedProductV2Info.#ReleaseProductID
+
+relationship b636d1e8-0aae-2684-f3fa-ffb74115cd79
+	crossFilteringBehavior: bothDirections
+	fromColumn: InventDimInfo.#StockCodeId
+	toColumn: InventStockcodeInfo.#StockCodeId
+
+relationship 69501375-bc44-381f-aa0d-a9a0e980967a
+	crossFilteringBehavior: bothDirections
+	fromColumn: 1_InventTransBatchInfo_BridgeTable.#InventDimKey
+	toColumn: InventDimInfo.#InventDimKey
+
+relationship c67cf2d5-e912-d343-7bd3-cacf256a7068
+	crossFilteringBehavior: bothDirections
+	fromColumn: 1_InventTransBatchInfo_BridgeTable.#BatchId
+	toColumn: ItemBatcheInfo.#BatchID
+
+relationship AutoDetected_5fc4cda8-973a-4b3c-9ddf-3c58a18f5fce
+	fromColumn: InventTransInfo.DataAreaId
+	toColumn: DimEntity.DataAreaId
+
+relationship b88c52fb-336d-c8d0-42c2-0dcd8631e2f7
+	fromColumn: InventTransInfo.DatePhysical
+	toColumn: DimDate.Date
+
+relationship e17d415e-3757-0b2a-e81c-711f931391c6
+	fromColumn: ReleasedProductV2Info.#DataAreaIDManufacturer
+	toColumn: 1_ManufacturerReleasedProductV2Info__BridgeTable.#DataAreaIDManufacturerID
+
+relationship 9c0d3d3e-9b2a-e08b-7e39-e97960a603ee
+	crossFilteringBehavior: bothDirections
+	fromColumn: OUCRU_ManufactureInfo.#DataAreaIDManufactureID
+	toColumn: 1_ManufacturerReleasedProductV2Info__BridgeTable.#DataAreaIDManufacturerID
+
+relationship AutoDetected_5373e3ff-a799-48d8-b395-4bbbee128774
+	fromColumn: 1_InventTransInfo_forMinimumQuantity.DataAreaId
+	toColumn: DimEntity.DataAreaId
+
+relationship 2c6bf441-a77d-8a91-b6db-3b424643841f
+	fromColumn: MinOnHand_UserInput.'ItemNumber_Site_StockCode Combination'
+	toColumn: 1_InventTransInfo_forMinimumQuantity.'ItemNumber_Site_StockCode Combination'
+

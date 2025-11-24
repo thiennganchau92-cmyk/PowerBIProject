@@ -1,0 +1,66 @@
+table DimEntity
+	lineageTag: 671ff6bf-ed76-4a19-9267-ce758f3e5d63
+
+	column EntityKey
+		dataType: string
+		lineageTag: 890fd872-9471-427b-b337-cd84dd093b60
+		summarizeBy: none
+		sourceColumn: EntityKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column DataAreaId
+		dataType: string
+		lineageTag: 63de6d4a-0b56-48d0-bf66-68fbae479ef2
+		summarizeBy: none
+		sourceColumn: DataAreaId
+
+		annotation SummarizationSetBy = Automatic
+
+	column CompanyName
+		dataType: string
+		lineageTag: 53d3c385-b7ae-4662-972b-9de162ff5b76
+		summarizeBy: none
+		sourceColumn: CompanyName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Status
+		dataType: string
+		lineageTag: 8ab30c8e-02f1-4993-9622-39c68e9dfc37
+		summarizeBy: none
+		sourceColumn: Status
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimEntity = m
+		mode: import
+		source = ```
+				// ============================================
+				// DimEntity Table - Power Query M Expression
+				// ============================================
+				// Paste this in Power BI Desktop > Get Data > Blank Query > Advanced Editor
+				
+				let
+				    Source = #table(
+				        {"EntityKey", "DataAreaId", "CompanyName", "Status"},
+				        {
+				            {"OUC1", "OUC1", "Vietnam", "Active"},
+				            {"IDN", "IDN", "Indonesia", "Active"},
+				            {"EOC1", "EOC1", "Closed_Indonesia", "Closed"},
+				            {"EOC2", "EOC2", "Nepal", "Active"}
+				        }
+				    ),
+				    #"Changed Type" = Table.TransformColumnTypes(Source, 
+				        {{"EntityKey", type text}, 
+				         {"DataAreaId", type text}, 
+				         {"CompanyName", type text},  
+				         {"Status", type text}})
+				in
+				    #"Changed Type"
+				```
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

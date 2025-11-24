@@ -1,0 +1,7 @@
+role 'IDN CTU Pharma'
+	modelPermission: read
+
+	tablePermission ReleasedProductV2Info = [OUCRU_Type] == "PHA_ID"
+
+	annotation PBI_Id = fc3295838b7741e4a0561ae72213e802
+

@@ -1,0 +1,7 @@
+role 'Unit-HN - All'
+	modelPermission: read
+
+	tablePermission InventDimInfo = [INVENTSITEID] == "OUCRU-HN"
+
+	annotation PBI_Id = 754abcb089de4b48b2c4697df69f6df2
+
