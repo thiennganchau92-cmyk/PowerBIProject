@@ -49,16 +49,12 @@
     transition: all 0.2s ease;
 
     &.collapsed {
-        // Minimal state when collapsed
+        // When collapsed, hide dropdown and actions but selected items are controlled by JS
         .dropdown {
             display: none !important;
         }
         
         .actions-bar {
-            display: none !important;
-        }
-
-        .selected-items-container {
             display: none !important;
         }
     }
