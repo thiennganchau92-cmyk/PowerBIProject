@@ -1,0 +1,91 @@
+table OUCRU_ManufactureInfo
+	lineageTag: eba6270e-3283-4d2b-a861-8e2d80688577
+
+	column dataAreaId
+		dataType: string
+		lineageTag: 3a1e4b6e-ee4e-4b5b-8ccf-e822a213635b
+		summarizeBy: none
+		sourceColumn: dataAreaId
+
+		annotation SummarizationSetBy = Automatic
+
+	column ManufacturerID
+		dataType: string
+		lineageTag: 5701581e-a82f-45da-a730-ba2661865452
+		summarizeBy: none
+		sourceColumn: ManufacturerID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ManufactuereCode
+		dataType: string
+		lineageTag: 2400e58e-6679-411d-b0f3-594ce36b8ac4
+		summarizeBy: none
+		sourceColumn: ManufactuereCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumberSequence
+		dataType: string
+		lineageTag: 96f2c3dc-34cf-44f7-a30e-2c124afc09ba
+		summarizeBy: none
+		sourceColumn: NumberSequence
+
+		annotation SummarizationSetBy = Automatic
+
+	column IntCustomNumberSequence
+		dataType: int64
+		formatString: 0
+		lineageTag: c085d29d-6c26-4248-9e0c-77f0345460df
+		summarizeBy: sum
+		sourceColumn: IntCustomNumberSequence
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomNumberSequence
+		dataType: string
+		lineageTag: 9aa5c4cd-7171-4f84-b9cf-65c37716d0ad
+		summarizeBy: none
+		sourceColumn: CustomNumberSequence
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		lineageTag: 0e752a1b-34e5-4002-85d1-32e2ac51abb4
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column #DataAreaIDManufactureID = OUCRU_ManufactureInfo[dataAreaId]&""&OUCRU_ManufactureInfo[ManufacturerID]
+		lineageTag: ad35dba8-0a0b-46f0-9466-81fa1866dcc0
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column #DataAreaIDManufacturer
+		dataType: string
+		lineageTag: 23228d63-f543-47b8-a373-c3a3faf4e96e
+		summarizeBy: none
+		sourceColumn: #DataAreaIDManufacturer
+
+		annotation SummarizationSetBy = Automatic
+
+	partition OUCRU_ManufactureInfo = m
+		mode: import
+		source =
+				let
+				    Source = PowerPlatform.Dataflows(null),
+				    Workspaces = Source{[Id="Workspaces"]}[Data],
+				    #"9d7b5ded-0005-472f-9fa7-04557d319871" = Workspaces{[workspaceId="9d7b5ded-0005-472f-9fa7-04557d319871"]}[Data],
+				    #"4e091d5c-729f-4274-a5df-d6f9bf6a4601" = #"9d7b5ded-0005-472f-9fa7-04557d319871"{[dataflowId="4e091d5c-729f-4274-a5df-d6f9bf6a4601"]}[Data],
+				    OUCRU_ManufactureInfo_ = #"4e091d5c-729f-4274-a5df-d6f9bf6a4601"{[entity="OUCRU_ManufactureInfo",version=""]}[Data],
+				    #"Added Custom" = Table.AddColumn(OUCRU_ManufactureInfo_, "#DataAreaIDManufacturer", each [dataAreaId]&""&[ManufacturerID])
+				in
+				    #"Added Custom"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Exception
+

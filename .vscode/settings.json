@@ -1,5 +1,14 @@
 {
     "powerquery.client.additionalSymbolsDirectories": [
         "d:/PowerBIProject/.vscode/excel-pq-symbols"
+    ],
+    "terminal.integrated.allowedLinkSchemes": [
+        "file",
+        "http",
+        "https",
+        "mailto",
+        "vscode",
+        "vscode-insiders",
+        ""
     ]
 }

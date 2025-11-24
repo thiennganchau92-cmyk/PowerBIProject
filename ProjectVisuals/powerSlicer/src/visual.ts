@@ -558,9 +558,21 @@ export class Visual implements IVisual {
 
         categories.forEach((category, index) => {
             const option = document.createElement("option");
-            const source = category.source;
             option.value = index.toString();
-            option.text = source.displayName || source.queryName || `Category ${index + 1}`;
+            
+            // Try to find the matching metadata column for this category
+            // Power BI stores user-defined field renames in metadata.columns
+            const metadataColumn = this.dataView?.metadata?.columns?.find(
+                col => col.queryName === category.source.queryName
+            );
+            
+            // Use metadata display name if available (this includes user renames in field well)
+            // Fall back to source display name, then query name
+            option.text = metadataColumn?.displayName 
+                || category.source.displayName 
+                || category.source.queryName 
+                || `Category ${index + 1}`;
+            
             if (index === primaryIndex) {
                 option.selected = true;
             }

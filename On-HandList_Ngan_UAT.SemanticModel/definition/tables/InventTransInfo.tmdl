@@ -1,0 +1,623 @@
+table InventTransInfo
+	lineageTag: 374a4598-651f-42dc-8224-2256cf007e18
+
+	column DataAreaId
+		dataType: string
+		lineageTag: aef6e543-2853-4e0a-80c2-5df54ff4919b
+		summarizeBy: none
+		sourceColumn: DataAreaId
+
+		annotation SummarizationSetBy = Automatic
+
+	column InventTransId
+		dataType: string
+		lineageTag: 99151c2b-03bc-4c3a-a40b-bd3f577c7c50
+		summarizeBy: none
+		sourceColumn: InventTransId
+
+		annotation SummarizationSetBy = Automatic
+
+	column Qty
+		dataType: double
+		lineageTag: 90e8e43c-b5c0-4326-9afd-9726751e9ff1
+		summarizeBy: sum
+		sourceColumn: Qty
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Voucher
+		dataType: string
+		lineageTag: 016c7df8-24d8-45aa-b2f6-5feea6ae74d5
+		summarizeBy: none
+		sourceColumn: Voucher
+
+		annotation SummarizationSetBy = Automatic
+
+	column CostAmountAdjustment
+		dataType: double
+		lineageTag: 8106f4c2-4f6e-43f8-852e-3ce2f3eed556
+		summarizeBy: sum
+		sourceColumn: CostAmountAdjustment
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PdsCWSettled
+		dataType: double
+		lineageTag: 090a3f84-f954-4f22-b229-084aa56da46b
+		summarizeBy: sum
+		sourceColumn: PdsCWSettled
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MarkingRefInventTransOrigin
+		dataType: int64
+		formatString: 0
+		lineageTag: 6ca0b702-e0eb-4007-9ed6-80d93b600e92
+		summarizeBy: sum
+		sourceColumn: MarkingRefInventTransOrigin
+
+		annotation SummarizationSetBy = Automatic
+
+	column OUCRU_DataAreaId
+		dataType: string
+		lineageTag: f6d3da8c-d7b2-48e0-a91d-59eb25ea2723
+		summarizeBy: none
+		sourceColumn: OUCRU_DataAreaId
+
+		annotation SummarizationSetBy = Automatic
+
+	column DateStatus
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 14e458f4-e604-4cec-8e8e-329e23a5e514
+		summarizeBy: none
+		sourceColumn: DateStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column CostAmountPosted
+		dataType: double
+		lineageTag: 46ffa66e-f495-4f5b-b0c1-6e2690101108
+		summarizeBy: sum
+		sourceColumn: CostAmountPosted
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ReturnInventTransOrigin
+		dataType: int64
+		formatString: 0
+		lineageTag: a288b792-79f6-429e-a1fc-0533ad034c7d
+		summarizeBy: sum
+		sourceColumn: ReturnInventTransOrigin
+
+		annotation SummarizationSetBy = Automatic
+
+	column QtySettled
+		dataType: double
+		lineageTag: 78c59e31-e14f-4286-bd37-8b421b50b9ac
+		summarizeBy: sum
+		sourceColumn: QtySettled
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ReceiptId
+		dataType: string
+		lineageTag: dd5ccb52-1aa2-4a50-9d0d-2300e0f9e0b0
+		summarizeBy: none
+		sourceColumn: ReceiptId
+
+		annotation SummarizationSetBy = Automatic
+
+	column CostAmountPhysical
+		dataType: double
+		lineageTag: ecca0a6b-c835-4399-a036-a110e9b9c8ca
+		summarizeBy: sum
+		sourceColumn: CostAmountPhysical
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ActivityNumber
+		dataType: string
+		lineageTag: 85df94c9-2872-41a1-b880-1735e044a88e
+		summarizeBy: none
+		sourceColumn: ActivityNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column OUCRU_RecId
+		dataType: int64
+		formatString: 0
+		lineageTag: 86ffb565-54ed-4a09-9b91-dcf27d238e31
+		summarizeBy: count
+		sourceColumn: OUCRU_RecId
+
+		annotation SummarizationSetBy = Automatic
+
+	column OUCRU_RecVersion
+		dataType: int64
+		formatString: 0
+		lineageTag: 5f63a582-c62c-495c-b3f3-031b927fa57b
+		summarizeBy: sum
+		sourceColumn: OUCRU_RecVersion
+
+		annotation SummarizationSetBy = Automatic
+
+	column DateFinancial
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 561636f4-c997-407a-9b0a-857e6eca3740
+		summarizeBy: none
+		sourceColumn: DateFinancial
+
+		annotation SummarizationSetBy = Automatic
+
+	column InventDimFixed
+		dataType: int64
+		formatString: 0
+		lineageTag: ed93e1e9-1897-4af3-b2d8-1ad850defd5e
+		summarizeBy: sum
+		sourceColumn: InventDimFixed
+
+		annotation SummarizationSetBy = Automatic
+
+	column OUCRU_Partition
+		dataType: int64
+		formatString: 0
+		lineageTag: f9116406-4707-45d4-bec1-52505d9af664
+		summarizeBy: sum
+		sourceColumn: OUCRU_Partition
+
+		annotation SummarizationSetBy = Automatic
+
+	column PickingRouteID
+		dataType: string
+		lineageTag: 7a2167fa-1fb4-4fb7-8ad5-e85f4735ef02
+		summarizeBy: none
+		sourceColumn: PickingRouteID
+
+		annotation SummarizationSetBy = Automatic
+
+	column TransChildRefId
+		dataType: string
+		lineageTag: 030f3da6-f3e7-46a1-b652-0d919c49b43f
+		summarizeBy: none
+		sourceColumn: TransChildRefId
+
+		annotation SummarizationSetBy = Automatic
+
+	column ShippingDateRequested
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 1c3f6b8e-e8ce-402a-a63a-68614df7375c
+		summarizeBy: none
+		sourceColumn: ShippingDateRequested
+
+		annotation SummarizationSetBy = Automatic
+
+	column TransChildType
+		dataType: string
+		lineageTag: 17dd3ab5-cd83-4b93-a60a-af71b23b9c14
+		summarizeBy: none
+		sourceColumn: TransChildType
+
+		annotation SummarizationSetBy = Automatic
+
+	column PdsCWQty
+		dataType: double
+		lineageTag: e470022c-f92e-417a-b037-79facb88e836
+		summarizeBy: sum
+		sourceColumn: PdsCWQty
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column LoadId
+		dataType: string
+		lineageTag: c7fb2b33-3a96-4540-a023-17104e95696d
+		summarizeBy: none
+		sourceColumn: LoadId
+
+		annotation SummarizationSetBy = Automatic
+
+	column TimeExpected
+		dataType: int64
+		formatString: 0
+		lineageTag: 87166b03-8454-4551-864c-734d76dfb5ef
+		summarizeBy: sum
+		sourceColumn: TimeExpected
+
+		annotation SummarizationSetBy = Automatic
+
+	column DateExpected
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 81884b73-9fc1-4c99-b7ac-f921eec9569f
+		summarizeBy: none
+		sourceColumn: DateExpected
+
+		annotation SummarizationSetBy = Automatic
+
+	column PackingSlipId
+		dataType: string
+		lineageTag: 17148732-38fa-49b2-b0e1-e32a9e55d5d5
+		summarizeBy: none
+		sourceColumn: PackingSlipId
+
+		annotation SummarizationSetBy = Automatic
+
+	column CostAmountOperations
+		dataType: double
+		lineageTag: 32c0cf03-2b8b-42a4-bf14-a708f135c943
+		summarizeBy: sum
+		sourceColumn: CostAmountOperations
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column StatusIssue
+		dataType: string
+		lineageTag: d87451d2-c63b-4efc-907e-458ff51a685e
+		summarizeBy: none
+		sourceColumn: StatusIssue
+
+		annotation SummarizationSetBy = Automatic
+
+	column DateClosed
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: fff70e40-10e9-4524-aa49-3439720766b8
+		summarizeBy: none
+		sourceColumn: DateClosed
+
+		annotation SummarizationSetBy = Automatic
+
+	column PackingSlipReturned
+		dataType: string
+		lineageTag: 0a7d8c8c-2187-40e5-9fd8-bfcc4999aa32
+		summarizeBy: none
+		sourceColumn: PackingSlipReturned
+
+		annotation SummarizationSetBy = Automatic
+
+	column DateInvent
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 92081486-50ef-4614-8606-7b92a2f29d14
+		summarizeBy: none
+		sourceColumn: DateInvent
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProjAdjustRefId
+		dataType: string
+		lineageTag: 47ebbd40-3eae-4964-9f0a-0b085899611d
+		summarizeBy: none
+		sourceColumn: ProjAdjustRefId
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProjCategoryId
+		dataType: string
+		lineageTag: f8d5d6fe-8dfc-4fea-a6a6-9ea1fc21aa6c
+		summarizeBy: none
+		sourceColumn: ProjCategoryId
+
+		annotation SummarizationSetBy = Automatic
+
+	column StatusReceipt
+		dataType: string
+		lineageTag: 087d0a15-909a-4a0d-8360-82b3017631d9
+		summarizeBy: none
+		sourceColumn: StatusReceipt
+
+		annotation SummarizationSetBy = Automatic
+
+	column OUCRU_CreatedBy
+		dataType: string
+		lineageTag: a6b2540d-6ef1-4338-84f3-cb29afd889b7
+		summarizeBy: none
+		sourceColumn: OUCRU_CreatedBy
+
+		annotation SummarizationSetBy = Automatic
+
+	column CostAmountStd
+		dataType: double
+		lineageTag: e8411a84-54e9-453a-8083-7feac0d67bd8
+		summarizeBy: sum
+		sourceColumn: CostAmountStd
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column NonFinancialTransferInventClosing
+		dataType: int64
+		formatString: 0
+		lineageTag: 70b2de37-3f65-473a-b278-e28703701661
+		summarizeBy: sum
+		sourceColumn: NonFinancialTransferInventClosing
+
+		annotation SummarizationSetBy = Automatic
+
+	column DatePhysical
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 6a18ea6b-305f-432d-852a-28514e950b8b
+		summarizeBy: none
+		sourceColumn: DatePhysical
+
+		annotation SummarizationSetBy = Automatic
+
+	column InvoiceId
+		dataType: string
+		lineageTag: c8bcbcd2-8325-4fa6-8ee0-c9c8d82b90a8
+		summarizeBy: none
+		sourceColumn: InvoiceId
+
+		annotation SummarizationSetBy = Automatic
+
+	column OUCRU_ModifiedDateTime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: cf44f23e-e88a-4ea4-9a01-9eb8c1398526
+		summarizeBy: none
+		sourceColumn: OUCRU_ModifiedDateTime
+
+		annotation SummarizationSetBy = Automatic
+
+	column InventTransOrigin
+		dataType: int64
+		formatString: 0
+		lineageTag: 6d256e39-fa5a-4968-abef-16d5134e2a4a
+		summarizeBy: sum
+		sourceColumn: InventTransOrigin
+
+		annotation SummarizationSetBy = Automatic
+
+	column ItemId
+		dataType: string
+		lineageTag: 87699e57-3f01-497e-a468-b2578a5f0b6a
+		summarizeBy: none
+		sourceColumn: ItemId
+
+		annotation SummarizationSetBy = Automatic
+
+	column OUCRU_SysRowVersion
+		dataType: int64
+		formatString: 0
+		lineageTag: d17682c2-5437-4fd0-91e2-550472c3fa14
+		summarizeBy: sum
+		sourceColumn: OUCRU_SysRowVersion
+
+		annotation SummarizationSetBy = Automatic
+
+	column InterCompanyInventDimTransferred
+		dataType: string
+		lineageTag: 1f23aeb4-f382-4c94-8dcf-dfb4148cc501
+		summarizeBy: none
+		sourceColumn: InterCompanyInventDimTransferred
+
+		annotation SummarizationSetBy = Automatic
+
+	column ShippingDateConfirmed
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: f7e5ebf7-f709-4c21-b863-3033d1e596b2
+		summarizeBy: none
+		sourceColumn: ShippingDateConfirmed
+
+		annotation SummarizationSetBy = Automatic
+
+	column RevenueAmountPhysical
+		dataType: double
+		lineageTag: f98ef6ad-453b-463c-9e41-718884bfdcd7
+		summarizeBy: sum
+		sourceColumn: RevenueAmountPhysical
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column VoucherPhysical
+		dataType: string
+		lineageTag: 12f666e8-a252-4b77-aed1-8b2068adaa0e
+		summarizeBy: none
+		sourceColumn: VoucherPhysical
+
+		annotation SummarizationSetBy = Automatic
+
+	column OUCRU_CreatedDateTime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: afe15d69-ff64-4d4f-854c-584638e1f4f2
+		summarizeBy: none
+		sourceColumn: OUCRU_CreatedDateTime
+
+		annotation SummarizationSetBy = Automatic
+
+	column ValueOpen
+		dataType: string
+		lineageTag: 55727d3c-1707-45e6-998c-175442ef2aea
+		summarizeBy: none
+		sourceColumn: ValueOpen
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProjId
+		dataType: string
+		lineageTag: cbdfe028-777b-469a-9fd8-73f46649f2f3
+		summarizeBy: none
+		sourceColumn: ProjId
+
+		annotation SummarizationSetBy = Automatic
+
+	column CurrencyCode
+		dataType: string
+		lineageTag: 3b231118-97a9-4b59-bc05-45ea6303654e
+		summarizeBy: none
+		sourceColumn: CurrencyCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column CostAmountSettled
+		dataType: double
+		lineageTag: 09395cec-962e-49a2-ae36-278b6e79b3c8
+		summarizeBy: sum
+		sourceColumn: CostAmountSettled
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column InventDimId
+		dataType: string
+		lineageTag: e0b062e5-8294-464a-997b-3b144732c4d2
+		summarizeBy: none
+		sourceColumn: InventDimId
+
+		annotation SummarizationSetBy = Automatic
+
+	column TaxAmountPhysical
+		dataType: double
+		lineageTag: 24be1911-854f-493f-9c0d-8b00adc57e18
+		summarizeBy: sum
+		sourceColumn: TaxAmountPhysical
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column InvoiceReturned
+		dataType: string
+		lineageTag: e39cc10f-8c7e-4a21-a7bc-36902d383d43
+		summarizeBy: none
+		sourceColumn: InvoiceReturned
+
+		annotation SummarizationSetBy = Automatic
+
+	column #InventDimKey
+		dataType: string
+		lineageTag: 34aacd9e-d518-4076-8ba3-bfc98229703a
+		summarizeBy: none
+		sourceColumn: #InventDimKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column #ReleasedProductID
+		dataType: string
+		lineageTag: 1e3f222f-edcd-408d-8af6-a864678968cb
+		summarizeBy: none
+		sourceColumn: #ReleasedProductID
+
+		annotation SummarizationSetBy = Automatic
+
+	column #InventDimItemId
+		dataType: string
+		lineageTag: 2083b0d5-7efa-4df9-8c89-05c0ce7d6401
+		summarizeBy: none
+		sourceColumn: #InventDimItemId
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ReleasedProductV2Info.ItemNumber'
+		dataType: string
+		lineageTag: d24fb053-0ca1-46ae-91e6-e6cd0f5afc48
+		summarizeBy: none
+		sourceColumn: ReleasedProductV2Info.ItemNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ReleasedProductV2Info.SearchName'
+		dataType: string
+		lineageTag: b1e9a97f-5edb-4a43-b2dc-1b2ef15b7bf7
+		summarizeBy: none
+		sourceColumn: ReleasedProductV2Info.SearchName
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'InventDimInfo.StockCode'
+		dataType: string
+		lineageTag: cf388e84-357a-4077-ab75-9f65ed0771e1
+		summarizeBy: none
+		sourceColumn: InventDimInfo.StockCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'InventDimInfo.Study Code'
+		dataType: string
+		lineageTag: 754a3be3-c1f1-42c9-80c9-b8698beb7cd4
+		summarizeBy: none
+		sourceColumn: InventDimInfo.Study Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ReleasedProductV2Info.OUCRU_Manufacturer'
+		dataType: string
+		lineageTag: 604be8f1-b09c-4b83-b350-626816dbcc83
+		summarizeBy: none
+		sourceColumn: ReleasedProductV2Info.OUCRU_Manufacturer
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Item Name'
+		dataType: string
+		lineageTag: 625bdb23-0e12-49f6-9d49-17efc8d31d49
+		summarizeBy: none
+		sourceColumn: Item Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ReleasedProductV2Info.OUCRU_Type'
+		dataType: string
+		lineageTag: 1b7ec377-c07f-4db8-a101-be1bb83bebfe
+		summarizeBy: none
+		sourceColumn: ReleasedProductV2Info.OUCRU_Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'InventDimInfo.INVENTSITEID'
+		dataType: string
+		lineageTag: 081ecd8c-7ee9-4140-8b8e-bb91db62e612
+		summarizeBy: none
+		sourceColumn: InventDimInfo.INVENTSITEID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition InventTransInfo = m
+		mode: import
+		source =
+				let
+				    Source = PowerPlatform.Dataflows(null),
+				    Workspaces = Source{[Id="Workspaces"]}[Data],
+				    #"9d7b5ded-0005-472f-9fa7-04557d319871" = Workspaces{[workspaceId="9d7b5ded-0005-472f-9fa7-04557d319871"]}[Data],
+				    #"4e091d5c-729f-4274-a5df-d6f9bf6a4601" = #"9d7b5ded-0005-472f-9fa7-04557d319871"{[dataflowId="4e091d5c-729f-4274-a5df-d6f9bf6a4601"]}[Data],
+				    InventTransInfo_ = #"4e091d5c-729f-4274-a5df-d6f9bf6a4601"{[entity="InventTransInfo",version=""]}[Data],
+				    #"Added Custom" = Table.AddColumn(InventTransInfo_, "#InventDimKey", each [DataAreaId] & [InventDimId]),
+				    #"Added Custom1" = Table.AddColumn(#"Added Custom", "#ReleasedProductID", each [DataAreaId] & [ItemId]),
+				    #"Added Custom2" = Table.AddColumn(#"Added Custom1", "#InventDimItemId", each [#"#InventDimKey"]&[ItemId]),
+				    #"Merged Queries" = Table.NestedJoin(#"Added Custom2", {"#ReleasedProductID"}, ReleasedProductV2Info, {"#ReleaseProductID"}, "ReleasedProductV2Info", JoinKind.LeftOuter),
+				    #"Expanded ReleasedProductV2Info1" = Table.ExpandTableColumn(#"Merged Queries", "ReleasedProductV2Info", {"ItemNumber", "OUCRU_Manufacturer", "OUCRU_ReleaseProductName", "OUCRU_Type", "SearchName"}, {"ReleasedProductV2Info.ItemNumber", "ReleasedProductV2Info.OUCRU_Manufacturer", "ReleasedProductV2Info.OUCRU_ReleaseProductName", "ReleasedProductV2Info.OUCRU_Type", "ReleasedProductV2Info.SearchName"}),
+				    #"Merged Queries1" = Table.NestedJoin(#"Expanded ReleasedProductV2Info1", {"#InventDimKey"}, InventDimInfo, {"#InventDimKey"}, "InventDimInfo", JoinKind.LeftOuter),
+				    #"Expanded InventDimInfo" = Table.ExpandTableColumn(#"Merged Queries1", "InventDimInfo", {"INVENTSITEID", "StockCode", "Study Code"}, {"InventDimInfo.INVENTSITEID", "InventDimInfo.StockCode", "InventDimInfo.Study Code"}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Expanded InventDimInfo",{{"ReleasedProductV2Info.OUCRU_ReleaseProductName", "Item Name"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

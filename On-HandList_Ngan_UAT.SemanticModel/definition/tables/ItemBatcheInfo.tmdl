@@ -1,0 +1,171 @@
+table ItemBatcheInfo
+	lineageTag: d9deda9b-acae-4422-a2cd-b897928d782b
+
+	column dataAreaId
+		dataType: string
+		lineageTag: 4832f63d-e355-48a9-8893-dcb8f2cf7906
+		summarizeBy: none
+		sourceColumn: dataAreaId
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ItemNumber
+		dataType: string
+		lineageTag: 108a86e3-80b5-4419-a5ac-2e1de550af2e
+		summarizeBy: none
+		sourceColumn: ItemNumber
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column BatchNumber
+		dataType: string
+		lineageTag: 8b5fe559-1a02-4c46-8b79-cfdbd661ce17
+		summarizeBy: none
+		sourceColumn: BatchNumber
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column BatchExpirationDate
+		dataType: dateTime
+		formatString: d mmmm\, yyyy
+		lineageTag: 30298371-2728-4ae4-ba76-30db1f2ab983
+		summarizeBy: none
+		sourceColumn: BatchExpirationDate
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column OUCRU_ModifiedDateTime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 09e79a8a-4010-4ed1-95ed-945a2466be25
+		summarizeBy: none
+		sourceColumn: OUCRU_ModifiedDateTime
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column OUCRU_CreatedBy
+		dataType: string
+		lineageTag: c656588b-a2fe-4361-9df7-2ccf93f74570
+		summarizeBy: none
+		sourceColumn: OUCRU_CreatedBy
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column OUCRU_ModifiedBy
+		dataType: string
+		lineageTag: 2a87ed42-59d0-4d82-a31d-e1985262e3f7
+		summarizeBy: none
+		sourceColumn: OUCRU_ModifiedBy
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column OUCRU_CreatedDateTime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 13814282-7be0-4546-bc0f-06e1d4ad2b33
+		summarizeBy: none
+		sourceColumn: OUCRU_CreatedDateTime
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column #BatchID
+		dataType: string
+		lineageTag: 84b7fb8a-deeb-4add-b7ba-1b3da6de35f6
+		summarizeBy: none
+		sourceColumn: #BatchID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column #ReleasedProductId
+		dataType: string
+		lineageTag: ef19d8ae-5f14-4917-8063-bdc3e4e5cbaf
+		summarizeBy: none
+		sourceColumn: #ReleasedProductId
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column DaysToExpiry = ```
+			
+			    IF(
+			        ISBLANK([BatchExpirationDate]),
+			        BLANK(),
+			        INT([BatchExpirationDate] - TODAY())
+			    )
+			```
+		formatString: 0
+		lineageTag: a78545aa-13da-4f32-91d3-4ae7c92504a7
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Expiry Status' = ```
+			
+			VAR d = [DaysToExpiry]
+			RETURN
+			IF(
+			    ISBLANK(d),
+			    "No Expiry",
+			    IF(
+			        d < 0, "Expired",
+			        IF(
+			            d > 0 && d < 30, "Expired within 30 days",
+			            IF(
+			                d >= 30 && d < 60, "Expired within 60 days",
+			                IF(
+			                    d >= 60 && d < 90, "Expired within 90 days",
+			                    "Expired above 90 days"
+			                )
+			            )
+			        )
+			    )
+			)
+			
+			```
+		lineageTag: b3c511c7-415c-4485-8b38-fa7de3ff3fa5
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ItemBatcheInfo = m
+		mode: import
+		source =
+				let
+				    Source = PowerPlatform.Dataflows(null),
+				    Workspaces = Source{[Id="Workspaces"]}[Data],
+				    #"9d7b5ded-0005-472f-9fa7-04557d319871" = Workspaces{[workspaceId="9d7b5ded-0005-472f-9fa7-04557d319871"]}[Data],
+				    #"4e091d5c-729f-4274-a5df-d6f9bf6a4601" = #"9d7b5ded-0005-472f-9fa7-04557d319871"{[dataflowId="4e091d5c-729f-4274-a5df-d6f9bf6a4601"]}[Data],
+				    ItemBatcheInfo_ = #"4e091d5c-729f-4274-a5df-d6f9bf6a4601"{[entity="ItemBatcheInfo",version=""]}[Data],
+				    #"Added Custom" = Table.AddColumn(ItemBatcheInfo_, "#BatchID", each [dataAreaId]&[ItemNumber]&[BatchNumber]),
+				    #"Added Custom1" = Table.AddColumn(#"Added Custom", "#ReleasedProductId", each [dataAreaId]&[ItemNumber]),
+				    #"Filtered Rows - to remove 1/1/1990 default" = Table.SelectRows(#"Added Custom1", each ([BatchExpirationDate] <> #datetime(1900, 1, 1, 12, 0, 0)))
+				in
+				    #"Filtered Rows - to remove 1/1/1990 default"
+
+	changedProperty = IsHidden
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

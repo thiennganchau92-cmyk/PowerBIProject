@@ -1,0 +1,63 @@
+table InventStockcodeInfo
+	lineageTag: 1a1798e7-9b44-4613-bffc-3c8fba3ba9b6
+
+	column dataAreaId
+		dataType: string
+		lineageTag: 23f2b797-af38-493e-b19f-174a13383899
+		summarizeBy: none
+		sourceColumn: dataAreaId
+
+		annotation SummarizationSetBy = Automatic
+
+	column StockCode
+		dataType: string
+		lineageTag: 96a2e87d-0e53-4f1c-9baa-e540daa97987
+		summarizeBy: none
+		sourceColumn: StockCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column ExpirationDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: d8b78127-6752-4ff9-9c76-3e9eab3dafe4
+		summarizeBy: none
+		sourceColumn: ExpirationDate
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		lineageTag: eb2bd62d-16a6-41a6-9b70-07729fdefd38
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column #StockCodeId
+		dataType: string
+		lineageTag: b2bccfbf-d5f2-41b7-831a-81ce2217c69a
+		summarizeBy: none
+		sourceColumn: #StockCodeId
+
+		annotation SummarizationSetBy = Automatic
+
+	partition InventStockcodeInfo = m
+		mode: import
+		source =
+				let
+				    Source = PowerPlatform.Dataflows(null),
+				    Workspaces = Source{[Id="Workspaces"]}[Data],
+				    #"9d7b5ded-0005-472f-9fa7-04557d319871" = Workspaces{[workspaceId="9d7b5ded-0005-472f-9fa7-04557d319871"]}[Data],
+				    #"4e091d5c-729f-4274-a5df-d6f9bf6a4601" = #"9d7b5ded-0005-472f-9fa7-04557d319871"{[dataflowId="4e091d5c-729f-4274-a5df-d6f9bf6a4601"]}[Data],
+				    InventStockcodeInfo_ = #"4e091d5c-729f-4274-a5df-d6f9bf6a4601"{[entity="InventStockcodeInfo",version=""]}[Data],
+				    #"Added Custom" = Table.AddColumn(InventStockcodeInfo_, "#StockCodeId", each [dataAreaId]&[StockCode])
+				in
+				    #"Added Custom"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

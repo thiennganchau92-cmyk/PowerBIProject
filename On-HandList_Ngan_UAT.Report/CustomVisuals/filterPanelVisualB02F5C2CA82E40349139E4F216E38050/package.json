@@ -1,0 +1,29 @@
+{
+  "version": "1.0.0.0",
+  "author": {
+    "name": "OUCRU Developer",
+    "email": "developer@oucru.org"
+  },
+  "resources": [
+    {
+      "resourceId": "rId0",
+      "sourceType": 5,
+      "file": "resources/filterPanelVisualB02F5C2CA82E40349139E4F216E38050.pbiviz.json"
+    }
+  ],
+  "visual": {
+    "guid": "filterPanelVisualB02F5C2CA82E40349139E4F216E38050",
+    "name": "filterPanelVisual",
+    "displayName": "Filter Panel",
+    "version": "1.0.0.0",
+    "description": "Advanced Filter Panel visual for Power BI with support for category filtering, active filter chips, instant/commit modes, and OUCRU theming",
+    "supportUrl": "https://github.com/yourusername/filterPanelVisual",
+    "gitHubUrl": "https://github.com/yourusername/filterPanelVisual",
+    "visualClassName": "Visual"
+  },
+  "metadata": {
+    "pbivizjson": {
+      "resourceId": "rId0"
+    }
+  }
+}

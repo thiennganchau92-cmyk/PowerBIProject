@@ -1,0 +1,79 @@
+table 1_InventTransBatchInfo_BridgeTable
+	isHidden
+	lineageTag: 6ba9359e-5519-4020-821f-c59f2f58741a
+
+	column #InventDimKey
+		dataType: string
+		isHidden
+		lineageTag: d655cc98-bc97-42c5-879f-4d08c78881f6
+		summarizeBy: none
+		sourceColumn: #InventDimKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ItemId
+		dataType: string
+		isHidden
+		lineageTag: bb9cf99d-172a-4f9f-9752-a935eb372907
+		summarizeBy: none
+		sourceColumn: ItemId
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column DataAreaId
+		dataType: string
+		isHidden
+		lineageTag: 8941b198-d4c2-4c27-9583-d5aabfb85f26
+		summarizeBy: none
+		sourceColumn: DataAreaId
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column INVENTBATCHID
+		dataType: string
+		isHidden
+		lineageTag: 86aaa6ba-661b-4e52-9835-170840ce5503
+		summarizeBy: none
+		sourceColumn: INVENTBATCHID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column #BatchId
+		dataType: string
+		isHidden
+		lineageTag: fbb29010-660c-4b40-b616-456147cea396
+		summarizeBy: none
+		sourceColumn: #BatchId
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 1_InventTransBatchInfo_BridgeTable = m
+		mode: import
+		source =
+				let
+				    Source = InventTransInfo,
+				    #"Removed Other Columns" = Table.SelectColumns(Source,{"DataAreaId", "ItemId", "#InventDimKey"}),
+				    #"Removed Duplicates" = Table.Distinct(#"Removed Other Columns"),
+				    #"Merged Queries" = Table.NestedJoin(#"Removed Duplicates", {"#InventDimKey"}, InventDimInfo, {"#InventDimKey"}, "InventDimInfo", JoinKind.LeftOuter),
+				    #"Expanded InventDimInfo" = Table.ExpandTableColumn(#"Merged Queries", "InventDimInfo", {"INVENTBATCHID"}, {"InventDimInfo.INVENTBATCHID"}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Expanded InventDimInfo",{{"InventDimInfo.INVENTBATCHID", "INVENTBATCHID"}}),
+				    #"Added Custom" = Table.AddColumn(#"Renamed Columns", "#BatchId", each [DataAreaId]&[ItemId]&[INVENTBATCHID])
+				in
+				    #"Added Custom"
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

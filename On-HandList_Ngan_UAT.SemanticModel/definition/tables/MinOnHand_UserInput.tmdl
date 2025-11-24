@@ -1,0 +1,43 @@
+table MinOnHand_UserInput
+	lineageTag: 709b68d4-e67d-4946-b6ea-35224454dc77
+
+	measure MinOnHand_UserSetting = ```
+			
+			CALCULATE(
+			    MAX(MinOnHand_UserInput[Minimum On-Hand Quantity])
+			)
+			
+			```
+		formatString: 0
+		lineageTag: b2c29173-9375-4c2f-b3ff-de8d73c82b9d
+
+	column 'ItemNumber_Site_StockCode Combination'
+		dataType: string
+		lineageTag: 51b4ea3d-8124-494a-9f11-6b8e55aa2209
+		summarizeBy: none
+		sourceColumn: ItemNumber_Site_StockCode Combination
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Minimum On-Hand Quantity'
+		dataType: int64
+		formatString: 0
+		lineageTag: 13baa81d-03d1-4b9b-9375-518ce905be67
+		summarizeBy: sum
+		sourceColumn: Minimum On-Hand Quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	partition MinOnHand_UserInput = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"ItemNumber_Site_StockCode Combination" = _t, #"Minimum On-Hand Quantity" = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"ItemNumber_Site_StockCode Combination", type text}, {"Minimum On-Hand Quantity", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

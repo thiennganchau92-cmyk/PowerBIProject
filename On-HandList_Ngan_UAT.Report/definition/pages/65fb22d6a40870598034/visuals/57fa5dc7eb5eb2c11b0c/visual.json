@@ -1,0 +1,253 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "name": "57fa5dc7eb5eb2c11b0c",
+  "position": {
+    "x": 125.97110754414125,
+    "y": 70.4975922953451,
+    "z": 0,
+    "height": 321.2841091492777,
+    "width": 1028.5714285714284,
+    "tabOrder": 10000
+  },
+  "visual": {
+    "visualType": "powerSlicerBE209A8E88824D0DB714D5CD35DAEA97",
+    "query": {
+      "queryState": {
+        "category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "InventTransInfo"
+                    }
+                  },
+                  "Property": "Item Name"
+                }
+              },
+              "queryRef": "InventTransInfo.ReleasedProductV2Info.OUCRU_ReleaseProductName",
+              "nativeQueryRef": "Item Name",
+              "displayName": "Item Name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "InventTransInfo"
+                    }
+                  },
+                  "Property": "ReleasedProductV2Info.SearchName"
+                }
+              },
+              "queryRef": "InventTransInfo.ReleasedProductV2Info.SearchName",
+              "nativeQueryRef": "Cat ID",
+              "displayName": "Cat ID"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "InventTransInfo"
+                    }
+                  },
+                  "Property": "InventDimInfo.StockCode"
+                }
+              },
+              "queryRef": "InventTransInfo.InventDimInfo.StockCode",
+              "nativeQueryRef": "Stock Code",
+              "displayName": "Stock Code"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "InventTransInfo"
+                    }
+                  },
+                  "Property": "InventDimInfo.Study Code"
+                }
+              },
+              "queryRef": "InventTransInfo.InventDimInfo.Study Code",
+              "nativeQueryRef": "Study Code",
+              "displayName": "Study Code"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "InventTransInfo"
+                    }
+                  },
+                  "Property": "ReleasedProductV2Info.OUCRU_Type"
+                }
+              },
+              "queryRef": "InventTransInfo.ReleasedProductV2Info.OUCRU_Type",
+              "nativeQueryRef": "Item Type",
+              "displayName": "Item Type"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dropShadow": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'SEARCH INFORMATION'"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 2,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "f6377c41a00d21ba3095",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "InventTransInfo"
+              }
+            },
+            "Property": "Item Name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "a3d305ee1629701209e4",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "InventTransInfo"
+              }
+            },
+            "Property": "ReleasedProductV2Info.SearchName"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "4c4bf53e90a9360449ac",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "InventTransInfo"
+              }
+            },
+            "Property": "InventDimInfo.Study Code"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "eca9c6ab4395a50019e2",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "InventTransInfo"
+              }
+            },
+            "Property": "ReleasedProductV2Info.OUCRU_Type"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

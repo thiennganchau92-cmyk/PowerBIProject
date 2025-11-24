@@ -1,0 +1,7 @@
+role 'IDN Lab'
+	modelPermission: read
+
+	tablePermission ReleasedProductV2Info = [OUCRU_Type] == "SA_ID" || [OUCRU_Type] == "SB_ID" || [OUCRU_Type] == "MC_ID"
+
+	annotation PBI_Id = 0fb1996d7e354ed98e3a726ae0123cca
+

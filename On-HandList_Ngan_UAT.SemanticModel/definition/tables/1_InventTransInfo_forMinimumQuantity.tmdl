@@ -1,0 +1,128 @@
+table 1_InventTransInfo_forMinimumQuantity
+	lineageTag: 13c42f41-cf69-438e-bb3f-1223f591b9dc
+
+	measure 'Stock Alert Status' = ```
+			
+			VAR Qty =
+			    SELECTEDVALUE('1_InventTransInfo_forMinimumQuantity'[SumQty])
+			VAR MinQtyUser =
+			    [MinOnHand_UserSetting]
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    ISBLANK(Qty), "No Qty",
+			    Qty < MinQtyUser, "Below minimum",
+			    "OK"
+			)
+			
+			```
+		lineageTag: 4fd91f9f-ecbc-40ed-9c7f-8608c1f17ee0
+
+	measure StockAlertColor = ```
+			
+			VAR Qty =
+			    SELECTEDVALUE('1_InventTransInfo_forMinimumQuantity'[SumQty])
+			VAR MinQtyUser =
+			    [MinOnHand_UserSetting]
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    ISBLANK(Qty), "#BDC3C7", 
+			    Qty < MinQtyUser, "#D92C2C",
+			    "#196F3D"
+			)
+			
+			```
+		lineageTag: 3429fd08-db8b-414c-91c4-df0bfefcf735
+
+	measure 'Items Below Minimum' = ```
+			
+			VAR MinQty = [MinOnHand_UserSetting]
+			RETURN
+			CALCULATE(
+			    COUNTROWS('1_InventTransInfo_forMinimumQuantity'),
+			    FILTER(
+			        '1_InventTransInfo_forMinimumQuantity',
+			        '1_InventTransInfo_forMinimumQuantity'[SumQty] < MinQty
+			    )
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 38f16bb1-b874-4482-b01d-367e97a26170
+
+	column DataAreaId
+		dataType: string
+		lineageTag: 6be4b41f-37f4-42c1-8170-a7ca6a576aad
+		summarizeBy: none
+		sourceColumn: DataAreaId
+
+		annotation SummarizationSetBy = Automatic
+
+	column ItemId
+		dataType: string
+		lineageTag: 75eb4054-90b2-4299-9ea8-5074228f287e
+		summarizeBy: none
+		sourceColumn: ItemId
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'InventDimInfo.INVENTSITEID'
+		dataType: string
+		lineageTag: afeafdd1-de65-4a04-938a-c291308fedba
+		summarizeBy: none
+		sourceColumn: InventDimInfo.INVENTSITEID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'InventDimInfo.StockCode'
+		dataType: string
+		lineageTag: 483072d7-c2d4-4a8a-9371-26aa3eb117a2
+		summarizeBy: none
+		sourceColumn: InventDimInfo.StockCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'InventDimInfo.Study Code'
+		dataType: string
+		lineageTag: 5f75f606-ae3d-4b42-9510-9970026d200b
+		summarizeBy: none
+		sourceColumn: InventDimInfo.Study Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column SumQty
+		dataType: double
+		lineageTag: 02baa8c2-1b8e-456d-8aa8-56b632d91be9
+		summarizeBy: sum
+		sourceColumn: SumQty
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'ItemNumber_Site_StockCode Combination'
+		dataType: string
+		lineageTag: 33b5bef6-2ed1-4cd7-8f61-c186d4b091e5
+		summarizeBy: none
+		sourceColumn: ItemNumber_Site_StockCode Combination
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 1_InventTransInfo_forMinimumQuantity = m
+		mode: import
+		source =
+				let
+				    Source = InventTransInfo,
+				    #"Filtered Rows" = Table.SelectRows(Source, each ([StatusReceipt] <> "Ordered") and ([StatusIssue] <> "OnOrder")),
+				    #"Removed Other Columns" = Table.SelectColumns(#"Filtered Rows",{"DataAreaId", "Qty", "ItemId", "InventDimInfo.INVENTSITEID", "InventDimInfo.StockCode", "InventDimInfo.Study Code"}),
+				    #"Grouped Rows" = Table.Group(#"Removed Other Columns", {"ItemId", "InventDimInfo.INVENTSITEID", "InventDimInfo.StockCode", "InventDimInfo.Study Code", "DataAreaId"}, {{"SumQty", each List.Sum([Qty]), type nullable number}}),
+				    #"Added Custom" = Table.AddColumn(#"Grouped Rows", "ItemNumber_Site_StockCode", each [ItemId]&"|"&[InventDimInfo.INVENTSITEID]&"|"&[InventDimInfo.StockCode]),
+				    #"Renamed Columns" = Table.RenameColumns(#"Added Custom",{{"ItemNumber_Site_StockCode", "ItemNumber_Site_StockCode Combination"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

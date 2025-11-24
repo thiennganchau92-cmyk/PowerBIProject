@@ -1,0 +1,9 @@
+role 'HN CTU Pharma'
+	modelPermission: read
+
+	tablePermission InventDimInfo = [INVENTSITEID] == "OUCRU-HN"
+
+	tablePermission ReleasedProductV2Info = [OUCRU_Type] == "PH"
+
+	annotation PBI_Id = 0754c1f8cc754f5e847993fdeb9ec10a
+

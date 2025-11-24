@@ -1,0 +1,9 @@
+role 'HCM Lab'
+	modelPermission: read
+
+	tablePermission InventDimInfo = [INVENTSITEID] == "OUCRU-HCM"
+
+	tablePermission ReleasedProductV2Info = [OUCRU_Type] == "SA" || [OUCRU_Type] == "SB" || [OUCRU_Type] == "MC" || [OUCRU_Type] == "SM"
+
+	annotation PBI_Id = f1a2c50fcd834f9b9f19e14445d32130
+
