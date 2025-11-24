@@ -13,6 +13,7 @@ import IVisualHost = powerbi.extensibility.visual.IVisualHost;
 import { VisualFormattingSettingsModel } from "./settings";
 import { SlicerNode } from "./interfaces";
 import { DataService } from "./services/DataService";
+import { SearchService } from "./services/SearchService";
 import { FilterService } from "./services/FilterService";
 import { SelectionStateManager } from "./services/SelectionManager";
 import { SearchBox } from "./ui/SearchBox";
@@ -493,7 +494,7 @@ export class Visual implements IVisual {
     }
 
     private getFilteredData(): SlicerNode[] {
-        return DataService.filterData(
+        return SearchService.filterData(
             this.data,
             this.searchBox.getValue(),
             false

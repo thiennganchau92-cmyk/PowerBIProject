@@ -36,3 +36,52 @@ export interface KeyboardNavigationEvent {
     preventDefault: () => void;
     stopPropagation: () => void;
 }
+
+/**
+ * Base configuration for UI components with styling
+ */
+export interface UIComponentConfig {
+    fontSize: number;
+    defaultColor?: string;
+    fill?: string;
+    fillRule?: string;
+}
+
+/**
+ * Configuration for SearchBox component
+ */
+export interface SearchBoxConfig extends UIComponentConfig {
+    onSearchChange: (value: string) => void;
+    onClear: () => void;
+    onRefresh: () => void;
+    debounceDelay: number;
+}
+
+/**
+ * Configuration for Dropdown component
+ */
+export interface DropdownConfig extends UIComponentConfig {
+    onItemClick: (item: string, event: MouseEvent) => void;
+}
+
+/**
+ * Configuration for ItemCounter component
+ */
+export interface ItemCounterConfig {
+    // No additional config needed beyond what's passed to update()
+}
+
+/**
+ * Configuration for SelectAllButton component
+ */
+export interface SelectAllButtonConfig {
+    onClick: () => void;
+}
+
+/**
+ * Configuration for SelectedItemsContainer component
+ */
+export interface SelectedItemsContainerConfig {
+    onRemoveItem: (item: string) => void;
+    fontSize: number;
+}
