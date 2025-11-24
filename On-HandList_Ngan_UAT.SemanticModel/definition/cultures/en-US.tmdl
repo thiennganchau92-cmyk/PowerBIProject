@@ -14381,7 +14381,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Cat ID": {
+			          "Search Name": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -14480,7 +14480,7 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "invent_trans_info.ReleasedProductV2Info_OUCRU_ReleaseProductName": {
+			    "invent_trans_info.item_name": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "InventTransInfo",
@@ -14490,18 +14490,114 @@ cultureInfo en-US
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "ReleasedProductV2Info.OUCRU_ReleaseProductName": {
+			          "item name": {
 			            "State": "Generated"
 			          }
 			        },
 			        {
-			          "Item Name": {
+			          "item": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "element": {
+			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
+			              "Agent": "Thesaurus"
 			            },
-			            "Weight": 0.9
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "entry": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "item nickname": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "item title": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "item label": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "item tag": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "article": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        },
+			        {
+			          "object": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        },
+			        {
+			          "piece": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        },
+			        {
+			          "token": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
 			          }
 			        }
 			      ]
@@ -16752,7 +16848,7 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "invent_trans_info_has_ReleasedProductV2Info_OUCRU_ReleaseProductName": {
+			    "invent_trans_info_has_item_name": {
 			      "Binding": {
 			        "ConceptualEntity": "InventTransInfo"
 			      },
@@ -16763,9 +16859,9 @@ cultureInfo en-US
 			            "Entity": "invent_trans_info"
 			          }
 			        },
-			        "invent_trans_info.ReleasedProductV2Info_OUCRU_ReleaseProductName": {
+			        "invent_trans_info.item_name": {
 			          "Target": {
-			            "Entity": "invent_trans_info.ReleasedProductV2Info_OUCRU_ReleaseProductName"
+			            "Entity": "invent_trans_info.item_name"
 			          }
 			        }
 			      },
@@ -16776,12 +16872,12 @@ cultureInfo en-US
 			              "Role": "invent_trans_info"
 			            },
 			            "Object": {
-			              "Role": "invent_trans_info.ReleasedProductV2Info_OUCRU_ReleaseProductName"
+			              "Role": "invent_trans_info.item_name"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "invent_trans_info_have_ReleasedProductV2Info_OUCRU_ReleaseProductNames"
+			          "ID": "invent_trans_info_have_item_names"
 			        }
 			      ]
 			    },
