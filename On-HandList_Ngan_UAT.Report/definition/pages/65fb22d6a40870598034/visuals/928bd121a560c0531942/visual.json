@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
-  "name": "ee9ec9c120a39e5a80a1",
+  "name": "928bd121a560c0531942",
   "position": {
     "x": 0,
-    "y": 392,
-    "z": 4000,
-    "height": 328,
-    "width": 1281,
-    "tabOrder": 1000
+    "y": 249.6714103985837,
+    "z": 3001,
+    "height": 456.57503290481742,
+    "width": 1280.7218644519942,
+    "tabOrder": 10001
   },
   "visual": {
     "visualType": "tableEx",
@@ -165,7 +165,7 @@
                 }
               },
               "queryRef": "InventDimInfo.Study Code",
-              "nativeQueryRef": "Study Code"
+              "nativeQueryRef": "Project"
             },
             {
               "field": {
@@ -297,10 +297,10 @@
               "Column": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "InventTransInfo"
+                    "Entity": "ReleasedProductV2Info"
                   }
                 },
-                "Property": "ItemId"
+                "Property": "OUCRU_ReleaseProductName"
               }
             },
             "direction": "Ascending"
@@ -757,7 +757,7 @@
         }
       },
       {
-        "name": "071e23db00b539912dc8",
+        "name": "3ddbbc4290bed476590b",
         "field": {
           "Column": {
             "Expression": {
@@ -771,7 +771,7 @@
         "type": "Categorical"
       },
       {
-        "name": "401fcbddd70731e59e11",
+        "name": "ddcd46c0131d0708ac81",
         "field": {
           "Column": {
             "Expression": {
@@ -785,7 +785,7 @@
         "type": "Categorical"
       },
       {
-        "name": "b226cac752142b6542da",
+        "name": "5cc4f3c0ce6a0d105a5e",
         "field": {
           "Column": {
             "Expression": {
@@ -799,7 +799,7 @@
         "type": "Categorical"
       },
       {
-        "name": "7660164024b1c5b5a87b",
+        "name": "3730f34387aa9eb0e455",
         "field": {
           "Column": {
             "Expression": {
@@ -813,7 +813,7 @@
         "type": "Categorical"
       },
       {
-        "name": "473ff7cc37323cde3938",
+        "name": "caa63c53850ae0de72ed",
         "field": {
           "Column": {
             "Expression": {
@@ -827,7 +827,7 @@
         "type": "Categorical"
       },
       {
-        "name": "470b968beb8112d02aa4",
+        "name": "bf95dd30bc561c0610b5",
         "field": {
           "Column": {
             "Expression": {
@@ -841,7 +841,7 @@
         "type": "Categorical"
       },
       {
-        "name": "888e7d3a734ccad654ae",
+        "name": "63a5be631cb4969537a3",
         "field": {
           "Column": {
             "Expression": {
@@ -855,7 +855,21 @@
         "type": "Categorical"
       },
       {
-        "name": "33e532b06e58c0d56ae2",
+        "name": "3daacf9964dad270a260",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "OUCRU_ManufactureInfo"
+              }
+            },
+            "Property": "Description"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "d497a630100d887c98c2",
         "field": {
           "Column": {
             "Expression": {
@@ -869,7 +883,7 @@
         "type": "Categorical"
       },
       {
-        "name": "054fe07e50ae88a8bdad",
+        "name": "494673277e3402d46253",
         "field": {
           "Column": {
             "Expression": {
@@ -883,7 +897,7 @@
         "type": "Categorical"
       },
       {
-        "name": "bb10be30a8e3e070210e",
+        "name": "456089012054975015b0",
         "field": {
           "Column": {
             "Expression": {
@@ -897,7 +911,7 @@
         "type": "Categorical"
       },
       {
-        "name": "f072f4521db7279d7826",
+        "name": "d52b448a58a8e84d9aee",
         "field": {
           "Column": {
             "Expression": {
@@ -911,7 +925,7 @@
         "type": "Categorical"
       },
       {
-        "name": "3b73629c44a1d904d324",
+        "name": "ac62f56f6cb35085803b",
         "field": {
           "Column": {
             "Expression": {
@@ -925,7 +939,7 @@
         "type": "Categorical"
       },
       {
-        "name": "6cc2040d5d25ec0e0420",
+        "name": "6773b183aec474c7005c",
         "field": {
           "Column": {
             "Expression": {
@@ -939,7 +953,7 @@
         "type": "Categorical"
       },
       {
-        "name": "a4aa984022108b77d008",
+        "name": "97bed15120c705127090",
         "field": {
           "Column": {
             "Expression": {
@@ -953,7 +967,7 @@
         "type": "Advanced"
       },
       {
-        "name": "515330500e7949900266",
+        "name": "654ddb54e41278cee66c",
         "field": {
           "Column": {
             "Expression": {
@@ -967,7 +981,7 @@
         "type": "Categorical"
       },
       {
-        "name": "24fe5a7e15aad9688b26",
+        "name": "04faea80d19cd70b90ea",
         "field": {
           "Column": {
             "Expression": {
@@ -976,20 +990,6 @@
               }
             },
             "Property": "OUCRU_MSDS"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "0636eda8c68571038526",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "OUCRU_ManufactureInfo"
-              }
-            },
-            "Property": "Description"
           }
         },
         "type": "Categorical"
