@@ -189,5 +189,79 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "c2a882cca688a874e645",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "InventTransInfo"
+              }
+            },
+            "Property": "Item Name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "9cae0f556913501e5636",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "InventTransInfo"
+              }
+            },
+            "Property": "InventDimInfo.StockCode"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "6a67bf438d850c7a1033",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "InventTransInfo"
+              }
+            },
+            "Property": "InventDimInfo.Study Code"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "3a6b36e0cd3aa3e7345a",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "InventTransInfo"
+              }
+            },
+            "Property": "ReleasedProductV2Info.OUCRU_Type"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "c0de0c5e80b733eb4224",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "InventTransInfo"
+              }
+            },
+            "Property": "ReleasedProductV2Info.SearchName"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
   }
 }
