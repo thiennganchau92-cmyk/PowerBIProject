@@ -55,6 +55,7 @@ export class Visual implements IVisual {
 
     private isInteracting: boolean = false;
     private hasSelections: boolean = false;
+    private needsFullRender: boolean = false;
 
     constructor(options: VisualConstructorOptions) {
         this.target = options.element;
@@ -205,9 +206,16 @@ export class Visual implements IVisual {
         this.selectedItemsContainer.show();
 
         const searchValue = this.searchBox.getValue();
-        if (searchValue && searchValue.trim().length > 0) {
+        const trimmedSearch = searchValue ? searchValue.trim() : "";
+
+        if (trimmedSearch.length > 0) {
             this.showActionsBar();
             this.selectAllButton.show();
+        }
+
+        // When expanded, always show the dropdown if we have data,
+        // so users can browse the full list before typing.
+        if (this.data && this.data.length > 0) {
             this.dropdown.show();
         }
     }
@@ -274,6 +282,12 @@ export class Visual implements IVisual {
                 const primaryText = primaryRaw !== undefined && primaryRaw !== null ? primaryRaw.toString() : "";
 
                 const display = primaryText;
+                // Skip entirely blank primary values so they don't appear
+                // as empty entries in the full dropdown list.
+                if (!display || display.trim().length === 0) {
+                    continue;
+                }
+
                 const existing = nodeMap.get(display);
                 const searchParts = existing ? existing.searchParts : new Set<string>();
 
@@ -317,6 +331,10 @@ export class Visual implements IVisual {
         } else {
             this.data = [];
         }
+
+        // Data set has changed (new field selection, filters, etc.)
+        // Ensure the full dropdown list is rebuilt on next UI update.
+        this.needsFullRender = true;
     }
 
     private applyGlobalStyles(): void {
@@ -343,14 +361,23 @@ export class Visual implements IVisual {
 
     private updateUI(): void {
         const searchValue = this.searchBox.getValue();
+        const trimmedSearch = searchValue ? searchValue.trim() : "";
 
         // Re-render selected items with current styling
         this.renderSelectedItemsWithStyle();
 
         this.updateItemCounter(searchValue);
 
-        if (searchValue && searchValue.trim().length > 0) {
+        if (trimmedSearch.length > 0) {
+            // When there's an active search term, render the filtered list
             this.renderFilteredData(searchValue);
+        } else {
+            // When there is no search term, initialize or refresh the full list
+            const dropdownElement = this.dropdown.getElement();
+            if ((this.needsFullRender || !dropdownElement.hasChildNodes()) && this.data && this.data.length > 0) {
+                this.renderFilteredData("");
+                this.needsFullRender = false;
+            }
         }
     }
 
@@ -414,7 +441,9 @@ export class Visual implements IVisual {
     }
 
     private handleSearchChange(value: string): void {
-        if (value && value.trim().length > 0) {
+        const searchValue = value ? value.trim() : "";
+
+        if (searchValue.length > 0) {
             this.target.classList.remove("collapsed");
             this.showActionsBar();
             this.selectAllButton.show();
@@ -422,10 +451,20 @@ export class Visual implements IVisual {
             this.renderFilteredData(value);
             this.updateItemCounter(value);
         } else {
+            // When the search box is cleared, hide search-specific actions
+            // but keep the dropdown open (with the full list) while expanded.
             this.hideActionsBar();
             this.selectAllButton.hide();
-            this.dropdown.hide();
+
+            // Re-render full list so the user sees all items again
+            this.renderFilteredData("");
             this.updateItemCounter();
+
+            if (!this.target.classList.contains("collapsed")) {
+                this.dropdown.show();
+            } else {
+                this.dropdown.hide();
+            }
         }
     }
 
