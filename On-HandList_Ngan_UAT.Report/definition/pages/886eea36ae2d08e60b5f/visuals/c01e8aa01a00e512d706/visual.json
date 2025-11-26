@@ -64,47 +64,6 @@
                   "Value": "1D"
                 }
               }
-            },
-            "filter": {
-              "filter": {
-                "Version": 2,
-                "From": [
-                  {
-                    "Name": "i",
-                    "Entity": "InventTransInfo",
-                    "Type": 0
-                  }
-                ],
-                "Where": [
-                  {
-                    "Condition": {
-                      "In": {
-                        "Expressions": [
-                          {
-                            "Column": {
-                              "Expression": {
-                                "SourceRef": {
-                                  "Source": "i"
-                                }
-                              },
-                              "Property": "ReleasedProductV2Info.OUCRU_Type"
-                            }
-                          }
-                        ],
-                        "Values": [
-                          [
-                            {
-                              "Literal": {
-                                "Value": "'SA'"
-                              }
-                            }
-                          ]
-                        ]
-                      }
-                    }
-                  }
-                ]
-              }
             }
           }
         }
